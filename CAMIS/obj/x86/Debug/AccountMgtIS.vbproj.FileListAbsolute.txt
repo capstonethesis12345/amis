@@ -1,0 +1,214 @@
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\bin\Debug\AccountManagementIS.exe
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\bin\Debug\AccountManagementIS.pdb
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\bin\Debug\AccountManagementIS.xml
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\bin\Debug\AccountManagementIS.exe.CodeAnalysisLog.xml
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\bin\Debug\AccountManagementIS.exe.lastcodeanalysissucceeded
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\bin\Debug\MySql.Data.dll
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountMgtIS.vbprojResolveAssemblyReference.cache
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountManagementIS.frmAddUpdateCategory.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountManagementIS.frmAddUpdateProduct.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountManagementIS.frmAddUpdateStaff.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountManagementIS.frmCategory.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountManagementIS.frmDatabase.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountManagementIS.frmFilterDailySales.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountManagementIS.frmFilterStockIn.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountManagementIS.frmFilterStockOut.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountManagementIS.frmHome.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountManagementIS.frmLoadCategory.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountManagementIS.frmLogin.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountManagementIS.frmMain.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountManagementIS.frmPayment.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountManagementIS.frmPOS.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountManagementIS.frmPrintReceipt.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountManagementIS.frmProduct.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountManagementIS.frmReportDailySales.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountManagementIS.frmReportStockIn.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountManagementIS.frmReportStockOut.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountManagementIS.frmStockIn.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountManagementIS.Resources.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountManagementIS.frmStaff.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountMgtIS.vbproj.GenerateResource.Cache
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountManagementIS.exe
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountManagementIS.xml
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\POSInventorySystem\obj\x86\Debug\AccountManagementIS.pdb
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\bin\Debug\AccountManagementIS.exe
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\bin\Debug\AccountManagementIS.pdb
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\bin\Debug\AccountManagementIS.xml
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\bin\Debug\AccountManagementIS.exe.CodeAnalysisLog.xml
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\bin\Debug\AccountManagementIS.exe.lastcodeanalysissucceeded
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\bin\Debug\MySql.Data.dll
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountMgtIS.vbprojResolveAssemblyReference.cache
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateCategory.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateProduct.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateStaff.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountManagementIS.frmCategory.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountManagementIS.frmDatabase.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountManagementIS.frmFilterDailySales.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountManagementIS.frmFilterStockIn.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountManagementIS.frmFilterStockOut.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountManagementIS.frmHome.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountManagementIS.frmLoadCategory.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountManagementIS.frmLogin.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountManagementIS.frmMain.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountManagementIS.frmPayment.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountManagementIS.frmPOS.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountManagementIS.frmPrintReceipt.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountManagementIS.frmProduct.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountManagementIS.frmReportDailySales.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountManagementIS.frmReportStockIn.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountManagementIS.frmReportStockOut.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountManagementIS.frmStockIn.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountManagementIS.Resources.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountManagementIS.frmStaff.resources
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountMgtIS.vbproj.GenerateResource.Cache
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountManagementIS.exe
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountManagementIS.xml
+F:\Secured\Thesis\POSInventorySystem-2016-04-14\POSInventorySystem\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
+C:\blinque\CAMIS\obj\x86\Debug\AccountManagementIS.exe
+C:\blinque\CAMIS\obj\x86\Debug\AccountManagementIS.xml
+C:\blinque\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.exe
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.xml
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
+F:\Secured\Thesis\Blinque\CAMIS\bin\Debug\AccountManagementIS.exe
+F:\Secured\Thesis\Blinque\CAMIS\bin\Debug\AccountManagementIS.pdb
+F:\Secured\Thesis\Blinque\CAMIS\bin\Debug\AccountManagementIS.xml
+F:\Secured\Thesis\Blinque\CAMIS\bin\Debug\AccountManagementIS.exe.CodeAnalysisLog.xml
+F:\Secured\Thesis\Blinque\CAMIS\bin\Debug\AccountManagementIS.exe.lastcodeanalysissucceeded
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountMgtIS.vbprojResolveAssemblyReference.cache
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateCategory.resources
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateProduct.resources
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateStaff.resources
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmCategory.resources
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmDatabase.resources
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmFilterDailySales.resources
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmFilterStockIn.resources
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmFilterStockOut.resources
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmLoadCategory.resources
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmLogin.resources
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmMain.resources
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmPayment.resources
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmPOS.resources
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmPrintReceipt.resources
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmProduct.resources
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmReportDailySales.resources
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmReportStockIn.resources
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmReportStockOut.resources
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmStockIn.resources
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.Resources.resources
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmStaff.resources
+F:\Secured\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountMgtIS.vbproj.GenerateResource.Cache
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateCategory.resources
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateProduct.resources
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateStaff.resources
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmCategory.resources
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmDatabase.resources
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmFilterDailySales.resources
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmFilterStockIn.resources
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmFilterStockOut.resources
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmLoadCategory.resources
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmLogin.resources
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmMain.resources
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmPayment.resources
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmPOS.resources
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmPrintReceipt.resources
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmProduct.resources
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmReportDailySales.resources
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmReportStockIn.resources
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmReportStockOut.resources
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmStockIn.resources
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.Splash.resources
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.Resources.resources
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmStaff.resources
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountMgtIS.vbproj.GenerateResource.Cache
+F:\Thesis\Blinque\CAMIS\bin\Debug\AccountManagementIS.exe
+F:\Thesis\Blinque\CAMIS\bin\Debug\AccountManagementIS.pdb
+F:\Thesis\Blinque\CAMIS\bin\Debug\AccountManagementIS.xml
+F:\Thesis\Blinque\CAMIS\bin\Debug\AccountManagementIS.exe.CodeAnalysisLog.xml
+F:\Thesis\Blinque\CAMIS\bin\Debug\AccountManagementIS.exe.lastcodeanalysissucceeded
+F:\Thesis\Blinque\CAMIS\bin\Debug\MySql.Data.dll
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountMgtIS.vbprojResolveAssemblyReference.cache
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.exe
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.xml
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmRequest.resources
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmPurchases.resources
+F:\Thesis\Blinque\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateRequisition.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.exe
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.xml
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
+F:\ThesisA\CAMIS\CAMIS\bin\Debug\AccountManagementIS.exe
+F:\ThesisA\CAMIS\CAMIS\bin\Debug\AccountManagementIS.pdb
+F:\ThesisA\CAMIS\CAMIS\bin\Debug\AccountManagementIS.xml
+F:\ThesisA\CAMIS\CAMIS\bin\Debug\MySql.Data.dll
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountMgtIS.vbprojResolveAssemblyReference.cache
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateCategory.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateProduct.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateRequisition.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateStaff.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.frmRequest.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.frmPurchases.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.frmCategory.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.frmDatabase.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.frmFilterDailySales.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.frmFilterStockIn.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.frmFilterStockOut.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.frmLoadCategory.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.frmLogin.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.frmMain.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.frmPayment.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.frmPOS.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.frmPrintReceipt.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.frmProduct.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.frmReportDailySales.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.frmReportStockIn.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.frmReportStockOut.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.frmStockIn.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.Splash.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.Resources.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountManagementIS.frmStaff.resources
+F:\ThesisA\CAMIS\CAMIS\obj\x86\Debug\AccountMgtIS.vbproj.GenerateResource.Cache
+F:\ThesisA\CAMIS\CAMIS\bin\Debug\AccountManagementIS.exe.CodeAnalysisLog.xml
+F:\ThesisA\CAMIS\CAMIS\bin\Debug\AccountManagementIS.exe.lastcodeanalysissucceeded
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.exe
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.xml
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
+F:\ThesisA\Camis v2\CAMIS\bin\Debug\AccountManagementIS.exe
+F:\ThesisA\Camis v2\CAMIS\bin\Debug\AccountManagementIS.pdb
+F:\ThesisA\Camis v2\CAMIS\bin\Debug\AccountManagementIS.xml
+F:\ThesisA\Camis v2\CAMIS\bin\Debug\AccountManagementIS.exe.CodeAnalysisLog.xml
+F:\ThesisA\Camis v2\CAMIS\bin\Debug\AccountManagementIS.exe.lastcodeanalysissucceeded
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountMgtIS.vbprojResolveAssemblyReference.cache
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateCategory.resources
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateProduct.resources
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateRequisition.resources
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateStaff.resources
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.frmRequest.resources
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.frmPurchases.resources
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.frmCategory.resources
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.frmDatabase.resources
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.frmFilterDailySales.resources
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.frmFilterStockIn.resources
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.frmFilterStockOut.resources
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.frmLoadCategory.resources
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.frmLogin.resources
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.frmMain.resources
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.frmPayment.resources
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.frmPOS.resources
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.frmPrintReceipt.resources
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.frmProduct.resources
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.frmReportDailySales.resources
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.frmReportStockIn.resources
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.frmReportStockOut.resources
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.frmStockIn.resources
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.Splash.resources
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.Resources.resources
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.frmStaff.resources
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountMgtIS.vbproj.GenerateResource.Cache
+F:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.frmFoodMenu.resources
+G:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.exe
+G:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.xml
+G:\ThesisA\Camis v2\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
+G:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.exe
+G:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.xml
+G:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.pdb

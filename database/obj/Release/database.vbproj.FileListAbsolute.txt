@@ -1,0 +1,7 @@
+F:\ThesisA\Camis v2\database\bin\Release\database.dll
+F:\ThesisA\Camis v2\database\bin\Release\database.pdb
+F:\ThesisA\Camis v2\database\bin\Release\database.xml
+F:\ThesisA\Camis v2\database\obj\Release\database.dll
+F:\ThesisA\Camis v2\database\obj\Release\database.xml
+F:\ThesisA\Camis v2\database\obj\Release\database.pdb
+F:\ThesisA\Camis v2\database\obj\Release\database.vbprojResolveAssemblyReference.cache

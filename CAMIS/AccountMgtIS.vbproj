@@ -1,0 +1,1990 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EB57828A-B43F-4F52-AF38-812A1B1259C1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>AccountManagementIS.My.MyApplication</StartupObject>
+    <RootNamespace>AccountManagementIS</RootNamespace>
+    <AssemblyName>AccountManagementIS</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>AccountManagementIS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>AccountManagementIS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="database, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\database.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="forms\frmAddUpdateCategory.Designer.vb">
+      <DependentUpon>frmAddUpdateCategory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmAddUpdateCategory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmAddUpdateProduct.Designer.vb">
+      <DependentUpon>frmAddUpdateProduct.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmAddUpdateProduct.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmAddUpdateRequisition.designer.vb">
+      <DependentUpon>frmAddUpdateRequisition.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmAddUpdateRequisition.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmAddUpdateStaff.Designer.vb">
+      <DependentUpon>frmAddUpdateStaff.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmAddUpdateStaff.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmFoodMenu.Designer.vb">
+      <DependentUpon>frmFoodMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmFoodMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmRequest.Designer.vb">
+      <DependentUpon>frmRequest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmRequest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frnPurchases.Designer.vb">
+      <DependentUpon>frnPurchases.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frnPurchases.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmCategory.Designer.vb">
+      <DependentUpon>frmCategory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmCategory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmPOS.Designer.vb">
+      <DependentUpon>frmPOS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmPOS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmReportDailySales.Designer.vb">
+      <DependentUpon>frmReportDailySales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmReportDailySales.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmDatabase.designer.vb">
+      <DependentUpon>frmDatabase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmDatabase.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmFilterDailySales.Designer.vb">
+      <DependentUpon>frmFilterDailySales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmFilterDailySales.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmFilterStockIn.Designer.vb">
+      <DependentUpon>frmFilterStockIn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmFilterStockIn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmFilterStockOut.Designer.vb">
+      <DependentUpon>frmFilterStockOut.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmFilterStockOut.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmLoadCategory.Designer.vb">
+      <DependentUpon>frmLoadCategory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmLoadCategory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmLogin.designer.vb">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmMain.Designer.vb">
+      <DependentUpon>frmMain.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmPayment.Designer.vb">
+      <DependentUpon>frmPayment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmPayment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmPrintReceipt.Designer.vb">
+      <DependentUpon>frmPrintReceipt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmPrintReceipt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmProduct.Designer.vb">
+      <DependentUpon>frmProduct.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmProduct.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmReportStockIn.Designer.vb">
+      <DependentUpon>frmReportStockIn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmReportStockIn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmReportStockOut.Designer.vb">
+      <DependentUpon>frmReportStockOut.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmReportStockOut.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmStockIn.Designer.vb">
+      <DependentUpon>frmStockIn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmStockIn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Splash.Designer.vb">
+      <DependentUpon>Splash.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Splash.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="functions\formDesigns.vb" />
+    <Compile Include="functions\Previlege.vb" />
+    <Compile Include="functions\ProgramFunctions.vb" />
+    <Compile Include="functions\Security.vb" />
+    <Compile Include="functions\SQLQuery.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="forms\frmStaff.Designer.vb">
+      <DependentUpon>frmStaff.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmStaff.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="functions\SQLConn.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="forms\frmAddUpdateCategory.resx">
+      <DependentUpon>frmAddUpdateCategory.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmAddUpdateProduct.resx">
+      <DependentUpon>frmAddUpdateProduct.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmAddUpdateRequisition.resx">
+      <DependentUpon>frmAddUpdateRequisition.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmAddUpdateStaff.resx">
+      <DependentUpon>frmAddUpdateStaff.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmFoodMenu.resx">
+      <DependentUpon>frmFoodMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmRequest.resx">
+      <DependentUpon>frmRequest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frnPurchases.resx">
+      <DependentUpon>frnPurchases.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmCategory.resx">
+      <DependentUpon>frmCategory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmDatabase.resx">
+      <DependentUpon>frmDatabase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmFilterDailySales.resx">
+      <DependentUpon>frmFilterDailySales.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmFilterStockIn.resx">
+      <DependentUpon>frmFilterStockIn.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmFilterStockOut.resx">
+      <DependentUpon>frmFilterStockOut.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmLoadCategory.resx">
+      <DependentUpon>frmLoadCategory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmLogin.resx">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmMain.resx">
+      <DependentUpon>frmMain.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmPayment.resx">
+      <DependentUpon>frmPayment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmPOS.resx">
+      <DependentUpon>frmPOS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmPrintReceipt.resx">
+      <DependentUpon>frmPrintReceipt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmProduct.resx">
+      <DependentUpon>frmProduct.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmReportDailySales.resx">
+      <DependentUpon>frmReportDailySales.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmReportStockIn.resx">
+      <DependentUpon>frmReportStockIn.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmReportStockOut.resx">
+      <DependentUpon>frmReportStockOut.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmStockIn.resx">
+      <DependentUpon>frmStockIn.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Splash.resx">
+      <DependentUpon>Splash.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmStaff.resx">
+      <DependentUpon>frmStaff.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="portable\apache2\bin\dbmmanage.pl" />
+    <None Include="portable\apache2\cgi-bin\printenv.pl" />
+    <None Include="portable\apache2\conf\charset.conv" />
+    <None Include="portable\apache2\conf\httpd.conf" />
+    <None Include="portable\apache2\conf\magic" />
+    <None Include="portable\apache2\conf\mime.types" />
+    <None Include="portable\apache2\conf\openssl.cnf" />
+    <None Include="portable\apache2\logs\access.log" />
+    <None Include="portable\apache2\logs\error.log" />
+    <None Include="portable\apache2\logs\httpd.pid" />
+    <None Include="portable\apache2\modules\mod_access_compat.so" />
+    <None Include="portable\apache2\modules\mod_actions.so" />
+    <None Include="portable\apache2\modules\mod_alias.so" />
+    <None Include="portable\apache2\modules\mod_allowmethods.so" />
+    <None Include="portable\apache2\modules\mod_asis.so" />
+    <None Include="portable\apache2\modules\mod_authnz_ldap.so" />
+    <None Include="portable\apache2\modules\mod_authn_anon.so" />
+    <None Include="portable\apache2\modules\mod_authn_core.so" />
+    <None Include="portable\apache2\modules\mod_authn_dbd.so" />
+    <None Include="portable\apache2\modules\mod_authn_dbm.so" />
+    <None Include="portable\apache2\modules\mod_authn_file.so" />
+    <None Include="portable\apache2\modules\mod_authn_socache.so" />
+    <None Include="portable\apache2\modules\mod_authz_core.so" />
+    <None Include="portable\apache2\modules\mod_authz_dbd.so" />
+    <None Include="portable\apache2\modules\mod_authz_dbm.so" />
+    <None Include="portable\apache2\modules\mod_authz_groupfile.so" />
+    <None Include="portable\apache2\modules\mod_authz_host.so" />
+    <None Include="portable\apache2\modules\mod_authz_owner.so" />
+    <None Include="portable\apache2\modules\mod_authz_user.so" />
+    <None Include="portable\apache2\modules\mod_auth_basic.so" />
+    <None Include="portable\apache2\modules\mod_auth_digest.so" />
+    <None Include="portable\apache2\modules\mod_auth_form.so" />
+    <None Include="portable\apache2\modules\mod_autoindex.so" />
+    <None Include="portable\apache2\modules\mod_buffer.so" />
+    <None Include="portable\apache2\modules\mod_cache.so" />
+    <None Include="portable\apache2\modules\mod_cache_disk.so" />
+    <None Include="portable\apache2\modules\mod_cache_socache.so" />
+    <None Include="portable\apache2\modules\mod_cern_meta.so" />
+    <None Include="portable\apache2\modules\mod_cgi.so" />
+    <None Include="portable\apache2\modules\mod_charset_lite.so" />
+    <None Include="portable\apache2\modules\mod_data.so" />
+    <None Include="portable\apache2\modules\mod_dav.so" />
+    <None Include="portable\apache2\modules\mod_dav_fs.so" />
+    <None Include="portable\apache2\modules\mod_dav_lock.so" />
+    <None Include="portable\apache2\modules\mod_dbd.so" />
+    <None Include="portable\apache2\modules\mod_deflate.so" />
+    <None Include="portable\apache2\modules\mod_dir.so" />
+    <None Include="portable\apache2\modules\mod_dumpio.so" />
+    <None Include="portable\apache2\modules\mod_env.so" />
+    <None Include="portable\apache2\modules\mod_expires.so" />
+    <None Include="portable\apache2\modules\mod_ext_filter.so" />
+    <None Include="portable\apache2\modules\mod_file_cache.so" />
+    <None Include="portable\apache2\modules\mod_filter.so" />
+    <None Include="portable\apache2\modules\mod_headers.so" />
+    <None Include="portable\apache2\modules\mod_heartbeat.so" />
+    <None Include="portable\apache2\modules\mod_heartmonitor.so" />
+    <None Include="portable\apache2\modules\mod_ident.so" />
+    <None Include="portable\apache2\modules\mod_imagemap.so" />
+    <None Include="portable\apache2\modules\mod_include.so" />
+    <None Include="portable\apache2\modules\mod_info.so" />
+    <None Include="portable\apache2\modules\mod_isapi.so" />
+    <None Include="portable\apache2\modules\mod_lbmethod_bybusyness.so" />
+    <None Include="portable\apache2\modules\mod_lbmethod_byrequests.so" />
+    <None Include="portable\apache2\modules\mod_lbmethod_bytraffic.so" />
+    <None Include="portable\apache2\modules\mod_lbmethod_heartbeat.so" />
+    <None Include="portable\apache2\modules\mod_ldap.so" />
+    <None Include="portable\apache2\modules\mod_logio.so" />
+    <None Include="portable\apache2\modules\mod_log_config.so" />
+    <None Include="portable\apache2\modules\mod_log_debug.so" />
+    <None Include="portable\apache2\modules\mod_log_forensic.so" />
+    <None Include="portable\apache2\modules\mod_lua.so" />
+    <None Include="portable\apache2\modules\mod_macro.so" />
+    <None Include="portable\apache2\modules\mod_mime.so" />
+    <None Include="portable\apache2\modules\mod_mime_magic.so" />
+    <None Include="portable\apache2\modules\mod_negotiation.so" />
+    <None Include="portable\apache2\modules\mod_proxy.so" />
+    <None Include="portable\apache2\modules\mod_proxy_ajp.so" />
+    <None Include="portable\apache2\modules\mod_proxy_balancer.so" />
+    <None Include="portable\apache2\modules\mod_proxy_connect.so" />
+    <None Include="portable\apache2\modules\mod_proxy_express.so" />
+    <None Include="portable\apache2\modules\mod_proxy_fcgi.so" />
+    <None Include="portable\apache2\modules\mod_proxy_ftp.so" />
+    <None Include="portable\apache2\modules\mod_proxy_html.so" />
+    <None Include="portable\apache2\modules\mod_proxy_http.so" />
+    <None Include="portable\apache2\modules\mod_proxy_scgi.so" />
+    <None Include="portable\apache2\modules\mod_proxy_wstunnel.so" />
+    <None Include="portable\apache2\modules\mod_ratelimit.so" />
+    <None Include="portable\apache2\modules\mod_reflector.so" />
+    <None Include="portable\apache2\modules\mod_remoteip.so" />
+    <None Include="portable\apache2\modules\mod_reqtimeout.so" />
+    <None Include="portable\apache2\modules\mod_request.so" />
+    <None Include="portable\apache2\modules\mod_rewrite.so" />
+    <None Include="portable\apache2\modules\mod_sed.so" />
+    <None Include="portable\apache2\modules\mod_session.so" />
+    <None Include="portable\apache2\modules\mod_session_cookie.so" />
+    <None Include="portable\apache2\modules\mod_session_crypto.so" />
+    <None Include="portable\apache2\modules\mod_session_dbd.so" />
+    <None Include="portable\apache2\modules\mod_setenvif.so" />
+    <None Include="portable\apache2\modules\mod_slotmem_plain.so" />
+    <None Include="portable\apache2\modules\mod_slotmem_shm.so" />
+    <None Include="portable\apache2\modules\mod_socache_dbm.so" />
+    <None Include="portable\apache2\modules\mod_socache_memcache.so" />
+    <None Include="portable\apache2\modules\mod_socache_shmcb.so" />
+    <None Include="portable\apache2\modules\mod_speling.so" />
+    <None Include="portable\apache2\modules\mod_ssl.so" />
+    <None Include="portable\apache2\modules\mod_status.so" />
+    <None Include="portable\apache2\modules\mod_substitute.so" />
+    <None Include="portable\apache2\modules\mod_unique_id.so" />
+    <None Include="portable\apache2\modules\mod_userdir.so" />
+    <None Include="portable\apache2\modules\mod_usertrack.so" />
+    <None Include="portable\apache2\modules\mod_version.so" />
+    <None Include="portable\apache2\modules\mod_vhost_alias.so" />
+    <None Include="portable\apache2\modules\mod_watchdog.so" />
+    <None Include="portable\apache2\modules\mod_xml2enc.so" />
+    <None Include="portable\lang\.ini" />
+    <None Include="portable\lang\Chinese.ini" />
+    <None Include="portable\lang\Deutsch.ini" />
+    <None Include="portable\lang\English.ini_sample" />
+    <None Include="portable\lang\Espanol.ini" />
+    <None Include="portable\lang\Hungarian.ini" />
+    <None Include="portable\lang\Italiano.ini" />
+    <None Include="portable\lang\Latvian.ini" />
+    <None Include="portable\lang\Magyar.ini" />
+    <None Include="portable\lang\Nederlands.ini" />
+    <None Include="portable\lang\Polish.ini" />
+    <None Include="portable\lang\Portuguese.ini" />
+    <None Include="portable\lang\Romanian.ini" />
+    <None Include="portable\lang\Russian.ini" />
+    <None Include="portable\lang\Turkish.ini" />
+    <None Include="portable\mysql\COPYING" />
+    <None Include="portable\mysql\data\auto.cnf" />
+    <None Include="portable\mysql\data\fixnmixdb\autonumber.frm" />
+    <None Include="portable\mysql\data\fixnmixdb\autonumber.ibd" />
+    <None Include="portable\mysql\data\fixnmixdb\db.opt" />
+    <None Include="portable\mysql\data\fixnmixdb\employee.frm" />
+    <None Include="portable\mysql\data\fixnmixdb\employee.ibd" />
+    <None Include="portable\mysql\data\fixnmixdb\employee_workinfo.frm" />
+    <None Include="portable\mysql\data\fixnmixdb\employee_workinfo.ibd" />
+    <None Include="portable\mysql\data\fixnmixdb\other_deduction.frm" />
+    <None Include="portable\mysql\data\fixnmixdb\other_deduction.ibd" />
+    <None Include="portable\mysql\data\fixnmixdb\payroll.frm" />
+    <None Include="portable\mysql\data\fixnmixdb\payroll.ibd" />
+    <None Include="portable\mysql\data\fixnmixdb\user.frm" />
+    <None Include="portable\mysql\data\fixnmixdb\user.ibd" />
+    <None Include="portable\mysql\data\ibdata1" />
+    <None Include="portable\mysql\data\ib_logfile0" />
+    <None Include="portable\mysql\data\ib_logfile1" />
+    <None Include="portable\mysql\data\MarloA.err" />
+    <None Include="portable\mysql\data\MarloA.pid" />
+    <None Include="portable\mysql\data\mysql-bin.000001" />
+    <None Include="portable\mysql\data\mysql-bin.000002" />
+    <None Include="portable\mysql\data\mysql-bin.000003" />
+    <None Include="portable\mysql\data\mysql-bin.000004" />
+    <None Include="portable\mysql\data\mysql-bin.000005" />
+    <None Include="portable\mysql\data\mysql-bin.000006" />
+    <None Include="portable\mysql\data\mysql-bin.000007" />
+    <None Include="portable\mysql\data\mysql-bin.000008" />
+    <None Include="portable\mysql\data\mysql-bin.000009" />
+    <None Include="portable\mysql\data\mysql-bin.000010" />
+    <None Include="portable\mysql\data\mysql-bin.000011" />
+    <None Include="portable\mysql\data\mysql-bin.000012" />
+    <None Include="portable\mysql\data\mysql-bin.000013" />
+    <None Include="portable\mysql\data\mysql-bin.000014" />
+    <None Include="portable\mysql\data\mysql-bin.000015" />
+    <None Include="portable\mysql\data\mysql-bin.000016" />
+    <None Include="portable\mysql\data\mysql-bin.000017" />
+    <None Include="portable\mysql\data\mysql-bin.000018" />
+    <None Include="portable\mysql\data\mysql-bin.000019" />
+    <None Include="portable\mysql\data\mysql-bin.000020" />
+    <None Include="portable\mysql\data\mysql-bin.000021" />
+    <None Include="portable\mysql\data\mysql-bin.000022" />
+    <None Include="portable\mysql\data\mysql-bin.000023" />
+    <None Include="portable\mysql\data\mysql-bin.000024" />
+    <None Include="portable\mysql\data\mysql-bin.000025" />
+    <None Include="portable\mysql\data\mysql-bin.index" />
+    <None Include="portable\mysql\data\mysql\columns_priv.frm" />
+    <None Include="portable\mysql\data\mysql\columns_priv.MYD" />
+    <None Include="portable\mysql\data\mysql\columns_priv.MYI" />
+    <None Include="portable\mysql\data\mysql\db.frm" />
+    <None Include="portable\mysql\data\mysql\db.MYD" />
+    <None Include="portable\mysql\data\mysql\db.MYI" />
+    <None Include="portable\mysql\data\mysql\event.frm" />
+    <None Include="portable\mysql\data\mysql\event.MYD" />
+    <None Include="portable\mysql\data\mysql\event.MYI" />
+    <None Include="portable\mysql\data\mysql\func.frm" />
+    <None Include="portable\mysql\data\mysql\func.MYD" />
+    <None Include="portable\mysql\data\mysql\func.MYI" />
+    <None Include="portable\mysql\data\mysql\general_log.CSM" />
+    <None Include="portable\mysql\data\mysql\general_log.CSV" />
+    <None Include="portable\mysql\data\mysql\general_log.frm" />
+    <None Include="portable\mysql\data\mysql\help_category.frm" />
+    <None Include="portable\mysql\data\mysql\help_category.MYD" />
+    <None Include="portable\mysql\data\mysql\help_category.MYI" />
+    <None Include="portable\mysql\data\mysql\help_keyword.frm" />
+    <None Include="portable\mysql\data\mysql\help_keyword.MYD" />
+    <None Include="portable\mysql\data\mysql\help_keyword.MYI" />
+    <None Include="portable\mysql\data\mysql\help_relation.frm" />
+    <None Include="portable\mysql\data\mysql\help_relation.MYD" />
+    <None Include="portable\mysql\data\mysql\help_relation.MYI" />
+    <None Include="portable\mysql\data\mysql\help_topic.frm" />
+    <None Include="portable\mysql\data\mysql\help_topic.MYD" />
+    <None Include="portable\mysql\data\mysql\help_topic.MYI" />
+    <None Include="portable\mysql\data\mysql\innodb_index_stats.frm" />
+    <None Include="portable\mysql\data\mysql\innodb_index_stats.ibd" />
+    <None Include="portable\mysql\data\mysql\innodb_table_stats.frm" />
+    <None Include="portable\mysql\data\mysql\innodb_table_stats.ibd" />
+    <None Include="portable\mysql\data\mysql\ndb_binlog_index.frm" />
+    <None Include="portable\mysql\data\mysql\ndb_binlog_index.MYD" />
+    <None Include="portable\mysql\data\mysql\ndb_binlog_index.MYI" />
+    <None Include="portable\mysql\data\mysql\plugin.frm" />
+    <None Include="portable\mysql\data\mysql\plugin.MYD" />
+    <None Include="portable\mysql\data\mysql\plugin.MYI" />
+    <None Include="portable\mysql\data\mysql\proc.frm" />
+    <None Include="portable\mysql\data\mysql\proc.MYD" />
+    <None Include="portable\mysql\data\mysql\proc.MYI" />
+    <None Include="portable\mysql\data\mysql\procs_priv.frm" />
+    <None Include="portable\mysql\data\mysql\procs_priv.MYD" />
+    <None Include="portable\mysql\data\mysql\procs_priv.MYI" />
+    <None Include="portable\mysql\data\mysql\proxies_priv.frm" />
+    <None Include="portable\mysql\data\mysql\proxies_priv.MYD" />
+    <None Include="portable\mysql\data\mysql\proxies_priv.MYI" />
+    <None Include="portable\mysql\data\mysql\servers.frm" />
+    <None Include="portable\mysql\data\mysql\servers.MYD" />
+    <None Include="portable\mysql\data\mysql\servers.MYI" />
+    <None Include="portable\mysql\data\mysql\slave_master_info.frm" />
+    <None Include="portable\mysql\data\mysql\slave_master_info.ibd" />
+    <None Include="portable\mysql\data\mysql\slave_relay_log_info.frm" />
+    <None Include="portable\mysql\data\mysql\slave_relay_log_info.ibd" />
+    <None Include="portable\mysql\data\mysql\slave_worker_info.frm" />
+    <None Include="portable\mysql\data\mysql\slave_worker_info.ibd" />
+    <None Include="portable\mysql\data\mysql\slow_log.CSM" />
+    <None Include="portable\mysql\data\mysql\slow_log.CSV" />
+    <None Include="portable\mysql\data\mysql\slow_log.frm" />
+    <None Include="portable\mysql\data\mysql\tables_priv.frm" />
+    <None Include="portable\mysql\data\mysql\tables_priv.MYD" />
+    <None Include="portable\mysql\data\mysql\tables_priv.MYI" />
+    <None Include="portable\mysql\data\mysql\time_zone.frm" />
+    <None Include="portable\mysql\data\mysql\time_zone.MYD" />
+    <None Include="portable\mysql\data\mysql\time_zone.MYI" />
+    <None Include="portable\mysql\data\mysql\time_zone_leap_second.frm" />
+    <None Include="portable\mysql\data\mysql\time_zone_leap_second.MYD" />
+    <None Include="portable\mysql\data\mysql\time_zone_leap_second.MYI" />
+    <None Include="portable\mysql\data\mysql\time_zone_name.frm" />
+    <None Include="portable\mysql\data\mysql\time_zone_name.MYD" />
+    <None Include="portable\mysql\data\mysql\time_zone_name.MYI" />
+    <None Include="portable\mysql\data\mysql\time_zone_transition.frm" />
+    <None Include="portable\mysql\data\mysql\time_zone_transition.MYD" />
+    <None Include="portable\mysql\data\mysql\time_zone_transition.MYI" />
+    <None Include="portable\mysql\data\mysql\time_zone_transition_type.frm" />
+    <None Include="portable\mysql\data\mysql\time_zone_transition_type.MYD" />
+    <None Include="portable\mysql\data\mysql\time_zone_transition_type.MYI" />
+    <None Include="portable\mysql\data\mysql\user.frm" />
+    <None Include="portable\mysql\data\mysql\user.MYD" />
+    <None Include="portable\mysql\data\mysql\user.MYI" />
+    <None Include="portable\mysql\data\performance_schema\accounts.frm" />
+    <None Include="portable\mysql\data\performance_schema\cond_instances.frm" />
+    <None Include="portable\mysql\data\performance_schema\db.opt" />
+    <None Include="portable\mysql\data\performance_schema\events_stages_current.frm" />
+    <None Include="portable\mysql\data\performance_schema\events_stages_history.frm" />
+    <None Include="portable\mysql\data\performance_schema\events_stages_history_long.frm" />
+    <None Include="portable\mysql\data\performance_schema\events_stages_summary_by_account_by_event_name.frm" />
+    <None Include="portable\mysql\data\performance_schema\events_stages_summary_by_host_by_event_name.frm" />
+    <None Include="portable\mysql\data\performance_schema\events_stages_summary_by_thread_by_event_name.frm" />
+    <None Include="portable\mysql\data\performance_schema\events_stages_summary_by_user_by_event_name.frm" />
+    <None Include="portable\mysql\data\performance_schema\events_stages_summary_global_by_event_name.frm" />
+    <None Include="portable\mysql\data\performance_schema\events_statements_current.frm" />
+    <None Include="portable\mysql\data\performance_schema\events_statements_history.frm" />
+    <None Include="portable\mysql\data\performance_schema\events_statements_history_long.frm" />
+    <None Include="portable\mysql\data\performance_schema\events_statements_summary_by_account_by_event_name.frm" />
+    <None Include="portable\mysql\data\performance_schema\events_statements_summary_by_digest.frm" />
+    <None Include="portable\mysql\data\performance_schema\events_statements_summary_by_host_by_event_name.frm" />
+    <None Include="portable\mysql\data\performance_schema\events_statements_summary_by_thread_by_event_name.frm" />
+    <None Include="portable\mysql\data\performance_schema\events_statements_summary_by_user_by_event_name.frm" />
+    <None Include="portable\mysql\data\performance_schema\events_statements_summary_global_by_event_name.frm" />
+    <None Include="portable\mysql\data\performance_schema\events_waits_current.frm" />
+    <None Include="portable\mysql\data\performance_schema\events_waits_history.frm" />
+    <None Include="portable\mysql\data\performance_schema\events_waits_history_long.frm" />
+    <None Include="portable\mysql\data\performance_schema\events_waits_summary_by_account_by_event_name.frm" />
+    <None Include="portable\mysql\data\performance_schema\events_waits_summary_by_host_by_event_name.frm" />
+    <None Include="portable\mysql\data\performance_schema\events_waits_summary_by_instance.frm" />
+    <None Include="portable\mysql\data\performance_schema\events_waits_summary_by_thread_by_event_name.frm" />
+    <None Include="portable\mysql\data\performance_schema\events_waits_summary_by_user_by_event_name.frm" />
+    <None Include="portable\mysql\data\performance_schema\events_waits_summary_global_by_event_name.frm" />
+    <None Include="portable\mysql\data\performance_schema\file_instances.frm" />
+    <None Include="portable\mysql\data\performance_schema\file_summary_by_event_name.frm" />
+    <None Include="portable\mysql\data\performance_schema\file_summary_by_instance.frm" />
+    <None Include="portable\mysql\data\performance_schema\hosts.frm" />
+    <None Include="portable\mysql\data\performance_schema\host_cache.frm" />
+    <None Include="portable\mysql\data\performance_schema\mutex_instances.frm" />
+    <None Include="portable\mysql\data\performance_schema\objects_summary_global_by_type.frm" />
+    <None Include="portable\mysql\data\performance_schema\performance_timers.frm" />
+    <None Include="portable\mysql\data\performance_schema\rwlock_instances.frm" />
+    <None Include="portable\mysql\data\performance_schema\session_account_connect_attrs.frm" />
+    <None Include="portable\mysql\data\performance_schema\session_connect_attrs.frm" />
+    <None Include="portable\mysql\data\performance_schema\setup_actors.frm" />
+    <None Include="portable\mysql\data\performance_schema\setup_consumers.frm" />
+    <None Include="portable\mysql\data\performance_schema\setup_instruments.frm" />
+    <None Include="portable\mysql\data\performance_schema\setup_objects.frm" />
+    <None Include="portable\mysql\data\performance_schema\setup_timers.frm" />
+    <None Include="portable\mysql\data\performance_schema\socket_instances.frm" />
+    <None Include="portable\mysql\data\performance_schema\socket_summary_by_event_name.frm" />
+    <None Include="portable\mysql\data\performance_schema\socket_summary_by_instance.frm" />
+    <None Include="portable\mysql\data\performance_schema\table_io_waits_summary_by_index_usage.frm" />
+    <None Include="portable\mysql\data\performance_schema\table_io_waits_summary_by_table.frm" />
+    <None Include="portable\mysql\data\performance_schema\table_lock_waits_summary_by_table.frm" />
+    <None Include="portable\mysql\data\performance_schema\threads.frm" />
+    <None Include="portable\mysql\data\performance_schema\users.frm" />
+    <None Include="portable\mysql\my.ini" />
+    <None Include="portable\mysql\README" />
+    <None Include="portable\mysql\share\bulgarian\errmsg.sys" />
+    <None Include="portable\mysql\share\charsets\README" />
+    <None Include="portable\mysql\share\czech\errmsg.sys" />
+    <None Include="portable\mysql\share\danish\errmsg.sys" />
+    <None Include="portable\mysql\share\dutch\errmsg.sys" />
+    <None Include="portable\mysql\share\english\errmsg.sys" />
+    <None Include="portable\mysql\share\estonian\errmsg.sys" />
+    <None Include="portable\mysql\share\french\errmsg.sys" />
+    <None Include="portable\mysql\share\german\errmsg.sys" />
+    <None Include="portable\mysql\share\greek\errmsg.sys" />
+    <None Include="portable\mysql\share\hungarian\errmsg.sys" />
+    <None Include="portable\mysql\share\italian\errmsg.sys" />
+    <None Include="portable\mysql\share\japanese\errmsg.sys" />
+    <None Include="portable\mysql\share\korean\errmsg.sys" />
+    <None Include="portable\mysql\share\norwegian-ny\errmsg.sys" />
+    <None Include="portable\mysql\share\norwegian\errmsg.sys" />
+    <None Include="portable\mysql\share\polish\errmsg.sys" />
+    <None Include="portable\mysql\share\portuguese\errmsg.sys" />
+    <None Include="portable\mysql\share\romanian\errmsg.sys" />
+    <None Include="portable\mysql\share\russian\errmsg.sys" />
+    <None Include="portable\mysql\share\serbian\errmsg.sys" />
+    <None Include="portable\mysql\share\slovak\errmsg.sys" />
+    <None Include="portable\mysql\share\spanish\errmsg.sys" />
+    <None Include="portable\mysql\share\swedish\errmsg.sys" />
+    <None Include="portable\mysql\share\ukrainian\errmsg.sys" />
+    <None Include="portable\phpmyadmin\browse_foreigners.php" />
+    <None Include="portable\phpmyadmin\ChangeLog" />
+    <None Include="portable\phpmyadmin\changelog.php" />
+    <None Include="portable\phpmyadmin\chk_rel.php" />
+    <None Include="portable\phpmyadmin\composer.json" />
+    <None Include="portable\phpmyadmin\config.inc.php" />
+    <None Include="portable\phpmyadmin\config.sample.inc.php" />
+    <None Include="portable\phpmyadmin\db_create.php" />
+    <None Include="portable\phpmyadmin\db_datadict.php" />
+    <None Include="portable\phpmyadmin\db_events.php" />
+    <None Include="portable\phpmyadmin\db_export.php" />
+    <None Include="portable\phpmyadmin\db_import.php" />
+    <None Include="portable\phpmyadmin\db_operations.php" />
+    <None Include="portable\phpmyadmin\db_printview.php" />
+    <None Include="portable\phpmyadmin\db_qbe.php" />
+    <None Include="portable\phpmyadmin\db_routines.php" />
+    <None Include="portable\phpmyadmin\db_search.php" />
+    <None Include="portable\phpmyadmin\db_sql.php" />
+    <None Include="portable\phpmyadmin\db_structure.php" />
+    <None Include="portable\phpmyadmin\db_tracking.php" />
+    <None Include="portable\phpmyadmin\db_triggers.php" />
+    <None Include="portable\phpmyadmin\doc\conf.py" />
+    <None Include="portable\phpmyadmin\doc\config.rst" />
+    <None Include="portable\phpmyadmin\doc\copyright.rst" />
+    <None Include="portable\phpmyadmin\doc\credits.rst" />
+    <None Include="portable\phpmyadmin\doc\developers.rst" />
+    <None Include="portable\phpmyadmin\doc\doctrees\config.doctree" />
+    <None Include="portable\phpmyadmin\doc\doctrees\copyright.doctree" />
+    <None Include="portable\phpmyadmin\doc\doctrees\credits.doctree" />
+    <None Include="portable\phpmyadmin\doc\doctrees\developers.doctree" />
+    <None Include="portable\phpmyadmin\doc\doctrees\environment.pickle" />
+    <None Include="portable\phpmyadmin\doc\doctrees\faq.doctree" />
+    <None Include="portable\phpmyadmin\doc\doctrees\glossary.doctree" />
+    <None Include="portable\phpmyadmin\doc\doctrees\index.doctree" />
+    <None Include="portable\phpmyadmin\doc\doctrees\intro.doctree" />
+    <None Include="portable\phpmyadmin\doc\doctrees\other.doctree" />
+    <None Include="portable\phpmyadmin\doc\doctrees\privileges.doctree" />
+    <None Include="portable\phpmyadmin\doc\doctrees\require.doctree" />
+    <None Include="portable\phpmyadmin\doc\doctrees\setup.doctree" />
+    <None Include="portable\phpmyadmin\doc\doctrees\transformations.doctree" />
+    <None Include="portable\phpmyadmin\doc\doctrees\user.doctree" />
+    <None Include="portable\phpmyadmin\doc\doctrees\vendors.doctree" />
+    <None Include="portable\phpmyadmin\doc\faq.rst" />
+    <None Include="portable\phpmyadmin\doc\glossary.rst" />
+    <None Include="portable\phpmyadmin\doc\html\.buildinfo" />
+    <None Include="portable\phpmyadmin\doc\html\objects.inv" />
+    <None Include="portable\phpmyadmin\doc\index.rst" />
+    <None Include="portable\phpmyadmin\doc\intro.rst" />
+    <None Include="portable\phpmyadmin\doc\make.bat" />
+    <None Include="portable\phpmyadmin\doc\Makefile" />
+    <None Include="portable\phpmyadmin\doc\other.rst" />
+    <None Include="portable\phpmyadmin\doc\privileges.rst" />
+    <None Include="portable\phpmyadmin\doc\require.rst" />
+    <None Include="portable\phpmyadmin\doc\setup.rst" />
+    <None Include="portable\phpmyadmin\doc\transformations.rst" />
+    <None Include="portable\phpmyadmin\doc\user.rst" />
+    <None Include="portable\phpmyadmin\doc\vendors.rst" />
+    <None Include="portable\phpmyadmin\doc\_ext\configext.py" />
+    <None Include="portable\phpmyadmin\examples\config.manyhosts.inc.php" />
+    <None Include="portable\phpmyadmin\examples\openid.php" />
+    <None Include="portable\phpmyadmin\examples\signon-script.php" />
+    <None Include="portable\phpmyadmin\examples\signon.php" />
+    <None Include="portable\phpmyadmin\examples\swekey.sample.conf" />
+    <None Include="portable\phpmyadmin\export.php" />
+    <None Include="portable\phpmyadmin\file_echo.php" />
+    <None Include="portable\phpmyadmin\gis_data_editor.php" />
+    <None Include="portable\phpmyadmin\import.php" />
+    <None Include="portable\phpmyadmin\import_status.php" />
+    <None Include="portable\phpmyadmin\index.php" />
+    <None Include="portable\phpmyadmin\js\codemirror\LICENSE" />
+    <None Include="portable\phpmyadmin\js\get_image.js.php" />
+    <None Include="portable\phpmyadmin\js\get_scripts.js.php" />
+    <None Include="portable\phpmyadmin\js\messages.php" />
+    <None Include="portable\phpmyadmin\libraries\.htaccess" />
+    <None Include="portable\phpmyadmin\libraries\Advisor.class.php" />
+    <None Include="portable\phpmyadmin\libraries\bfShapeFiles\ShapeFile.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\bookmark.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\build_html_for_db.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\charset_conversion.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\check_user_privileges.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\cleanup.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\common.inc.php" />
+    <None Include="portable\phpmyadmin\libraries\Config.class.php" />
+    <None Include="portable\phpmyadmin\libraries\config.default.php" />
+    <None Include="portable\phpmyadmin\libraries\config.values.php" />
+    <None Include="portable\phpmyadmin\libraries\config\ConfigFile.class.php" />
+    <None Include="portable\phpmyadmin\libraries\config\config_functions.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\config\Form.class.php" />
+    <None Include="portable\phpmyadmin\libraries\config\FormDisplay.class.php" />
+    <None Include="portable\phpmyadmin\libraries\config\FormDisplay.tpl.php" />
+    <None Include="portable\phpmyadmin\libraries\config\messages.inc.php" />
+    <None Include="portable\phpmyadmin\libraries\config\setup.forms.php" />
+    <None Include="portable\phpmyadmin\libraries\config\user_preferences.forms.php" />
+    <None Include="portable\phpmyadmin\libraries\config\validate.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\core.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\database_interface.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\data_dictionary_relations.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\dbi\drizzle-wrappers.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\dbi\drizzle.dbi.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\dbi\dummy.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\dbi\mysql.dbi.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\dbi\mysqli.dbi.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\DBQbe.class.php" />
+    <None Include="portable\phpmyadmin\libraries\DbSearch.class.php" />
+    <None Include="portable\phpmyadmin\libraries\db_common.inc.php" />
+    <None Include="portable\phpmyadmin\libraries\db_info.inc.php" />
+    <None Include="portable\phpmyadmin\libraries\db_table_exists.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\DisplayResults.class.php" />
+    <None Include="portable\phpmyadmin\libraries\display_change_password.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\display_create_database.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\display_create_table.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\display_export.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\display_git_revision.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\display_import.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\display_import_ajax.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\display_select_lang.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\engines\bdb.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\engines\berkeleydb.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\engines\binlog.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\engines\innobase.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\engines\innodb.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\engines\memory.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\engines\merge.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\engines\mrg_myisam.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\engines\myisam.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\engines\ndbcluster.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\engines\pbxt.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\engines\performance_schema.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\Error.class.php" />
+    <None Include="portable\phpmyadmin\libraries\error.inc.php" />
+    <None Include="portable\phpmyadmin\libraries\Error_Handler.class.php" />
+    <None Include="portable\phpmyadmin\libraries\File.class.php" />
+    <None Include="portable\phpmyadmin\libraries\file_listing.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\Footer.class.php" />
+    <None Include="portable\phpmyadmin\libraries\gis\pma_gis_factory.php" />
+    <None Include="portable\phpmyadmin\libraries\gis\pma_gis_geometry.php" />
+    <None Include="portable\phpmyadmin\libraries\gis\pma_gis_geometrycollection.php" />
+    <None Include="portable\phpmyadmin\libraries\gis\pma_gis_linestring.php" />
+    <None Include="portable\phpmyadmin\libraries\gis\pma_gis_multilinestring.php" />
+    <None Include="portable\phpmyadmin\libraries\gis\pma_gis_multipoint.php" />
+    <None Include="portable\phpmyadmin\libraries\gis\pma_gis_multipolygon.php" />
+    <None Include="portable\phpmyadmin\libraries\gis\pma_gis_point.php" />
+    <None Include="portable\phpmyadmin\libraries\gis\pma_gis_polygon.php" />
+    <None Include="portable\phpmyadmin\libraries\gis\pma_gis_visualization.php" />
+    <None Include="portable\phpmyadmin\libraries\gis_visualization.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\Header.class.php" />
+    <None Include="portable\phpmyadmin\libraries\iconv_wrapper.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\import.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\Index.class.php" />
+    <None Include="portable\phpmyadmin\libraries\index.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\information_schema_relations.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\insert_edit.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\ip_allow_deny.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\js_escape.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\kanji-encoding.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\language_stats.inc.php" />
+    <None Include="portable\phpmyadmin\libraries\List.class.php" />
+    <None Include="portable\phpmyadmin\libraries\List_Database.class.php" />
+    <None Include="portable\phpmyadmin\libraries\logging.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\Menu.class.php" />
+    <None Include="portable\phpmyadmin\libraries\Message.class.php" />
+    <None Include="portable\phpmyadmin\libraries\mime.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\mult_submits.inc.php" />
+    <None Include="portable\phpmyadmin\libraries\mysql_charsets.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\navigation\Navigation.class.php" />
+    <None Include="portable\phpmyadmin\libraries\navigation\NavigationHeader.class.php" />
+    <None Include="portable\phpmyadmin\libraries\navigation\NavigationTree.class.php" />
+    <None Include="portable\phpmyadmin\libraries\navigation\NodeFactory.class.php" />
+    <None Include="portable\phpmyadmin\libraries\navigation\Nodes\Node.class.php" />
+    <None Include="portable\phpmyadmin\libraries\navigation\Nodes\Node_Column.class.php" />
+    <None Include="portable\phpmyadmin\libraries\navigation\Nodes\Node_Column_Container.class.php" />
+    <None Include="portable\phpmyadmin\libraries\navigation\Nodes\Node_Database.class.php" />
+    <None Include="portable\phpmyadmin\libraries\navigation\Nodes\Node_Event.class.php" />
+    <None Include="portable\phpmyadmin\libraries\navigation\Nodes\Node_Event_Container.class.php" />
+    <None Include="portable\phpmyadmin\libraries\navigation\Nodes\Node_Function.class.php" />
+    <None Include="portable\phpmyadmin\libraries\navigation\Nodes\Node_Function_Container.class.php" />
+    <None Include="portable\phpmyadmin\libraries\navigation\Nodes\Node_Index.class.php" />
+    <None Include="portable\phpmyadmin\libraries\navigation\Nodes\Node_Index_Container.class.php" />
+    <None Include="portable\phpmyadmin\libraries\navigation\Nodes\Node_Procedure.class.php" />
+    <None Include="portable\phpmyadmin\libraries\navigation\Nodes\Node_Procedure_Container.class.php" />
+    <None Include="portable\phpmyadmin\libraries\navigation\Nodes\Node_Table.class.php" />
+    <None Include="portable\phpmyadmin\libraries\navigation\Nodes\Node_Table_Container.class.php" />
+    <None Include="portable\phpmyadmin\libraries\navigation\Nodes\Node_Trigger.class.php" />
+    <None Include="portable\phpmyadmin\libraries\navigation\Nodes\Node_Trigger_Container.class.php" />
+    <None Include="portable\phpmyadmin\libraries\navigation\Nodes\Node_View.class.php" />
+    <None Include="portable\phpmyadmin\libraries\navigation\Nodes\Node_View_Container.class.php" />
+    <None Include="portable\phpmyadmin\libraries\opendocument.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\operations.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\OutputBuffering.class.php" />
+    <None Include="portable\phpmyadmin\libraries\parse_analyze.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\Partition.class.php" />
+    <None Include="portable\phpmyadmin\libraries\PDF.class.php" />
+    <None Include="portable\phpmyadmin\libraries\php-gettext\gettext.php" />
+    <None Include="portable\phpmyadmin\libraries\php-gettext\streams.php" />
+    <None Include="portable\phpmyadmin\libraries\phpseclib\Crypt\AES.php" />
+    <None Include="portable\phpmyadmin\libraries\phpseclib\Crypt\Rijndael.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\AuthenticationPlugin.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\auth\AuthenticationConfig.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\auth\AuthenticationCookie.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\auth\AuthenticationHttp.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\auth\AuthenticationSignon.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\auth\swekey\authentication.inc.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\auth\swekey\musbe-ca.crt" />
+    <None Include="portable\phpmyadmin\libraries\plugins\auth\swekey\swekey.auth.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\auth\swekey\swekey.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\ExportPlugin.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\export\ExportCodegen.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\export\ExportCsv.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\export\ExportExcel.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\export\ExportHtmlword.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\export\ExportJson.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\export\ExportLatex.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\export\ExportMediawiki.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\export\ExportOds.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\export\ExportOdt.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\export\ExportPdf.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\export\ExportPhparray.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\export\ExportSql.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\export\ExportTexytext.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\export\ExportXml.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\export\ExportYaml.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\export\PMA_ExportPdf.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\export\README" />
+    <None Include="portable\phpmyadmin\libraries\plugins\export\TableProperty.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\ImportPlugin.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\import\AbstractImportCsv.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\import\ImportCsv.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\import\ImportLdi.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\import\ImportMediawiki.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\import\ImportOds.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\import\ImportShp.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\import\ImportSql.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\import\ImportXml.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\import\README" />
+    <None Include="portable\phpmyadmin\libraries\plugins\import\ShapeFile.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\import\ShapeRecord.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\import\upload\UploadApc.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\import\upload\UploadNoplugin.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\import\upload\UploadProgress.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\import\upload\UploadSession.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\PluginManager.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\PluginObserver.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\TransformationsInterface.int.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\TransformationsPlugin.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\abstract\AppendTransformationsPlugin.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\abstract\DateFormatTransformationsPlugin.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\abstract\DownloadTransformationsPlugin.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\abstract\ExternalTransformationsPlugin.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\abstract\FormattedTransformationsPlugin.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\abstract\HexTransformationsPlugin.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\abstract\ImageLinkTransformationsPlugin.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\abstract\InlineTransformationsPlugin.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\abstract\LongToIPv4TransformationsPlugin.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\abstract\SQLTransformationsPlugin.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\abstract\SubstringTransformationsPlugin.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\abstract\TextImageLinkTransformationsPlugin.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\abstract\TextLinkTransformationsPlugin.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\Application_Octetstream_Download.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\Application_Octetstream_Hex.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\generator_main_class.sh" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\generator_plugin.sh" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\Image_JPEG_Inline.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\Image_JPEG_Link.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\Image_PNG_Inline.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\README" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\TEMPLATE" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\TEMPLATE_ABSTRACT" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\Text_Plain_Append.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\Text_Plain_Dateformat.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\Text_Plain_External.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\Text_Plain_Formatted.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\Text_Plain_Imagelink.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\Text_Plain_Link.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\Text_Plain_Longtoipv4.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\Text_Plain_Sql.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\transformations\Text_Plain_Substring.class.php" />
+    <None Include="portable\phpmyadmin\libraries\plugins\UploadInterface.int.php" />
+    <None Include="portable\phpmyadmin\libraries\plugin_interface.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\PMA.php" />
+    <None Include="portable\phpmyadmin\libraries\pmd_common.php" />
+    <None Include="portable\phpmyadmin\libraries\properties\options\groups\OptionsPropertyMainGroup.class.php" />
+    <None Include="portable\phpmyadmin\libraries\properties\options\groups\OptionsPropertyRootGroup.class.php" />
+    <None Include="portable\phpmyadmin\libraries\properties\options\groups\OptionsPropertySubgroup.class.php" />
+    <None Include="portable\phpmyadmin\libraries\properties\options\items\BoolPropertyItem.class.php" />
+    <None Include="portable\phpmyadmin\libraries\properties\options\items\DocPropertyItem.class.php" />
+    <None Include="portable\phpmyadmin\libraries\properties\options\items\HiddenPropertyItem.class.php" />
+    <None Include="portable\phpmyadmin\libraries\properties\options\items\MessageOnlyPropertyItem.class.php" />
+    <None Include="portable\phpmyadmin\libraries\properties\options\items\RadioPropertyItem.class.php" />
+    <None Include="portable\phpmyadmin\libraries\properties\options\items\SelectPropertyItem.class.php" />
+    <None Include="portable\phpmyadmin\libraries\properties\options\items\TextPropertyItem.class.php" />
+    <None Include="portable\phpmyadmin\libraries\properties\options\OptionsPropertyGroup.class.php" />
+    <None Include="portable\phpmyadmin\libraries\properties\options\OptionsPropertyItem.class.php" />
+    <None Include="portable\phpmyadmin\libraries\properties\options\OptionsPropertyOneItem.class.php" />
+    <None Include="portable\phpmyadmin\libraries\properties\plugins\ExportPluginProperties.class.php" />
+    <None Include="portable\phpmyadmin\libraries\properties\plugins\ImportPluginProperties.class.php" />
+    <None Include="portable\phpmyadmin\libraries\properties\plugins\PluginPropertyItem.class.php" />
+    <None Include="portable\phpmyadmin\libraries\properties\PropertyItem.class.php" />
+    <None Include="portable\phpmyadmin\libraries\RecentTable.class.php" />
+    <None Include="portable\phpmyadmin\libraries\relation.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\relation_cleanup.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\replication.inc.php" />
+    <None Include="portable\phpmyadmin\libraries\replication_gui.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\Response.class.php" />
+    <None Include="portable\phpmyadmin\libraries\rte\rte_events.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\rte\rte_export.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\rte\rte_footer.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\rte\rte_list.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\rte\rte_main.inc.php" />
+    <None Include="portable\phpmyadmin\libraries\rte\rte_routines.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\rte\rte_triggers.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\rte\rte_words.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\sanitizing.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\schema\Dia_Relation_Schema.class.php" />
+    <None Include="portable\phpmyadmin\libraries\schema\Eps_Relation_Schema.class.php" />
+    <None Include="portable\phpmyadmin\libraries\schema\Export_Relation_Schema.class.php" />
+    <None Include="portable\phpmyadmin\libraries\schema\Pdf_Relation_Schema.class.php" />
+    <None Include="portable\phpmyadmin\libraries\schema\Svg_Relation_Schema.class.php" />
+    <None Include="portable\phpmyadmin\libraries\schema\User_Schema.class.php" />
+    <None Include="portable\phpmyadmin\libraries\Scripts.class.php" />
+    <None Include="portable\phpmyadmin\libraries\select_lang.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\select_server.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\ServerStatusData.class.php" />
+    <None Include="portable\phpmyadmin\libraries\server_common.inc.php" />
+    <None Include="portable\phpmyadmin\libraries\server_privileges.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\server_variables_doc.php" />
+    <None Include="portable\phpmyadmin\libraries\session.inc.php" />
+    <None Include="portable\phpmyadmin\libraries\special_schema_links.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\sqlparser.data.php" />
+    <None Include="portable\phpmyadmin\libraries\sqlparser.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\sqlvalidator.class.php" />
+    <None Include="portable\phpmyadmin\libraries\sqlvalidator.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\sql_query_form.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\StorageEngine.class.php" />
+    <None Include="portable\phpmyadmin\libraries\string.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\string_mb.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\string_native.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\string_type_ctype.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\string_type_native.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\structure.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\sysinfo.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\Table.class.php" />
+    <None Include="portable\phpmyadmin\libraries\TableSearch.class.php" />
+    <None Include="portable\phpmyadmin\libraries\tbl_columns_definition_form.inc.php" />
+    <None Include="portable\phpmyadmin\libraries\tbl_common.inc.php" />
+    <None Include="portable\phpmyadmin\libraries\tbl_info.inc.php" />
+    <None Include="portable\phpmyadmin\libraries\tbl_views.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\tcpdf\config\tcpdf_config.php" />
+    <None Include="portable\phpmyadmin\libraries\tcpdf\encodings_maps.php" />
+    <None Include="portable\phpmyadmin\libraries\tcpdf\fonts\dejavu-fonts-ttf-2.33\LICENSE" />
+    <None Include="portable\phpmyadmin\libraries\tcpdf\fonts\dejavusans.ctg.z" />
+    <None Include="portable\phpmyadmin\libraries\tcpdf\fonts\dejavusans.php" />
+    <None Include="portable\phpmyadmin\libraries\tcpdf\fonts\dejavusans.z" />
+    <None Include="portable\phpmyadmin\libraries\tcpdf\fonts\dejavusansb.ctg.z" />
+    <None Include="portable\phpmyadmin\libraries\tcpdf\fonts\dejavusansb.php" />
+    <None Include="portable\phpmyadmin\libraries\tcpdf\fonts\dejavusansb.z" />
+    <None Include="portable\phpmyadmin\libraries\tcpdf\fonts\helvetica.php" />
+    <None Include="portable\phpmyadmin\libraries\tcpdf\htmlcolors.php" />
+    <None Include="portable\phpmyadmin\libraries\tcpdf\tcpdf.php" />
+    <None Include="portable\phpmyadmin\libraries\tcpdf\unicode_data.php" />
+    <None Include="portable\phpmyadmin\libraries\Theme.class.php" />
+    <None Include="portable\phpmyadmin\libraries\Theme_Manager.class.php" />
+    <None Include="portable\phpmyadmin\libraries\Tracker.class.php" />
+    <None Include="portable\phpmyadmin\libraries\transformations.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\Types.class.php" />
+    <None Include="portable\phpmyadmin\libraries\url_generating.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\user_preferences.inc.php" />
+    <None Include="portable\phpmyadmin\libraries\user_preferences.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\Util.class.php" />
+    <None Include="portable\phpmyadmin\libraries\vendor_config.php" />
+    <None Include="portable\phpmyadmin\libraries\zip.lib.php" />
+    <None Include="portable\phpmyadmin\libraries\zip_extension.lib.php" />
+    <None Include="portable\phpmyadmin\LICENSE" />
+    <None Include="portable\phpmyadmin\license.php" />
+    <None Include="portable\phpmyadmin\locale\ar\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\bg\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\ca\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\cs\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\da\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\de\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\el\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\en_GB\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\es\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\et\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\fi\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\fr\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\gl\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\hi\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\hr\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\hu\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\id\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\it\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\ja\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\ko\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\lt\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\nb\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\nl\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\pl\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\pt\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\pt_BR\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\ro\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\ru\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\si\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\sk\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\sl\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\sr%40latin\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\sv\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\th\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\tr\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\uk\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\uz%40latin\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\uz\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\zh_CN\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\locale\zh_TW\LC_MESSAGES\phpmyadmin.mo" />
+    <None Include="portable\phpmyadmin\navigation.php" />
+    <None Include="portable\phpmyadmin\phpinfo.php" />
+    <None Include="portable\phpmyadmin\phpmyadmin.css.php" />
+    <None Include="portable\phpmyadmin\phpunit.xml.nocoverage" />
+    <None Include="portable\phpmyadmin\pmd_display_field.php" />
+    <None Include="portable\phpmyadmin\pmd_general.php" />
+    <None Include="portable\phpmyadmin\pmd_pdf.php" />
+    <None Include="portable\phpmyadmin\pmd_relation_new.php" />
+    <None Include="portable\phpmyadmin\pmd_relation_upd.php" />
+    <None Include="portable\phpmyadmin\pmd_save_pos.php" />
+    <None Include="portable\phpmyadmin\prefs_forms.php" />
+    <None Include="portable\phpmyadmin\prefs_manage.php" />
+    <None Include="portable\phpmyadmin\querywindow.php" />
+    <None Include="portable\phpmyadmin\README" />
+    <None Include="portable\phpmyadmin\RELEASE-DATE-4.0.4" />
+    <None Include="portable\phpmyadmin\schema_edit.php" />
+    <None Include="portable\phpmyadmin\schema_export.php" />
+    <None Include="portable\phpmyadmin\server_binlog.php" />
+    <None Include="portable\phpmyadmin\server_collations.php" />
+    <None Include="portable\phpmyadmin\server_databases.php" />
+    <None Include="portable\phpmyadmin\server_engines.php" />
+    <None Include="portable\phpmyadmin\server_export.php" />
+    <None Include="portable\phpmyadmin\server_import.php" />
+    <None Include="portable\phpmyadmin\server_plugins.php" />
+    <None Include="portable\phpmyadmin\server_privileges.php" />
+    <None Include="portable\phpmyadmin\server_replication.php" />
+    <None Include="portable\phpmyadmin\server_sql.php" />
+    <None Include="portable\phpmyadmin\server_status.php" />
+    <None Include="portable\phpmyadmin\server_status_advisor.php" />
+    <None Include="portable\phpmyadmin\server_status_monitor.php" />
+    <None Include="portable\phpmyadmin\server_status_queries.php" />
+    <None Include="portable\phpmyadmin\server_status_variables.php" />
+    <None Include="portable\phpmyadmin\server_variables.php" />
+    <None Include="portable\phpmyadmin\setup\config.php" />
+    <None Include="portable\phpmyadmin\setup\frames\.htaccess" />
+    <None Include="portable\phpmyadmin\setup\frames\config.inc.php" />
+    <None Include="portable\phpmyadmin\setup\frames\form.inc.php" />
+    <None Include="portable\phpmyadmin\setup\frames\index.inc.php" />
+    <None Include="portable\phpmyadmin\setup\frames\menu.inc.php" />
+    <None Include="portable\phpmyadmin\setup\frames\servers.inc.php" />
+    <None Include="portable\phpmyadmin\setup\index.php" />
+    <None Include="portable\phpmyadmin\setup\lib\.htaccess" />
+    <None Include="portable\phpmyadmin\setup\lib\common.inc.php" />
+    <None Include="portable\phpmyadmin\setup\lib\ConfigGenerator.class.php" />
+    <None Include="portable\phpmyadmin\setup\lib\form_processing.lib.php" />
+    <None Include="portable\phpmyadmin\setup\lib\index.lib.php" />
+    <None Include="portable\phpmyadmin\setup\validate.php" />
+    <None Include="portable\phpmyadmin\show_config_errors.php" />
+    <None Include="portable\phpmyadmin\sql.php" />
+    <None Include="portable\phpmyadmin\tbl_addfield.php" />
+    <None Include="portable\phpmyadmin\tbl_change.php" />
+    <None Include="portable\phpmyadmin\tbl_chart.php" />
+    <None Include="portable\phpmyadmin\tbl_create.php" />
+    <None Include="portable\phpmyadmin\tbl_export.php" />
+    <None Include="portable\phpmyadmin\tbl_get_field.php" />
+    <None Include="portable\phpmyadmin\tbl_gis_visualization.php" />
+    <None Include="portable\phpmyadmin\tbl_import.php" />
+    <None Include="portable\phpmyadmin\tbl_indexes.php" />
+    <None Include="portable\phpmyadmin\tbl_move_copy.php" />
+    <None Include="portable\phpmyadmin\tbl_operations.php" />
+    <None Include="portable\phpmyadmin\tbl_printview.php" />
+    <None Include="portable\phpmyadmin\tbl_relation.php" />
+    <None Include="portable\phpmyadmin\tbl_replace.php" />
+    <None Include="portable\phpmyadmin\tbl_row_action.php" />
+    <None Include="portable\phpmyadmin\tbl_select.php" />
+    <None Include="portable\phpmyadmin\tbl_sql.php" />
+    <None Include="portable\phpmyadmin\tbl_structure.php" />
+    <None Include="portable\phpmyadmin\tbl_tracking.php" />
+    <None Include="portable\phpmyadmin\tbl_triggers.php" />
+    <None Include="portable\phpmyadmin\tbl_zoom_select.php" />
+    <None Include="portable\phpmyadmin\themes.php" />
+    <None Include="portable\phpmyadmin\themes\original\css\common.css.php" />
+    <None Include="portable\phpmyadmin\themes\original\css\navigation.css.php" />
+    <None Include="portable\phpmyadmin\themes\original\info.inc.php" />
+    <None Include="portable\phpmyadmin\themes\original\layout.inc.php" />
+    <None Include="portable\phpmyadmin\themes\original\sprites.lib.php" />
+    <None Include="portable\phpmyadmin\themes\pmahomme\css\codemirror.css.php" />
+    <None Include="portable\phpmyadmin\themes\pmahomme\css\common.css.php" />
+    <None Include="portable\phpmyadmin\themes\pmahomme\css\enum_editor.css.php" />
+    <None Include="portable\phpmyadmin\themes\pmahomme\css\gis.css.php" />
+    <None Include="portable\phpmyadmin\themes\pmahomme\css\jqplot.css.php" />
+    <None Include="portable\phpmyadmin\themes\pmahomme\css\navigation.css.php" />
+    <None Include="portable\phpmyadmin\themes\pmahomme\css\pmd.css.php" />
+    <None Include="portable\phpmyadmin\themes\pmahomme\css\resizable-menu.css.php" />
+    <None Include="portable\phpmyadmin\themes\pmahomme\css\rte.css.php" />
+    <None Include="portable\phpmyadmin\themes\pmahomme\info.inc.php" />
+    <None Include="portable\phpmyadmin\themes\pmahomme\layout.inc.php" />
+    <None Include="portable\phpmyadmin\themes\pmahomme\sprites.lib.php" />
+    <None Include="portable\phpmyadmin\themes\sprites.css.php" />
+    <None Include="portable\phpmyadmin\themes\svg_gradient.php" />
+    <None Include="portable\phpmyadmin\transformation_overview.php" />
+    <None Include="portable\phpmyadmin\transformation_wrapper.php" />
+    <None Include="portable\phpmyadmin\url.php" />
+    <None Include="portable\phpmyadmin\user_password.php" />
+    <None Include="portable\phpmyadmin\version_check.php" />
+    <None Include="portable\phpmyadmin\view_create.php" />
+    <None Include="portable\phpmyadmin\view_operations.php" />
+    <None Include="portable\phpmyadmin\webapp.php" />
+    <None Include="portable\php\php.ini" />
+    <None Include="portable\settings\httpd.conf" />
+    <None Include="portable\settings\my.ini" />
+    <None Include="portable\settings\php.ini" />
+    <None Include="portable\settings\usbwebserver.ini" />
+    <None Include="Resources\Stock-Index-Up-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="portable\apache2\ABOUT_APACHE.txt" />
+    <Content Include="portable\apache2\bin\apr_dbd_odbc-1.dll" />
+    <Content Include="portable\apache2\bin\apr_ldap-1.dll" />
+    <Content Include="portable\apache2\bin\httpd_usbwv8.exe" />
+    <Content Include="portable\apache2\bin\libapr-1.dll" />
+    <Content Include="portable\apache2\bin\libapriconv-1.dll" />
+    <Content Include="portable\apache2\bin\libaprutil-1.dll" />
+    <Content Include="portable\apache2\bin\libeay32.dll" />
+    <Content Include="portable\apache2\bin\libhttpd.dll" />
+    <Content Include="portable\apache2\bin\libpq.dll" />
+    <Content Include="portable\apache2\bin\libxml2.dll" />
+    <Content Include="portable\apache2\bin\lua51.dll" />
+    <Content Include="portable\apache2\bin\msvcr100.dll" />
+    <Content Include="portable\apache2\bin\openssl.exe" />
+    <Content Include="portable\apache2\bin\pcre.dll" />
+    <Content Include="portable\apache2\bin\ssleay32.dll" />
+    <Content Include="portable\apache2\bin\zlib1.dll" />
+    <Content Include="portable\apache2\CHANGES.txt" />
+    <Content Include="portable\apache2\INSTALL.txt" />
+    <Content Include="portable\apache2\LICENSE.txt" />
+    <Content Include="portable\apache2\NOTICE.txt" />
+    <Content Include="portable\apache2\OPENSSL-NEWS.txt" />
+    <Content Include="portable\apache2\OPENSSL-README.txt" />
+    <Content Include="portable\apache2\README.txt" />
+    <Content Include="portable\mysql\bin\mysqld_usbwv8.exe" />
+    <Content Include="portable\mysql\share\charsets\armscii8.xml" />
+    <Content Include="portable\mysql\share\charsets\ascii.xml" />
+    <Content Include="portable\mysql\share\charsets\cp1250.xml" />
+    <Content Include="portable\mysql\share\charsets\cp1251.xml" />
+    <Content Include="portable\mysql\share\charsets\cp1256.xml" />
+    <Content Include="portable\mysql\share\charsets\cp1257.xml" />
+    <Content Include="portable\mysql\share\charsets\cp850.xml" />
+    <Content Include="portable\mysql\share\charsets\cp852.xml" />
+    <Content Include="portable\mysql\share\charsets\cp866.xml" />
+    <Content Include="portable\mysql\share\charsets\dec8.xml" />
+    <Content Include="portable\mysql\share\charsets\geostd8.xml" />
+    <Content Include="portable\mysql\share\charsets\greek.xml" />
+    <Content Include="portable\mysql\share\charsets\hebrew.xml" />
+    <Content Include="portable\mysql\share\charsets\hp8.xml" />
+    <Content Include="portable\mysql\share\charsets\Index.xml" />
+    <Content Include="portable\mysql\share\charsets\keybcs2.xml" />
+    <Content Include="portable\mysql\share\charsets\koi8r.xml" />
+    <Content Include="portable\mysql\share\charsets\koi8u.xml" />
+    <Content Include="portable\mysql\share\charsets\latin1.xml" />
+    <Content Include="portable\mysql\share\charsets\latin2.xml" />
+    <Content Include="portable\mysql\share\charsets\latin5.xml" />
+    <Content Include="portable\mysql\share\charsets\latin7.xml" />
+    <Content Include="portable\mysql\share\charsets\macce.xml" />
+    <Content Include="portable\mysql\share\charsets\macroman.xml" />
+    <Content Include="portable\mysql\share\charsets\swe7.xml" />
+    <Content Include="portable\mysql\share\dictionary.txt" />
+    <Content Include="portable\mysql\share\errmsg-utf8.txt" />
+    <Content Include="portable\mysql\share\fill_help_tables.sql" />
+    <Content Include="portable\mysql\share\innodb_memcached_config.sql" />
+    <Content Include="portable\mysql\share\mysql_security_commands.sql" />
+    <Content Include="portable\mysql\share\mysql_system_tables.sql" />
+    <Content Include="portable\mysql\share\mysql_system_tables_data.sql" />
+    <Content Include="portable\mysql\share\mysql_test_data_timezone.sql" />
+    <Content Include="portable\phpmyadmin\doc\html\config.html" />
+    <Content Include="portable\phpmyadmin\doc\html\copyright.html" />
+    <Content Include="portable\phpmyadmin\doc\html\credits.html" />
+    <Content Include="portable\phpmyadmin\doc\html\developers.html" />
+    <Content Include="portable\phpmyadmin\doc\html\faq.html" />
+    <Content Include="portable\phpmyadmin\doc\html\genindex.html" />
+    <Content Include="portable\phpmyadmin\doc\html\glossary.html" />
+    <Content Include="portable\phpmyadmin\doc\html\index.html" />
+    <Content Include="portable\phpmyadmin\doc\html\intro.html" />
+    <Content Include="portable\phpmyadmin\doc\html\other.html" />
+    <Content Include="portable\phpmyadmin\doc\html\privileges.html" />
+    <Content Include="portable\phpmyadmin\doc\html\require.html" />
+    <Content Include="portable\phpmyadmin\doc\html\search.html" />
+    <Content Include="portable\phpmyadmin\doc\html\searchindex.js" />
+    <Content Include="portable\phpmyadmin\doc\html\setup.html" />
+    <Content Include="portable\phpmyadmin\doc\html\transformations.html" />
+    <Content Include="portable\phpmyadmin\doc\html\user.html" />
+    <Content Include="portable\phpmyadmin\doc\html\vendors.html" />
+    <Content Include="portable\phpmyadmin\doc\html\_sources\config.txt" />
+    <Content Include="portable\phpmyadmin\doc\html\_sources\copyright.txt" />
+    <Content Include="portable\phpmyadmin\doc\html\_sources\credits.txt" />
+    <Content Include="portable\phpmyadmin\doc\html\_sources\developers.txt" />
+    <Content Include="portable\phpmyadmin\doc\html\_sources\faq.txt" />
+    <Content Include="portable\phpmyadmin\doc\html\_sources\glossary.txt" />
+    <Content Include="portable\phpmyadmin\doc\html\_sources\index.txt" />
+    <Content Include="portable\phpmyadmin\doc\html\_sources\intro.txt" />
+    <Content Include="portable\phpmyadmin\doc\html\_sources\other.txt" />
+    <Content Include="portable\phpmyadmin\doc\html\_sources\privileges.txt" />
+    <Content Include="portable\phpmyadmin\doc\html\_sources\require.txt" />
+    <Content Include="portable\phpmyadmin\doc\html\_sources\setup.txt" />
+    <Content Include="portable\phpmyadmin\doc\html\_sources\transformations.txt" />
+    <Content Include="portable\phpmyadmin\doc\html\_sources\user.txt" />
+    <Content Include="portable\phpmyadmin\doc\html\_sources\vendors.txt" />
+    <Content Include="portable\phpmyadmin\doc\html\_static\ajax-loader.gif" />
+    <Content Include="portable\phpmyadmin\doc\html\_static\basic.css" />
+    <Content Include="portable\phpmyadmin\doc\html\_static\comment-bright.png" />
+    <Content Include="portable\phpmyadmin\doc\html\_static\comment-close.png" />
+    <Content Include="portable\phpmyadmin\doc\html\_static\comment.png" />
+    <Content Include="portable\phpmyadmin\doc\html\_static\default.css" />
+    <Content Include="portable\phpmyadmin\doc\html\_static\doctools.js" />
+    <Content Include="portable\phpmyadmin\doc\html\_static\down-pressed.png" />
+    <Content Include="portable\phpmyadmin\doc\html\_static\down.png" />
+    <Content Include="portable\phpmyadmin\doc\html\_static\file.png" />
+    <Content Include="portable\phpmyadmin\doc\html\_static\jquery.js" />
+    <Content Include="portable\phpmyadmin\doc\html\_static\minus.png" />
+    <Content Include="portable\phpmyadmin\doc\html\_static\plus.png" />
+    <Content Include="portable\phpmyadmin\doc\html\_static\pygments.css" />
+    <Content Include="portable\phpmyadmin\doc\html\_static\searchtools.js" />
+    <Content Include="portable\phpmyadmin\doc\html\_static\sidebar.js" />
+    <Content Include="portable\phpmyadmin\doc\html\_static\underscore.js" />
+    <Content Include="portable\phpmyadmin\doc\html\_static\up-pressed.png" />
+    <Content Include="portable\phpmyadmin\doc\html\_static\up.png" />
+    <Content Include="portable\phpmyadmin\doc\html\_static\websupport.js" />
+    <Content Include="portable\phpmyadmin\examples\create_tables.sql" />
+    <Content Include="portable\phpmyadmin\examples\create_tables_drizzle.sql" />
+    <Content Include="portable\phpmyadmin\examples\upgrade_tables_mysql_4_1_2+.sql" />
+    <Content Include="portable\phpmyadmin\favicon.ico" />
+    <Content Include="portable\phpmyadmin\js\ajax.js" />
+    <Content Include="portable\phpmyadmin\js\canvg\canvg.js" />
+    <Content Include="portable\phpmyadmin\js\canvg\flashcanvas.js" />
+    <Content Include="portable\phpmyadmin\js\canvg\flashcanvas.swf" />
+    <Content Include="portable\phpmyadmin\js\canvg\MIT-LICENSE.txt" />
+    <Content Include="portable\phpmyadmin\js\chart.js" />
+    <Content Include="portable\phpmyadmin\js\codemirror\lib\codemirror.js" />
+    <Content Include="portable\phpmyadmin\js\codemirror\mode\mysql\mysql.js" />
+    <Content Include="portable\phpmyadmin\js\common.js" />
+    <Content Include="portable\phpmyadmin\js\config.js" />
+    <Content Include="portable\phpmyadmin\js\date.js" />
+    <Content Include="portable\phpmyadmin\js\db_operations.js" />
+    <Content Include="portable\phpmyadmin\js\db_search.js" />
+    <Content Include="portable\phpmyadmin\js\db_structure.js" />
+    <Content Include="portable\phpmyadmin\js\export.js" />
+    <Content Include="portable\phpmyadmin\js\functions.js" />
+    <Content Include="portable\phpmyadmin\js\gis_data_editor.js" />
+    <Content Include="portable\phpmyadmin\js\import.js" />
+    <Content Include="portable\phpmyadmin\js\indexes.js" />
+    <Content Include="portable\phpmyadmin\js\jqplot\excanvas.js" />
+    <Content Include="portable\phpmyadmin\js\jqplot\jquery.jqplot.js" />
+    <Content Include="portable\phpmyadmin\js\jqplot\plugins\jqplot.barRenderer.js" />
+    <Content Include="portable\phpmyadmin\js\jqplot\plugins\jqplot.byteFormatter.js" />
+    <Content Include="portable\phpmyadmin\js\jqplot\plugins\jqplot.canvasAxisLabelRenderer.js" />
+    <Content Include="portable\phpmyadmin\js\jqplot\plugins\jqplot.canvasTextRenderer.js" />
+    <Content Include="portable\phpmyadmin\js\jqplot\plugins\jqplot.categoryAxisRenderer.js" />
+    <Content Include="portable\phpmyadmin\js\jqplot\plugins\jqplot.cursor.js" />
+    <Content Include="portable\phpmyadmin\js\jqplot\plugins\jqplot.dateAxisRenderer.js" />
+    <Content Include="portable\phpmyadmin\js\jqplot\plugins\jqplot.highlighter.js" />
+    <Content Include="portable\phpmyadmin\js\jqplot\plugins\jqplot.pieRenderer.js" />
+    <Content Include="portable\phpmyadmin\js\jqplot\plugins\jqplot.pointLabels.js" />
+    <Content Include="portable\phpmyadmin\js\jquery\jquery-1.8.3.js" />
+    <Content Include="portable\phpmyadmin\js\jquery\jquery-ui-1.9.2.custom.js" />
+    <Content Include="portable\phpmyadmin\js\jquery\jquery-ui-timepicker-addon.js" />
+    <Content Include="portable\phpmyadmin\js\jquery\jquery.ba-hashchange-1.3.js" />
+    <Content Include="portable\phpmyadmin\js\jquery\jquery.cookie.js" />
+    <Content Include="portable\phpmyadmin\js\jquery\jquery.debounce-1.0.5.js" />
+    <Content Include="portable\phpmyadmin\js\jquery\jquery.event.drag-2.2.js" />
+    <Content Include="portable\phpmyadmin\js\jquery\jquery.fullscreen.js" />
+    <Content Include="portable\phpmyadmin\js\jquery\jquery.json-2.4.js" />
+    <Content Include="portable\phpmyadmin\js\jquery\jquery.menuResizer-1.0.js" />
+    <Content Include="portable\phpmyadmin\js\jquery\jquery.mousewheel.js" />
+    <Content Include="portable\phpmyadmin\js\jquery\jquery.sortableTable.js" />
+    <Content Include="portable\phpmyadmin\js\jquery\jquery.sprintf.js" />
+    <Content Include="portable\phpmyadmin\js\jquery\jquery.svg.js" />
+    <Content Include="portable\phpmyadmin\js\jquery\jquery.tablesorter.js" />
+    <Content Include="portable\phpmyadmin\js\keyhandler.js" />
+    <Content Include="portable\phpmyadmin\js\makegrid.js" />
+    <Content Include="portable\phpmyadmin\js\navigation.js" />
+    <Content Include="portable\phpmyadmin\js\openlayers\img\blank.gif" />
+    <Content Include="portable\phpmyadmin\js\openlayers\img\cloud-popup-relative.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\img\drag-rectangle-off.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\img\drag-rectangle-on.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\img\east-mini.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\img\layer-switcher-maximize.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\img\layer-switcher-minimize.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\img\marker-blue.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\img\marker-gold.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\img\marker-green.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\img\marker.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\img\measuring-stick-off.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\img\measuring-stick-on.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\img\north-mini.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\img\panning-hand-off.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\img\panning-hand-on.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\img\slider.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\img\south-mini.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\img\west-mini.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\img\zoom-minus-mini.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\img\zoom-plus-mini.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\img\zoom-world-mini.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\img\zoombar.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\OpenLayers.js" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\framedCloud.css" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\google.css" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\ie6-style.css" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\add_point_off.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\add_point_on.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\blank.gif" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\close.gif" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\drag-rectangle-off.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\drag-rectangle-on.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\draw_line_off.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\draw_line_on.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\draw_point_off.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\draw_point_on.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\draw_polygon_off.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\draw_polygon_on.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\editing_tool_bar.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\move_feature_off.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\move_feature_on.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\navigation_history.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\overview_replacement.gif" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\pan-panel-NOALPHA.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\pan-panel.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\panning-hand-off.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\panning-hand-on.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\pan_off.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\pan_on.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\remove_point_off.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\remove_point_on.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\ruler.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\save_features_off.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\save_features_on.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\view_next_off.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\view_next_on.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\view_previous_off.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\view_previous_on.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\zoom-panel-NOALPHA.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\img\zoom-panel.png" />
+    <Content Include="portable\phpmyadmin\js\openlayers\theme\default\style.css" />
+    <Content Include="portable\phpmyadmin\js\OpenStreetMap.js" />
+    <Content Include="portable\phpmyadmin\js\pmd\ajax.js" />
+    <Content Include="portable\phpmyadmin\js\pmd\history.js" />
+    <Content Include="portable\phpmyadmin\js\pmd\iecanvas.js" />
+    <Content Include="portable\phpmyadmin\js\pmd\init.js" />
+    <Content Include="portable\phpmyadmin\js\pmd\move.js" />
+    <Content Include="portable\phpmyadmin\js\querywindow.js" />
+    <Content Include="portable\phpmyadmin\js\replication.js" />
+    <Content Include="portable\phpmyadmin\js\rte.js" />
+    <Content Include="portable\phpmyadmin\js\server_databases.js" />
+    <Content Include="portable\phpmyadmin\js\server_plugins.js" />
+    <Content Include="portable\phpmyadmin\js\server_privileges.js" />
+    <Content Include="portable\phpmyadmin\js\server_status.js" />
+    <Content Include="portable\phpmyadmin\js\server_status_advisor.js" />
+    <Content Include="portable\phpmyadmin\js\server_status_monitor.js" />
+    <Content Include="portable\phpmyadmin\js\server_status_queries.js" />
+    <Content Include="portable\phpmyadmin\js\server_status_sorter.js" />
+    <Content Include="portable\phpmyadmin\js\server_status_variables.js" />
+    <Content Include="portable\phpmyadmin\js\server_variables.js" />
+    <Content Include="portable\phpmyadmin\js\sql.js" />
+    <Content Include="portable\phpmyadmin\js\tbl_change.js" />
+    <Content Include="portable\phpmyadmin\js\tbl_chart.js" />
+    <Content Include="portable\phpmyadmin\js\tbl_gis_visualization.js" />
+    <Content Include="portable\phpmyadmin\js\tbl_relation.js" />
+    <Content Include="portable\phpmyadmin\js\tbl_select.js" />
+    <Content Include="portable\phpmyadmin\js\tbl_structure.js" />
+    <Content Include="portable\phpmyadmin\js\tbl_zoom_plot_jqplot.js" />
+    <Content Include="portable\phpmyadmin\libraries\advisory_rules.txt" />
+    <Content Include="portable\phpmyadmin\libraries\php-gettext\gettext.inc" />
+    <Content Include="portable\phpmyadmin\libraries\tcpdf\LICENSE.TXT" />
+    <Content Include="portable\phpmyadmin\libraries\tcpdf\README.TXT" />
+    <Content Include="portable\phpmyadmin\print.css" />
+    <Content Include="portable\phpmyadmin\robots.txt" />
+    <Content Include="portable\phpmyadmin\setup\ajax.js" />
+    <Content Include="portable\phpmyadmin\setup\scripts.js" />
+    <Content Include="portable\phpmyadmin\setup\styles.css" />
+    <Content Include="portable\phpmyadmin\themes\dot.gif" />
+    <Content Include="portable\phpmyadmin\themes\original\img\ajax_clock_small.gif" />
+    <Content Include="portable\phpmyadmin\themes\original\img\arrow_ltr.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\arrow_rtl.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\bd_browse.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\bd_deltbl.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\bd_drop.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\bd_edit.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\bd_empty.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\bd_export.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\bd_ftext.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\bd_index.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\bd_insrow.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\bd_nextpage.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\bd_primary.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\bd_sbrowse.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\bd_select.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\bd_spatial.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\bd_unique.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_bookmark.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_browse.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_calendar.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_chart.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_close.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_column_add.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_comment.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_dbstatistics.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_deltbl.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_docs.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_drop.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_edit.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_empty.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_engine.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_events.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_event_add.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_export.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_ftext.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_globe.gif" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_group.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_help.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_home.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_import.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_index.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_index_add.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_info.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_inline_edit.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_insrow.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_minus.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_more.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_move.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_newdb.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_newtbl.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_nextpage.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_plus.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_primary.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_print.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_props.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_relations.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_routines.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_routine_add.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_save.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_sbrowse.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_search.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_selboard.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_select.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_snewtbl.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_spatial.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_sql.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_sqlhelp.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_table_add.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_tblanalyse.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_tblexport.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_tblimport.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_tblops.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_tbloptimize.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_tipp.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_triggers.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_trigger_add.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_unique.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_usradd.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_usrcheck.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_usrdrop.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_usredit.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_usrlist.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_view.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_views.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\b_view_add.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\cleardot.gif" />
+    <Content Include="portable\phpmyadmin\themes\original\img\col_drop.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\col_pointer.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\col_pointer_ver.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\east-mini.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\error.ico" />
+    <Content Include="portable\phpmyadmin\themes\original\img\eye.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\eye_grey.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\logo_left.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\logo_right.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\more.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\new_data.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\new_data_hovered.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\new_data_selected.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\new_data_selected_hovered.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\new_struct.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\new_struct_hovered.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\new_struct_selected.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\new_struct_selected_hovered.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\north-mini.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\pause.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\play.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\south-mini.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\spacer.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\sprites.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_asc.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_asci.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_cancel.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_cog.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_db.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_desc.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_error.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_error2.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_fulltext.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_host.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_lang.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_loggoff.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_notice.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_partialtext.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_passwd.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_really.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_reload.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_replication.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_rights.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_sortable.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_status.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_success.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_sync.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_tbl.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_theme.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_top.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_vars.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\s_views.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\toggle-ltr.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\toggle-rtl.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\vertical_line.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\west-mini.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\window-new.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\zoom-minus-mini.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\zoom-plus-mini.png" />
+    <Content Include="portable\phpmyadmin\themes\original\img\zoom-world-mini.png" />
+    <Content Include="portable\phpmyadmin\themes\original\jquery\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="portable\phpmyadmin\themes\original\jquery\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="portable\phpmyadmin\themes\original\jquery\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="portable\phpmyadmin\themes\original\jquery\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="portable\phpmyadmin\themes\original\jquery\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="portable\phpmyadmin\themes\original\jquery\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="portable\phpmyadmin\themes\original\jquery\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="portable\phpmyadmin\themes\original\jquery\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="portable\phpmyadmin\themes\original\jquery\images\ui-icons_222222_256x240.png" />
+    <Content Include="portable\phpmyadmin\themes\original\jquery\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="portable\phpmyadmin\themes\original\jquery\images\ui-icons_454545_256x240.png" />
+    <Content Include="portable\phpmyadmin\themes\original\jquery\images\ui-icons_888888_256x240.png" />
+    <Content Include="portable\phpmyadmin\themes\original\jquery\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="portable\phpmyadmin\themes\original\jquery\jquery-ui-1.9.2.custom.css" />
+    <Content Include="portable\phpmyadmin\themes\original\screen.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\ajax_clock_small.gif" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\arrow_ltr.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\arrow_rtl.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\asc_order.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\bd_browse.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\bd_deltbl.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\bd_drop.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\bd_edit.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\bd_empty.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\bd_export.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\bd_firstpage.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\bd_ftext.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\bd_index.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\bd_insrow.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\bd_lastpage.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\bd_nextpage.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\bd_prevpage.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\bd_primary.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\bd_sbrowse.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\bd_select.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\bd_spatial.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\bd_unique.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_bookmark.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_browse.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_calendar.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_chart.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_close.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_column_add.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_comment.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_dbstatistics.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_deltbl.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_docs.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_docsql.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_drop.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_edit.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_empty.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_engine.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_events.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_event_add.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_export.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_firstpage.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_ftext.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_globe.gif" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_group.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_help.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_home.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_import.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_index.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_index_add.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_info.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_inline_edit.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_insrow.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_lastpage.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_minus.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_more.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_move.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_newdb.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_newtbl.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_nextpage.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_pdfdoc.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_plus.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_prevpage.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_primary.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_print.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_props.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_relations.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_routines.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_routine_add.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_save.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_sbrowse.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_sdb.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_search.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_selboard.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_select.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_snewtbl.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_spatial.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_sql.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_sqldoc.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_sqlhelp.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_table_add.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_tblanalyse.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_tblexport.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_tblimport.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_tblops.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_tbloptimize.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_tipp.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_triggers.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_trigger_add.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_unique.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_usradd.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_usrcheck.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_usrdrop.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_usredit.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_usrlist.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_view.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_views.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\b_view_add.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\col_drop.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\col_pointer.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\col_pointer_ver.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\database.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\east-mini.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\error.ico" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\eye.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\eye_grey.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\item.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\left_nav_bg.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\logo_left.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\logo_right.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\more.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\new_data.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\new_data_hovered.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\new_data_selected.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\new_data_selected_hovered.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\new_struct.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\new_struct_hovered.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\new_struct_selected.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\new_struct_selected_hovered.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\north-mini.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pause.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\php_sym.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\play.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pma_logo2.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\1.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\2.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\2leftarrow.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\2leftarrow_m.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\2rightarrow.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\2rightarrow_m.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\3.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\4.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\5.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\6.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\7.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\8.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\and_icon.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\ang_direct.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\bord.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\bottom.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\def.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\display_field.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\downarrow1.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\downarrow2.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\downarrow2_m.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\exec.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\exec_small.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\exitFullscreen.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\favicon.ico" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\FieldKey_small.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\Field_small.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\Field_small_char.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\Field_small_date.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\Field_small_int.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\grid.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\Header.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\Header_Linked.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\help.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\help_relation.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\left_panel_butt.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\left_panel_tab.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\minus.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\or_icon.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\pdf.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\plus.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\query_builder.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\relation.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\reload.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\resize.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\rightarrow1.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\rightarrow2.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\save.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\small_tab.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\table.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\toggle_lines.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\top_panel.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\uparrow2_m.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\pmd\viewInFullscreen.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\south-mini.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\spacer.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\sprites.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_asc.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_asci.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_attention.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_cancel.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_cancel2.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_cog.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_db.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_desc.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_error.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_error2.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_fulltext.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_host.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_info.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_lang.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_loggoff.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_notice.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_okay.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_partialtext.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_passwd.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_process.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_really.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_reload.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_replication.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_rights.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_sortable.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_status.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_success.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_sync.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_tbl.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_theme.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_top.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_vars.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\s_views.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\toggle-ltr.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\toggle-rtl.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\vertical_line.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\west-mini.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\window-new.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\zoom-minus-mini.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\zoom-plus-mini.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\img\zoom-world-mini.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\jquery\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\jquery\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\jquery\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\jquery\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\jquery\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\jquery\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\jquery\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\jquery\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\jquery\images\ui-icons_222222_256x240.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\jquery\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\jquery\images\ui-icons_454545_256x240.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\jquery\images\ui-icons_888888_256x240.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\jquery\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\jquery\jquery-ui-1.9.2.custom.css" />
+    <Content Include="portable\phpmyadmin\themes\pmahomme\screen.png" />
+    <Content Include="portable\php\ext\php_bz2.dll" />
+    <Content Include="portable\php\ext\php_com_dotnet.dll" />
+    <Content Include="portable\php\ext\php_curl.dll" />
+    <Content Include="portable\php\ext\php_enchant.dll" />
+    <Content Include="portable\php\ext\php_exif.dll" />
+    <Content Include="portable\php\ext\php_fileinfo.dll" />
+    <Content Include="portable\php\ext\php_gd2.dll" />
+    <Content Include="portable\php\ext\php_gettext.dll" />
+    <Content Include="portable\php\ext\php_gmp.dll" />
+    <Content Include="portable\php\ext\php_imap.dll" />
+    <Content Include="portable\php\ext\php_interbase.dll" />
+    <Content Include="portable\php\ext\php_intl.dll" />
+    <Content Include="portable\php\ext\php_ldap.dll" />
+    <Content Include="portable\php\ext\php_mbstring.dll" />
+    <Content Include="portable\php\ext\php_mysql.dll" />
+    <Content Include="portable\php\ext\php_mysqli.dll" />
+    <Content Include="portable\php\ext\php_oci8.dll" />
+    <Content Include="portable\php\ext\php_oci8_11g.dll" />
+    <Content Include="portable\php\ext\php_openssl.dll" />
+    <Content Include="portable\php\ext\php_pdo_firebird.dll" />
+    <Content Include="portable\php\ext\php_pdo_mysql.dll" />
+    <Content Include="portable\php\ext\php_pdo_oci.dll" />
+    <Content Include="portable\php\ext\php_pdo_odbc.dll" />
+    <Content Include="portable\php\ext\php_pdo_pgsql.dll" />
+    <Content Include="portable\php\ext\php_pdo_sqlite.dll" />
+    <Content Include="portable\php\ext\php_pgsql.dll" />
+    <Content Include="portable\php\ext\php_shmop.dll" />
+    <Content Include="portable\php\ext\php_snmp.dll" />
+    <Content Include="portable\php\ext\php_soap.dll" />
+    <Content Include="portable\php\ext\php_sockets.dll" />
+    <Content Include="portable\php\ext\php_sqlite3.dll" />
+    <Content Include="portable\php\ext\php_sybase_ct.dll" />
+    <Content Include="portable\php\ext\php_tidy.dll" />
+    <Content Include="portable\php\ext\php_xmlrpc.dll" />
+    <Content Include="portable\php\ext\php_xsl.dll" />
+    <Content Include="portable\php\install.txt" />
+    <Content Include="portable\php\libeay32.dll" />
+    <Content Include="portable\php\libpq.dll" />
+    <Content Include="portable\php\license.txt" />
+    <Content Include="portable\php\news.txt" />
+    <Content Include="portable\php\php.exe" />
+    <Content Include="portable\php\php5apache2_4.dll" />
+    <Content Include="portable\php\php5nsapi.dll" />
+    <Content Include="portable\php\php5ts.dll" />
+    <Content Include="portable\php\readme-redist-bins.txt" />
+    <Content Include="portable\php\snapshot.txt" />
+    <Content Include="portable\php\ssleay32.dll" />
+    <Content Include="portable\usbwebserver.exe" />
+    <Content Include="Resources\51882.png" />
+    <None Include="Resources\bg8.jpg" />
+    <None Include="Resources\btnSave.Image.png" />
+    <None Include="Resources\Button2.Image.png" />
+    <None Include="Resources\accept30x30.png" />
+    <None Include="Resources\back30x30.png" />
+    <Content Include="Resources\City-Restaurant-icon.png" />
+    <None Include="Resources\clear-icon.png" />
+    <None Include="Resources\clear-icon16x16.png" />
+    <Content Include="Resources\Ecommerce-Cash-Register-icon.png" />
+    <Content Include="Resources\Food-Coffee-icon.png" />
+    <Content Include="Resources\Food-Waiter-icon.png" />
+    <None Include="Resources\print.png" />
+    <None Include="Resources\print20x20.png" />
+    <None Include="Resources\reject30x30.png" />
+    <Content Include="Resources\Stock-Index-Down-icon.png" />
+    <Content Include="Resources\отчет о работе.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="portable\root\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
