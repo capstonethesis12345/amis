@@ -81,7 +81,7 @@ Partial Class frmLogin
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(162, 96)
+        Me.Button2.Location = New System.Drawing.Point(203, 93)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 28)
         Me.Button2.TabIndex = 3
@@ -96,7 +96,7 @@ Partial Class frmLogin
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(84, 96)
+        Me.Button1.Location = New System.Drawing.Point(125, 93)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 28)
         Me.Button1.TabIndex = 2
@@ -107,7 +107,7 @@ Partial Class frmLogin
         'txtPassword
         '
         Me.txtPassword.BackColor = System.Drawing.SystemColors.Info
-        Me.txtPassword.Location = New System.Drawing.Point(105, 50)
+        Me.txtPassword.Location = New System.Drawing.Point(149, 62)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassword.Size = New System.Drawing.Size(135, 21)
@@ -116,7 +116,7 @@ Partial Class frmLogin
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(31, 53)
+        Me.Label3.Location = New System.Drawing.Point(75, 65)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(70, 13)
         Me.Label3.TabIndex = 1
@@ -125,7 +125,7 @@ Partial Class frmLogin
         'txtUsername
         '
         Me.txtUsername.BackColor = System.Drawing.SystemColors.Info
-        Me.txtUsername.Location = New System.Drawing.Point(105, 24)
+        Me.txtUsername.Location = New System.Drawing.Point(149, 36)
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.Size = New System.Drawing.Size(135, 21)
         Me.txtUsername.TabIndex = 0
@@ -133,7 +133,7 @@ Partial Class frmLogin
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(31, 27)
+        Me.Label2.Location = New System.Drawing.Point(75, 39)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(74, 13)
         Me.Label2.TabIndex = 1

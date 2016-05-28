@@ -37,3 +37,4 @@ G:\gethub\amis\CAMIS\obj\x86\Debug\AccountMgtIS.vbproj.GenerateResource.Cache
 G:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.exe
 G:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.xml
 G:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
+C:\Users\MarloA-PC\Source\Repos\amis\CAMIS\obj\x86\Debug\AccountManagementIS.xml
