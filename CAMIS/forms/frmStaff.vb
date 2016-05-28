@@ -13,7 +13,7 @@ Public Class frmStaff
         Catch ex As Exception
             MessageBox.Show("Error in establishing connection " & ex.Message.ToString, "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-        PictureBox1.Image = My.Resources.icon_staff
+
 
 
     End Sub
