@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmMain
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmMain
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
@@ -138,31 +138,31 @@ Partial Class frmMain
         'StaffToolStripMenuItem
         '
         Me.StaffToolStripMenuItem.Name = "StaffToolStripMenuItem"
-        Me.StaffToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.StaffToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
         Me.StaffToolStripMenuItem.Text = "Staff"
         '
         'CategoryToolStripMenuItem
         '
         Me.CategoryToolStripMenuItem.Name = "CategoryToolStripMenuItem"
-        Me.CategoryToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CategoryToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
         Me.CategoryToolStripMenuItem.Text = "Categories"
         '
         'ProductToolStripMenuItem
         '
         Me.ProductToolStripMenuItem.Name = "ProductToolStripMenuItem"
-        Me.ProductToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ProductToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
         Me.ProductToolStripMenuItem.Text = "Products"
         '
         'MenuToolStripMenuItem
         '
         Me.MenuToolStripMenuItem.Name = "MenuToolStripMenuItem"
-        Me.MenuToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.MenuToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
         Me.MenuToolStripMenuItem.Text = "Food Menus"
         '
         'SuppliersToolStripMenuItem
         '
         Me.SuppliersToolStripMenuItem.Name = "SuppliersToolStripMenuItem"
-        Me.SuppliersToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SuppliersToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
         Me.SuppliersToolStripMenuItem.Text = "Suppliers"
         '
         'TransactionToolStripMenuItem
@@ -175,63 +175,63 @@ Partial Class frmMain
         'POSToolStripMenuItem
         '
         Me.POSToolStripMenuItem.Name = "POSToolStripMenuItem"
-        Me.POSToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.POSToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.POSToolStripMenuItem.Text = "Sales"
         '
         'BillsToolStripMenuItem
         '
         Me.BillsToolStripMenuItem.Name = "BillsToolStripMenuItem"
-        Me.BillsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BillsToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.BillsToolStripMenuItem.Text = "Payables"
         '
         'PayrollToolStripMenuItem
         '
         Me.PayrollToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EncodeToolStripMenuItem, Me.RequestToolStripMenuItem1})
         Me.PayrollToolStripMenuItem.Name = "PayrollToolStripMenuItem"
-        Me.PayrollToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PayrollToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.PayrollToolStripMenuItem.Text = "Payroll"
         '
         'EncodeToolStripMenuItem
         '
         Me.EncodeToolStripMenuItem.Name = "EncodeToolStripMenuItem"
-        Me.EncodeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EncodeToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.EncodeToolStripMenuItem.Text = "Encode"
         '
         'RequestToolStripMenuItem1
         '
         Me.RequestToolStripMenuItem1.Name = "RequestToolStripMenuItem1"
-        Me.RequestToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.RequestToolStripMenuItem1.Size = New System.Drawing.Size(116, 22)
         Me.RequestToolStripMenuItem1.Text = "Request"
         '
         'PurchasesToolStripMenuItem
         '
         Me.PurchasesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RequestToolStripMenuItem, Me.ReceivedToolStripMenuItem})
         Me.PurchasesToolStripMenuItem.Name = "PurchasesToolStripMenuItem"
-        Me.PurchasesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PurchasesToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.PurchasesToolStripMenuItem.Text = "Purchases"
         '
         'RequestToolStripMenuItem
         '
         Me.RequestToolStripMenuItem.Name = "RequestToolStripMenuItem"
-        Me.RequestToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.RequestToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.RequestToolStripMenuItem.Text = "Request"
         '
         'ReceivedToolStripMenuItem
         '
         Me.ReceivedToolStripMenuItem.Name = "ReceivedToolStripMenuItem"
-        Me.ReceivedToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ReceivedToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.ReceivedToolStripMenuItem.Text = "Delivery"
         '
         'ReturnsToolStripMenuItem
         '
         Me.ReturnsToolStripMenuItem.Name = "ReturnsToolStripMenuItem"
-        Me.ReturnsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ReturnsToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.ReturnsToolStripMenuItem.Text = "Returns"
         '
         'AdjustmentToolStripMenuItem
         '
         Me.AdjustmentToolStripMenuItem.Name = "AdjustmentToolStripMenuItem"
-        Me.AdjustmentToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AdjustmentToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.AdjustmentToolStripMenuItem.Text = "Adjustment"
         '
         'ReportToolStripMenuItem
@@ -269,13 +269,13 @@ Partial Class frmMain
         'CalculatorToolStripMenuItem
         '
         Me.CalculatorToolStripMenuItem.Name = "CalculatorToolStripMenuItem"
-        Me.CalculatorToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CalculatorToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
         Me.CalculatorToolStripMenuItem.Text = "Calculator"
         '
         'NotepadToolStripMenuItem
         '
         Me.NotepadToolStripMenuItem.Name = "NotepadToolStripMenuItem"
-        Me.NotepadToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.NotepadToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
         Me.NotepadToolStripMenuItem.Text = "Notepad"
         '
         'AboutToolStripMenuItem
@@ -462,9 +462,9 @@ Partial Class frmMain
         Me.Panel2.Controls.Add(Me.lblUserHolder)
         Me.Panel2.Controls.Add(Me.txtLogPass)
         Me.Panel2.Controls.Add(Me.txtLogUser)
-        Me.Panel2.Location = New System.Drawing.Point(292, 221)
+        Me.Panel2.Location = New System.Drawing.Point(268, 176)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(264, 113)
+        Me.Panel2.Size = New System.Drawing.Size(286, 113)
         Me.Panel2.TabIndex = 16
         Me.Panel2.Visible = False
         '
@@ -624,5 +624,4 @@ Partial Class frmMain
     Friend WithEvents BtnLogin As System.Windows.Forms.Button
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents cbRemember As System.Windows.Forms.CheckBox
-
 End Class

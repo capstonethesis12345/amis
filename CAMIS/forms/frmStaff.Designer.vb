@@ -234,10 +234,13 @@ Partial Class frmStaff
         '
         'PictureBox1
         '
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.Location = New System.Drawing.Point(488, 53)
+        Me.PictureBox1.BackgroundImage = Global.AccountManagementIS.My.Resources.Resources.empty_profile
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox1.Image = Global.AccountManagementIS.My.Resources.Resources.empty_profile11
+        Me.PictureBox1.Location = New System.Drawing.Point(491, 53)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(122, 76)
+        Me.PictureBox1.Size = New System.Drawing.Size(120, 76)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 20
         Me.PictureBox1.TabStop = False
         '

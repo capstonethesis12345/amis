@@ -70,6 +70,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\database.dll</HintPath>
     </Reference>
+    <Reference Include="MetroFramework">
+      <HintPath>C:\Users\MarloA-PC\Downloads\metroframework-modern-ui-master\metroframework-modern-ui-master\MetroFramework.Demo\bin\Debug\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Demo">
+      <HintPath>C:\Users\MarloA-PC\Downloads\metroframework-modern-ui-master\metroframework-modern-ui-master\MetroFramework.Demo\bin\Debug\MetroFramework.Demo.exe</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design">
+      <HintPath>C:\Users\MarloA-PC\Downloads\metroframework-modern-ui-master\MetroFramework.Design.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data">
       <HintPath>..\MySql.Data.dll</HintPath>
     </Reference>
@@ -78,8 +87,8 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
   </ItemGroup>
@@ -1965,11 +1974,14 @@
     <None Include="Resources\clear-icon.png" />
     <None Include="Resources\clear-icon16x16.png" />
     <Content Include="Resources\Ecommerce-Cash-Register-icon.png" />
+    <None Include="Resources\empty-profile.jpg" />
+    <None Include="Resources\empty-profile1.jpg" />
     <Content Include="Resources\Food-Coffee-icon.png" />
     <Content Include="Resources\Food-Waiter-icon.png" />
     <None Include="Resources\print.png" />
     <None Include="Resources\print20x20.png" />
     <None Include="Resources\reject30x30.png" />
+    <None Include="Resources\icon-staff.png" />
     <Content Include="Resources\Stock-Index-Down-icon.png" />
     <Content Include="Resources\отчет о работе.png" />
   </ItemGroup>

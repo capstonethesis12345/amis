@@ -13,6 +13,9 @@ Public Class frmStaff
         Catch ex As Exception
             MessageBox.Show("Error in establishing connection " & ex.Message.ToString, "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+        PictureBox1.Image = My.Resources.icon_staff
+
+
     End Sub
     Dim textboxes As Object()
 
@@ -86,6 +89,10 @@ Public Class frmStaff
     End Sub
 
     Private Sub txtSearch_Click(sender As Object, e As EventArgs) Handles txtSearch.Click
+
+    End Sub
+
+    Private Sub ListView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListView1.SelectedIndexChanged
 
     End Sub
 End Class
