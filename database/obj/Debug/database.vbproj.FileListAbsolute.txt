@@ -5,3 +5,10 @@ F:\ThesisA\Camis v2\database\obj\Debug\database.dll
 F:\ThesisA\Camis v2\database\obj\Debug\database.xml
 F:\ThesisA\Camis v2\database\obj\Debug\database.pdb
 F:\ThesisA\Camis v2\database\obj\Debug\database.vbprojResolveAssemblyReference.cache
+G:\gethub\amis\database\bin\Debug\database.dll
+G:\gethub\amis\database\bin\Debug\database.pdb
+G:\gethub\amis\database\bin\Debug\database.xml
+G:\gethub\amis\database\obj\Debug\database.vbprojResolveAssemblyReference.cache
+G:\gethub\amis\database\obj\Debug\database.dll
+G:\gethub\amis\database\obj\Debug\database.xml
+G:\gethub\amis\database\obj\Debug\database.pdb
