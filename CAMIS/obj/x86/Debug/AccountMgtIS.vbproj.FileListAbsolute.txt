@@ -38,3 +38,7 @@ G:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.exe
 G:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.xml
 G:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
 C:\Users\MarloA-PC\Source\Repos\amis\CAMIS\obj\x86\Debug\AccountManagementIS.xml
+G:\gethub\amis\CAMIS\obj\x86\Debug\AccountMgtIS.vbprojResolveAssemblyReference.cache
+G:\gethub\amis\CAMIS\bin\Debug\database.dll
+G:\gethub\amis\CAMIS\bin\Debug\database.pdb
+G:\gethub\amis\CAMIS\bin\Debug\database.xml

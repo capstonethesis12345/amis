@@ -68,7 +68,7 @@
   <ItemGroup>
     <Reference Include="database, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\database.dll</HintPath>
+      <HintPath>..\database\bin\Debug\database.dll</HintPath>
     </Reference>
     <Reference Include="MetroFramework">
       <HintPath>C:\Users\MarloA-PC\Downloads\metroframework-modern-ui-master\metroframework-modern-ui-master\MetroFramework.Demo\bin\Debug\MetroFramework.dll</HintPath>
