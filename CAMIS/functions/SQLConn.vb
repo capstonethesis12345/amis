@@ -8,12 +8,10 @@ Module SQLConn
     Public DBNameMySQL As String
     Public Remember As String
     Public sqL As String
-    'Public dt As New DataSet
     Public ds As DataSet
     Public cmd As MySqlCommand
     Public dr As MySqlDataReader
     Public da As MySqlDataAdapter
-    ' Public conn As New MySqlConnection("server=localhost;database=posisdb;uid=root;pwd=")
     Public conn As New MySqlConnection
     Public StatusSet As String
     Public SqlRefresh As String
@@ -66,7 +64,7 @@ Module SQLConn
     Sub generateDB()
         Dim x As New createDB()
         Dim y As String()
-        y = x.createDB("camis")
+        y = x.createDB("agribussiness")
         Dim len As Integer = y.Count - 1
         'MessageBox.Show(len.ToString)
         Dim progress As Integer = 100 / (len - 1)
@@ -76,7 +74,7 @@ Module SQLConn
                 cmd = New MySqlCommand(dataY, conn)
                 cmd.ExecuteNonQuery()
             Catch ex As Exception
-                'MessageBox.Show("Database creation not complete. " & ex.Message.ToString, "Error")
+                MessageBox.Show("Unable to generate database", "Connection not establish")
             Finally
                 DisconnDB()
             End Try
