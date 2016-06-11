@@ -37,7 +37,17 @@ AccountManagementIS
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:AccountManagementIS.My.Resources.Resources.bgWallpaper">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:AccountManagementIS.My.Resources.Resources.btnSave_Image">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:AccountManagementIS.My.Resources.Resources.btnSubmit">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -73,6 +83,11 @@ AccountManagementIS
 </summary>
 </member>
 <member name="P:AccountManagementIS.My.Resources.Resources.icon_staff">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:AccountManagementIS.My.Resources.Resources.loginForm">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

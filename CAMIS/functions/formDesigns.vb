@@ -37,4 +37,12 @@
             oHolder.Visible = False
         End If
     End Sub
+    Public Sub toCenter(ByVal height As Integer, ByVal width As Integer, ByVal PanelHolder As Panel)
+        Dim top As Integer
+        Dim left As Integer
+        top = (height / 2) - (PanelHolder.Height / 2)
+        left = (width / 2) - (PanelHolder.Width / 2)
+        PanelHolder.Top = top
+        PanelHolder.Left = left
+    End Sub
 End Module

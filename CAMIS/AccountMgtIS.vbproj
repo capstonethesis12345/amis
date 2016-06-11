@@ -105,6 +105,12 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainForm.designer.vb">
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="forms\frmAddUpdateCategory.Designer.vb">
       <DependentUpon>frmAddUpdateCategory.vb</DependentUpon>
     </Compile>
@@ -279,6 +285,9 @@
     <Compile Include="functions\SQLConn.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\frmAddUpdateCategory.resx">
       <DependentUpon>frmAddUpdateCategory.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -412,6 +421,9 @@
     <None Include="Resources\Button2.Image.png" />
     <None Include="Resources\accept30x30.png" />
     <None Include="Resources\back30x30.png" />
+    <Content Include="Resources\bgWallpaper.png" />
+    <Content Include="Resources\btnSubmit.png" />
+    <Content Include="Resources\btnSubmitHOVER.png" />
     <Content Include="Resources\City-Restaurant-icon.png" />
     <None Include="Resources\clear-icon.png" />
     <None Include="Resources\clear-icon16x16.png" />
@@ -424,6 +436,7 @@
     <None Include="Resources\print20x20.png" />
     <None Include="Resources\reject30x30.png" />
     <None Include="Resources\icon-staff.png" />
+    <Content Include="Resources\loginForm.png" />
     <Content Include="Resources\Stock-Index-Down-icon.png" />
     <Content Include="Resources\отчет о работе.png" />
   </ItemGroup>

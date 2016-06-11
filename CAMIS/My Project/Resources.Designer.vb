@@ -93,9 +93,29 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property bgWallpaper() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bgWallpaper", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property btnSave_Image() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("btnSave.Image", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property btnSubmit() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("btnSubmit", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -166,6 +186,16 @@ Namespace My.Resources
         Friend ReadOnly Property icon_staff() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("icon-staff", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property loginForm() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("loginForm", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

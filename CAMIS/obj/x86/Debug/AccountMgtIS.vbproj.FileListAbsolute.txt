@@ -42,3 +42,4 @@ G:\gethub\amis\CAMIS\obj\x86\Debug\AccountMgtIS.vbprojResolveAssemblyReference.c
 G:\gethub\amis\CAMIS\bin\Debug\database.dll
 G:\gethub\amis\CAMIS\bin\Debug\database.pdb
 G:\gethub\amis\CAMIS\bin\Debug\database.xml
+G:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.MainForm.resources
