@@ -14,13 +14,25 @@
     End Sub
 
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
+        hideError(erTextboxUser)
+        hideError(erTextboxPass)
         If tUsername.Text = vbNullString AndAlso tPassword.Text = vbNullString Then
-            showError(erTextbox)
+            showError(erTextboxUser)
+            showError(erTextboxPass)
+            tUsername.Focus()
+        ElseIf (tUsername.Text = vbNullString AndAlso tPassword.Text IsNot vbNullString) Then
+            showError(erTextboxUser)
+            tUsername.Focus()
         ElseIf (tUsername.Text IsNot vbNullString AndAlso tPassword.Text = vbNullString) Then
-
+            showError(erTextboxPass)
+            tPassword.Focus()
         End If
     End Sub
     Private Sub showError(ByVal errPicture As PictureBox)
         errPicture.Visible = True
     End Sub
+    Private Sub hideError(ByVal errPicture As PictureBox)
+        errPicture.Visible = False
+    End Sub
+
 End Class

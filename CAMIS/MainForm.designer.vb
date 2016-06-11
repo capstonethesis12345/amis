@@ -27,10 +27,12 @@ Partial Class MainForm
         Me.tPassword = New System.Windows.Forms.TextBox()
         Me.btnSubmit = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.erTextbox = New System.Windows.Forms.PictureBox()
+        Me.erTextboxUser = New System.Windows.Forms.PictureBox()
+        Me.erTextboxPass = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
-        CType(Me.erTextbox, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.erTextboxUser, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.erTextboxPass, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PictureBox1
@@ -51,7 +53,7 @@ Partial Class MainForm
         Me.tUsername.Location = New System.Drawing.Point(121, 95)
         Me.tUsername.Name = "tUsername"
         Me.tUsername.Size = New System.Drawing.Size(242, 20)
-        Me.tUsername.TabIndex = 1
+        Me.tUsername.TabIndex = 0
         '
         'tPassword
         '
@@ -85,35 +87,47 @@ Partial Class MainForm
         Me.Panel1.Controls.Add(Me.btnSubmit)
         Me.Panel1.Controls.Add(Me.tUsername)
         Me.Panel1.Controls.Add(Me.tPassword)
-        Me.Panel1.Controls.Add(Me.erTextbox)
+        Me.Panel1.Controls.Add(Me.erTextboxUser)
+        Me.Panel1.Controls.Add(Me.erTextboxPass)
         Me.Panel1.Controls.Add(Me.PictureBox1)
-        Me.Panel1.Location = New System.Drawing.Point(461, 116)
+        Me.Panel1.Location = New System.Drawing.Point(22, 12)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(406, 292)
-        Me.Panel1.TabIndex = 3
+        Me.Panel1.TabIndex = 0
         '
-        'erTextbox
+        'erTextboxUser
         '
-        Me.erTextbox.Location = New System.Drawing.Point(112, 87)
-        Me.erTextbox.Name = "erTextbox"
-        Me.erTextbox.Size = New System.Drawing.Size(257, 35)
-        Me.erTextbox.TabIndex = 3
-        Me.erTextbox.TabStop = False
-        Me.erTextbox.Visible = False
+        Me.erTextboxUser.Location = New System.Drawing.Point(118, 91)
+        Me.erTextboxUser.Name = "erTextboxUser"
+        Me.erTextboxUser.Size = New System.Drawing.Size(248, 28)
+        Me.erTextboxUser.TabIndex = 3
+        Me.erTextboxUser.TabStop = False
+        Me.erTextboxUser.Visible = False
+        '
+        'erTextboxPass
+        '
+        Me.erTextboxPass.Location = New System.Drawing.Point(118, 136)
+        Me.erTextboxPass.Name = "erTextboxPass"
+        Me.erTextboxPass.Size = New System.Drawing.Size(248, 28)
+        Me.erTextboxPass.TabIndex = 4
+        Me.erTextboxPass.TabStop = False
+        Me.erTextboxPass.Visible = False
         '
         'MainForm
         '
+        Me.AcceptButton = Me.btnSubmit
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.AccountManagementIS.My.Resources.Resources.bgWallpaper
-        Me.ClientSize = New System.Drawing.Size(1108, 512)
+        Me.ClientSize = New System.Drawing.Size(445, 316)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "MainForm"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.erTextbox, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.erTextboxUser, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.erTextboxPass, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -123,5 +137,6 @@ Partial Class MainForm
     Friend WithEvents tPassword As TextBox
     Friend WithEvents btnSubmit As Button
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents erTextbox As PictureBox
+    Friend WithEvents erTextboxUser As PictureBox
+    Friend WithEvents erTextboxPass As PictureBox
 End Class
