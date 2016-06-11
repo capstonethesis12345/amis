@@ -105,6 +105,7 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="functions\SQLQuery.vb" />
     <Compile Include="MainForm.designer.vb">
       <DependentUpon>MainForm.vb</DependentUpon>
     </Compile>
@@ -260,7 +261,6 @@
     <Compile Include="functions\Previlege.vb" />
     <Compile Include="functions\ProgramFunctions.vb" />
     <Compile Include="functions\Security.vb" />
-    <Compile Include="functions\SQLQuery.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

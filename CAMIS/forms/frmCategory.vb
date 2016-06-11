@@ -24,7 +24,7 @@ Public Class frmCategory
         Else
             StatusSet = "Update"
             strReferenceColumn = "categoryid"
-            strReferenceID = txtCategoryId.Text
+            'strReferenceID = txtCategoryId.Text
         End If
         SqlUpdateNew("Category", ListView1, {"Categoryname", "categorydescription"}, {txtCategoryName, txtDescription})
     End Sub

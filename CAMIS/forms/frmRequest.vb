@@ -52,7 +52,7 @@ Public Class frmRequest
         strReferenceColumn = "prnum"
         StatusSet = "Update"
         Dim d As Date = Now
-        strReferenceID = ListView1.FocusedItem.SubItems(0).Text
+        'strReferenceID = ListView1.FocusedItem.SubItems(0).Text
         SqlUpdateNew("requisition", Me.ListView1, {"Status"}, {"Accepted " & frmMain.lblDate.Text & " " & frmMain.lblTimer.Text})
     End Sub
 End Class

@@ -4,7 +4,7 @@ Public Class createDB
 
     End Sub
     Public Function createDB(ByVal dbname As String) As String()
-        Dim dbUser = "camis", dbPass = "camis", dbTBCreate(17) As String
+        Dim dbUser = "amis", dbPass = "amis", dbTBCreate(17) As String
         dbTBCreate(0) = "CREATE DATABASE IF NOT EXISTS `" & dbname & "` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;"
         dbTBCreate(1) = "USE `" & dbname & "`;"
         dbTBCreate(2) = "set password for 'root'@'localhost'=PASSWORD('admin456');"
@@ -16,7 +16,6 @@ Public Class createDB
                           ") ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1"
         dbTBCreate(4) = "CREATE TABLE IF NOT EXISTS `employees` (
   `EmpID` int(30) NOT NULL AUTO_INCREMENT,
-  `JobID` int(5) NOT NULL,
   `UserName` varchar(60) NOT NULL,
   `Password` varchar(60) NOT NULL,
   `NameFirst` varchar(30) NOT NULL,
@@ -32,15 +31,14 @@ Public Class createDB
   `AddressProvince` varchar(30) NOT NULL,
   `AddressZip` varchar(30) NOT NULL,
   `Contact` varchar(30) NOT NULL,
-  `JobPosition` varchar(245) NOT NULL,
-  `JobRate` varchar(5) NOT NULL,
-  `JobCommission` varchar(5) NOT NULL,
-  `JobAssign` varchar(25) NOT NULL,
   `EmploymentStatus` varchar(25) NOT NULL,
   `EmpImage` longblob NOT NULL,
   PRIMARY KEY (`EmpID`),
   UNIQUE KEY `UserName` (`UserName`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;"
+        'done edited employees information
+        'this will link to DTR and JobTypes
+
         dbTBCreate(5) = "CREATE TABLE IF NOT EXISTS `requisition` (" &
                        "`PRNum` int(11) NOT NULL AUTO_INCREMENT," &
                       "`Description` varchar(240) NOT NULL," &

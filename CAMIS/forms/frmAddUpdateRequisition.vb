@@ -18,7 +18,7 @@ Public Class frmAddUpdateRequisition
         End Select
     End Sub
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
-        strReferenceID = Me.txtRequisitionNo.Text
+        'strReferenceID = Me.txtRequisitionNo.Text
         strReferenceColumn = "prnum"
         Dim d As Date = Now
         SqlUpdateNew("Requisition", frmRequest.ListView1, _

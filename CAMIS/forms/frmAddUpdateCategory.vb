@@ -20,7 +20,7 @@ Public Class frmAddUpdateCategory
         End Select
     End Sub
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
-        strReferenceID = Me.txtCategoryNo.Text
+        'strReferenceID = Me.txtCategoryNo.Text
         strReferenceColumn = "CategoryID"
         SqlUpdateNew("Category", frmCategory.ListView1, {"categoryname", "categorydescription"}, {txtCatName.Text, txtDescription.Text})
         Me.Close()

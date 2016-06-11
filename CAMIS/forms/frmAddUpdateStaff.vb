@@ -25,7 +25,7 @@ Public Class frmAddUpdateStaff
         End Select
     End Sub
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        strReferenceID = Me.txtRequisitionNo.Text
+        'strReferenceID = Me.txtRequisitionNo.Text
         strReferenceColumn = "EmpID"
         Dim arrCol() As String = {"username", "namefirst", "namemiddle", "namelast", "addressstreet", "addressbarangay", "addressmulcity", "addressprovince", "addresszip", "jobposition", "jobrate", "jobassign", "contact", "password", "jobcommission"}
         Dim oarrTextBox() As Object = {txtUsername.Text, txtFirstname.Text, txtMI.Text, txtLastname.Text, txtStreet.Text, txtBarangay.Text, txtCity.Text, txtProvince.Text, txtZip.Text, txtRole.Text, txtRate.Text, txtAssigned.Text, txtContractNo.Text, txtPassword.Text, txtCommision.Text}

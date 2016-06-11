@@ -65,7 +65,7 @@ Public Class frmStaff
         Else
             StatusSet = "Update" 'predicessor for updating a values
             strReferenceColumn = "empid" ' referrencial column entity
-            strReferenceID = txtEmployeeNo.Text 'values related to what needs to update
+            'strReferenceID = txtEmployeeNo.Text 'values related to what needs to update
         End If
         SqlUpdateNew("employees", ListView1, {"username", "password", "namefirst", "namemiddle", "namelast", "gender", "birthdate", "BirthAddress", "MaritalStatus", "addressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact", "JobPosition", "JobRate", "JobCommission", "JobAssign", "EmploymentStatus", "empimage"},
                                             {txtUsername, txtPassword, txtFirstname, txtMI, txtLastname, txtGender, txtBirthDate, txtBirthAddress, txtMaritalStatus, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, txtPosition, txtRate, txtCommision, txtAssigned, txtEmployStatus, PictureBox1})

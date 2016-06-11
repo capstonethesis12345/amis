@@ -23,7 +23,7 @@ Public Class frmFoodMenu
         Else
             StatusSet = "Update"
             strReferenceColumn = "productid"
-            strReferenceID = txtProductID.Text
+            'strReferenceID = txtProductID.Text
         End If
         SqlUpdateNew("foodlist", ListView1, {"categoryid", "description", "unitprice", "Availability"}, {lblCategoryID, txtMenuName, txtPrice, cbAvailable})
     End Sub
