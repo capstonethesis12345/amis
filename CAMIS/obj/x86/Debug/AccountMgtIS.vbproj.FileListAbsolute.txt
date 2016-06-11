@@ -43,3 +43,6 @@ G:\gethub\amis\CAMIS\bin\Debug\database.dll
 G:\gethub\amis\CAMIS\bin\Debug\database.pdb
 G:\gethub\amis\CAMIS\bin\Debug\database.xml
 G:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.MainForm.resources
+F:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.exe
+F:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.xml
+F:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
