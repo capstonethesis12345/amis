@@ -66,10 +66,6 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="database, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\database\bin\Debug\database.dll</HintPath>
-    </Reference>
     <Reference Include="MetroFramework">
       <HintPath>C:\Users\MarloA-PC\Downloads\metroframework-modern-ui-master\metroframework-modern-ui-master\MetroFramework.Demo\bin\Debug\MetroFramework.dll</HintPath>
     </Reference>
@@ -443,7 +439,12 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\database\database.vbproj">
+      <Project>{b820334d-6e21-4b87-abb6-90d7a0d21101}</Project>
+      <Name>database</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

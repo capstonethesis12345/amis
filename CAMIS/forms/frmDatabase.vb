@@ -5,6 +5,16 @@ Public Class frmDatabase
     Private TstUserNameMySQL As String
     Private TstPwdMySQL As String
     Private TstDBNameMySQL As String
+
+    Public Sub New()
+
+        ' This call is required by the designer.
+        InitializeComponent()
+        Call getData()
+        ' Add any initialization after the InitializeComponent() call.
+
+    End Sub
+
     Private Sub cmdTest_Click(ByVal sender As Object, ByVal e As EventArgs) Handles cmdTest.Click
         'Test database connection
 
@@ -41,7 +51,10 @@ Public Class frmDatabase
             conn.ConnectionString = "server=" & txtServerHost.Text & ";port=" & txtPort.Text & ";uid=" & txtUserName.Text & ";password=" & txtPassword.Text
             conn.Open()
             Call SaveData()
-            Me.Close()
+
+
+            'Me.Close()
+            Button1.Enabled = True
         Catch ex As Exception
             MsgBox("The system failed to establish a connection", MsgBoxStyle.Information, "Database Settings")
         End Try
@@ -77,7 +90,12 @@ Public Class frmDatabase
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        generateDB()
+        generateDB(Application.ProductName, "amis", "amis")
+        txtUserName.Text = "amis"
+        txtPassword.Text = "amis"
+        Call SaveData()
+        'RESET LOGIN DATA TO SECONDARY USER FUNCTION.
+
     End Sub
 
 End Class

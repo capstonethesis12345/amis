@@ -61,12 +61,14 @@ Module SQLConn
     End Sub
     'option for database generator
     Dim process As Integer = 0
-    Sub generateDB()
-        Dim x As New createDB()
+    Sub generateDB(ByVal appname As String, ByVal user As String, ByVal pass As String)
+
+        Dim x As New createDB(appname, user, pass)
         Dim y As String()
-        y = x.createDB("agribussiness")
+        y = x.createDB()
         Dim len As Integer = y.Count - 1
         'MessageBox.Show(len.ToString)
+        Dim i As Integer = 0
         Dim progress As Integer = 100 / (len - 1)
         For Each dataY In y
             Try
@@ -74,11 +76,12 @@ Module SQLConn
                 cmd = New MySqlCommand(dataY, conn)
                 cmd.ExecuteNonQuery()
             Catch ex As Exception
-                MessageBox.Show("Unable to generate database", "Connection not establish")
+                MessageBox.Show("Unable to generate database in prograss #" & i.ToString, "Connection not establish")
             Finally
                 DisconnDB()
             End Try
             frmDatabase.ProgressBar1.Value += process
+            i += 1
         Next
         frmDatabase.ProgressBar1.Value = 100
         MessageBox.Show("Database created successfully")

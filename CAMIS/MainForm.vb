@@ -1,4 +1,13 @@
 ﻿Public Class MainForm
+    Public Sub New()
+
+        ' This call is required by the designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+        Me.KeyPreview = True    'we will implement shortcut keys
+    End Sub
+
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         toCenter(Me.Height, Me.Width, Panel1)
     End Sub
@@ -35,4 +44,10 @@
         errPicture.Visible = False
     End Sub
 
+    Private Sub MainForm_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        'This will result for a shortcut keys implementation
+        If e.Alt And e.KeyCode = Keys.F12 Then
+            frmDatabase.ShowDialog()
+        End If
+    End Sub
 End Class

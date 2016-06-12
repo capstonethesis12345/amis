@@ -26,6 +26,7 @@ Partial Class frmDatabase
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.cmdSave = New System.Windows.Forms.Button()
         Me.txtServerHost = New System.Windows.Forms.TextBox()
@@ -40,7 +41,6 @@ Partial Class frmDatabase
         Me.txtDatabase = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cmdClose = New System.Windows.Forms.Button()
-        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -103,10 +103,19 @@ Partial Class frmDatabase
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Connect to MySQL Server"
         '
+        'ProgressBar1
+        '
+        Me.ProgressBar1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.ProgressBar1.Location = New System.Drawing.Point(3, 260)
+        Me.ProgressBar1.Name = "ProgressBar1"
+        Me.ProgressBar1.Size = New System.Drawing.Size(305, 23)
+        Me.ProgressBar1.TabIndex = 24
+        '
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button1.Enabled = False
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Location = New System.Drawing.Point(206, 197)
         Me.Button1.Name = "Button1"
@@ -238,14 +247,6 @@ Partial Class frmDatabase
         Me.cmdClose.TabIndex = 23
         Me.cmdClose.Text = "X"
         Me.cmdClose.UseVisualStyleBackColor = False
-        '
-        'ProgressBar1
-        '
-        Me.ProgressBar1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.ProgressBar1.Location = New System.Drawing.Point(3, 260)
-        Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(305, 23)
-        Me.ProgressBar1.TabIndex = 24
         '
         'frmDatabase
         '
