@@ -11,7 +11,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyTitle("Accounting Management Information System")>
 <Assembly: AssemblyDescription("Software Development in Accounting for Resto Bar establishments.")>
 <Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("AMIS")>
+<Assembly: AssemblyProduct("amis")>
 <Assembly: AssemblyCopyright("Copyright ©  2016")>
 <Assembly: AssemblyTrademark("MarloA and Company")>
 

@@ -18,4 +18,3 @@ F:\gethub\amis\database\bin\Debug\database.xml
 F:\gethub\amis\database\obj\Debug\database.dll
 F:\gethub\amis\database\obj\Debug\database.xml
 F:\gethub\amis\database\obj\Debug\database.pdb
-F:\gethub\amis\database\obj\Debug\database.vbprojResolveAssemblyReference.cache

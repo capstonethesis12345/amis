@@ -17,24 +17,26 @@ Public Class createDB
         sqlList.Add("CREATE DATABASE IF NOT EXISTS `" & dbname & "` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;")
         sqlList.Add("USE `" & dbname & "`;")
         sqlList.Add("set password for 'root'@'localhost'=PASSWORD('admin456')")
+        sqlList.Add("CREATE USER '" & dbUser & "'@'localhost' IDENTIFIED BY '" & dbPass & "'")
+        sqlList.Add("GRANT ALL PRIVILEGES ON `" & dbname & "\_%`.* TO '" & dbUser & "'@'localhost'")
         'EMPLOYEE TABLE
         sqlList.Add("CREATE TABLE IF NOT EXISTS `employees` (
             `EmpID` int(30) Not NULL AUTO_INCREMENT,
             `NameFirst` varchar(30) Not NULL,
             `NameMiddle` varchar(30) Not NULL,
             `NameLast` varchar(30) Not NULL,
-            `Gender` varchar(5) Not NULL,
-            `BirthDate` varchar(50) Not NULL,
-            `BirthAddress` varchar(100) Not NULL,
-            `MaritalStatus` varchar(15) Not NULL,
-            `AddressStreet` varchar(30) Not NULL,
-            `AddressBarangay` varchar(30) Not NULL,
-            `AddressMunCity` varchar(30) Not NULL,
-            `AddressProvince` varchar(30) Not NULL,
-            `AddressZip` varchar(30) Not NULL,
-            `Contact` varchar(30) Not NULL,
-            `EmploymentStatus` varchar(25) Not NULL,
-            `EmpImage` longblob Not NULL,
+            `Gender` varchar(5) NULL,
+            `BirthDate` varchar(50) NULL,
+            `BirthAddress` varchar(100) NULL,
+            `MaritalStatus` varchar(15) NULL,
+            `AddressStreet` varchar(30) NULL,
+            `AddressBarangay` varchar(30) NULL,
+            `AddressMunCity` varchar(30) NULL,
+            `AddressProvince` varchar(30) NULL,
+            `AddressZip` varchar(30) NULL,
+            `Contact` varchar(30) NULL,
+            `EmploymentStatus` tinyint not NULL,
+            `EmpImage` longblob NULL,
             PRIMARY KEY(`EmpID`)
         ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;")
         sqlList.Add("CREATE TABLE IF NOT EXISTS `Users`(
@@ -45,9 +47,12 @@ Public Class createDB
             `Function` ENUM('Admin','Cashier','Manager') Not NULL,
             PRIMARY KEY(`UserID`) 
            )")
+        'INSERT INITIAL VALUE
+        sqlList.Add("insert into employees(`namefirst`,`namemiddle`,`namelast`,`employmentstatus`) values('Administrator','Administrator','Administrator','1')")
+        sqlList.Add("insert into users(`Empid`,`username`,`password`,`function`) values(1,'Admin','Admin','Admin')")
+        'insert administrator user
+
         'CREATE USER ON DATABASE PHPMYADMIN
-        sqlList.Add("CREATE USER '" & dbUser & "'@'localhost' IDENTIFIED BY '" & dbPass & "'")
-        sqlList.Add("GRANT ALL PRIVILEGES ON `" & dbname & "\_%`.* TO '" & dbUser & "'@'localhost'")
         sqlList.Add("GRANT ALL PRIVILEGES ON  `" & dbname & "` . * TO  '" & dbUser & "'@'localhost' WITH GRANT OPTION")
         dbTBCreate = sqlList.ToArray()
 

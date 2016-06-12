@@ -27,8 +27,7 @@ Module SQLConn
             Remember = GetSetting(AppName, "DBSection", "LogUser", "temp")
             conn.ConnectionString = "server=" & ServerMySQL & ";port=" & PortMySQL & ";database=" & DBNameMySQL & ";uid=" & UserNameMySQL & ";pwd=" & PwdMySQL
         Catch ex As Exception
-            MsgBox("System registry was not established, you can set/save " &
-            "these settings by pressing F1", MsgBoxStyle.Information)
+            MsgBox("Set first required server information by pressing save.", MsgBoxStyle.Information)
         End Try
     End Sub
     Public Sub ConnDB()
@@ -76,7 +75,17 @@ Module SQLConn
                 cmd = New MySqlCommand(dataY, conn)
                 cmd.ExecuteNonQuery()
             Catch ex As Exception
-                MessageBox.Show("Unable to generate database in prograss #" & i.ToString, "Connection not establish")
+                Select Case i'prevent occurance on existed user
+                    Case Is = 0
+                        MessageBox.Show("Database name was not found. Set your database or contact System Administrator.")
+                    Case Is = 2
+                    Case Is = 3
+                    Case Is = 4
+                    Case Else
+                        MessageBox.Show("Unable to generate database in #" & i.ToString, "Connection not establish")
+                        Exit Sub
+                End Select
+
             Finally
                 DisconnDB()
             End Try
