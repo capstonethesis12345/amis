@@ -8,12 +8,12 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("Centralized Account Management Information System")> 
-<Assembly: AssemblyDescription("This CAMIS is a capstone project for Blinque Gensan and its warehouse.")> 
-<Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("CAMIS")> 
-<Assembly: AssemblyCopyright("Copyright ©  2016")> 
-<Assembly: AssemblyTrademark("MarloA and Co")> 
+<Assembly: AssemblyTitle("Accounting Management Information System")>
+<Assembly: AssemblyDescription("Software Development in Accounting for Resto Bar establishments.")>
+<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyProduct("AMIS")>
+<Assembly: AssemblyCopyright("Copyright ©  2016")>
+<Assembly: AssemblyTrademark("MarloA and Company")>
 
 <Assembly: ComVisible(False)>
 

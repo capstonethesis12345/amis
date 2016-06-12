@@ -93,6 +93,7 @@ Public Class frmDatabase
         generateDB(Application.ProductName, "amis", "amis")
         txtUserName.Text = "amis"
         txtPassword.Text = "amis"
+        txtDatabase.Text = Application.ProductName
         Call SaveData()
         'RESET LOGIN DATA TO SECONDARY USER FUNCTION.
 
