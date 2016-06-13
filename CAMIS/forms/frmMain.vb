@@ -23,7 +23,7 @@ Public Class frmMain
         ' Public DBNameMySQL As String
         lblDate.Text = Date.Now.ToString("MM/dd/yyyy")
         formMain(Me)
-        MessageBox.Show(vfunction)
+        MessageBox.Show("Greetings " & vfunction, "Welcome")
     End Sub
 
     Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton2.Click
