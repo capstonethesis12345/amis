@@ -71,19 +71,10 @@ Partial Class frmMain
         Me.lblTimer = New System.Windows.Forms.ToolStripStatusLabel()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.cbRemember = New System.Windows.Forms.CheckBox()
-        Me.BtnLogin = New System.Windows.Forms.Button()
-        Me.lblPassHolder = New System.Windows.Forms.Label()
-        Me.lblUserHolder = New System.Windows.Forms.Label()
-        Me.txtLogPass = New System.Windows.Forms.TextBox()
-        Me.txtLogUser = New System.Windows.Forms.TextBox()
         Me.MenuStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -452,84 +443,6 @@ Partial Class frmMain
         Me.Panel1.Size = New System.Drawing.Size(70, 463)
         Me.Panel1.TabIndex = 15
         '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.Transparent
-        Me.Panel2.Controls.Add(Me.Label3)
-        Me.Panel2.Controls.Add(Me.cbRemember)
-        Me.Panel2.Controls.Add(Me.BtnLogin)
-        Me.Panel2.Controls.Add(Me.lblPassHolder)
-        Me.Panel2.Controls.Add(Me.lblUserHolder)
-        Me.Panel2.Controls.Add(Me.txtLogPass)
-        Me.Panel2.Controls.Add(Me.txtLogUser)
-        Me.Panel2.Location = New System.Drawing.Point(268, 176)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(286, 113)
-        Me.Panel2.TabIndex = 16
-        Me.Panel2.Visible = False
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(9, 5)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(40, 13)
-        Me.Label3.TabIndex = 17
-        Me.Label3.Text = "LOGIN"
-        '
-        'cbRemember
-        '
-        Me.cbRemember.AutoSize = True
-        Me.cbRemember.Location = New System.Drawing.Point(125, 73)
-        Me.cbRemember.Name = "cbRemember"
-        Me.cbRemember.Size = New System.Drawing.Size(77, 17)
-        Me.cbRemember.TabIndex = 5
-        Me.cbRemember.Text = "Remember"
-        Me.cbRemember.UseVisualStyleBackColor = True
-        '
-        'BtnLogin
-        '
-        Me.BtnLogin.Location = New System.Drawing.Point(208, 20)
-        Me.BtnLogin.Name = "BtnLogin"
-        Me.BtnLogin.Size = New System.Drawing.Size(54, 70)
-        Me.BtnLogin.TabIndex = 4
-        Me.BtnLogin.Text = "Login"
-        Me.BtnLogin.UseVisualStyleBackColor = True
-        '
-        'lblPassHolder
-        '
-        Me.lblPassHolder.AutoSize = True
-        Me.lblPassHolder.BackColor = System.Drawing.Color.White
-        Me.lblPassHolder.Location = New System.Drawing.Point(21, 50)
-        Me.lblPassHolder.Name = "lblPassHolder"
-        Me.lblPassHolder.Size = New System.Drawing.Size(53, 13)
-        Me.lblPassHolder.TabIndex = 3
-        Me.lblPassHolder.Text = "Password"
-        '
-        'lblUserHolder
-        '
-        Me.lblUserHolder.AutoSize = True
-        Me.lblUserHolder.BackColor = System.Drawing.Color.White
-        Me.lblUserHolder.Location = New System.Drawing.Point(21, 24)
-        Me.lblUserHolder.Name = "lblUserHolder"
-        Me.lblUserHolder.Size = New System.Drawing.Size(55, 13)
-        Me.lblUserHolder.TabIndex = 2
-        Me.lblUserHolder.Text = "Username"
-        '
-        'txtLogPass
-        '
-        Me.txtLogPass.Location = New System.Drawing.Point(12, 47)
-        Me.txtLogPass.Name = "txtLogPass"
-        Me.txtLogPass.Size = New System.Drawing.Size(190, 20)
-        Me.txtLogPass.TabIndex = 1
-        '
-        'txtLogUser
-        '
-        Me.txtLogUser.Location = New System.Drawing.Point(12, 21)
-        Me.txtLogUser.Name = "txtLogUser"
-        Me.txtLogUser.Size = New System.Drawing.Size(190, 20)
-        Me.txtLogUser.TabIndex = 0
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -540,7 +453,6 @@ Partial Class frmMain
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(804, 509)
         Me.ControlBox = False
-        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.MenuStrip1)
@@ -563,8 +475,6 @@ Partial Class frmMain
         Me.StatusStrip1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -616,12 +526,4 @@ Partial Class frmMain
     Friend WithEvents RequestToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ReturnsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AdjustmentToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents Panel2 As System.Windows.Forms.Panel
-    Friend WithEvents lblPassHolder As System.Windows.Forms.Label
-    Friend WithEvents lblUserHolder As System.Windows.Forms.Label
-    Friend WithEvents txtLogPass As System.Windows.Forms.TextBox
-    Friend WithEvents txtLogUser As System.Windows.Forms.TextBox
-    Friend WithEvents BtnLogin As System.Windows.Forms.Button
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents cbRemember As System.Windows.Forms.CheckBox
 End Class

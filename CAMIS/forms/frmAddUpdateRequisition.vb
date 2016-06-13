@@ -19,11 +19,11 @@ Public Class frmAddUpdateRequisition
     End Sub
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
         'strReferenceID = Me.txtRequisitionNo.Text
-        strReferenceColumn = "prnum"
-        Dim d As Date = Now
-        SqlUpdateNew("Requisition", frmRequest.ListView1, _
-                     {"Description", "Amount", "Purpose", "Status", "DateTime"}, _
-                    {txtDescription.Text, txtAmount.Text, txtPurpose.Text, "Pending", frmMain.lblDate.Text & " " & frmMain.lblTimer.Text})
-        Me.Close()
+        '   strReferenceColumn = "prnum"
+        '   Dim d As Date = Now
+        '   SqlUpdateNew("Requisition", frmRequest.ListView1, _
+        '                {"Description", "Amount", "Purpose", "Status", "DateTime"}, _
+        '               {txtDescription.Text, txtAmount.Text, txtPurpose.Text, "Pending", frmMain.lblDate.Text & " " & frmMain.lblTimer.Text})
+        '   Me.Close()
     End Sub
 End Class

@@ -16,9 +16,9 @@ Public Class createDB
         Dim sqlList As New List(Of String)
         sqlList.Add("CREATE DATABASE IF NOT EXISTS `" & dbname & "` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;")
         sqlList.Add("USE `" & dbname & "`;")
-        sqlList.Add("set password for 'root'@'localhost'=PASSWORD('admin456')")
-        sqlList.Add("CREATE USER '" & dbUser & "'@'localhost' IDENTIFIED BY '" & dbPass & "'")
-        sqlList.Add("GRANT ALL PRIVILEGES ON `" & dbname & "\_%`.* TO '" & dbUser & "'@'localhost'")
+        'sqlList.Add("set password for 'root'@'localhost'=PASSWORD('admin456')")
+        'sqlList.Add("CREATE USER '" & dbUser & "'@'localhost' IDENTIFIED BY '" & dbPass & "'")
+        'sqlList.Add("GRANT ALL PRIVILEGES ON `" & dbname & "\_%`.* TO '" & dbUser & "'@'localhost'")
         'EMPLOYEE TABLE
         sqlList.Add("CREATE TABLE IF NOT EXISTS `employees` (
             `EmpID` int(30) Not NULL AUTO_INCREMENT,
@@ -48,12 +48,12 @@ Public Class createDB
             PRIMARY KEY(`UserID`) 
            )")
         'INSERT INITIAL VALUE
-        sqlList.Add("insert into employees(`namefirst`,`namemiddle`,`namelast`,`employmentstatus`) values('Administrator','Administrator','Administrator','1')")
-        sqlList.Add("insert into users(`Empid`,`username`,`password`,`function`) values(1,'Admin','Admin','Admin')")
+        sqlList.Add("insert into employees(`namefirst`,`namemiddle`,`namelast`,`employmentstatus`) values('Administrator','Administrator','Administrator',1);")
+        sqlList.Add("insert into Users(`Empid`,`username`,`password`,`function`) values(1,'Admin','Admin','Admin');")
         'insert administrator user
 
         'CREATE USER ON DATABASE PHPMYADMIN
-        sqlList.Add("GRANT ALL PRIVILEGES ON  `" & dbname & "` . * TO  '" & dbUser & "'@'localhost' WITH GRANT OPTION")
+        'sqlList.Add("GRANT ALL PRIVILEGES ON  `" & dbname & "` . * TO  '" & dbUser & "'@'localhost' WITH GRANT OPTION")
         dbTBCreate = sqlList.ToArray()
 
         '        dbTBCreate(3) = "CREATE TABLE IF NOT EXISTS `category` (" &

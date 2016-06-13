@@ -1,14 +1,14 @@
 ﻿Module formDesigns
-
-    Function formMain(ByVal MainForm As Object)
-        MainForm.IsMdiContainer = True
+    'Public ParentForm As Form = frmMain
+    Function formMain(ByVal MainForms As Object)
+        MainForms.IsMdiContainer = True
         'MainForm.MdiParent = MainForm
         Return 0
     End Function
     Sub openFull(ByRef objForm As Form)
         With objForm
             ' . = True
-            .MdiParent = frmMain
+            .MdiParent = frmMain.ActiveForm
             .FormBorderStyle = FormBorderStyle.None
             .Dock = DockStyle.Fill
             .Show()

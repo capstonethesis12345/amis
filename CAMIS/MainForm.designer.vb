@@ -27,6 +27,7 @@ Partial Class MainForm
         Me.tPassword = New System.Windows.Forms.TextBox()
         Me.btnSubmit = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.txtFunction = New System.Windows.Forms.TextBox()
         Me.erTextboxUser = New System.Windows.Forms.PictureBox()
         Me.erTextboxPass = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -84,6 +85,7 @@ Partial Class MainForm
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Transparent
+        Me.Panel1.Controls.Add(Me.txtFunction)
         Me.Panel1.Controls.Add(Me.btnSubmit)
         Me.Panel1.Controls.Add(Me.tUsername)
         Me.Panel1.Controls.Add(Me.tPassword)
@@ -94,6 +96,15 @@ Partial Class MainForm
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(406, 292)
         Me.Panel1.TabIndex = 0
+        '
+        'txtFunction
+        '
+        Me.txtFunction.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtFunction.Location = New System.Drawing.Point(164, 183)
+        Me.txtFunction.Name = "txtFunction"
+        Me.txtFunction.Size = New System.Drawing.Size(100, 13)
+        Me.txtFunction.TabIndex = 5
+        Me.txtFunction.Visible = False
         '
         'erTextboxUser
         '
@@ -139,4 +150,5 @@ Partial Class MainForm
     Friend WithEvents Panel1 As Panel
     Friend WithEvents erTextboxUser As PictureBox
     Friend WithEvents erTextboxPass As PictureBox
+    Friend WithEvents txtFunction As TextBox
 End Class

@@ -1,6 +1,15 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class frmMain
     Private AppName As String = Application.ProductName
+    Private vfunction As String = ""
+    Public Sub New(ByVal f As String)
+
+        ' This call is required by the designer.
+        InitializeComponent()
+        vfunction = f
+        ' Add any initialization after the InitializeComponent() call.
+
+    End Sub
     Private Sub frmMain_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         Application.Exit()
     End Sub
@@ -14,18 +23,7 @@ Public Class frmMain
         ' Public DBNameMySQL As String
         lblDate.Text = Date.Now.ToString("MM/dd/yyyy")
         formMain(Me)
-        Dim w, h As Integer
-        w = Panel2.Width
-        h = Panel2.Height
-        Panel2.Left = (Me.Width / 2) - (Panel2.Width / 2)
-        Panel2.Top = (Me.Height / 2) - (Panel2.Height / 2)
-        Try
-            Remember = GetSetting(AppName, "DBSection", "LogUser", "")
-        Catch ex As Exception
-
-        End Try
-        txtLogUser.Text = Remember
-        showHolder(txtLogUser, lblUserHolder)
+        MessageBox.Show(vfunction)
     End Sub
 
     Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton2.Click
@@ -88,33 +86,13 @@ Public Class frmMain
         openFull(frmRequest)
     End Sub
 
-    Private Sub txtLogUser_KeyUp(sender As Object, e As KeyEventArgs) Handles txtLogUser.KeyUp
-        showHolder(txtLogUser, lblUserHolder)
-    End Sub
 
-    Private Sub txtLogPass_KeyUp(sender As Object, e As KeyEventArgs) Handles txtLogPass.KeyUp
-        showHolder(txtLogPass, lblPassHolder)
-    End Sub
 
-    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles txtLogPass.TextChanged
+    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub BtnLogin_Click(sender As Object, e As EventArgs) Handles BtnLogin.Click
-        If cbRemember.Checked = True Then
-            SaveSetting(AppName, "DBSection", "LogUser", txtLogUser.Text)
-        Else
-            SaveSetting(AppName, "DBSection", "LogUser", "")
-        End If
-        sqL = "select username from employees where username='" & txtLogUser.Text & "' and password='" & txtLogPass.Text & "'"
-        ' SqlLoad(sqL)
-        If (logged = True) Then
-            MessageBox.Show("Accepted")
-        Else
-            MessageBox.Show("Invalid")
-        End If
 
-    End Sub
 
     Private Sub MenuToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MenuToolStripMenuItem.Click
         openFull(frmFoodMenu)

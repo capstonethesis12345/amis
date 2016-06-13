@@ -90,10 +90,10 @@ Public Class frmDatabase
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        generateDB(Application.ProductName, "amis", "amis")
-        txtUserName.Text = "amis"
-        txtPassword.Text = "amis"
-        txtDatabase.Text = Application.ProductName
+        generateDB(DBNameMySQL, UserNameMySQL, PwdMySQL)
+        txtUserName.Text = UserNameMySQL
+        txtPassword.Text = PwdMySQL
+        txtDatabase.Text = DBNameMySQL
         Call SaveData()
         'RESET LOGIN DATA TO SECONDARY USER FUNCTION.
 

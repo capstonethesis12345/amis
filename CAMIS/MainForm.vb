@@ -35,6 +35,14 @@
         ElseIf (tUsername.Text IsNot vbNullString AndAlso tPassword.Text = vbNullString) Then
             showError(erTextboxPass)
             tPassword.Focus()
+        Else
+            'Set user and password 
+            'match inputed user and password
+            getData()
+            SqlRefresh = "SELECT Function FROM `Users` WHERE Username LIKE @0 and Password LIKE @1"
+            ErrMessageText = "Incorrect username and password"
+            SqlReFill("Users", Nothing, "ShowValueInTextbox", {"0", "1"}, {tUsername, tPassword}, {txtFunction})
+
         End If
     End Sub
     Private Sub showError(ByVal errPicture As PictureBox)
@@ -48,6 +56,15 @@
         'This will result for a shortcut keys implementation
         If e.Alt And e.KeyCode = Keys.F12 Then
             frmDatabase.ShowDialog()
+        End If
+    End Sub
+
+    Private Sub txtFunction_TextChanged(sender As Object, e As EventArgs) Handles txtFunction.TextChanged
+        If txtFunction IsNot vbNullString Then
+            Dim f As New frmMain(txtFunction.Text)
+            f.Show()
+            Me.Hide()
+
         End If
     End Sub
 End Class

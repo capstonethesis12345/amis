@@ -13,6 +13,7 @@ Module SQLQuery
     Public err As Boolean = False
     Public msgShow As Boolean = True
     Public pageMax As Integer = 5
+    Public ErrMessageText As String = ""
 
     Public Sub SqlFill(ByVal sql As String, ByVal dsName As String, Optional ByVal lvObj As Object = Nothing, Optional autoComplete As Object = Nothing)
         'para mas dali maquery no matter many rows or columns in a signle query this script will display
@@ -111,6 +112,7 @@ Module SQLQuery
             ' End Try
             ' End
         End If
+
         If showTxtboxValue = Nothing Then ' to display only to all listview objects
             da.SelectCommand = cmd
             Try
@@ -162,7 +164,9 @@ Module SQLQuery
 
             Catch ex As Exception
                 'MessageBox.Show("Error on retreiving values on sqlRefill " & ex.Message.ToString, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                MessageBox.Show("Please check proper information.")
+
+                MessageBox.Show(ErrMessageText)
+                ErrMessageText = ""
             End Try
         ElseIf (showTxtboxValue = "ShowValueInComboBox") Then
             da.SelectCommand = cmd
