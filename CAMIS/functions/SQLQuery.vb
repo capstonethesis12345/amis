@@ -271,14 +271,12 @@ Module SQLQuery
                     Catch ex As Exception
                         cmd.Parameters.AddWithValue("@" & p.ToString, txtBox)
                     End Try
-
-
-
                 End If
                 p += 1
             Next
             cmd.ExecuteNonQuery()
             ObjListDisplay.Items.Clear()
+
             If msgShow = True Then
                 MessageBox.Show("Success")
             End If
@@ -346,7 +344,24 @@ Module SQLQuery
 
         SqlUpdate(sqL, ObjListDisplay, TableName, arrObjects, referenceValue)
     End Sub
-
+    Public Sub itemNew(ByVal TableName As String, ByRef ObjListDisplay As Object, ByVal arrTableColumn As String(), ByVal arrTextBox As Object())
+        ' ClearTextBoxes(objFormUpdateNew)
+        Dim strSql = "INSERT INTO " & TableName & "("
+        For Each arrCol In arrTableColumn
+            strSql &= arrCol & ","
+        Next
+        strSql = strSql.Remove(strSql.Length - 1)
+        strSql &= ") values("
+        Dim p As Integer = 0
+        For Each txt In arrTextBox
+            strSql &= "@" & p.ToString & ","
+            p += 1
+        Next
+        strSql = strSql.Remove(strSql.Length - 1)
+        strSql &= ")"
+        SqlAdd(strSql, TableName, ObjListDisplay, arrTextBox)
+        ' StatusSet = ""
+    End Sub
 
     Public Sub SqlUpdateNew(ByVal DatasetName As String, ByRef ObjListDisplay As Object, ByVal arrTableColumn As String(), ByVal arrTextBox As Object())
         ' ObjListDisplay.items.clear()
@@ -354,22 +369,7 @@ Module SQLQuery
             Case "Update"
 
             Case "New"
-                ' ClearTextBoxes(objFormUpdateNew)
-                Dim strSql = "INSERT INTO " & DatasetName & "("
-                For Each arrCol In arrTableColumn
-                    strSql &= arrCol & ","
-                Next
-                strSql = strSql.Remove(strSql.Length - 1)
-                strSql &= ") values("
-                Dim p As Integer = 0
-                For Each txt In arrTextBox
-                    strSql &= "@" & p.ToString & ","
-                    p += 1
-                Next
-                strSql = strSql.Remove(strSql.Length - 1)
-                strSql &= ")"
-                SqlAdd(strSql, DatasetName, ObjListDisplay, arrTextBox)
-                StatusSet = ""
+
             Case "Delete"
                 Dim i As Integer = 0
                 For Each arrCol In arrTableColumn

@@ -7,8 +7,8 @@ Public Class frmStaff
         InitializeComponent()
         Try
             objForm = Me
-            SqlRefresh = "select e.empid,concat(e.namelast,', ',e.namefirst,' ',e.namemiddle) from employees e,users u where u.empid=e.empid"
-            SqlReFill("employees", ListView1)
+            SqlRefresh = "select e.empid,concat(e.namelast,', ',e.namefirst,' ',e.namemiddle) from employees e left join users u on u.empid=e.empid"
+            SqlReFill("Employees", ListView1)
         Catch ex As Exception
             MessageBox.Show("Error in establishing connection " & ex.Message.ToString, "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -50,15 +50,30 @@ Public Class frmStaff
                             ON u.EmpID=e.Empid
                         where e.empid=@empid"
             msgShow = False
-            SqlReFill("employees", Nothing, "ShowValueInTextbox", {"empid"}, {txtEmployeeNo}, textboxes)
+            SqlReFill("Employees", Nothing, "ShowValueInTextbox", {"empid"}, {txtEmployeeNo}, textboxes)
             'COMMENTED CODED IS TO ACCESS MANUAL INFORMATION F DATASET TABLE.
             ' Dim mstatus As String = ds.Tables("employees").Rows(0).Item("maritalstatus").ToString
-            Dim empStatus As String = ds.Tables("employees").Rows(0).Item("EmploymentStatus").ToString
-            MessageBox.Show(empStatus)
-
-            If Not txtUsername.Text = vbNullString Then
-                CheckBox1.Checked = True
+            Dim empStatus As String = ds.Tables("Employees").Rows(0).Item("EmploymentStatus").ToString
+            Dim empAccess As String = ds.Tables("Employees").Rows(0).Item("role").ToString
+            'NOW WE WILL SET EMPLOYMENT STATUS BASED ON THE 1 = EMPLOYED AND 0 AS NOT EMPLOYED
+            If empStatus = 1 Then
+                txtEmployStatus.SelectedIndex = 0
+            Else
+                txtEmployStatus.SelectedIndex = 1
             End If
+            'SHOW ACCESS ROLES AS BASED ON ROLE ACCESS WHETHER ADMIN MANAGER OR CASHIER
+            Select Case empAccess
+                Case Is = "Admin"
+                    CheckBox1.Checked = True
+                Case Is = "Manager"
+                    CheckBox1.Checked = True
+                Case Is = "Cashier"
+                    CheckBox1.Checked = True
+                Case Else
+                    CheckBox1.Checked = False
+            End Select
+
+
             If Not txtEmployeeNo.Text = vbNullString Then
                 lblStatus.Text = "Updating existed employee"
             End If
@@ -71,26 +86,35 @@ Public Class frmStaff
         PictureBox1.Visible = False
         clearField(textboxes)
         lblStatus.Text = "Adding New Employee"
+        CheckBox1.Checked = False
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        SqlRefresh = "select e.empid,concat(e.namelast,', ',e.namefirst,' ',e.namemiddle) from employees e,users u where u.empid=e.empid"
+        SqlRefresh = "select e.empid,concat(e.namelast,', ',e.namefirst,' ',e.namemiddle) from Employees e left join users u on u.empid=e.empid"
+        Dim empStatus As New TextBox
+        If txtEmployStatus.SelectedIndex = 0 Then
+            empStatus.text = 1
+        Else
+            empStatus.text = 0
+        End If
+
         If txtEmployeeNo.Text = vbNullString Then 'basihan nato kung available ang employee no if not add if available update ra.
             ' StatusSet = "New" 'predicesor for adding a values
 
+            itemNew("Employees", ListView1,
+                   {"NameFirst", "NameMiddle", "NameLast", "BirthDate", "Gender", "MaritalStatus", "EmpImage", "BirthAddress", "AddressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact", "EmploymentStatus"},
+                    {txtFirstname, txtMI, txtLastname, txtBirthDate, txtGender, txtMaritalStatus, PictureBox1, txtBirthAddress, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, empStatus})
 
         Else
-            'itemUpdate("Employees", ListView1, {"NameFirst", "NameMiddle", "NameLast", "Gender", "BirthDate", "BirthAddress", "MaritalStatus",
-            '                                     "AddressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact",
-            '                                     "EmploymentStatus", "EmpImage"},
-            '                                    {txtFirstname, txtMI, txtLastname, txtGender, txtBirthDate, txtBirthAddress, txtMaritalStatus,
-            'txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, txtEmployStatus, PictureBox1},
-            '"EmpID", txtEmployeeNo.Text)
+            'We will now set employment status if employed set text to 1 if not 0
+
             ErrMessageText = "Fillup all empty "
             itemUpdate("Employees", ListView1,
-                       {"NameFirst", "NameMiddle", "NameLast", "BirthDate", "Gender", "MaritalStatus", "EmpImage", "BirthAddress", "AddressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact"},
-                       {txtFirstname, txtMI, txtLastname, txtBirthDate, txtGender, txtMaritalStatus, PictureBox1, txtBirthAddress, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo},
+                       {"NameFirst", "NameMiddle", "NameLast", "BirthDate", "Gender", "MaritalStatus", "EmpImage", "BirthAddress", "AddressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact", "EmploymentStatus"},
+                       {txtFirstname, txtMI, txtLastname, txtBirthDate, txtGender, txtMaritalStatus, PictureBox1, txtBirthAddress, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, empStatus},
                        "EmpID", txtEmployeeNo.Text.ToString)
+            'now we will insert login access to users insert 
+
 
             ' StatusSet = "Update" 'predicessor for updating a values
             'strReferenceColumn = "empid" ' referrencial column entity
@@ -111,10 +135,10 @@ Public Class frmStaff
     End Sub
 
     Private Sub txtSearch_KeyUp(sender As Object, e As KeyEventArgs) Handles txtSearch.KeyUp
-        SqlRefresh = "select empid, concat(namelast,', ',namefirst,' ',namemiddle) from employees where empid like @search or namelast like @search or namefirst like @search"
-            StatusSet = "Search"
+        SqlRefresh = "select empid, concat(namelast,', ',namefirst,' ',namemiddle) from Employees where empid like @search or namelast like @search or namefirst like @search"
+        StatusSet = "Search"
         ListView1.Items.Clear()
-        SqlReFill("employees", ListView1, Nothing, {"search"}, {txtSearch})
+        SqlReFill("Employees", ListView1, Nothing, {"search"}, {txtSearch})
         StatusSet = ""
     End Sub
 
@@ -128,10 +152,10 @@ Public Class frmStaff
 
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
         If CheckBox1.Checked = True Then
-            CheckBox1.Text = "DISABLE ACCESS TO APPLICATION"
+            CheckBox1.Text = "ENABLE ACCESS TO APPLICATION"
             GroupBox3.Enabled = True
         Else
-            CheckBox1.Text = "ENABLE ACCESS TO APPLICATION"
+            CheckBox1.Text = "DISABLE ACCESS TO APPLICATION"
             GroupBox3.Enabled = False
         End If
     End Sub

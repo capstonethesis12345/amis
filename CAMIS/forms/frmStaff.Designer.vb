@@ -210,7 +210,7 @@ Partial Class frmStaff
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(728, 578)
-        Me.GroupBox1.TabIndex = 1
+        Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Staff Information"
         '
@@ -223,7 +223,7 @@ Partial Class frmStaff
         Me.txtMaritalStatus.MaxLength = 8
         Me.txtMaritalStatus.Name = "txtMaritalStatus"
         Me.txtMaritalStatus.Size = New System.Drawing.Size(161, 23)
-        Me.txtMaritalStatus.TabIndex = 22
+        Me.txtMaritalStatus.TabIndex = 5
         '
         'CheckBox1
         '
@@ -246,7 +246,7 @@ Partial Class frmStaff
         Me.btnClear.Location = New System.Drawing.Point(527, 533)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(99, 33)
-        Me.btnClear.TabIndex = 1
+        Me.btnClear.TabIndex = 18
         Me.btnClear.Text = "&Clear/New"
         Me.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnClear.UseVisualStyleBackColor = False
@@ -256,7 +256,7 @@ Partial Class frmStaff
         Me.btnOpenImage.Location = New System.Drawing.Point(513, 135)
         Me.btnOpenImage.Name = "btnOpenImage"
         Me.btnOpenImage.Size = New System.Drawing.Size(75, 23)
-        Me.btnOpenImage.TabIndex = 21
+        Me.btnOpenImage.TabIndex = 4
         Me.btnOpenImage.Text = "Image"
         Me.btnOpenImage.UseVisualStyleBackColor = True
         '
@@ -271,7 +271,7 @@ Partial Class frmStaff
         Me.btnSave.Location = New System.Drawing.Point(527, 479)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(99, 33)
-        Me.btnSave.TabIndex = 0
+        Me.btnSave.TabIndex = 17
         Me.btnSave.Text = "&Save"
         Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnSave.UseVisualStyleBackColor = False
@@ -295,7 +295,7 @@ Partial Class frmStaff
         Me.txtBirthDate.Location = New System.Drawing.Point(100, 166)
         Me.txtBirthDate.Name = "txtBirthDate"
         Me.txtBirthDate.Size = New System.Drawing.Size(165, 23)
-        Me.txtBirthDate.TabIndex = 18
+        Me.txtBirthDate.TabIndex = 7
         '
         'txtGender
         '
@@ -306,7 +306,7 @@ Partial Class frmStaff
         Me.txtGender.MaxLength = 1
         Me.txtGender.Name = "txtGender"
         Me.txtGender.Size = New System.Drawing.Size(108, 23)
-        Me.txtGender.TabIndex = 17
+        Me.txtGender.TabIndex = 6
         '
         'Label22
         '
@@ -323,7 +323,7 @@ Partial Class frmStaff
         Me.txtBirthAddress.Location = New System.Drawing.Point(361, 166)
         Me.txtBirthAddress.Name = "txtBirthAddress"
         Me.txtBirthAddress.Size = New System.Drawing.Size(248, 23)
-        Me.txtBirthAddress.TabIndex = 16
+        Me.txtBirthAddress.TabIndex = 8
         '
         'Label24
         '
@@ -372,7 +372,7 @@ Partial Class frmStaff
         Me.txtEmployStatus.Location = New System.Drawing.Point(131, 313)
         Me.txtEmployStatus.Name = "txtEmployStatus"
         Me.txtEmployStatus.Size = New System.Drawing.Size(136, 23)
-        Me.txtEmployStatus.TabIndex = 9
+        Me.txtEmployStatus.TabIndex = 15
         '
         'GroupBox3
         '
@@ -390,7 +390,7 @@ Partial Class frmStaff
         Me.GroupBox3.Location = New System.Drawing.Point(3, 388)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(508, 178)
-        Me.GroupBox3.TabIndex = 12
+        Me.GroupBox3.TabIndex = 16
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "User Information"
         '
@@ -400,7 +400,7 @@ Partial Class frmStaff
         Me.txtAssigned.Location = New System.Drawing.Point(130, 82)
         Me.txtAssigned.Name = "txtAssigned"
         Me.txtAssigned.Size = New System.Drawing.Size(362, 23)
-        Me.txtAssigned.TabIndex = 13
+        Me.txtAssigned.TabIndex = 2
         '
         'Label20
         '
@@ -418,7 +418,7 @@ Partial Class frmStaff
         Me.txtConfirmPWD.Name = "txtConfirmPWD"
         Me.txtConfirmPWD.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtConfirmPWD.Size = New System.Drawing.Size(362, 23)
-        Me.txtConfirmPWD.TabIndex = 3
+        Me.txtConfirmPWD.TabIndex = 4
         '
         'txtPassword
         '
@@ -427,7 +427,7 @@ Partial Class frmStaff
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassword.Size = New System.Drawing.Size(362, 23)
-        Me.txtPassword.TabIndex = 2
+        Me.txtPassword.TabIndex = 3
         '
         'Label8
         '
@@ -444,7 +444,7 @@ Partial Class frmStaff
         Me.txtUsername.Location = New System.Drawing.Point(130, 48)
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.Size = New System.Drawing.Size(362, 23)
-        Me.txtUsername.TabIndex = 0
+        Me.txtUsername.TabIndex = 1
         '
         'Label5
         '
@@ -464,7 +464,7 @@ Partial Class frmStaff
         Me.txtFunction.Location = New System.Drawing.Point(130, 19)
         Me.txtFunction.Name = "txtFunction"
         Me.txtFunction.Size = New System.Drawing.Size(165, 23)
-        Me.txtFunction.TabIndex = 9
+        Me.txtFunction.TabIndex = 0
         '
         'Label7
         '
@@ -578,7 +578,7 @@ Partial Class frmStaff
         Me.txtContractNo.Location = New System.Drawing.Point(102, 275)
         Me.txtContractNo.Name = "txtContractNo"
         Me.txtContractNo.Size = New System.Drawing.Size(165, 23)
-        Me.txtContractNo.TabIndex = 8
+        Me.txtContractNo.TabIndex = 14
         '
         'Label25
         '
@@ -596,7 +596,7 @@ Partial Class frmStaff
         Me.txtZip.MaxLength = 5
         Me.txtZip.Name = "txtZip"
         Me.txtZip.Size = New System.Drawing.Size(166, 23)
-        Me.txtZip.TabIndex = 7
+        Me.txtZip.TabIndex = 13
         '
         'Label4
         '
@@ -613,7 +613,7 @@ Partial Class frmStaff
         Me.txtCity.Location = New System.Drawing.Point(443, 207)
         Me.txtCity.Name = "txtCity"
         Me.txtCity.Size = New System.Drawing.Size(166, 23)
-        Me.txtCity.TabIndex = 5
+        Me.txtCity.TabIndex = 11
         '
         'txtMI
         '
@@ -621,7 +621,7 @@ Partial Class frmStaff
         Me.txtMI.Location = New System.Drawing.Point(443, 106)
         Me.txtMI.Name = "txtMI"
         Me.txtMI.Size = New System.Drawing.Size(39, 23)
-        Me.txtMI.TabIndex = 2
+        Me.txtMI.TabIndex = 3
         '
         'txtBarangay
         '
@@ -629,7 +629,7 @@ Partial Class frmStaff
         Me.txtBarangay.Location = New System.Drawing.Point(272, 207)
         Me.txtBarangay.Name = "txtBarangay"
         Me.txtBarangay.Size = New System.Drawing.Size(165, 23)
-        Me.txtBarangay.TabIndex = 4
+        Me.txtBarangay.TabIndex = 10
         '
         'txtProvince
         '
@@ -637,7 +637,7 @@ Partial Class frmStaff
         Me.txtProvince.Location = New System.Drawing.Point(101, 246)
         Me.txtProvince.Name = "txtProvince"
         Me.txtProvince.Size = New System.Drawing.Size(336, 23)
-        Me.txtProvince.TabIndex = 6
+        Me.txtProvince.TabIndex = 12
         '
         'txtStreet
         '
@@ -645,7 +645,7 @@ Partial Class frmStaff
         Me.txtStreet.Location = New System.Drawing.Point(101, 207)
         Me.txtStreet.Name = "txtStreet"
         Me.txtStreet.Size = New System.Drawing.Size(165, 23)
-        Me.txtStreet.TabIndex = 3
+        Me.txtStreet.TabIndex = 9
         '
         'txtFirstname
         '
@@ -653,7 +653,7 @@ Partial Class frmStaff
         Me.txtFirstname.Location = New System.Drawing.Point(272, 106)
         Me.txtFirstname.Name = "txtFirstname"
         Me.txtFirstname.Size = New System.Drawing.Size(165, 23)
-        Me.txtFirstname.TabIndex = 1
+        Me.txtFirstname.TabIndex = 2
         '
         'txtLastname
         '
@@ -661,7 +661,7 @@ Partial Class frmStaff
         Me.txtLastname.Location = New System.Drawing.Point(101, 106)
         Me.txtLastname.Name = "txtLastname"
         Me.txtLastname.Size = New System.Drawing.Size(165, 23)
-        Me.txtLastname.TabIndex = 0
+        Me.txtLastname.TabIndex = 1
         '
         'Label3
         '

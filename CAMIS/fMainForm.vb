@@ -1,5 +1,6 @@
 ﻿Public Class fMainForm
     Public loading As Boolean = False
+    Dim status As String
     Public Sub New()
 
         ' This call is required by the designer.
@@ -41,7 +42,14 @@
             'match inputed user and password
 
             PictureBox2.Visible = True
-            Dim status As String = logmein()
+            status = logmein()
+            'Dim thread1 As New System.Threading.Thread(AddressOf logulogmeinser)
+
+            '            thread1.Start()
+            '
+            '           thread1.Join()
+
+
             If status = "Admin" Then
                 PictureBox2.Visible = False
                 Dim fmain As New frmMain(txtFunction.Text)
@@ -65,6 +73,10 @@
             '      End If
         End If
     End Sub
+
+    Sub getLogUser()
+        txtFunction.Text = status
+    End Sub
     Private Function logmein()
         getData()
         SqlRefresh = "SELECT Function FROM `Users` WHERE Username LIKE @0 and Password LIKE @1"
@@ -87,5 +99,16 @@
         End If
     End Sub
 
+    Private Sub txtFunction_TextChanged(sender As Object, e As EventArgs) Handles txtFunction.TextChanged
+        If status = "Admin" Then
+            PictureBox2.Visible = False
+            Dim fmain As New frmMain(txtFunction.Text)
+            fmain.Show()
+            Me.Hide()
+        ElseIf status = "Cashier" Then
+            PictureBox2.Visible = False
+        Else
 
+        End If
+    End Sub
 End Class
