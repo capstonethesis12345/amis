@@ -33,9 +33,12 @@ Partial Class frmStaff
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.btnOpenImage = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.txtMaritalStatus = New System.Windows.Forms.ComboBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.btnClear = New System.Windows.Forms.Button()
+        Me.btnOpenImage = New System.Windows.Forms.Button()
+        Me.btnSave = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.txtBirthDate = New System.Windows.Forms.DateTimePicker()
         Me.txtGender = New System.Windows.Forms.ComboBox()
         Me.Label22 = New System.Windows.Forms.Label()
@@ -45,25 +48,19 @@ Partial Class frmStaff
         Me.Label21 = New System.Windows.Forms.Label()
         Me.lblStatus = New System.Windows.Forms.Label()
         Me.txtEmployStatus = New System.Windows.Forms.ComboBox()
-        Me.txtPosition = New System.Windows.Forms.ComboBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.btnClear = New System.Windows.Forms.Button()
         Me.txtAssigned = New System.Windows.Forms.TextBox()
-        Me.btnSave = New System.Windows.Forms.Button()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.txtConfirmPWD = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtUsername = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtFunction = New System.Windows.Forms.ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -77,8 +74,6 @@ Partial Class frmStaff
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtCity = New System.Windows.Forms.TextBox()
         Me.txtMI = New System.Windows.Forms.TextBox()
-        Me.txtCommision = New System.Windows.Forms.TextBox()
-        Me.txtRate = New System.Windows.Forms.TextBox()
         Me.txtBarangay = New System.Windows.Forms.TextBox()
         Me.txtProvince = New System.Windows.Forms.TextBox()
         Me.txtStreet = New System.Windows.Forms.TextBox()
@@ -171,9 +166,12 @@ Partial Class frmStaff
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.btnOpenImage)
-        Me.GroupBox1.Controls.Add(Me.PictureBox1)
         Me.GroupBox1.Controls.Add(Me.txtMaritalStatus)
+        Me.GroupBox1.Controls.Add(Me.CheckBox1)
+        Me.GroupBox1.Controls.Add(Me.btnClear)
+        Me.GroupBox1.Controls.Add(Me.btnOpenImage)
+        Me.GroupBox1.Controls.Add(Me.btnSave)
+        Me.GroupBox1.Controls.Add(Me.PictureBox1)
         Me.GroupBox1.Controls.Add(Me.txtBirthDate)
         Me.GroupBox1.Controls.Add(Me.txtGender)
         Me.GroupBox1.Controls.Add(Me.Label22)
@@ -183,15 +181,10 @@ Partial Class frmStaff
         Me.GroupBox1.Controls.Add(Me.Label21)
         Me.GroupBox1.Controls.Add(Me.lblStatus)
         Me.GroupBox1.Controls.Add(Me.txtEmployStatus)
-        Me.GroupBox1.Controls.Add(Me.txtPosition)
         Me.GroupBox1.Controls.Add(Me.GroupBox3)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.Label15)
         Me.GroupBox1.Controls.Add(Me.Label12)
-        Me.GroupBox1.Controls.Add(Me.Label19)
-        Me.GroupBox1.Controls.Add(Me.Label17)
-        Me.GroupBox1.Controls.Add(Me.Label18)
         Me.GroupBox1.Controls.Add(Me.Label14)
         Me.GroupBox1.Controls.Add(Me.Label11)
         Me.GroupBox1.Controls.Add(Me.Label16)
@@ -205,8 +198,6 @@ Partial Class frmStaff
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.txtCity)
         Me.GroupBox1.Controls.Add(Me.txtMI)
-        Me.GroupBox1.Controls.Add(Me.txtCommision)
-        Me.GroupBox1.Controls.Add(Me.txtRate)
         Me.GroupBox1.Controls.Add(Me.txtBarangay)
         Me.GroupBox1.Controls.Add(Me.txtProvince)
         Me.GroupBox1.Controls.Add(Me.txtStreet)
@@ -223,6 +214,43 @@ Partial Class frmStaff
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Staff Information"
         '
+        'txtMaritalStatus
+        '
+        Me.txtMaritalStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.txtMaritalStatus.FormattingEnabled = True
+        Me.txtMaritalStatus.Items.AddRange(New Object() {"Single", "Married", "Widow"})
+        Me.txtMaritalStatus.Location = New System.Drawing.Point(104, 140)
+        Me.txtMaritalStatus.MaxLength = 8
+        Me.txtMaritalStatus.Name = "txtMaritalStatus"
+        Me.txtMaritalStatus.Size = New System.Drawing.Size(161, 23)
+        Me.txtMaritalStatus.TabIndex = 22
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(115, 363)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(210, 19)
+        Me.CheckBox1.TabIndex = 15
+        Me.CheckBox1.Text = "ENABLE ACCESS TO APPLICATION"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'btnClear
+        '
+        Me.btnClear.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btnClear.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnClear.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClear.Image = Global.AccountManagementIS.My.Resources.Resources.clear_icon16x16
+        Me.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnClear.Location = New System.Drawing.Point(527, 533)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(99, 33)
+        Me.btnClear.TabIndex = 1
+        Me.btnClear.Text = "&Clear/New"
+        Me.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnClear.UseVisualStyleBackColor = False
+        '
         'btnOpenImage
         '
         Me.btnOpenImage.Location = New System.Drawing.Point(513, 135)
@@ -231,6 +259,22 @@ Partial Class frmStaff
         Me.btnOpenImage.TabIndex = 21
         Me.btnOpenImage.Text = "Image"
         Me.btnOpenImage.UseVisualStyleBackColor = True
+        '
+        'btnSave
+        '
+        Me.btnSave.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnSave.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
+        Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnSave.Location = New System.Drawing.Point(527, 479)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(99, 33)
+        Me.btnSave.TabIndex = 0
+        Me.btnSave.Text = "&Save"
+        Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnSave.UseVisualStyleBackColor = False
         '
         'PictureBox1
         '
@@ -244,20 +288,10 @@ Partial Class frmStaff
         Me.PictureBox1.TabIndex = 20
         Me.PictureBox1.TabStop = False
         '
-        'txtMaritalStatus
-        '
-        Me.txtMaritalStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.txtMaritalStatus.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.txtMaritalStatus.ImeMode = System.Windows.Forms.ImeMode.Off
-        Me.txtMaritalStatus.Items.AddRange(New Object() {"Single", "Married"})
-        Me.txtMaritalStatus.Location = New System.Drawing.Point(100, 137)
-        Me.txtMaritalStatus.Name = "txtMaritalStatus"
-        Me.txtMaritalStatus.Size = New System.Drawing.Size(168, 23)
-        Me.txtMaritalStatus.TabIndex = 19
-        '
         'txtBirthDate
         '
-        Me.txtBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.txtBirthDate.CustomFormat = "yyyy-MM-dd"
+        Me.txtBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.txtBirthDate.Location = New System.Drawing.Point(100, 166)
         Me.txtBirthDate.Name = "txtBirthDate"
         Me.txtBirthDate.Size = New System.Drawing.Size(165, 23)
@@ -265,11 +299,11 @@ Partial Class frmStaff
         '
         'txtGender
         '
-        Me.txtGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.txtGender.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.txtGender.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.txtGender.FormattingEnabled = True
-        Me.txtGender.Items.AddRange(New Object() {"Male", "Female"})
+        Me.txtGender.Items.AddRange(New Object() {"M", "F"})
         Me.txtGender.Location = New System.Drawing.Point(361, 135)
+        Me.txtGender.MaxLength = 1
         Me.txtGender.Name = "txtGender"
         Me.txtGender.Size = New System.Drawing.Size(108, 23)
         Me.txtGender.TabIndex = 17
@@ -335,86 +369,43 @@ Partial Class frmStaff
         Me.txtEmployStatus.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.txtEmployStatus.FormattingEnabled = True
         Me.txtEmployStatus.Items.AddRange(New Object() {"Employed", "Not Employed"})
-        Me.txtEmployStatus.Location = New System.Drawing.Point(133, 345)
+        Me.txtEmployStatus.Location = New System.Drawing.Point(131, 313)
         Me.txtEmployStatus.Name = "txtEmployStatus"
         Me.txtEmployStatus.Size = New System.Drawing.Size(136, 23)
         Me.txtEmployStatus.TabIndex = 9
         '
-        'txtPosition
-        '
-        Me.txtPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.txtPosition.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.txtPosition.FormattingEnabled = True
-        Me.txtPosition.Items.AddRange(New Object() {"Admin", "Cashier"})
-        Me.txtPosition.Location = New System.Drawing.Point(102, 316)
-        Me.txtPosition.Name = "txtPosition"
-        Me.txtPosition.Size = New System.Drawing.Size(165, 23)
-        Me.txtPosition.TabIndex = 9
-        '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.btnClear)
         Me.GroupBox3.Controls.Add(Me.txtAssigned)
-        Me.GroupBox3.Controls.Add(Me.btnSave)
         Me.GroupBox3.Controls.Add(Me.Label20)
         Me.GroupBox3.Controls.Add(Me.txtConfirmPWD)
-        Me.GroupBox3.Controls.Add(Me.Label9)
         Me.GroupBox3.Controls.Add(Me.txtPassword)
         Me.GroupBox3.Controls.Add(Me.Label8)
         Me.GroupBox3.Controls.Add(Me.txtUsername)
         Me.GroupBox3.Controls.Add(Me.Label5)
+        Me.GroupBox3.Controls.Add(Me.txtFunction)
+        Me.GroupBox3.Controls.Add(Me.Label7)
+        Me.GroupBox3.Enabled = False
         Me.GroupBox3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox3.Location = New System.Drawing.Point(3, 382)
+        Me.GroupBox3.Location = New System.Drawing.Point(3, 388)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(706, 184)
+        Me.GroupBox3.Size = New System.Drawing.Size(508, 178)
         Me.GroupBox3.TabIndex = 12
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "User Information"
         '
-        'btnClear
-        '
-        Me.btnClear.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnClear.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnClear.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.Image = Global.AccountManagementIS.My.Resources.Resources.clear_icon16x16
-        Me.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnClear.Location = New System.Drawing.Point(547, 118)
-        Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(99, 33)
-        Me.btnClear.TabIndex = 1
-        Me.btnClear.Text = "&Clear/New"
-        Me.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnClear.UseVisualStyleBackColor = False
-        '
         'txtAssigned
         '
         Me.txtAssigned.BackColor = System.Drawing.Color.White
-        Me.txtAssigned.Location = New System.Drawing.Point(142, 56)
+        Me.txtAssigned.Location = New System.Drawing.Point(130, 82)
         Me.txtAssigned.Name = "txtAssigned"
         Me.txtAssigned.Size = New System.Drawing.Size(362, 23)
         Me.txtAssigned.TabIndex = 13
         '
-        'btnSave
-        '
-        Me.btnSave.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnSave.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
-        Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSave.Location = New System.Drawing.Point(547, 64)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(99, 33)
-        Me.btnSave.TabIndex = 0
-        Me.btnSave.Text = "&Save"
-        Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnSave.UseVisualStyleBackColor = False
-        '
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(25, 64)
+        Me.Label20.Location = New System.Drawing.Point(51, 91)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(55, 15)
         Me.Label20.TabIndex = 14
@@ -423,25 +414,16 @@ Partial Class frmStaff
         'txtConfirmPWD
         '
         Me.txtConfirmPWD.BackColor = System.Drawing.Color.White
-        Me.txtConfirmPWD.Location = New System.Drawing.Point(142, 145)
+        Me.txtConfirmPWD.Location = New System.Drawing.Point(130, 146)
         Me.txtConfirmPWD.Name = "txtConfirmPWD"
         Me.txtConfirmPWD.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtConfirmPWD.Size = New System.Drawing.Size(362, 23)
         Me.txtConfirmPWD.TabIndex = 3
         '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(28, 148)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(110, 15)
-        Me.Label9.TabIndex = 12
-        Me.Label9.Text = "Confirm Password :"
-        '
         'txtPassword
         '
         Me.txtPassword.BackColor = System.Drawing.Color.White
-        Me.txtPassword.Location = New System.Drawing.Point(142, 117)
+        Me.txtPassword.Location = New System.Drawing.Point(130, 118)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassword.Size = New System.Drawing.Size(362, 23)
@@ -450,7 +432,7 @@ Partial Class frmStaff
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(28, 120)
+        Me.Label8.Location = New System.Drawing.Point(43, 126)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(63, 15)
         Me.Label8.TabIndex = 9
@@ -459,7 +441,7 @@ Partial Class frmStaff
         'txtUsername
         '
         Me.txtUsername.BackColor = System.Drawing.Color.White
-        Me.txtUsername.Location = New System.Drawing.Point(142, 22)
+        Me.txtUsername.Location = New System.Drawing.Point(130, 48)
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.Size = New System.Drawing.Size(362, 23)
         Me.txtUsername.TabIndex = 0
@@ -467,11 +449,31 @@ Partial Class frmStaff
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(25, 30)
+        Me.Label5.Location = New System.Drawing.Point(40, 56)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(66, 15)
         Me.Label5.TabIndex = 8
         Me.Label5.Text = "Username :"
+        '
+        'txtFunction
+        '
+        Me.txtFunction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.txtFunction.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.txtFunction.FormattingEnabled = True
+        Me.txtFunction.Items.AddRange(New Object() {"Admin", "Manager", "Cashier"})
+        Me.txtFunction.Location = New System.Drawing.Point(130, 19)
+        Me.txtFunction.Name = "txtFunction"
+        Me.txtFunction.Size = New System.Drawing.Size(165, 23)
+        Me.txtFunction.TabIndex = 9
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(70, 22)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(36, 15)
+        Me.Label7.TabIndex = 11
+        Me.Label7.Text = "Role :"
         '
         'Label1
         '
@@ -482,15 +484,6 @@ Partial Class frmStaff
         Me.Label1.Size = New System.Drawing.Size(21, 12)
         Me.Label1.TabIndex = 8
         Me.Label1.Text = "Zip"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(17, 319)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(36, 15)
-        Me.Label7.TabIndex = 11
-        Me.Label7.Text = "Role :"
         '
         'Label15
         '
@@ -511,36 +504,6 @@ Partial Class frmStaff
         Me.Label12.Size = New System.Drawing.Size(19, 12)
         Me.Label12.TabIndex = 8
         Me.Label12.Text = "MI"
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Verdana", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(444, 301)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(67, 12)
-        Me.Label19.TabIndex = 8
-        Me.Label19.Text = "Commission"
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Verdana", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(100, 301)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(46, 12)
-        Me.Label17.TabIndex = 8
-        Me.Label17.Text = "Position"
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Font = New System.Drawing.Font("Verdana", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(274, 301)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(28, 12)
-        Me.Label18.TabIndex = 8
-        Me.Label18.Text = "Rate"
         '
         'Label14
         '
@@ -620,7 +583,7 @@ Partial Class frmStaff
         'Label25
         '
         Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(17, 348)
+        Me.Label25.Location = New System.Drawing.Point(15, 316)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(110, 15)
         Me.Label25.TabIndex = 4
@@ -630,6 +593,7 @@ Partial Class frmStaff
         '
         Me.txtZip.BackColor = System.Drawing.Color.White
         Me.txtZip.Location = New System.Drawing.Point(443, 246)
+        Me.txtZip.MaxLength = 5
         Me.txtZip.Name = "txtZip"
         Me.txtZip.Size = New System.Drawing.Size(166, 23)
         Me.txtZip.TabIndex = 7
@@ -658,22 +622,6 @@ Partial Class frmStaff
         Me.txtMI.Name = "txtMI"
         Me.txtMI.Size = New System.Drawing.Size(39, 23)
         Me.txtMI.TabIndex = 2
-        '
-        'txtCommision
-        '
-        Me.txtCommision.BackColor = System.Drawing.Color.White
-        Me.txtCommision.Location = New System.Drawing.Point(445, 316)
-        Me.txtCommision.Name = "txtCommision"
-        Me.txtCommision.Size = New System.Drawing.Size(165, 23)
-        Me.txtCommision.TabIndex = 11
-        '
-        'txtRate
-        '
-        Me.txtRate.BackColor = System.Drawing.Color.White
-        Me.txtRate.Location = New System.Drawing.Point(273, 316)
-        Me.txtRate.Name = "txtRate"
-        Me.txtRate.Size = New System.Drawing.Size(165, 23)
-        Me.txtRate.TabIndex = 10
         '
         'txtBarangay
         '
@@ -782,12 +730,11 @@ Partial Class frmStaff
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents txtPosition As ComboBox
+    Friend WithEvents txtFunction As ComboBox
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents txtAssigned As TextBox
     Friend WithEvents Label20 As Label
     Friend WithEvents txtConfirmPWD As TextBox
-    Friend WithEvents Label9 As Label
     Friend WithEvents txtPassword As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents txtUsername As TextBox
@@ -796,9 +743,6 @@ Partial Class frmStaff
     Friend WithEvents Label7 As Label
     Friend WithEvents Label15 As Label
     Friend WithEvents Label12 As Label
-    Friend WithEvents Label19 As Label
-    Friend WithEvents Label17 As Label
-    Friend WithEvents Label18 As Label
     Friend WithEvents Label14 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents Label16 As Label
@@ -813,8 +757,6 @@ Partial Class frmStaff
     Friend WithEvents Label4 As Label
     Friend WithEvents txtCity As TextBox
     Friend WithEvents txtMI As TextBox
-    Friend WithEvents txtCommision As TextBox
-    Friend WithEvents txtRate As TextBox
     Friend WithEvents txtBarangay As TextBox
     Friend WithEvents txtProvince As TextBox
     Friend WithEvents txtStreet As TextBox
@@ -831,10 +773,11 @@ Partial Class frmStaff
     Friend WithEvents Label23 As Label
     Friend WithEvents Label25 As Label
     Friend WithEvents txtBirthDate As DateTimePicker
-    Protected WithEvents txtMaritalStatus As ComboBox
     Private WithEvents txtEmployStatus As ComboBox
     Friend WithEvents btnOpenImage As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents txtSearch As ToolStripTextBox
+    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents txtMaritalStatus As ComboBox
 End Class

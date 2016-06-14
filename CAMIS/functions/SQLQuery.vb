@@ -148,9 +148,12 @@ Module SQLQuery
                     If TypeOf (ctrl) Is PictureBox Then
                         arrImage = ds.Tables(sDSName).Rows(0).Item(i)
                         If arrImage.Length = 0 Then
-                            MessageBox.Show("Empty Image")
+                            If msgShow = True Then
+                                MessageBox.Show("Empty Image")
+                            End If
+                            msgShow = True
                         Else
-                            Dim mstream As New System.IO.MemoryStream(arrImage)
+                                Dim mstream As New System.IO.MemoryStream(arrImage)
                             txt.Image = Image.FromStream(mstream)
                         End If
 
@@ -164,9 +167,11 @@ Module SQLQuery
 
             Catch ex As Exception
                 'MessageBox.Show("Error on retreiving values on sqlRefill " & ex.Message.ToString, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-
-                MessageBox.Show(ErrMessageText)
-                ErrMessageText = ""
+                If msgShow = True Then
+                    MessageBox.Show(ErrMessageText)
+                    ErrMessageText = ""
+                    msgShow = True
+                End If
             End Try
         ElseIf (showTxtboxValue = "ShowValueInComboBox") Then
             da.SelectCommand = cmd
@@ -295,7 +300,7 @@ Module SQLQuery
         End Try
     End Sub
 
-    Public Sub SqlUpdate(ByVal strSql As String, ByRef ObjListDisplay As Object, ByVal DSName As String, arrTextBox As Object())
+    Public Sub SqlUpdate(ByVal strSql As String, ByRef ObjListDisplay As Object, ByVal DSName As String, arrTextBox As Object(), ByVal referenceValue As String)
         Try
             ConnDB()
             cmd = New MySqlCommand(strSql, conn)
@@ -311,7 +316,7 @@ Module SQLQuery
                 End If
                 p += 1
             Next
-            cmd.Parameters.AddWithValue("@ref", strReferenceValue)
+            cmd.Parameters.AddWithValue("@ref", referenceValue)
             cmd.ExecuteNonQuery()
             ObjListDisplay.Items.Clear()
             SqlReFill(DSName, ObjListDisplay)
@@ -328,21 +333,26 @@ Module SQLQuery
         End Try
     End Sub
 
+
+    Public Sub itemUpdate(ByVal TableName As String, ByRef ObjListDisplay As Object, ByVal arrTableColumn As String(), ByVal arrObjects As Object(), ByVal ColumnReference As String, ByVal referenceValue As String)
+        sqL = "Update " & TableName & " Set "
+        Dim i As Integer = 0
+        For Each arrCol In arrTableColumn
+            sqL &= arrCol & "=@" & i & ","
+            i += 1
+        Next
+        sqL = sqL.Remove(sqL.Length - 1)
+        sqL &= " Where " & ColumnReference & " = @ref"
+
+        SqlUpdate(sqL, ObjListDisplay, TableName, arrObjects, referenceValue)
+    End Sub
+
+
     Public Sub SqlUpdateNew(ByVal DatasetName As String, ByRef ObjListDisplay As Object, ByVal arrTableColumn As String(), ByVal arrTextBox As Object())
         ' ObjListDisplay.items.clear()
         Select Case StatusSet
             Case "Update"
-                sqL = "Update " & DatasetName & " Set "
-                Dim i As Integer = 0
-                For Each arrCol In arrTableColumn
-                    sqL &= arrCol & "=@" & i & ","
-                    i += 1
-                Next
-                sqL = sqL.Remove(sqL.Length - 1)
-                sqL &= " Where " & strReferenceColumn & " = @ref"
 
-                SqlUpdate(sqL, ObjListDisplay, DatasetName, arrTextBox)
-                StatusSet = ""
             Case "New"
                 ' ClearTextBoxes(objFormUpdateNew)
                 Dim strSql = "INSERT INTO " & DatasetName & "("
