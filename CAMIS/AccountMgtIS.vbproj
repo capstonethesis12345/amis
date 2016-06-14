@@ -102,10 +102,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="functions\SQLQuery.vb" />
-    <Compile Include="MainForm.designer.vb">
-      <DependentUpon>MainForm.vb</DependentUpon>
+    <Compile Include="fMainForm.designer.vb">
+      <DependentUpon>fMainForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.vb">
+    <Compile Include="fMainForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\frmAddUpdateCategory.Designer.vb">
@@ -198,12 +198,6 @@
     <Compile Include="forms\frmLoadCategory.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\frmLogin.designer.vb">
-      <DependentUpon>frmLogin.vb</DependentUpon>
-    </Compile>
-    <Compile Include="forms\frmLogin.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="forms\frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -281,8 +275,8 @@
     <Compile Include="functions\SQLConn.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.vb</DependentUpon>
+    <EmbeddedResource Include="fMainForm.resx">
+      <DependentUpon>fMainForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmAddUpdateCategory.resx">
       <DependentUpon>frmAddUpdateCategory.vb</DependentUpon>
@@ -325,9 +319,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmLoadCategory.resx">
       <DependentUpon>frmLoadCategory.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\frmLogin.resx">
-      <DependentUpon>frmLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
@@ -417,6 +408,7 @@
     <None Include="Resources\Button2.Image.png" />
     <None Include="Resources\accept30x30.png" />
     <None Include="Resources\back30x30.png" />
+    <None Include="Resources\720.gif" />
     <Content Include="Resources\bgWallpaper.png" />
     <Content Include="Resources\btnSubmit.png" />
     <Content Include="Resources\btnSubmitHOVER.png" />

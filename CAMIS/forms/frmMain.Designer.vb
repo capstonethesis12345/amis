@@ -79,7 +79,7 @@ Partial Class frmMain
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.BackColor = System.Drawing.Color.White
+        Me.MenuStrip1.BackColor = System.Drawing.Color.SlateGray
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.RecordToolStripMenuItem, Me.TransactionToolStripMenuItem, Me.ReportToolStripMenuItem, Me.ToolsToolStripMenuItem, Me.AboutToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -277,7 +277,7 @@ Partial Class frmMain
         '
         'ToolStrip1
         '
-        Me.ToolStrip1.BackColor = System.Drawing.Color.DimGray
+        Me.ToolStrip1.BackColor = System.Drawing.Color.SlateGray
         Me.ToolStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ToolStrip1.CanOverflow = False
         Me.ToolStrip1.Dock = System.Windows.Forms.DockStyle.Left
@@ -368,7 +368,7 @@ Partial Class frmMain
         '
         'StatusStrip1
         '
-        Me.StatusStrip1.BackColor = System.Drawing.Color.Purple
+        Me.StatusStrip1.BackColor = System.Drawing.Color.DarkSlateBlue
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.tsslUser, Me.ToolStripStatusLabel3, Me.lblDate, Me.ToolStripStatusLabel5, Me.lblTimer})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 487)
         Me.StatusStrip1.Name = "StatusStrip1"
@@ -449,8 +449,7 @@ Partial Class frmMain
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange
         Me.BackColor = System.Drawing.Color.White
-        Me.BackgroundImage = Global.AccountManagementIS.My.Resources.Resources.bg8
-        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BackgroundImage = Global.AccountManagementIS.My.Resources.Resources.bgWallpaper
         Me.ClientSize = New System.Drawing.Size(804, 509)
         Me.ControlBox = False
         Me.Controls.Add(Me.Panel1)

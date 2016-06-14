@@ -1,4 +1,5 @@
-﻿Public Class MainForm
+﻿Public Class fMainForm
+    Public loading As Boolean = False
     Public Sub New()
 
         ' This call is required by the designer.
@@ -38,13 +39,40 @@
         Else
             'Set user and password 
             'match inputed user and password
-            getData()
-            SqlRefresh = "SELECT Function FROM `Users` WHERE Username LIKE @0 and Password LIKE @1"
-            ErrMessageText = "Incorrect username and password"
-            SqlReFill("Users", Nothing, "ShowValueInTextbox", {"0", "1"}, {tUsername, tPassword}, {txtFunction})
 
+            PictureBox2.Visible = True
+            Dim status As String = logmein()
+            If status = "Admin" Then
+                PictureBox2.Visible = False
+                Dim fmain As New frmMain(txtFunction.Text)
+                fmain.Show()
+                Me.Hide()
+            ElseIf status = "Cashier" Then
+                PictureBox2.Visible = False
+            Else
+
+            End If
+
+
+            'PictureBox2.Visible = True
+
+            'If Not txtFunction.Text = vbNullString Then
+            '         PictureBox2.Visible = False
+            '     Dim fmain As New frmMain(txtFunction.Text)
+            '  fmain.Show()
+            '
+            '           Me.Hide()
+            '      End If
         End If
     End Sub
+    Private Function logmein()
+        getData()
+        SqlRefresh = "SELECT Function FROM `Users` WHERE Username LIKE @0 and Password LIKE @1"
+        ErrMessageText = "Incorrect username and password"
+        SqlReFill("Users", Nothing, "ShowValueInTextbox", {"0", "1"}, {tUsername, tPassword}, {txtFunction})
+        Return txtFunction.Text
+    End Function
+
     Private Sub showError(ByVal errPicture As PictureBox)
         errPicture.Visible = True
     End Sub
@@ -59,12 +87,5 @@
         End If
     End Sub
 
-    Private Sub txtFunction_TextChanged(sender As Object, e As EventArgs) Handles txtFunction.TextChanged
-        If txtFunction IsNot vbNullString Then
-            Dim f As New frmMain(txtFunction.Text)
-            f.Show()
-            Me.Hide()
 
-        End If
-    End Sub
 End Class

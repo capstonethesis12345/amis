@@ -56,7 +56,6 @@ F:\gethub\amis\CAMIS\bin\Debug\database.xml
 F:\gethub\amis\CAMIS\bin\Debug\MetroFramework.pdb
 F:\gethub\amis\CAMIS\bin\Debug\MetroFramework.Demo.pdb
 F:\gethub\amis\CAMIS\obj\x86\Debug\AccountMgtIS.vbprojResolveAssemblyReference.cache
-F:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.MainForm.resources
 F:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateCategory.resources
 F:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateProduct.resources
 F:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateRequisition.resources
@@ -70,7 +69,6 @@ F:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmFilterDailySales.resou
 F:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmFilterStockIn.resources
 F:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmFilterStockOut.resources
 F:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmLoadCategory.resources
-F:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmLogin.resources
 F:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmMain.resources
 F:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmPayment.resources
 F:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmPOS.resources
@@ -87,3 +85,4 @@ F:\gethub\amis\CAMIS\obj\x86\Debug\AccountMgtIS.vbproj.GenerateResource.Cache
 F:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.exe
 F:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.xml
 F:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
+F:\gethub\amis\CAMIS\obj\x86\Debug\AccountManagementIS.fMainForm.resources

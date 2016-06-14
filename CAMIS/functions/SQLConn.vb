@@ -89,7 +89,7 @@ Module SQLConn
             Finally
                 DisconnDB()
             End Try
-            frmDatabase.ProgressBar1.Value += progress
+            frmDatabase.ProgressBar1.Value = progress
             i += 1
         Next
         frmDatabase.ProgressBar1.Value = 100

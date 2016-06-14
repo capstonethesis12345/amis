@@ -20,21 +20,21 @@ Public Class createDB
         'sqlList.Add("CREATE USER '" & dbUser & "'@'localhost' IDENTIFIED BY '" & dbPass & "'")
         'sqlList.Add("GRANT ALL PRIVILEGES ON `" & dbname & "\_%`.* TO '" & dbUser & "'@'localhost'")
         'EMPLOYEE TABLE
-        sqlList.Add("CREATE TABLE IF NOT EXISTS `employees` (
+        sqlList.Add("CREATE TABLE IF NOT EXISTS `Employees` (
             `EmpID` int(30) Not NULL AUTO_INCREMENT,
-            `NameFirst` varchar(30) Not NULL,
-            `NameMiddle` varchar(30) Not NULL,
-            `NameLast` varchar(30) Not NULL,
-            `Gender` varchar(5) NULL,
-            `BirthDate` varchar(50) NULL,
+            `NameFirst` varchar(45) Not NULL,
+            `NameMiddle` varchar(45) Not NULL,
+            `NameLast` varchar(45) Not NULL,
+            `Gender` ENUM('M','F') NULL,
+            `BirthDate` Date NULL,
             `BirthAddress` varchar(100) NULL,
-            `MaritalStatus` varchar(15) NULL,
-            `AddressStreet` varchar(30) NULL,
-            `AddressBarangay` varchar(30) NULL,
-            `AddressMunCity` varchar(30) NULL,
-            `AddressProvince` varchar(30) NULL,
-            `AddressZip` varchar(30) NULL,
-            `Contact` varchar(30) NULL,
+            `MaritalStatus` ENUM('Single','Married') NULL,
+            `AddressStreet` varchar(45) NULL,
+            `AddressBarangay` varchar(45) NULL,
+            `AddressMunCity` varchar(45) NULL,
+            `AddressProvince` varchar(45) NULL,
+            `AddressZip` varchar(5) NULL,
+            `Contact` varchar(15) NULL,
             `EmploymentStatus` tinyint not NULL,
             `EmpImage` longblob NULL,
             PRIMARY KEY(`EmpID`)
@@ -45,12 +45,17 @@ Public Class createDB
             `Username` varchar(20) Not NULL,
             `Password` varchar(50) Not NULL,
             `Function` ENUM('Admin','Cashier','Manager') Not NULL,
-            PRIMARY KEY(`UserID`) 
+            PRIMARY KEY(`UserID`),
+            UNIQUE KEY `Username_UNIQUE` (`Username`)
            )")
         'INSERT INITIAL VALUE
+        '2 tables must always be linked by not all employees have the access to the program
+        'each user must have employee record. need only once.
         sqlList.Add("insert into employees(`namefirst`,`namemiddle`,`namelast`,`employmentstatus`) values('Administrator','Administrator','Administrator',1);")
         sqlList.Add("insert into Users(`Empid`,`username`,`password`,`function`) values(1,'Admin','Admin','Admin');")
-        'insert administrator user
+
+
+
 
         'CREATE USER ON DATABASE PHPMYADMIN
         'sqlList.Add("GRANT ALL PRIVILEGES ON  `" & dbname & "` . * TO  '" & dbUser & "'@'localhost' WITH GRANT OPTION")

@@ -12,35 +12,35 @@
          <Members>
           <Member Name="#AddProducts()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\forms" File="frmAddUpdateProduct.vb" Line="57">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'frmAddUpdateProduct.AddProducts()' could contain the following variables 'SQLConn.sqL'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#AddStockIn()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\forms" File="frmAddUpdateProduct.vb" Line="73">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'frmAddUpdateProduct.AddStockIn()' could contain the following variables 'SQLConn.sqL'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#GetProductNo()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\forms" File="frmAddUpdateProduct.vb" Line="9">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'frmAddUpdateProduct.GetProductNo()' could contain the following variables 'SQLConn.sqL'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#LoadUpdateCategory()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\forms" File="frmAddUpdateProduct.vb" Line="30">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'frmAddUpdateProduct.LoadUpdateCategory()' could contain the following variables 'SQLConn.sqL'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#UpdateProduct()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\forms" File="frmAddUpdateProduct.vb" Line="87">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'frmAddUpdateProduct.UpdateProduct()' could contain the following variables 'SQLConn.sqL'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
@@ -51,7 +51,7 @@
          <Members>
           <Member Name="#LoadCategory()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\forms" File="frmLoadCategory.vb" Line="9">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'frmLoadCategory.LoadCategory()' could contain the following variables 'SQLConn.sqL'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
@@ -62,7 +62,7 @@
          <Members>
           <Member Name="#AddPayment()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\forms" File="frmPayment.vb" Line="8">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'frmPayment.AddPayment()' could contain the following variables 'SQLConn.sqL'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
@@ -73,14 +73,14 @@
          <Members>
           <Member Name="#frmPOS_Load(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\forms" File="frmPOS.vb" Line="13">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'frmPOS.frmPOS_Load(Object, EventArgs)' could contain the following variables 'SQLConn.sqL'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#SaveTransactionToolStripMenuItem_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\forms" File="frmPOS.vb" Line="138">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'frmPOS.SaveTransactionToolStripMenuItem_Click(Object, EventArgs)' could contain the following variables 'SQLConn.sqL'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\forms" File="frmPOS.vb" Line="143">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'frmPOS.SaveTransactionToolStripMenuItem_Click(Object, EventArgs)' could contain the following variables 'SQLConn.sqL'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
@@ -88,7 +88,7 @@
           </Member>
           <Member Name="#txtItemNo_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\forms" File="frmPOS.vb" Line="46">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'frmPOS.txtItemNo_KeyDown(Object, KeyEventArgs)' could contain the following variables 'SQLConn.sqL'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
@@ -99,14 +99,14 @@
          <Members>
           <Member Name="#LoadItemstoDatagrid()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\forms" File="frmPrintReceipt.vb" Line="11">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'frmPrintReceipt.LoadItemstoDatagrid()' could contain the following variables 'SQLConn.sqL'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#LoadReceiptInfo()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\forms" File="frmPrintReceipt.vb" Line="34">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'frmPrintReceipt.LoadReceiptInfo()' could contain the following variables 'SQLConn.sqL'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
@@ -117,7 +117,7 @@
          <Members>
           <Member Name="#LoadProducts()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\forms" File="frmProduct.vb" Line="22">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'frmProduct.LoadProducts()' could contain the following variables 'SQLConn.sqL'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
@@ -128,7 +128,7 @@
          <Members>
           <Member Name="#LoadStocksOutReport()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\forms" File="frmReportDailySales.vb" Line="19">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'frmReportDailySales.LoadStocksOutReport()' could contain the following variables 'SQLConn.sqL'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
@@ -139,7 +139,7 @@
          <Members>
           <Member Name="#LoadStocksInReport()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\forms" File="frmReportStockIn.vb" Line="53">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'frmReportStockIn.LoadStocksInReport()' could contain the following variables 'SQLConn.sqL'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
@@ -150,7 +150,7 @@
          <Members>
           <Member Name="#LoadStocksOutReport()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\forms" File="frmReportStockOut.vb" Line="52">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'frmReportStockOut.LoadStocksOutReport()' could contain the following variables 'SQLConn.sqL'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
@@ -161,14 +161,14 @@
          <Members>
           <Member Name="#AddStockIn()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\forms" File="frmStockIn.vb" Line="20">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'frmStockIn.AddStockIn()' could contain the following variables 'SQLConn.sqL'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#UpdateProductQuantity()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\forms" File="frmStockIn.vb" Line="36">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'frmStockIn.UpdateProductQuantity()' could contain the following variables 'SQLConn.sqL'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
@@ -179,7 +179,7 @@
          <Members>
           <Member Name="#generateDB(System.String,System.String,System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\functions" File="SQLConn.vb" Line="75">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'SQLConn.generateDB(String, String, String)' could contain the following variables 'y(...)'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
@@ -190,63 +190,63 @@
          <Members>
           <Member Name="#getID(System.String,System.String,System.Boolean)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\functions" File="SQLQuery.vb" Line="189">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'SQLQuery.getID(String, String, Boolean)' could contain the following variables 'sql'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#getValue(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\functions" File="SQLQuery.vb" Line="226">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'SQLQuery.getValue(String)' could contain the following variables 'sql'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#pageData(System.String,System.Windows.Forms.ComboBox,System.Int32)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\functions" File="SQLQuery.vb" Line="410">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'SQLQuery.pageData(String, ComboBox, Integer)' could contain the following variables 'qryCount'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#SqlAdd(System.String,System.String,System.Object,System.Object[])" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\functions" File="SQLQuery.vb" Line="245">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'SQLQuery.SqlAdd(String, String, Object, Object())' could contain the following variables 'Sql'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#SqlFill(System.String,System.String,System.Object,System.Object)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\functions" File="SQLQuery.vb" Line="28">The query string passed to 'MySqlCommand.CommandText.Set(String)' in 'SQLQuery.SqlFill(String, String, Object, Object)' could contain the following variables 'sql'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#SqlReFill(System.String,System.Object,System.String,System.String[],System.Object,System.Object[])" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\functions" File="SQLQuery.vb" Line="93">The query string passed to 'MySqlCommand.CommandText.Set(String)' in 'SQLQuery.SqlReFill(String, Object, String, String(), Object, Object())' could contain the following variables 'SQLConn.SqlRefresh'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#SqlUpdate(System.String,System.Object&amp;,System.String,System.Object[])" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\functions" File="SQLQuery.vb" Line="301">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'SQLQuery.SqlUpdate(String, ByRef Object, String, Object())' could contain the following variables 'strSql'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#SqlUpdateNew(System.String,System.Object&amp;,System.String[],System.Object[])" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\functions" File="SQLQuery.vb" Line="382">The query string passed to 'MySqlCommand.New(String, MySqlConnection)' in 'SQLQuery.SqlUpdateNew(String, ByRef Object, String(), Object())' could contain the following variables 'SQLConn.sqL'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#Trigger(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-13 13:48:32Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-06-14 04:41:38Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="F:\gethub\amis\CAMIS\functions" File="SQLQuery.vb" Line="72">The query string passed to 'MySqlCommand.CommandText.Set(String)' in 'SQLQuery.Trigger(String)' could contain the following variables 'sql'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
