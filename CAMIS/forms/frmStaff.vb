@@ -7,8 +7,7 @@ Public Class frmStaff
         InitializeComponent()
         Try
             objForm = Me
-            SqlRefresh = "select empid,concat(namelast,', ',namefirst,' ',namemiddle),contact,concat(addressstreet,' ',addressmuncity,' ',addressprovince,' ',addresszip),username,jobposition from employees"
-            ' SqlFill(SqlRefresh, "Employees", ListView1)
+            SqlRefresh = "select e.empid,concat(e.namelast,', ',e.namefirst,' ',e.namemiddle),e.contact,concat(e.addressstreet,' ',e.addressmuncity,' ',e.addressprovince,' ',e.addresszip) from employees e,users u where u.empid=e.empid"
             SqlReFill("employees", ListView1)
         Catch ex As Exception
             MessageBox.Show("Error in establishing connection " & ex.Message.ToString, "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
