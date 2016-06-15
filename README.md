@@ -4,17 +4,16 @@ Proposed and developed by Marlo, Isagani, Jeffrey, and Romerey
 
 Functions involved in the data are the following:
 -------------------------------------------------
-This will open form fully maximize inside an mdi container
+
 openFull([FORMNAME to Open])
 -------------------------------------------------
+This will open form fully maximize inside an mdi container
 
 
-Function below are the auto generates sql for insert,update and delete
-itemNew(TableName As String, 
-        arrTableColumn As String(), 
-        arrTextBox As Object(), 
-        [Optional] ObjListDisplay As Object)
-        
+
+------------------------------------------------
+itemNew([TableStringName], [arrStringTableColumn], [arrOBJECTTextBox] , [Optional ObjListDisplay])
+-----------------------------------------------
 [optional] ObjListDisplay if not nothing will auto refresh an object listview
 in line with (sqlRefresh) for autoquery sql is needed
 
