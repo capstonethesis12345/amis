@@ -27,8 +27,7 @@ Public Class frmMain
     End Sub
 
     Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton2.Click
-        frmProduct.MdiParent = Me
-        frmProduct.Show()
+        openFull(frmProduct)
     End Sub
     Private Sub ToolStripButton5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton5.Click
         frmPOS.ShowDialog()
@@ -97,4 +96,7 @@ Public Class frmMain
     Private Sub MenuToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MenuToolStripMenuItem.Click
         openFull(frmFoodMenu)
     End Sub
+
+
+
 End Class
