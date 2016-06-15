@@ -38,19 +38,22 @@ Public Class frmStaff
         PictureBox1.Visible = True
         Dim obj As Object = Nothing
 
-        textboxes = {txtEmployeeNo, txtFirstname, txtMI, txtLastname, txtGender, txtBirthDate, txtBirthAddress, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, txtAssigned, txtUsername, txtEmployStatus, txtMaritalStatus, PictureBox1, txtFunction}
+        textboxes = {txtEmployeeNo, txtFirstname, txtMI, txtLastname, txtGender, txtBirthDate, txtBirthAddress, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, txtUsername, txtEmployStatus, txtMaritalStatus, PictureBox1, txtFunction}
+
         clearField(textboxes)
+        clearField({txtPassword, txtConfirmPWD})
         Try
             txtEmployeeNo.Text = ListView1.SelectedItems(0).Text.ToString
             'StatusSet = ""
             'ErrMessageText = ""
 
-            SqlRefresh = "SELECT  e.Empid, e.NameFirst, e.NameMiddle,e.NameLast,ifnull(e.Gender,''),ifnull(e.BirthDate,''),ifnull(e.BirthAddress,''),ifnull(e.AddressStreet,''),ifnull(e.AddressBarangay,''),ifnull(e.AddressMunCity,''),ifnull(e.AddressProvince,''),ifnull(e.AddressZip,''),ifnull(e.Contact,''),'',ifnull(u.Username,''),ifnull(e.EmploymentStatus,'')EmploymentStatus,ifnull(e.maritalstatus,'')maritalstatus,ifnull(e.EmpImage,''),ifnull(`u`.`Function`,'')role from Employees e
+            SqlRefresh = "SELECT  e.Empid, e.NameFirst, e.NameMiddle,e.NameLast,ifnull(e.Gender,''),ifnull(e.BirthDate,''),ifnull(e.BirthAddress,''),ifnull(e.AddressStreet,''),ifnull(e.AddressBarangay,''),ifnull(e.AddressMunCity,''),ifnull(e.AddressProvince,''),ifnull(e.AddressZip,''),ifnull(e.Contact,''),ifnull(u.Username,''),ifnull(e.EmploymentStatus,'')EmploymentStatus,ifnull(e.maritalstatus,'')maritalstatus,ifnull(e.EmpImage,''),ifnull(`u`.`Function`,'')role from Employees e
                             LEFT JOIN Users u
                             ON u.EmpID=e.Empid
                         where e.empid=@empid"
-            msgShow = False
+            msgShow = False 'PREVENT OCCURANCE OF MESSAGEBOX SHOW
             SqlReFill("Employees", Nothing, "ShowValueInTextbox", {"empid"}, {txtEmployeeNo}, textboxes)
+
             'COMMENTED CODED IS TO ACCESS MANUAL INFORMATION F DATASET TABLE.
             ' Dim mstatus As String = ds.Tables("employees").Rows(0).Item("maritalstatus").ToString
             Dim empStatus As String = ds.Tables("Employees").Rows(0).Item("EmploymentStatus").ToString
@@ -61,6 +64,7 @@ Public Class frmStaff
             Else
                 txtEmployStatus.SelectedIndex = 1
             End If
+
             'SHOW ACCESS ROLES AS BASED ON ROLE ACCESS WHETHER ADMIN MANAGER OR CASHIER
             Select Case empAccess
                 Case Is = "Admin"
@@ -90,13 +94,16 @@ Public Class frmStaff
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        'this will query athe following refresh upon insert and update
         SqlRefresh = "select e.empid,concat(e.namelast,', ',e.namefirst,' ',e.namemiddle) from Employees e left join users u on u.empid=e.empid"
-        Dim empStatus As New TextBox
+
+        Dim empStatus As New TextBox 'create a temporary object textbox to store string inorder to transfer a data into function itemnew() or itemupdate()
         If txtEmployStatus.SelectedIndex = 0 Then
             empStatus.text = 1
         Else
             empStatus.text = 0
         End If
+
 
         If txtEmployeeNo.Text = vbNullString Then 'basihan nato kung available ang employee no if not add if available update ra.
             ' StatusSet = "New" 'predicesor for adding a values
@@ -120,8 +127,17 @@ Public Class frmStaff
             'strReferenceColumn = "empid" ' referrencial column entity
             'strReferenceID = txtEmployeeNo.Text 'values related to what needs to update
         End If
-        ' SqlUpdateNew("employees", ListView1, {"username", "password", "namefirst", "namemiddle", "namelast", "gender", "birthdate", "BirthAddress", "MaritalStatus", "addressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact", "JobPosition", "JobRate", "JobCommission", "JobAssign", "EmploymentStatus", "empimage"},
-        '                                    {txtUsername, txtPassword, txtFirstname, txtMI, txtLastname, txtGender, txtBirthDate, txtBirthAddress, txtMaritalStatus, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, txtPosition, txtRate, txtCommision, txtAssigned, txtEmployStatus, PictureBox1})
+
+        'BELOW CODES INITIATE IF USERS HAS ABILITY TO INSERT ACCESSIBLE SOFTWARE AND ITS FUNCTIONS
+        If CheckBox1.Checked = True Then
+            'Dim getEmpID As String
+            ' getEmpID = getID("select max(EmpID) from Users", "Users") 'we will get the existing 
+            itemNew("Users", ListView1, {"EmpID", "Username", "Password", "Function"}, {txtEmployeeNo, txtUsername, txtPassword, txtFunction})
+            MessageBox.Show("Inserting a value")
+        Else
+            itemDelete("Users", {"EmpID"}, {txtEmployeeNo})
+        End If
+
 
     End Sub
 
@@ -146,9 +162,6 @@ Public Class frmStaff
 
     End Sub
 
-    Private Sub ListView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListView1.SelectedIndexChanged
-
-    End Sub
 
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
         If CheckBox1.Checked = True Then

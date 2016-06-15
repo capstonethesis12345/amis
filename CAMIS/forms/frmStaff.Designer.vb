@@ -49,8 +49,6 @@ Partial Class frmStaff
         Me.lblStatus = New System.Windows.Forms.Label()
         Me.txtEmployStatus = New System.Windows.Forms.ComboBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.txtAssigned = New System.Windows.Forms.TextBox()
-        Me.Label20 = New System.Windows.Forms.Label()
         Me.txtConfirmPWD = New System.Windows.Forms.TextBox()
         Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -228,7 +226,7 @@ Partial Class frmStaff
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(115, 363)
+        Me.CheckBox1.Location = New System.Drawing.Point(88, 393)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(210, 19)
         Me.CheckBox1.TabIndex = 15
@@ -241,7 +239,7 @@ Partial Class frmStaff
         Me.btnClear.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnClear.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.Image = Global.AccountManagementIS.My.Resources.Resources.clear_icon16x16
+        Me.btnClear.Image = CType(resources.GetObject("btnClear.Image"), System.Drawing.Image)
         Me.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnClear.Location = New System.Drawing.Point(527, 533)
         Me.btnClear.Name = "btnClear"
@@ -278,9 +276,9 @@ Partial Class frmStaff
         '
         'PictureBox1
         '
-        Me.PictureBox1.BackgroundImage = Global.AccountManagementIS.My.Resources.Resources.empty_profile
+        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox1.Image = Global.AccountManagementIS.My.Resources.Resources.empty_profile11
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
         Me.PictureBox1.Location = New System.Drawing.Point(490, 53)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(120, 76)
@@ -376,8 +374,6 @@ Partial Class frmStaff
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.txtAssigned)
-        Me.GroupBox3.Controls.Add(Me.Label20)
         Me.GroupBox3.Controls.Add(Me.txtConfirmPWD)
         Me.GroupBox3.Controls.Add(Me.txtPassword)
         Me.GroupBox3.Controls.Add(Me.Label8)
@@ -387,34 +383,17 @@ Partial Class frmStaff
         Me.GroupBox3.Controls.Add(Me.Label7)
         Me.GroupBox3.Enabled = False
         Me.GroupBox3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox3.Location = New System.Drawing.Point(3, 388)
+        Me.GroupBox3.Location = New System.Drawing.Point(3, 418)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(508, 178)
+        Me.GroupBox3.Size = New System.Drawing.Size(508, 148)
         Me.GroupBox3.TabIndex = 16
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "User Information"
         '
-        'txtAssigned
-        '
-        Me.txtAssigned.BackColor = System.Drawing.Color.White
-        Me.txtAssigned.Location = New System.Drawing.Point(130, 82)
-        Me.txtAssigned.Name = "txtAssigned"
-        Me.txtAssigned.Size = New System.Drawing.Size(362, 23)
-        Me.txtAssigned.TabIndex = 2
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(51, 91)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(55, 15)
-        Me.Label20.TabIndex = 14
-        Me.Label20.Text = "Assigned"
-        '
         'txtConfirmPWD
         '
         Me.txtConfirmPWD.BackColor = System.Drawing.Color.White
-        Me.txtConfirmPWD.Location = New System.Drawing.Point(130, 146)
+        Me.txtConfirmPWD.Location = New System.Drawing.Point(130, 113)
         Me.txtConfirmPWD.Name = "txtConfirmPWD"
         Me.txtConfirmPWD.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtConfirmPWD.Size = New System.Drawing.Size(362, 23)
@@ -423,7 +402,7 @@ Partial Class frmStaff
         'txtPassword
         '
         Me.txtPassword.BackColor = System.Drawing.Color.White
-        Me.txtPassword.Location = New System.Drawing.Point(130, 118)
+        Me.txtPassword.Location = New System.Drawing.Point(130, 85)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassword.Size = New System.Drawing.Size(362, 23)
@@ -432,7 +411,7 @@ Partial Class frmStaff
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(43, 126)
+        Me.Label8.Location = New System.Drawing.Point(43, 93)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(63, 15)
         Me.Label8.TabIndex = 9
@@ -732,8 +711,6 @@ Partial Class frmStaff
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents txtFunction As ComboBox
     Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents txtAssigned As TextBox
-    Friend WithEvents Label20 As Label
     Friend WithEvents txtConfirmPWD As TextBox
     Friend WithEvents txtPassword As TextBox
     Friend WithEvents Label8 As Label

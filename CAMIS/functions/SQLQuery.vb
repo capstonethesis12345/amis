@@ -362,7 +362,25 @@ Module SQLQuery
         SqlAdd(strSql, TableName, ObjListDisplay, arrTextBox)
         ' StatusSet = ""
     End Sub
+    Public Sub itemDelete(ByVal TableName As String, ByVal arrTableColumn As String(), ByVal arrTextBox As Object(), Optional ByRef ObjListDisplay As Object = Nothing)
+        Dim i As Integer = 0
+        For Each arrCol In arrTableColumn
+            sqL = "DELETE FROM " & TableName & " WHERE " &
+                arrCol & "=@" & i.ToString
+            Try
+                ConnDB()
+                cmd = New MySqlCommand(sqL, conn)
+                cmd.Parameters.AddWithValue("@" & i.ToString, arrTextBox(i).Text)
+                cmd.ExecuteNonQuery()
+            Catch ex As Exception
+                MessageBox.Show("Error")
+            Finally
+                DisconnDB()
+            End Try
 
+            i += 1
+        Next
+    End Sub
     Public Sub SqlUpdateNew(ByVal DatasetName As String, ByRef ObjListDisplay As Object, ByVal arrTableColumn As String(), ByVal arrTextBox As Object())
         ' ObjListDisplay.items.clear()
         Select Case StatusSet
@@ -371,42 +389,7 @@ Module SQLQuery
             Case "New"
 
             Case "Delete"
-                Dim i As Integer = 0
-                For Each arrCol In arrTableColumn
-                    sqL = "DELETE FROM " & DatasetName & " WHERE " &
-                        arrCol & "=@" & i.ToString
-                    'SqlUpdate(sqL, ObjListDisplay, DatasetName, arrTextBox)
-                    'Try
-                    ' ConnDB()
-                    ' cmd = New MySqlCommand(sqL, conn)
-                    ' cmd.Parameters.AddWithValue("@" & arrCol, arrTextBox(i).text)
-                    ' cmd.ExecuteNonQuery()
-                    ' MessageBox.Show("Purchase canceled")
-                    ' Catch ex As Exception
-                    ' MessageBox.Show("Error update")
-                    ' Finally
-                    'DisconnDB()
-                    'End Try
-                    Try
-                        ConnDB()
-                        cmd = New MySqlCommand(sqL, conn)
 
-                        cmd.Parameters.AddWithValue("@" & i.ToString, arrTextBox(i).Text)
-
-
-                        cmd.ExecuteNonQuery()
-
-                    Catch ex As Exception
-                        MessageBox.Show("Error")
-                    Finally
-                        DisconnDB()
-                    End Try
-
-                    i += 1
-                Next
-                ' MessageBox.Show("Cancelled Success.")
-                ' MessageBox.Show(sqL)
-                StatusSet = ""
             Case Else
                 MessageBox.Show("Setting up status was not set, Please report to administrator", "Program error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Select
