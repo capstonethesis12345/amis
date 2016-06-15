@@ -7,8 +7,9 @@ Public Class frmStaff
         InitializeComponent()
         Try
             objForm = Me
-            SqlRefresh = "select e.empid,concat(e.namelast,', ',e.namefirst,' ',e.namemiddle) from employees e left join users u on u.empid=e.empid"
+            SqlRefresh = "select e.empid,concat(e.namelast,', ',e.namefirst,' ',e.namemiddle) from employees e left join users u on u.empid=e.empid order by e.empid asc"
             SqlReFill("Employees", ListView1)
+
         Catch ex As Exception
             MessageBox.Show("Error in establishing connection " & ex.Message.ToString, "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -95,7 +96,8 @@ Public Class frmStaff
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         'this will query athe following refresh upon insert and update
-        SqlRefresh = "select e.empid,concat(e.namelast,', ',e.namefirst,' ',e.namemiddle) from Employees e left join users u on u.empid=e.empid"
+
+        ' SqlRefresh = "select e.empid,concat(e.namelast,', ',e.namefirst,' ',e.namemiddle) from Employees e left join users u on u.empid=e.empid"
 
         Dim empStatus As New TextBox 'create a temporary object textbox to store string inorder to transfer a data into function itemnew() or itemupdate()
         If txtEmployStatus.SelectedIndex = 0 Then
@@ -107,19 +109,22 @@ Public Class frmStaff
 
         If txtEmployeeNo.Text = vbNullString Then 'basihan nato kung available ang employee no if not add if available update ra.
             ' StatusSet = "New" 'predicesor for adding a values
-
-            itemNew("Employees", ListView1,
+            SqlRefresh = "select e.empid,concat(e.namelast,', ',e.namefirst,' ',e.namemiddle) from employees e left join users u on u.empid=e.empid order by e.empid asc"
+            itemNew("Employees",
                    {"NameFirst", "NameMiddle", "NameLast", "BirthDate", "Gender", "MaritalStatus", "EmpImage", "BirthAddress", "AddressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact", "EmploymentStatus"},
-                    {txtFirstname, txtMI, txtLastname, txtBirthDate, txtGender, txtMaritalStatus, PictureBox1, txtBirthAddress, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, empStatus})
+                    {txtFirstname, txtMI, txtLastname, txtBirthDate, txtGender, txtMaritalStatus, PictureBox1, txtBirthAddress, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, empStatus},
+                    ListView1)
 
         Else
             'We will now set employment status if employed set text to 1 if not 0
 
             ErrMessageText = "Fillup all empty "
-            itemUpdate("Employees", ListView1,
+            SqlRefresh = "select e.empid,concat(e.namelast,', ',e.namefirst,' ',e.namemiddle) from employees e left join users u on u.empid=e.empid order by e.empid asc"
+            itemUpdate("Employees",
                        {"NameFirst", "NameMiddle", "NameLast", "BirthDate", "Gender", "MaritalStatus", "EmpImage", "BirthAddress", "AddressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact", "EmploymentStatus"},
                        {txtFirstname, txtMI, txtLastname, txtBirthDate, txtGender, txtMaritalStatus, PictureBox1, txtBirthAddress, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, empStatus},
-                       "EmpID", txtEmployeeNo.Text.ToString)
+                       "EmpID", txtEmployeeNo.Text.ToString,
+                       ListView1)
             'now we will insert login access to users insert 
 
 
@@ -130,10 +135,11 @@ Public Class frmStaff
 
         'BELOW CODES INITIATE IF USERS HAS ABILITY TO INSERT ACCESSIBLE SOFTWARE AND ITS FUNCTIONS
         If CheckBox1.Checked = True Then
-            'Dim getEmpID As String
-            ' getEmpID = getID("select max(EmpID) from Users", "Users") 'we will get the existing 
-            itemNew("Users", ListView1, {"EmpID", "Username", "Password", "Function"}, {txtEmployeeNo, txtUsername, txtPassword, txtFunction})
-            MessageBox.Show("Inserting a value")
+            If (txtUsername.Text Is vbNullString) Then
+                itemNew("Users", {"EmpID", "Username", "Password", "Function"}, {txtEmployeeNo, txtUsername, txtPassword, txtFunction}, ListView1)
+            Else
+                itemUpdate("Users", {"EmpID", "Username", "Password", "Function"}, {txtEmployeeNo, txtUsername, txtPassword, txtFunction}, "EmpID", txtEmployeeNo.Text)
+            End If
         Else
             itemDelete("Users", {"EmpID"}, {txtEmployeeNo})
         End If

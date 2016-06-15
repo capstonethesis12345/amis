@@ -244,7 +244,7 @@ Module SQLQuery
         Return id
     End Function
 
-    Public Sub SqlAdd(ByVal Sql As String, Optional ByVal DataSetName As String = Nothing, Optional ByVal ObjListDisplay As Object = Nothing, Optional ByVal arrTextBox As Object() = Nothing)
+    Public Sub SqlAdd(ByVal Sql As String, Optional ByVal arrTextBox As Object() = Nothing)
         Try
             ConnDB()
             cmd = New MySqlCommand(Sql, conn)
@@ -275,13 +275,15 @@ Module SQLQuery
                 p += 1
             Next
             cmd.ExecuteNonQuery()
-            ObjListDisplay.Items.Clear()
+
+            'ObjListDisplay.Items.Clear()
 
             If msgShow = True Then
                 MessageBox.Show("Success")
             End If
             msgShow = True
-            SqlReFill(DataSetName, ObjListDisplay)
+
+            'SqlReFill(DataSetName, ObjListDisplay)
 
         Catch ex As Exception
             If ex.GetType.ToString = "MySql.Data.MySqlClient.MySqlException" Then
@@ -298,7 +300,7 @@ Module SQLQuery
         End Try
     End Sub
 
-    Public Sub SqlUpdate(ByVal strSql As String, ByRef ObjListDisplay As Object, ByVal DSName As String, arrTextBox As Object(), ByVal referenceValue As String)
+    Public Sub SqlUpdate(ByVal strSql As String, ByVal DSName As String, arrTextBox As Object(), ByVal referenceValue As String)
         Try
             ConnDB()
             cmd = New MySqlCommand(strSql, conn)
@@ -316,8 +318,8 @@ Module SQLQuery
             Next
             cmd.Parameters.AddWithValue("@ref", referenceValue)
             cmd.ExecuteNonQuery()
-            ObjListDisplay.Items.Clear()
-            SqlReFill(DSName, ObjListDisplay)
+            'ObjListDisplay.Items.Clear()
+            'SqlReFill(DSName, ObjListDisplay)
             If msgShow = True Then
                 MessageBox.Show("Success")
             End If
@@ -332,7 +334,7 @@ Module SQLQuery
     End Sub
 
 
-    Public Sub itemUpdate(ByVal TableName As String, ByRef ObjListDisplay As Object, ByVal arrTableColumn As String(), ByVal arrObjects As Object(), ByVal ColumnReference As String, ByVal referenceValue As String)
+    Public Sub itemUpdate(ByVal TableName As String, ByVal arrTableColumn As String(), ByVal arrObjects As Object(), ByVal ColumnReference As String, ByVal referenceValue As String, Optional ByVal ObjListDisplay As Object = Nothing)
         sqL = "Update " & TableName & " Set "
         Dim i As Integer = 0
         For Each arrCol In arrTableColumn
@@ -342,9 +344,14 @@ Module SQLQuery
         sqL = sqL.Remove(sqL.Length - 1)
         sqL &= " Where " & ColumnReference & " = @ref"
 
-        SqlUpdate(sqL, ObjListDisplay, TableName, arrObjects, referenceValue)
+        SqlUpdate(sqL, TableName, arrObjects, referenceValue)
+        If ObjListDisplay IsNot Nothing Then
+            'ObjListDisplay.clear()
+            SqlReFill(TableName, ObjListDisplay)
+        End If
+
     End Sub
-    Public Sub itemNew(ByVal TableName As String, ByRef ObjListDisplay As Object, ByVal arrTableColumn As String(), ByVal arrTextBox As Object())
+    Public Sub itemNew(ByVal TableName As String, ByVal arrTableColumn As String(), ByVal arrTextBox As Object(), Optional ByVal ObjListDisplay As Object = Nothing)
         ' ClearTextBoxes(objFormUpdateNew)
         Dim strSql = "INSERT INTO " & TableName & "("
         For Each arrCol In arrTableColumn
@@ -359,7 +366,12 @@ Module SQLQuery
         Next
         strSql = strSql.Remove(strSql.Length - 1)
         strSql &= ")"
-        SqlAdd(strSql, TableName, ObjListDisplay, arrTextBox)
+        SqlAdd(strSql, arrTextBox)
+        If ObjListDisplay IsNot Nothing Then
+            'ObjListDisplay.clear()
+            SqlReFill(TableName, ObjListDisplay)
+        End If
+
         ' StatusSet = ""
     End Sub
     Public Sub itemDelete(ByVal TableName As String, ByVal arrTableColumn As String(), ByVal arrTextBox As Object(), Optional ByRef ObjListDisplay As Object = Nothing)
