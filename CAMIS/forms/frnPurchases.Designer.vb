@@ -242,7 +242,7 @@ Partial Class frmPurchases
         'lblSupplierID
         '
         Me.lblSupplierID.AutoSize = True
-        Me.lblSupplierID.Location = New System.Drawing.Point(282, 28)
+        Me.lblSupplierID.Location = New System.Drawing.Point(259, 25)
         Me.lblSupplierID.Name = "lblSupplierID"
         Me.lblSupplierID.Size = New System.Drawing.Size(0, 13)
         Me.lblSupplierID.TabIndex = 2
@@ -334,7 +334,7 @@ Partial Class frmPurchases
         Me.txtSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtSupplier.Location = New System.Drawing.Point(81, 22)
         Me.txtSupplier.Name = "txtSupplier"
-        Me.txtSupplier.Size = New System.Drawing.Size(194, 20)
+        Me.txtSupplier.Size = New System.Drawing.Size(173, 20)
         Me.txtSupplier.TabIndex = 0
         '
         'frmPurchases

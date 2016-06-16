@@ -202,51 +202,34 @@ Module SQLQuery
     End Sub
 
 
-    Function getIDFunction(ByVal sql As String, ByVal dsname As String, ByVal parameterValue As String(), Optional ByVal sp As Boolean = Nothing)
-        Dim id As Integer = "1"
+    Function getIDFunction(ByVal sql As String, ByVal dsname As String, ByVal parameterValue As String(), Optional isSalesID As Boolean = Nothing)
+        Dim id As Integer
         Try
             ConnDB()
+            cmd = New MySqlCommand(sql, conn)
             da = New MySqlDataAdapter
             ds = New DataSet()
-            cmd = New MySqlCommand(sql, conn)
+            cmd.CommandType = CommandType.Text
+
             Dim i As Integer = 0
             For Each param In parameterValue
-                cmd.Parameters.AddWithValue("@" & i.ToString, parameterValue)
+                cmd.Parameters.AddWithValue("@" & i.ToString, parameterValue(i))
                 i += 1
             Next
+
             da.SelectCommand = cmd
             da.Fill(ds, dsname)
-            'MessageBox.Show(ds.Tables(dsname).Rows.Count.ToString)
-            ' If ds.Tables(dsname).Rows.Count > 0 Then
+
+            id = ds.Tables(dsname).Rows(0).Item(0).ToString
+
             ' MessageBox.Show(ds.Tables(0).Rows.Count.ToString)
             ' End If
-            If (sp = Nothing) Then
-                If ds.Tables(dsname).Rows(0).Item(0).ToString = "" Then
-                    id = 1
-                ElseIf (ds.Tables(dsname).Rows(0).Item(0).ToString = 1) Then
-                    id = id + 1
-                Else
-                    id = ds.Tables(dsname).Rows(0).Item(0) + 1
-
-
-                End If
-            ElseIf (sp = True) Then
-                id = 0
-                id = ds.Tables(dsname).Rows(0).Item(0)
-
-
-
-            Else
-                If IsDBNull(ds.Tables(dsname).Rows(0).Item(0)) = False Then
-                    id = ds.Tables(dsname).Rows(0).Item(0)
-                Else
-                    id = 1
-                End If
-
-            End If
-
+            ' id = ds.Tables(dsname).Rows(0).Item(0).ToString
         Catch ex As Exception
             ' MessageBox.Show("Unable to retreve id")
+            If msgShow = True Then
+                MessageBox.Show("Error on getting ID :" & ex.Message.ToString, "Waring notice")
+            End If
         Finally
             DisconnDB()
         End Try

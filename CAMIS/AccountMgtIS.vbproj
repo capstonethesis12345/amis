@@ -402,6 +402,7 @@
     <None Include="Resources\Stock-Index-Up-icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MySql.Data.dll" />
     <Content Include="Resources\51882.png" />
     <None Include="Resources\bg8.jpg" />
     <None Include="Resources\btnSave.Image.png" />

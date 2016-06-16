@@ -38,25 +38,32 @@ Public Class frmPurchases
         If lblSupplierID.Text = vbNullString Then
             openFull(frmSupplier)
         Else
-            Dim itemID As Integer = Integer.Parse(getIDFunction("SELECT count(itemid)
+            sqL = "SELECT  `Supplierid` FROM  `supplier` WHERE Company LIKE  @0"
+            If getIDFunction(sqL, "SupplierID", {txtSupplier.Text}) = 0 Then    'is supplier is still not present repeat txtsupplier_leave
+                txtSupplier_Leave(Button1, e)
+            Else
+                Dim itemID As Integer = Integer.Parse(getIDFunction("SELECT count(itemid)
                                                         FROM Items
                                                         WHERE supplierid LIKE @0 
                                                         AND barcode LIKE @1 
                                                         AND ItemDescription LIKE  @2
                                                         AND itembrand LIKE  @3
                                                         AND cost LIKE @4 ", "Items",
-                                                                {lblSupplierID.Text, txtBarcode.Text, txtProductName.Text, txtBrand.Text, txtCost.Text}, True))
-            If itemID = 0 Then
-                'insert all values to ITEM table'
+                                                    {lblSupplierID.Text, txtBarcode.Text, txtProductName.Text, txtBrand.Text, txtCost.Text}))
+                If itemID = 0 Then
+                    'insert all values to ITEM table'
+                    itemNew("Items", {"SupplierID", "Barcode", "ItemDescription", "ItemBrand", "Cost"}, {lblSupplierID, txtBarcode, txtProductName, txtBrand, txtCost})
+                Else
+                    Dim currentPOID As String = getIDFunction("select max")
 
-                itemNew("Items", {"SupplierID", "Barcode", "ItemDescription", "ItemBrand", "Cost"}, {lblSupplierID, txtBarcode, txtProductName, txtBrand, txtCost})
+                    itemNew("polist", {"POID", "ItemID", "Quantity"}, {})
+                    MessageBox.Show("Item existed inert to POList")
+                    'get the current POID
+                    'insert only the ITEMID to POLIST table and quatity
+                End If
 
-
-            Else
-                MessageBox.Show("Item existed inert to POList")
-                'get the current POID
-                'insert only the ITEMID to POLIST table and quatity
             End If
+
         End If
 
     End Sub
@@ -64,9 +71,12 @@ Public Class frmPurchases
     Private Sub txtSupplier_Leave(sender As Object, e As EventArgs) Handles txtSupplier.Leave
         'LOST FOCUS WE WILL GET SUPPLIERID
         Try
-            lblSupplierID.Text = getIDFunction("Select supplierid from supplier where company like @0", "supplierid", {txtSupplier.Text})
-        Catch ex As Exception
+            MessageBox.Show(txtSupplier.Text)
+            sqL = "SELECT  `Supplierid` FROM  `supplier` WHERE Company LIKE  @0"
+            lblSupplierID.Text = getIDFunction(sqL, "SupplierID", {txtSupplier.Text})
 
+        Catch ex As Exception
+            MessageBox.Show("error")
         End Try
 
     End Sub
