@@ -23,3 +23,9 @@ itemNew(TableName As String,
         arrTableColumn As String(), 
         arrTextBox As Object(), 
         [Optional] ObjListDisplay As Object)
+        
+-----------------------------------------------------
+getIDFunction([sqlstr with @ parameters], [strDSname], [arrStrParameterValue], [Optional spBoolean])
+-------------------------------------
+this getidFunction will only returns a single values
+mostly used to get ID's.
