@@ -14,7 +14,24 @@ Module SQLQuery
     Public msgShow As Boolean = True
     Public pageMax As Integer = 5
     Public ErrMessageText As String = ""
+    Public Sub itemAutoComplete(ByVal DataSetName As String, ByVal objAutoCompleteTextBox As Object)
+        Try
 
+            ConnDB()
+            da = New MySqlDataAdapter
+            ds = New DataSet()
+            cmd = New MySqlCommand(SqlRefresh, conn)
+            da.SelectCommand = cmd
+            da.Fill(ds, DataSetName)
+            For Each dsRow In ds.Tables(DataSetName).Rows
+                objAutoCompleteTextBox.AutoCompleteCustomSource.Add(dsRow.Item(0).ToString)
+            Next
+        Catch ex As Exception
+            MessageBox.Show("Unable to set autocomplete")
+        Finally
+            DisconnDB()
+        End Try
+    End Sub
     Public Sub SqlFill(ByVal sql As String, ByVal dsName As String, Optional ByVal lvObj As Object = Nothing, Optional autoComplete As Object = Nothing)
         'para mas dali maquery no matter many rows or columns in a signle query this script will display
         Try
@@ -185,13 +202,18 @@ Module SQLQuery
     End Sub
 
 
-    Function getID(ByVal sql As String, ByVal dsname As String, Optional ByVal sp As Boolean = Nothing)
+    Function getIDFunction(ByVal sql As String, ByVal dsname As String, ByVal parameterValue As String(), Optional ByVal sp As Boolean = Nothing)
         Dim id As Integer = "1"
         Try
             ConnDB()
             da = New MySqlDataAdapter
             ds = New DataSet()
             cmd = New MySqlCommand(sql, conn)
+            Dim i As Integer = 0
+            For Each param In parameterValue
+                cmd.Parameters.AddWithValue("@" & i.ToString, parameterValue)
+                i += 1
+            Next
             da.SelectCommand = cmd
             da.Fill(ds, dsname)
             'MessageBox.Show(ds.Tables(dsname).Rows.Count.ToString)
@@ -205,7 +227,15 @@ Module SQLQuery
                     id = id + 1
                 Else
                     id = ds.Tables(dsname).Rows(0).Item(0) + 1
+
+
                 End If
+            ElseIf (sp = True) Then
+                id = 0
+                id = ds.Tables(dsname).Rows(0).Item(0)
+
+
+
             Else
                 If IsDBNull(ds.Tables(dsname).Rows(0).Item(0)) = False Then
                     id = ds.Tables(dsname).Rows(0).Item(0)

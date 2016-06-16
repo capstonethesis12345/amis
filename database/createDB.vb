@@ -55,8 +55,33 @@ Public Class createDB
         sqlList.Add("insert into Users(`Empid`,`username`,`password`,`function`) values(1,'Admin','Admin','Admin');")
 
 
-
-
+        'THIS WILL CREATE A PURCHASE ORDERLIST VIEW
+        sqlList.Add("CREATE TABLE POList(
+            POListID INT NOT NULL AUTO_INCREMENT ,
+            POID INT NOT NULL ,
+            ItemID INT NOT NULL,
+            Quantity DOUBLE( 10, 2 ) NOT NULL ,
+            PRIMARY KEY ( POListID )
+            )")
+        'THIS WILL CREAE PO TABLE FOR SUMMARY OF PURCHASE ORDER LISTS
+        sqlList.Add("create table PO(
+                POID int Not null auto_increment,
+                EmpID int Not null,
+                PODate DateTime Not NULL DEFAULT NOW(),
+                TotalCost Double Not null,
+                Status tinyint Not null Default 0,
+                primary key(POID)
+            )")
+        'THIS WILL CREATE ITEMS FOR SUMMARY OF ITEMS BEING PURCHASED
+        sqlList.Add("CREATE TABLE ITEMS(
+                ItemID int not null auto_increment,
+                SupplierID int not null,
+                Barcode INT NOT NULL,
+                ItemDescription Varchar(200) not null,
+                ItemBrand varchar(200) not null,
+                Cost double not null default 0.0,
+                PRIMARY KEY(ItemID)
+                )")
         'CREATE USER ON DATABASE PHPMYADMIN
         'sqlList.Add("GRANT ALL PRIVILEGES ON  `" & dbname & "` . * TO  '" & dbUser & "'@'localhost' WITH GRANT OPTION")
         dbTBCreate = sqlList.ToArray()

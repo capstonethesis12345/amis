@@ -81,7 +81,7 @@ Public Class frmMain
         frmFilterDailySales.ShowDialog()
     End Sub
 
-    Private Sub RequestToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RequestToolStripMenuItem.Click
+    Private Sub RequestToolStripMenuItem_Click(sender As Object, e As EventArgs)
         openFull(frmRequest)
     End Sub
 
@@ -97,6 +97,7 @@ Public Class frmMain
         openFull(frmFoodMenu)
     End Sub
 
-
-
+    Private Sub PurchasesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PurchasesToolStripMenuItem.Click
+        openFull(frmPurchases)
+    End Sub
 End Class

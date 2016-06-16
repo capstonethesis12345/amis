@@ -43,8 +43,6 @@ Partial Class frmMain
         Me.EncodeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RequestToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PurchasesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RequestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ReceivedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReturnsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AdjustmentToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -166,20 +164,20 @@ Partial Class frmMain
         'POSToolStripMenuItem
         '
         Me.POSToolStripMenuItem.Name = "POSToolStripMenuItem"
-        Me.POSToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.POSToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.POSToolStripMenuItem.Text = "Sales"
         '
         'BillsToolStripMenuItem
         '
         Me.BillsToolStripMenuItem.Name = "BillsToolStripMenuItem"
-        Me.BillsToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.BillsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.BillsToolStripMenuItem.Text = "Payables"
         '
         'PayrollToolStripMenuItem
         '
         Me.PayrollToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EncodeToolStripMenuItem, Me.RequestToolStripMenuItem1})
         Me.PayrollToolStripMenuItem.Name = "PayrollToolStripMenuItem"
-        Me.PayrollToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.PayrollToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.PayrollToolStripMenuItem.Text = "Payroll"
         '
         'EncodeToolStripMenuItem
@@ -196,33 +194,20 @@ Partial Class frmMain
         '
         'PurchasesToolStripMenuItem
         '
-        Me.PurchasesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RequestToolStripMenuItem, Me.ReceivedToolStripMenuItem})
         Me.PurchasesToolStripMenuItem.Name = "PurchasesToolStripMenuItem"
-        Me.PurchasesToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.PurchasesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.PurchasesToolStripMenuItem.Text = "Purchases"
-        '
-        'RequestToolStripMenuItem
-        '
-        Me.RequestToolStripMenuItem.Name = "RequestToolStripMenuItem"
-        Me.RequestToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
-        Me.RequestToolStripMenuItem.Text = "Request"
-        '
-        'ReceivedToolStripMenuItem
-        '
-        Me.ReceivedToolStripMenuItem.Name = "ReceivedToolStripMenuItem"
-        Me.ReceivedToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
-        Me.ReceivedToolStripMenuItem.Text = "Delivery"
         '
         'ReturnsToolStripMenuItem
         '
         Me.ReturnsToolStripMenuItem.Name = "ReturnsToolStripMenuItem"
-        Me.ReturnsToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.ReturnsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ReturnsToolStripMenuItem.Text = "Returns"
         '
         'AdjustmentToolStripMenuItem
         '
         Me.AdjustmentToolStripMenuItem.Name = "AdjustmentToolStripMenuItem"
-        Me.AdjustmentToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.AdjustmentToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AdjustmentToolStripMenuItem.Text = "Adjustment"
         '
         'ReportToolStripMenuItem
@@ -518,8 +503,6 @@ Partial Class frmMain
     Friend WithEvents FinancialStatusToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PurchasesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents RequestToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ReceivedToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SuppliersToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EncodeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RequestToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem

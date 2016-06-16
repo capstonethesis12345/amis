@@ -3,6 +3,7 @@ Imports MySql.Data.MySqlClient
 
 
 Public Class frmStaff
+    Dim usrPass As New TextBox
     Public Sub New()
         InitializeComponent()
         Try
@@ -48,7 +49,7 @@ Public Class frmStaff
             'StatusSet = ""
             'ErrMessageText = ""
 
-            SqlRefresh = "SELECT  e.Empid, e.NameFirst, e.NameMiddle,e.NameLast,ifnull(e.Gender,''),ifnull(e.BirthDate,''),ifnull(e.BirthAddress,''),ifnull(e.AddressStreet,''),ifnull(e.AddressBarangay,''),ifnull(e.AddressMunCity,''),ifnull(e.AddressProvince,''),ifnull(e.AddressZip,''),ifnull(e.Contact,''),ifnull(u.Username,''),ifnull(e.EmploymentStatus,'')EmploymentStatus,ifnull(e.maritalstatus,'')maritalstatus,ifnull(e.EmpImage,''),ifnull(`u`.`Function`,'')role from Employees e
+            SqlRefresh = "SELECT  e.Empid, e.NameFirst, e.NameMiddle,e.NameLast,ifnull(e.Gender,''),ifnull(e.BirthDate,''),ifnull(e.BirthAddress,''),ifnull(e.AddressStreet,''),ifnull(e.AddressBarangay,''),ifnull(e.AddressMunCity,''),ifnull(e.AddressProvince,''),ifnull(e.AddressZip,''),ifnull(e.Contact,''),ifnull(u.Username,''),ifnull(e.EmploymentStatus,'')EmploymentStatus,ifnull(e.maritalstatus,'')maritalstatus,ifnull(e.EmpImage,''),ifnull(`u`.`Function`,'')role,ifnull(`u`.`Password`,'')Ucode from Employees e
                             LEFT JOIN Users u
                             ON u.EmpID=e.Empid
                         where e.empid=@empid"
@@ -59,6 +60,9 @@ Public Class frmStaff
             ' Dim mstatus As String = ds.Tables("employees").Rows(0).Item("maritalstatus").ToString
             Dim empStatus As String = ds.Tables("Employees").Rows(0).Item("EmploymentStatus").ToString
             Dim empAccess As String = ds.Tables("Employees").Rows(0).Item("role").ToString
+            usrPass = New TextBox
+            usrPass.Text = ds.Tables("Employees").Rows(0).Item("Ucode").ToString
+
             'NOW WE WILL SET EMPLOYMENT STATUS BASED ON THE 1 = EMPLOYED AND 0 AS NOT EMPLOYED
             If empStatus = 1 Then
                 txtEmployStatus.SelectedIndex = 0
@@ -100,15 +104,16 @@ Public Class frmStaff
         ' SqlRefresh = "select e.empid,concat(e.namelast,', ',e.namefirst,' ',e.namemiddle) from Employees e left join users u on u.empid=e.empid"
 
         Dim empStatus As New TextBox 'create a temporary object textbox to store string inorder to transfer a data into function itemnew() or itemupdate()
+        'We will now set employment status if employed set text to 1 if not 0
         If txtEmployStatus.SelectedIndex = 0 Then
-            empStatus.text = 1
+            empStatus.Text = 1
         Else
-            empStatus.text = 0
+            empStatus.Text = 0
         End If
 
-
+        msgShow = False
         If txtEmployeeNo.Text = vbNullString Then 'basihan nato kung available ang employee no if not add if available update ra.
-            ' StatusSet = "New" 'predicesor for adding a values
+
             SqlRefresh = "select e.empid,concat(e.namelast,', ',e.namefirst,' ',e.namemiddle) from employees e left join users u on u.empid=e.empid order by e.empid asc"
             itemNew("Employees",
                    {"NameFirst", "NameMiddle", "NameLast", "BirthDate", "Gender", "MaritalStatus", "EmpImage", "BirthAddress", "AddressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact", "EmploymentStatus"},
@@ -116,29 +121,29 @@ Public Class frmStaff
                     ListView1)
 
         Else
-            'We will now set employment status if employed set text to 1 if not 0
+
 
             ErrMessageText = "Fillup all empty "
             SqlRefresh = "select e.empid,concat(e.namelast,', ',e.namefirst,' ',e.namemiddle) from employees e left join users u on u.empid=e.empid order by e.empid asc"
+
             itemUpdate("Employees",
                        {"NameFirst", "NameMiddle", "NameLast", "BirthDate", "Gender", "MaritalStatus", "EmpImage", "BirthAddress", "AddressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact", "EmploymentStatus"},
                        {txtFirstname, txtMI, txtLastname, txtBirthDate, txtGender, txtMaritalStatus, PictureBox1, txtBirthAddress, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, empStatus},
                        "EmpID", txtEmployeeNo.Text.ToString,
                        ListView1)
-            'now we will insert login access to users insert 
-
-
-            ' StatusSet = "Update" 'predicessor for updating a values
-            'strReferenceColumn = "empid" ' referrencial column entity
-            'strReferenceID = txtEmployeeNo.Text 'values related to what needs to update
         End If
 
         'BELOW CODES INITIATE IF USERS HAS ABILITY TO INSERT ACCESSIBLE SOFTWARE AND ITS FUNCTIONS
+        msgShow = True
         If CheckBox1.Checked = True Then
             If (txtUsername.Text Is vbNullString) Then
                 itemNew("Users", {"EmpID", "Username", "Password", "Function"}, {txtEmployeeNo, txtUsername, txtPassword, txtFunction}, ListView1)
             Else
-                itemUpdate("Users", {"EmpID", "Username", "Password", "Function"}, {txtEmployeeNo, txtUsername, txtPassword, txtFunction}, "EmpID", txtEmployeeNo.Text)
+                If Not txtPassword.Text = txtConfirmPWD.Text Then
+                    MessageBox.Show("Password and Confirmation doesn't match. Please Try again")
+                    Exit Sub
+                End If
+                itemUpdate("Users", {"EmpID", "Username", "Password", "Function"}, {txtEmployeeNo, txtUsername, usrPass, txtFunction}, "EmpID", txtEmployeeNo.Text)
             End If
         Else
             itemDelete("Users", {"EmpID"}, {txtEmployeeNo})
@@ -179,4 +184,11 @@ Public Class frmStaff
         End If
     End Sub
 
+    Private Sub txtPassword_TextChanged(sender As Object, e As EventArgs) Handles txtConfirmPWD.KeyUp
+        If txtConfirmPWD IsNot vbNullString Then
+            If txtConfirmPWD.Text = txtPassword.Text Then
+                usrPass.Text = txtPassword.Text
+            End If
+        End If
+    End Sub
 End Class
