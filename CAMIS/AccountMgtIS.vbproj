@@ -192,10 +192,10 @@
     <Compile Include="forms\frmFilterStockOut.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\frmLoadCategory.Designer.vb">
-      <DependentUpon>frmLoadCategory.vb</DependentUpon>
+    <Compile Include="forms\frmSupplier.Designer.vb">
+      <DependentUpon>frmSupplier.vb</DependentUpon>
     </Compile>
-    <Compile Include="forms\frmLoadCategory.vb">
+    <Compile Include="forms\frmSupplier.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\frmMain.vb">
@@ -317,8 +317,8 @@
     <EmbeddedResource Include="forms\frmFilterStockOut.resx">
       <DependentUpon>frmFilterStockOut.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\frmLoadCategory.resx">
-      <DependentUpon>frmLoadCategory.vb</DependentUpon>
+    <EmbeddedResource Include="forms\frmSupplier.resx">
+      <DependentUpon>frmSupplier.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
@@ -402,6 +402,7 @@
     <None Include="Resources\Stock-Index-Up-icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MySql.Data.dll" />
     <Content Include="Resources\51882.png" />
     <None Include="Resources\bg8.jpg" />
     <None Include="Resources\btnSave.Image.png" />

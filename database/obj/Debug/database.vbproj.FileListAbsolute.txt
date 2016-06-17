@@ -19,5 +19,3 @@ F:\gethub\amis\database\obj\Debug\database.dll
 F:\gethub\amis\database\obj\Debug\database.xml
 F:\gethub\amis\database\obj\Debug\database.pdb
 F:\gethub\amis\database\obj\Debug\database.vbprojResolveAssemblyReference.cache
-F:\gethub\amis\database\bin\Debug\database.dll.CodeAnalysisLog.xml
-F:\gethub\amis\database\bin\Debug\database.dll.lastcodeanalysissucceeded

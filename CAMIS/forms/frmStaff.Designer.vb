@@ -146,12 +146,12 @@ Partial Class frmStaff
         'ColumnHeader1
         '
         Me.ColumnHeader1.Text = "StaffID"
-        Me.ColumnHeader1.Width = 88
+        Me.ColumnHeader1.Width = 75
         '
         'ColumnHeader2
         '
         Me.ColumnHeader2.Text = "Name"
-        Me.ColumnHeader2.Width = 319
+        Me.ColumnHeader2.Width = 360
         '
         'Panel1
         '
