@@ -83,7 +83,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Messaging" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml" />
@@ -107,12 +106,6 @@
       <DependentUpon>Form1.vb</DependentUpon>
     </Compile>
     <Compile Include="Form1.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\frmFood.Designer.vb">
-      <DependentUpon>frmFood.vb</DependentUpon>
-    </Compile>
-    <Compile Include="forms\frmFood.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="functions\SQLQuery.vb" />
@@ -292,8 +285,8 @@
     <EmbeddedResource Include="fMainForm.resx">
       <DependentUpon>fMainForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\frmFood.resx">
-      <DependentUpon>frmFood.vb</DependentUpon>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmAddUpdateCategory.resx">
       <DependentUpon>frmAddUpdateCategory.vb</DependentUpon>

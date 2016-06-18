@@ -33,10 +33,10 @@ C:\github\database\obj\Debug\database.vbprojResolveAssemblyReference.cache
 C:\github\database\obj\Debug\database.dll
 C:\github\database\obj\Debug\database.xml
 C:\github\database\obj\Debug\database.pdb
-H:\github\database\bin\Debug\database.dll
-H:\github\database\bin\Debug\database.pdb
-H:\github\database\bin\Debug\database.xml
-H:\github\database\obj\Debug\database.vbprojResolveAssemblyReference.cache
-H:\github\database\obj\Debug\database.dll
-H:\github\database\obj\Debug\database.xml
-H:\github\database\obj\Debug\database.pdb
+H:\github\amis\database\bin\Debug\database.dll
+H:\github\amis\database\bin\Debug\database.pdb
+H:\github\amis\database\bin\Debug\database.xml
+H:\github\amis\database\obj\Debug\database.vbprojResolveAssemblyReference.cache
+H:\github\amis\database\obj\Debug\database.dll
+H:\github\amis\database\obj\Debug\database.xml
+H:\github\amis\database\obj\Debug\database.pdb
