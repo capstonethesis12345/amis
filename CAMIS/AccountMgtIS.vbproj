@@ -102,6 +102,12 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="functions\SQLQuery.vb" />
     <Compile Include="fMainForm.designer.vb">
       <DependentUpon>fMainForm.vb</DependentUpon>
