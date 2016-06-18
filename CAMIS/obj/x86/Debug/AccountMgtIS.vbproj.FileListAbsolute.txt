@@ -194,7 +194,6 @@ H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.fMainForm.resources
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateCategory.resources
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateProduct.resources
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateRequisition.resources
-H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateStaff.resources
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmFoodMenu.resources
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmRequest.resources
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmPurchases.resources
@@ -206,7 +205,6 @@ H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmFilterStockOut.resourc
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmSupplier.resources
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmMain.resources
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmPayment.resources
-H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmPOS.resources
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmPrintReceipt.resources
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmProduct.resources
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmReportDailySales.resources
@@ -222,3 +220,4 @@ H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
 H:\github\CAMIS\obj\x86\Debug\AccountManagementIS.exe
 H:\github\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmFood.resources
+H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmSales.resources

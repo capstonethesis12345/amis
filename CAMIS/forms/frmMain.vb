@@ -30,7 +30,7 @@ Public Class frmMain
         openFull(frmProduct)
     End Sub
     Private Sub ToolStripButton5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton5.Click
-        frmPOS.ShowDialog()
+        frmSales.ShowDialog()
     End Sub
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
@@ -99,5 +99,9 @@ Public Class frmMain
 
     Private Sub PurchasesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PurchasesToolStripMenuItem.Click
         openFull(frmPurchases)
+    End Sub
+
+    Private Sub POSToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles POSToolStripMenuItem.Click
+        openFull(frmSales)
     End Sub
 End Class

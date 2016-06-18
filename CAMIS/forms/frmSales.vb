@@ -3,7 +3,7 @@
 'Public Connection As New MySqlConnection("server=localhost;database=posisdb;uid=root;pwd=")
 
 'End Class
-Class frmPOS
+Class frmSales
     Public objDal As New MySqlConnection("server=localhost;database=posisdb;uid=root;pwd=")
     Public strSQL As String
     Private Sub frmPOS_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
