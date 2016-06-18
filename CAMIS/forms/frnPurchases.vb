@@ -105,4 +105,12 @@ Public Class frmPurchases
             SqlReFill("items", Nothing, "ShowValueInTextbox", {"itemid"}, {lblItemID}, {txtProductName, txtBrand})
         End If
     End Sub
+
+    Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
+
+    End Sub
+
+    Private Sub txtQuantity_TextChanged(sender As Object, e As EventArgs) Handles txtQuantity.TextChanged
+
+    End Sub
 End Class
