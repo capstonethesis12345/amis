@@ -221,3 +221,4 @@ H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.exe
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
 H:\github\CAMIS\obj\x86\Debug\AccountManagementIS.exe
 H:\github\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
+H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmFood.resources
