@@ -83,7 +83,12 @@
         SqlRefresh = "SELECT Function,empid FROM `Users` WHERE Username LIKE @0 and Password LIKE @1"
         ErrMessageText = "Incorrect username and password"
         SqlReFill("Users", Nothing, "ShowValueInTextbox", {"0", "1"}, {tUsername, tPassword}, {fnc})
-        vEmp = ds.Tables("Users").Rows(0).Item(1).ToString
+        Try
+            vEmp = ds.Tables("Users").Rows(0).Item(1).ToString
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+        End Try
         Return fnc.Text
     End Function
 
