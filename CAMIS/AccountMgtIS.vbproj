@@ -285,6 +285,9 @@
     <EmbeddedResource Include="fMainForm.resx">
       <DependentUpon>fMainForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\frmAddUpdateCategory.resx">
       <DependentUpon>frmAddUpdateCategory.vb</DependentUpon>
       <SubType>Designer</SubType>
