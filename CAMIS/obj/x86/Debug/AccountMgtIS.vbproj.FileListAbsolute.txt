@@ -175,3 +175,4 @@ C:\github\CAMIS\obj\x86\Debug\AccountMgtIS.vbproj.GenerateResource.Cache
 C:\github\CAMIS\obj\x86\Debug\AccountManagementIS.exe
 C:\github\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.xml
+H:\github\CAMIS\obj\x86\Debug\AccountManagementIS.xml

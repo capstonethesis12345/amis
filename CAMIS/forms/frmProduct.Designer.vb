@@ -39,6 +39,7 @@ Partial Class frmProduct
         Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -160,11 +161,21 @@ Partial Class frmProduct
         Me.ToolStripButton5.Size = New System.Drawing.Size(71, 37)
         Me.ToolStripButton5.Text = "S&tock-In"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(1039, 168)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 30
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'frmProduct
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1242, 592)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.ListView1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.DoubleBuffered = True
@@ -193,4 +204,5 @@ Partial Class frmProduct
     Friend WithEvents ColumnHeader11 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ToolStripLabel1 As System.Windows.Forms.ToolStripLabel
     Friend WithEvents ToolStripButton5 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents Button1 As Button
 End Class
