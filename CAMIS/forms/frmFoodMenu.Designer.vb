@@ -28,6 +28,7 @@ Partial Class frmFoodMenu
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
@@ -37,18 +38,14 @@ Partial Class frmFoodMenu
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtMenuName = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.btnClear = New System.Windows.Forms.Button()
-        Me.btnSave = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.cbAvailable = New System.Windows.Forms.CheckBox()
         Me.lblCategoryID = New System.Windows.Forms.Label()
         Me.txtFoodCategory = New System.Windows.Forms.ComboBox()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.lblStatus = New System.Windows.Forms.Label()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.txtPrice = New System.Windows.Forms.TextBox()
-        Me.cbAvailable = New System.Windows.Forms.CheckBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.ToolStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -87,6 +84,10 @@ Partial Class frmFoodMenu
         'ColumnHeader4
         '
         Me.ColumnHeader4.Text = "Price"
+        '
+        'ColumnHeader5
+        '
+        Me.ColumnHeader5.Text = "Available"
         '
         'ToolStrip1
         '
@@ -165,47 +166,12 @@ Partial Class frmFoodMenu
         Me.Label3.TabIndex = 32
         Me.Label3.Text = "Food Category"
         '
-        'btnClear
-        '
-        Me.btnClear.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnClear.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnClear.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.Image = Global.AccountManagementIS.My.Resources.Resources.clear_icon16x16
-        Me.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnClear.Location = New System.Drawing.Point(304, 312)
-        Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(75, 33)
-        Me.btnClear.TabIndex = 36
-        Me.btnClear.Text = "&Clear"
-        Me.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnClear.UseVisualStyleBackColor = False
-        '
-        'btnSave
-        '
-        Me.btnSave.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnSave.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
-        Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSave.Location = New System.Drawing.Point(304, 273)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(75, 33)
-        Me.btnSave.TabIndex = 35
-        Me.btnSave.Text = "&Save"
-        Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnSave.UseVisualStyleBackColor = False
-        '
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.cbAvailable)
         Me.Panel1.Controls.Add(Me.lblCategoryID)
         Me.Panel1.Controls.Add(Me.txtFoodCategory)
-        Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.lblStatus)
-        Me.Panel1.Controls.Add(Me.btnSave)
-        Me.Panel1.Controls.Add(Me.btnClear)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.txtPrice)
@@ -218,6 +184,16 @@ Partial Class frmFoodMenu
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(430, 446)
         Me.Panel1.TabIndex = 37
+        '
+        'cbAvailable
+        '
+        Me.cbAvailable.AutoSize = True
+        Me.cbAvailable.Location = New System.Drawing.Point(38, 236)
+        Me.cbAvailable.Name = "cbAvailable"
+        Me.cbAvailable.Size = New System.Drawing.Size(69, 17)
+        Me.cbAvailable.TabIndex = 39
+        Me.cbAvailable.Text = "Available"
+        Me.cbAvailable.UseVisualStyleBackColor = True
         '
         'lblCategoryID
         '
@@ -235,22 +211,6 @@ Partial Class frmFoodMenu
         Me.txtFoodCategory.Size = New System.Drawing.Size(97, 21)
         Me.txtFoodCategory.TabIndex = 37
         '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(274, 160)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(105, 33)
-        Me.Button1.TabIndex = 35
-        Me.Button1.Text = "&Add Category"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button1.UseVisualStyleBackColor = False
-        '
         'lblStatus
         '
         Me.lblStatus.AutoSize = True
@@ -262,18 +222,12 @@ Partial Class frmFoodMenu
         Me.lblStatus.TabIndex = 2
         Me.lblStatus.Text = "Adding New Category"
         '
-        'Panel2
+        'txtPrice
         '
-        Me.Panel2.Controls.Add(Me.ListView1)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel2.Location = New System.Drawing.Point(0, 40)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(678, 446)
-        Me.Panel2.TabIndex = 38
-        '
-        'ColumnHeader5
-        '
-        Me.ColumnHeader5.Text = "Available"
+        Me.txtPrice.Location = New System.Drawing.Point(105, 199)
+        Me.txtPrice.Name = "txtPrice"
+        Me.txtPrice.Size = New System.Drawing.Size(274, 20)
+        Me.txtPrice.TabIndex = 33
         '
         'Label5
         '
@@ -284,22 +238,14 @@ Partial Class frmFoodMenu
         Me.Label5.TabIndex = 32
         Me.Label5.Text = "Price"
         '
-        'txtPrice
+        'Panel2
         '
-        Me.txtPrice.Location = New System.Drawing.Point(105, 199)
-        Me.txtPrice.Name = "txtPrice"
-        Me.txtPrice.Size = New System.Drawing.Size(274, 20)
-        Me.txtPrice.TabIndex = 33
-        '
-        'cbAvailable
-        '
-        Me.cbAvailable.AutoSize = True
-        Me.cbAvailable.Location = New System.Drawing.Point(38, 236)
-        Me.cbAvailable.Name = "cbAvailable"
-        Me.cbAvailable.Size = New System.Drawing.Size(69, 17)
-        Me.cbAvailable.TabIndex = 39
-        Me.cbAvailable.Text = "Available"
-        Me.cbAvailable.UseVisualStyleBackColor = True
+        Me.Panel2.Controls.Add(Me.ListView1)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel2.Location = New System.Drawing.Point(0, 40)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(678, 446)
+        Me.Panel2.TabIndex = 38
         '
         'frmFoodMenu
         '
@@ -335,12 +281,9 @@ Partial Class frmFoodMenu
     Friend WithEvents Label2 As Label
     Friend WithEvents txtMenuName As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents btnClear As Button
-    Friend WithEvents btnSave As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents txtFoodCategory As ComboBox
-    Friend WithEvents Button1 As Button
     Friend WithEvents lblStatus As Label
     Friend WithEvents lblCategoryID As Label
     Friend WithEvents ColumnHeader5 As ColumnHeader

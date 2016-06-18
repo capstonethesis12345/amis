@@ -16,7 +16,7 @@ Public Class frmFoodMenu
     Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
         Me.Close()
     End Sub
-    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) 
         SqlRefresh = "select f.productid,c.categoryname,f.description,f.unitprice,f.availability from foodlist f,category c where c.categoryid=f.categoryid"
         If txtProductID.Text = vbNullString Then
             StatusSet = "New"
