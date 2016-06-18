@@ -29,13 +29,13 @@ Public Class frmPurchases
         lblPONum.Text = poid
     End Sub
 
-    Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
+    Private Sub btnNew_Click(sender As Object, e As EventArgs)
         StatusSet = "New"
         Dim sNew As New frmAddUpdateCategory()
         sNew.ShowDialog()
         sNew = Nothing
     End Sub
-    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+    Private Sub btnUpdate_Click(sender As Object, e As EventArgs)
         If ListView1.SelectedItems.Count = 0 Then
             MessageBox.Show("Select item first", "Selection not identified", MessageBoxButtons.OK, MessageBoxIcon.Hand)
         Else
@@ -69,6 +69,7 @@ Public Class frmPurchases
             End If
 
         End If
+        'COMPUTE SUM AMOUNT
 
     End Sub
 
@@ -111,12 +112,11 @@ Public Class frmPurchases
             SqlReFill("items", Nothing, "ShowValueInTextbox", {"itemid"}, {lblItemID}, {txtProductName, txtBrand})
         End If
     End Sub
-
-    Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
-
-    End Sub
-
-    Private Sub txtQuantity_TextChanged(sender As Object, e As EventArgs) Handles txtQuantity.TextChanged
-
-    End Sub
+    Private Function computeSum()
+        Dim total As Double = 0.0
+        For Each row In ListView1.Items
+            total += Double.Parse(row.subitems(4).text) * Double.Parse(row.subitems(5).text)
+        Next
+        Return total
+    End Function
 End Class

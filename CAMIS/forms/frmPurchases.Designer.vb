@@ -30,10 +30,9 @@ Partial Class frmPurchases
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
-        Me.btnNew = New System.Windows.Forms.ToolStripButton()
-        Me.btnUpdate = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.lblSearch = New System.Windows.Forms.Label()
@@ -59,14 +58,19 @@ Partial Class frmPurchases
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtCost = New System.Windows.Forms.TextBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.btnAddItem = New System.Windows.Forms.Button()
         Me.lblSupplierID = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtBarcode = New System.Windows.Forms.TextBox()
         Me.txtSupplier = New System.Windows.Forms.TextBox()
-        Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnAddItem = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ToolStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -82,13 +86,13 @@ Partial Class frmPurchases
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListView1.BackColor = System.Drawing.Color.White
         Me.ListView1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7})
+        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader8})
         Me.ListView1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListView1.FullRowSelect = True
         Me.ListView1.GridLines = True
         Me.ListView1.Location = New System.Drawing.Point(12, 42)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(546, 377)
+        Me.ListView1.Size = New System.Drawing.Size(780, 448)
         Me.ListView1.TabIndex = 27
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
@@ -106,7 +110,7 @@ Partial Class frmPurchases
         'ColumnHeader3
         '
         Me.ColumnHeader3.Text = "Description"
-        Me.ColumnHeader3.Width = 150
+        Me.ColumnHeader3.Width = 164
         '
         'ColumnHeader4
         '
@@ -115,20 +119,27 @@ Partial Class frmPurchases
         'ColumnHeader5
         '
         Me.ColumnHeader5.Text = "Cost"
+        Me.ColumnHeader5.Width = 65
         '
         'ColumnHeader6
         '
         Me.ColumnHeader6.Text = "Quantity"
+        Me.ColumnHeader6.Width = 122
+        '
+        'ColumnHeader7
+        '
+        Me.ColumnHeader7.Text = "TOTAL"
+        Me.ColumnHeader7.Width = 131
         '
         'ToolStrip1
         '
         Me.ToolStrip1.AutoSize = False
         Me.ToolStrip1.BackColor = System.Drawing.Color.CadetBlue
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.btnNew, Me.btnUpdate, Me.ToolStripButton2, Me.ToolStripButton1})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.ToolStripButton2, Me.ToolStripButton1})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(1000, 40)
+        Me.ToolStrip1.Size = New System.Drawing.Size(1234, 40)
         Me.ToolStrip1.TabIndex = 26
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -137,24 +148,6 @@ Partial Class frmPurchases
         Me.ToolStripLabel1.Name = "ToolStripLabel1"
         Me.ToolStripLabel1.Size = New System.Drawing.Size(16, 37)
         Me.ToolStripLabel1.Text = "   "
-        '
-        'btnNew
-        '
-        Me.btnNew.AutoSize = False
-        Me.btnNew.Image = CType(resources.GetObject("btnNew.Image"), System.Drawing.Image)
-        Me.btnNew.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btnNew.Name = "btnNew"
-        Me.btnNew.Size = New System.Drawing.Size(65, 40)
-        Me.btnNew.Text = "&New"
-        '
-        'btnUpdate
-        '
-        Me.btnUpdate.AutoSize = False
-        Me.btnUpdate.Image = CType(resources.GetObject("btnUpdate.Image"), System.Drawing.Image)
-        Me.btnUpdate.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(65, 40)
-        Me.btnUpdate.Text = "&Update"
         '
         'ToolStripButton2
         '
@@ -199,7 +192,7 @@ Partial Class frmPurchases
         Me.Panel1.Controls.Add(Me.ListView1)
         Me.Panel1.Location = New System.Drawing.Point(12, 43)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(567, 431)
+        Me.Panel1.Size = New System.Drawing.Size(801, 502)
         Me.Panel1.TabIndex = 32
         '
         'Label10
@@ -267,14 +260,12 @@ Partial Class frmPurchases
         Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.gtype)
         Me.GroupBox1.Controls.Add(Me.gItem)
-        Me.GroupBox1.Controls.Add(Me.PictureBox1)
-        Me.GroupBox1.Controls.Add(Me.btnAddItem)
         Me.GroupBox1.Controls.Add(Me.lblSupplierID)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.txtBarcode)
         Me.GroupBox1.Controls.Add(Me.txtSupplier)
-        Me.GroupBox1.Location = New System.Drawing.Point(585, 43)
+        Me.GroupBox1.Location = New System.Drawing.Point(819, 177)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(403, 325)
         Me.GroupBox1.TabIndex = 33
@@ -285,7 +276,7 @@ Partial Class frmPurchases
         '
         Me.gtype.Controls.Add(Me.RadioButton2)
         Me.gtype.Controls.Add(Me.RadioButton1)
-        Me.gtype.Location = New System.Drawing.Point(6, 247)
+        Me.gtype.Location = New System.Drawing.Point(67, 247)
         Me.gtype.Name = "gtype"
         Me.gtype.Size = New System.Drawing.Size(269, 64)
         Me.gtype.TabIndex = 6
@@ -326,7 +317,7 @@ Partial Class frmPurchases
         Me.gItem.Controls.Add(Me.Label6)
         Me.gItem.Controls.Add(Me.Label5)
         Me.gItem.Controls.Add(Me.txtCost)
-        Me.gItem.Location = New System.Drawing.Point(6, 85)
+        Me.gItem.Location = New System.Drawing.Point(67, 87)
         Me.gItem.Name = "gItem"
         Me.gItem.Size = New System.Drawing.Size(269, 154)
         Me.gItem.TabIndex = 5
@@ -423,23 +414,6 @@ Partial Class frmPurchases
         Me.txtCost.Size = New System.Drawing.Size(164, 20)
         Me.txtCost.TabIndex = 0
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Location = New System.Drawing.Point(285, 22)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(100, 72)
-        Me.PictureBox1.TabIndex = 4
-        Me.PictureBox1.TabStop = False
-        '
-        'btnAddItem
-        '
-        Me.btnAddItem.Location = New System.Drawing.Point(285, 262)
-        Me.btnAddItem.Name = "btnAddItem"
-        Me.btnAddItem.Size = New System.Drawing.Size(100, 43)
-        Me.btnAddItem.TabIndex = 3
-        Me.btnAddItem.Text = "Add item"
-        Me.btnAddItem.UseVisualStyleBackColor = True
-        '
         'lblSupplierID
         '
         Me.lblSupplierID.AutoSize = True
@@ -451,7 +425,7 @@ Partial Class frmPurchases
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(30, 51)
+        Me.Label3.Location = New System.Drawing.Point(90, 64)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(47, 13)
         Me.Label3.TabIndex = 1
@@ -460,7 +434,7 @@ Partial Class frmPurchases
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(30, 25)
+        Me.Label1.Location = New System.Drawing.Point(90, 38)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(45, 13)
         Me.Label1.TabIndex = 1
@@ -470,7 +444,7 @@ Partial Class frmPurchases
         '
         Me.txtBarcode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txtBarcode.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txtBarcode.Location = New System.Drawing.Point(81, 48)
+        Me.txtBarcode.Location = New System.Drawing.Point(141, 61)
         Me.txtBarcode.Name = "txtBarcode"
         Me.txtBarcode.Size = New System.Drawing.Size(173, 20)
         Me.txtBarcode.TabIndex = 0
@@ -479,22 +453,103 @@ Partial Class frmPurchases
         '
         Me.txtSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txtSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txtSupplier.Location = New System.Drawing.Point(81, 22)
+        Me.txtSupplier.Location = New System.Drawing.Point(141, 35)
         Me.txtSupplier.Name = "txtSupplier"
         Me.txtSupplier.Size = New System.Drawing.Size(173, 20)
         Me.txtSupplier.TabIndex = 0
         '
-        'ColumnHeader7
+        'PictureBox1
         '
-        Me.ColumnHeader7.Text = "Type"
+        Me.PictureBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PictureBox1.Location = New System.Drawing.Point(1100, 47)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(100, 88)
+        Me.PictureBox1.TabIndex = 4
+        Me.PictureBox1.TabStop = False
+        '
+        'btnAddItem
+        '
+        Me.btnAddItem.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAddItem.Location = New System.Drawing.Point(985, 142)
+        Me.btnAddItem.Name = "btnAddItem"
+        Me.btnAddItem.Size = New System.Drawing.Size(100, 29)
+        Me.btnAddItem.TabIndex = 3
+        Me.btnAddItem.Text = "ADD"
+        Me.btnAddItem.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.Location = New System.Drawing.Point(1100, 142)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(100, 29)
+        Me.Button1.TabIndex = 34
+        Me.Button1.Text = "Image"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Label12
+        '
+        Me.Label12.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("MS Reference Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(834, 66)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(39, 16)
+        Me.Label12.TabIndex = 35
+        Me.Label12.Text = "Date"
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DateTimePicker1.CustomFormat = "yyyy-MM-dd"
+        Me.DateTimePicker1.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker1.Location = New System.Drawing.Point(879, 61)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(105, 23)
+        Me.DateTimePicker1.TabIndex = 36
+        '
+        'Label13
+        '
+        Me.Label13.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("MS Reference Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(834, 98)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(42, 16)
+        Me.Label13.TabIndex = 35
+        Me.Label13.Text = "Total"
+        '
+        'Label14
+        '
+        Me.Label14.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("MS Reference Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(882, 98)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(42, 16)
+        Me.Label14.TabIndex = 35
+        Me.Label14.Text = "Total"
+        '
+        'ColumnHeader8
+        '
+        Me.ColumnHeader8.Text = "ITEM TYPE"
+        Me.ColumnHeader8.Width = 92
         '
         'frmPurchases
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1000, 486)
+        Me.ClientSize = New System.Drawing.Size(1234, 557)
+        Me.Controls.Add(Me.DateTimePicker1)
+        Me.Controls.Add(Me.Label14)
+        Me.Controls.Add(Me.Label13)
+        Me.Controls.Add(Me.Label12)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.btnAddItem)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.lblSearch)
         Me.Controls.Add(Me.ToolStrip1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -518,8 +573,6 @@ Partial Class frmPurchases
     End Sub
     Friend WithEvents ListView1 As System.Windows.Forms.ListView
     Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip
-    Friend WithEvents btnNew As System.Windows.Forms.ToolStripButton
-    Friend WithEvents btnUpdate As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripButton2 As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripButton
     Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
@@ -560,4 +613,10 @@ Partial Class frmPurchases
     Friend WithEvents RadioButton2 As RadioButton
     Friend WithEvents RadioButton1 As RadioButton
     Friend WithEvents ColumnHeader7 As ColumnHeader
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Label12 As Label
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Label14 As Label
+    Friend WithEvents ColumnHeader8 As ColumnHeader
 End Class
