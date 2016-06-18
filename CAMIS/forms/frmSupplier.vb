@@ -12,12 +12,12 @@ Public Class frmSupplier
 
 
 
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txtContact.TextChanged, txtCompany.TextChanged
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txtContact.TextChanged, txtSupplier.TextChanged
 
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        itemNew("Supplier", {"Company", "Address", "Contact"}, {txtCompany, txtAddress, txtContact})
+        itemNew("Supplier", {"Company", "Address", "Contact"}, {txtSupplier, txtAddress, txtContact})
     End Sub
 
     Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click

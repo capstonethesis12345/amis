@@ -45,9 +45,12 @@ Partial Class frmPurchases
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.gtype = New System.Windows.Forms.GroupBox()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.gItem = New System.Windows.Forms.GroupBox()
         Me.txtQuantity = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.gItem = New System.Windows.Forms.GroupBox()
         Me.txtBrand = New System.Windows.Forms.TextBox()
         Me.txtProductName = New System.Windows.Forms.TextBox()
         Me.lblItemID = New System.Windows.Forms.Label()
@@ -63,15 +66,13 @@ Partial Class frmPurchases
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtBarcode = New System.Windows.Forms.TextBox()
         Me.txtSupplier = New System.Windows.Forms.TextBox()
-        Me.gtype = New System.Windows.Forms.GroupBox()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ToolStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        Me.gtype.SuspendLayout()
         Me.gItem.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.gtype.SuspendLayout()
         Me.SuspendLayout()
         '
         'ListView1
@@ -81,7 +82,7 @@ Partial Class frmPurchases
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListView1.BackColor = System.Drawing.Color.White
         Me.ListView1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6})
+        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7})
         Me.ListView1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListView1.FullRowSelect = True
         Me.ListView1.GridLines = True
@@ -185,6 +186,9 @@ Partial Class frmPurchases
         '
         'Panel1
         '
+        Me.Panel1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.BackColor = System.Drawing.Color.SlateBlue
         Me.Panel1.Controls.Add(Me.Label10)
         Me.Panel1.Controls.Add(Me.lblEmpID)
@@ -260,6 +264,7 @@ Partial Class frmPurchases
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.gtype)
         Me.GroupBox1.Controls.Add(Me.gItem)
         Me.GroupBox1.Controls.Add(Me.PictureBox1)
@@ -276,23 +281,38 @@ Partial Class frmPurchases
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Product Info"
         '
-        'txtQuantity
+        'gtype
         '
-        Me.txtQuantity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.txtQuantity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txtQuantity.Location = New System.Drawing.Point(83, 114)
-        Me.txtQuantity.Name = "txtQuantity"
-        Me.txtQuantity.Size = New System.Drawing.Size(164, 20)
-        Me.txtQuantity.TabIndex = 0
+        Me.gtype.Controls.Add(Me.RadioButton2)
+        Me.gtype.Controls.Add(Me.RadioButton1)
+        Me.gtype.Location = New System.Drawing.Point(6, 247)
+        Me.gtype.Name = "gtype"
+        Me.gtype.Size = New System.Drawing.Size(269, 64)
+        Me.gtype.TabIndex = 6
+        Me.gtype.TabStop = False
+        Me.gtype.Text = "Product type"
         '
-        'Label11
+        'RadioButton2
         '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(26, 114)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(46, 13)
-        Me.Label11.TabIndex = 1
-        Me.Label11.Text = "Quantity"
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Location = New System.Drawing.Point(150, 28)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(72, 17)
+        Me.RadioButton2.TabIndex = 0
+        Me.RadioButton2.Text = "Ingredient"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Checked = True
+        Me.RadioButton1.Location = New System.Drawing.Point(37, 28)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(95, 17)
+        Me.RadioButton1.TabIndex = 0
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "Non-Ingredient"
+        Me.RadioButton1.UseVisualStyleBackColor = True
         '
         'gItem
         '
@@ -312,6 +332,24 @@ Partial Class frmPurchases
         Me.gItem.TabIndex = 5
         Me.gItem.TabStop = False
         Me.gItem.Text = "Item"
+        '
+        'txtQuantity
+        '
+        Me.txtQuantity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txtQuantity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txtQuantity.Location = New System.Drawing.Point(83, 114)
+        Me.txtQuantity.Name = "txtQuantity"
+        Me.txtQuantity.Size = New System.Drawing.Size(164, 20)
+        Me.txtQuantity.TabIndex = 0
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(26, 114)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(46, 13)
+        Me.Label11.TabIndex = 1
+        Me.Label11.Text = "Quantity"
         '
         'txtBrand
         '
@@ -446,38 +484,9 @@ Partial Class frmPurchases
         Me.txtSupplier.Size = New System.Drawing.Size(173, 20)
         Me.txtSupplier.TabIndex = 0
         '
-        'gtype
+        'ColumnHeader7
         '
-        Me.gtype.Controls.Add(Me.RadioButton2)
-        Me.gtype.Controls.Add(Me.RadioButton1)
-        Me.gtype.Location = New System.Drawing.Point(6, 247)
-        Me.gtype.Name = "gtype"
-        Me.gtype.Size = New System.Drawing.Size(269, 64)
-        Me.gtype.TabIndex = 6
-        Me.gtype.TabStop = False
-        Me.gtype.Text = "Product type"
-        '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Checked = True
-        Me.RadioButton1.Location = New System.Drawing.Point(37, 28)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(95, 17)
-        Me.RadioButton1.TabIndex = 0
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Non-Ingredient"
-        Me.RadioButton1.UseVisualStyleBackColor = True
-        '
-        'RadioButton2
-        '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(150, 28)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(72, 17)
-        Me.RadioButton2.TabIndex = 0
-        Me.RadioButton2.Text = "Ingredient"
-        Me.RadioButton2.UseVisualStyleBackColor = True
+        Me.ColumnHeader7.Text = "Type"
         '
         'frmPurchases
         '
@@ -498,11 +507,11 @@ Partial Class frmPurchases
         Me.Panel1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.gtype.ResumeLayout(False)
+        Me.gtype.PerformLayout()
         Me.gItem.ResumeLayout(False)
         Me.gItem.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.gtype.ResumeLayout(False)
-        Me.gtype.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -550,4 +559,5 @@ Partial Class frmPurchases
     Friend WithEvents gtype As GroupBox
     Friend WithEvents RadioButton2 As RadioButton
     Friend WithEvents RadioButton1 As RadioButton
+    Friend WithEvents ColumnHeader7 As ColumnHeader
 End Class

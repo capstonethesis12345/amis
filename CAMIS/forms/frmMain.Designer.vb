@@ -151,7 +151,7 @@ Partial Class frmMain
         'SuppliersToolStripMenuItem
         '
         Me.SuppliersToolStripMenuItem.Name = "SuppliersToolStripMenuItem"
-        Me.SuppliersToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.SuppliersToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SuppliersToolStripMenuItem.Text = "Suppliers"
         '
         'TransactionToolStripMenuItem

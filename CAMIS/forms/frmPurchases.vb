@@ -18,8 +18,8 @@ Public Class frmPurchases
                     i.description,
                     concat(i.unitvalue,' ',i.unittype)Unit,
                     l.cost,
-                    l.quantity
-
+                    l.quantity,
+                    if(i.itemtype=1,'Ingredient','NonIngredient')
                     from polist l left join items i
                     on l.itemid=i.itemid
                     where poid =1"
@@ -79,6 +79,12 @@ Public Class frmPurchases
             sqL = "SELECT  `Supplierid` FROM  `supplier` WHERE Company LIKE  @0"
             msgShow = False
             lblSupplierID.Text = getIDFunction(sqL, "SupplierID", {txtSupplier.Text})
+            If lblSupplierID.Text = 0 Then
+                openFull(frmSupplier)
+                If Not txtSupplier.Text = vbNullString Then
+                    frmSupplier.txtSupplier.Text = txtSupplier.Text
+                End If
+            End If
         Catch ex As Exception
             MessageBox.Show("error")
         End Try

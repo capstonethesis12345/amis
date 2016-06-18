@@ -31,7 +31,7 @@ Partial Class frmSupplier
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.txtAddress = New System.Windows.Forms.TextBox()
-        Me.txtCompany = New System.Windows.Forms.TextBox()
+        Me.txtSupplier = New System.Windows.Forms.TextBox()
         Me.txtContact = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -116,14 +116,14 @@ Partial Class frmSupplier
         Me.txtAddress.Size = New System.Drawing.Size(170, 66)
         Me.txtAddress.TabIndex = 2
         '
-        'txtCompany
+        'txtSupplier
         '
-        Me.txtCompany.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtCompany.Location = New System.Drawing.Point(1010, 137)
-        Me.txtCompany.MaxLength = 45
-        Me.txtCompany.Name = "txtCompany"
-        Me.txtCompany.Size = New System.Drawing.Size(122, 23)
-        Me.txtCompany.TabIndex = 2
+        Me.txtSupplier.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtSupplier.Location = New System.Drawing.Point(1010, 137)
+        Me.txtSupplier.MaxLength = 45
+        Me.txtSupplier.Name = "txtSupplier"
+        Me.txtSupplier.Size = New System.Drawing.Size(122, 23)
+        Me.txtSupplier.TabIndex = 2
         '
         'txtContact
         '
@@ -260,7 +260,7 @@ Partial Class frmSupplier
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.txtAddress)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.txtCompany)
+        Me.Controls.Add(Me.txtSupplier)
         Me.Controls.Add(Me.txtSupplierID)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
@@ -300,7 +300,7 @@ Partial Class frmSupplier
     Friend WithEvents Label2 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents btnSave As Button
-    Friend WithEvents txtCompany As TextBox
+    Friend WithEvents txtSupplier As TextBox
     Friend WithEvents ToolStrip1 As ToolStrip
     Friend WithEvents ToolStripLabel1 As ToolStripLabel
     Friend WithEvents btnNew As ToolStripButton

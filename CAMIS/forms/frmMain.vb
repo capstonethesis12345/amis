@@ -23,7 +23,7 @@ Public Class frmMain
         ' Public DBNameMySQL As String
         lblDate.Text = Date.Now.ToString("MM/dd/yyyy")
         formMain(Me)
-        MessageBox.Show("Greetings " & vfunction, "Welcome")
+        'MessageBox.Show("Greetings " & vfunction, "Welcome")
     End Sub
 
     Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton2.Click
@@ -103,5 +103,9 @@ Public Class frmMain
 
     Private Sub POSToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles POSToolStripMenuItem.Click
         openFull(frmSales)
+    End Sub
+
+    Private Sub SuppliersToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SuppliersToolStripMenuItem.Click
+        openFull(frmSupplier)
     End Sub
 End Class
