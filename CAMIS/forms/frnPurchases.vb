@@ -2,11 +2,31 @@
 
 Public Class frmPurchases
     Private poid As String
+    Private vItemid As String
+
     Public Sub New()
         InitializeComponent()
         'poid = getID("")
+        lblEmpID.Text = vEmp
         SqlRefresh = "SELECT company FROM  `supplier` "
         itemAutoComplete("Supplier", txtSupplier)
+        SqlRefresh = "select barcode from items group by itemid"
+        itemAutoComplete("AutoDescription", txtBarcode)
+        SqlRefresh = "select 
+                    l.polistid,
+                    i.barcode,
+                    i.description,
+                    concat(i.unitvalue,' ',i.unittype)Unit,
+                    l.cost,
+                    l.quantity
+
+                    from polist l left join items i
+                    on l.itemid=i.itemid
+                    where poid =1"
+        SqlReFill("polist", ListView1)
+        'get current po
+        Dim poid As String = getIDFunction("select ifnull(max(poid),1) from po", "purchaseorder", Nothing)
+        lblPONum.Text = poid
     End Sub
 
     Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
@@ -34,34 +54,18 @@ Public Class frmPurchases
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAddItem.Click
         If lblSupplierID.Text = vbNullString Then
             openFull(frmSupplier)
         Else
             sqL = "SELECT  `Supplierid` FROM  `supplier` WHERE Company LIKE  @0"
             If getIDFunction(sqL, "SupplierID", {txtSupplier.Text}) = 0 Then    'is supplier is still not present repeat txtsupplier_leave
-                txtSupplier_Leave(Button1, e)
+                txtSupplier_Leave(btnAddItem, e)
             Else
-                Dim itemID As Integer = Integer.Parse(getIDFunction("SELECT count(itemid)
-                                                        FROM Items
-                                                        WHERE supplierid LIKE @0 
-                                                        AND barcode LIKE @1 
-                                                        AND ItemDescription LIKE  @2
-                                                        AND itembrand LIKE  @3
-                                                        AND cost LIKE @4 ", "Items",
-                                                    {lblSupplierID.Text, txtBarcode.Text, txtProductName.Text, txtBrand.Text, txtCost.Text}))
-                If itemID = 0 Then
-                    'insert all values to ITEM table'
-                    itemNew("Items", {"SupplierID", "Barcode", "ItemDescription", "ItemBrand", "Cost"}, {lblSupplierID, txtBarcode, txtProductName, txtBrand, txtCost})
-                Else
-                    Dim currentPOID As String = getIDFunction("select max")
 
-                    itemNew("polist", {"POID", "ItemID", "Quantity"}, {})
-                    MessageBox.Show("Item existed inert to POList")
-                    'get the current POID
-                    'insert only the ITEMID to POLIST table and quatity
-                End If
-
+                'MessageBox.Show(vItemid)
+                itemNew("POList", {"POID", "ItemID", "Quantity", "Cost"}, {lblPONum, lblItemID, txtQuantity, txtCost})
+                MessageBox.Show("Success")
             End If
 
         End If
@@ -71,21 +75,34 @@ Public Class frmPurchases
     Private Sub txtSupplier_Leave(sender As Object, e As EventArgs) Handles txtSupplier.Leave
         'LOST FOCUS WE WILL GET SUPPLIERID
         Try
-            MessageBox.Show(txtSupplier.Text)
+            'MessageBox.Show(txtSupplier.Text)
             sqL = "SELECT  `Supplierid` FROM  `supplier` WHERE Company LIKE  @0"
+            msgShow = False
             lblSupplierID.Text = getIDFunction(sqL, "SupplierID", {txtSupplier.Text})
-
         Catch ex As Exception
             MessageBox.Show("error")
         End Try
 
     End Sub
 
-    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click, Label4.Click, Label6.Click, Label5.Click
 
+    Private Sub txtBarcode_Leave(sender As Object, e As EventArgs) Handles txtBarcode.Leave
+        Try
+            'MessageBox.Show(txtSupplier.Text)
+            sqL = "SELECT  `itemid` FROM  `items` WHERE barcode LIKE  @0"
+            msgShow = False
+            vItemid = getIDFunction(sqL, "items", {txtBarcode.Text})
+            lblItemID.Text = vItemid
+        Catch ex As Exception
+            MessageBox.Show("error")
+        End Try
     End Sub
 
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txtBarcode.TextChanged, txtProductName.TextChanged, txtBrand.TextChanged, txtCost.TextChanged
-
+    Private Sub lblItemID_TextChanged(sender As Object, e As EventArgs) Handles lblItemID.TextChanged
+        If Not lblItemID.Text = 0 Or lblItemID.Text IsNot vbNullString Then
+            SqlRefresh = "select description,brand from items where itemid like @itemid"
+            msgShow = False
+            SqlReFill("items", Nothing, "ShowValueInTextbox", {"itemid"}, {lblItemID}, {txtProductName, txtBrand})
+        End If
     End Sub
 End Class

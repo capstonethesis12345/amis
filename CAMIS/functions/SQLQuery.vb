@@ -14,6 +14,9 @@ Module SQLQuery
     Public msgShow As Boolean = True
     Public pageMax As Integer = 5
     Public ErrMessageText As String = ""
+    Public d As Date = Date.Today
+    Public todate As String = d.ToString("yyyy-MM-dd")
+    Public vEmp As String
     Public Sub itemAutoComplete(ByVal DataSetName As String, ByVal objAutoCompleteTextBox As Object)
         Try
 
@@ -202,7 +205,8 @@ Module SQLQuery
     End Sub
 
 
-    Function getIDFunction(ByVal sql As String, ByVal dsname As String, ByVal parameterValue As String(), Optional isSalesID As Boolean = Nothing)
+    Function getIDFunction(ByVal sql As String, ByVal dsname As String, Optional ByVal parameterValue As String() = Nothing, Optional isSalesID As Boolean = Nothing)
+
         Dim id As Integer
         Try
             ConnDB()
@@ -211,12 +215,13 @@ Module SQLQuery
             ds = New DataSet()
             cmd.CommandType = CommandType.Text
 
-            Dim i As Integer = 0
-            For Each param In parameterValue
-                cmd.Parameters.AddWithValue("@" & i.ToString, parameterValue(i))
-                i += 1
-            Next
-
+            If parameterValue IsNot Nothing Then
+                Dim i As Integer = 0
+                For Each param In parameterValue
+                    cmd.Parameters.AddWithValue("@" & i.ToString, parameterValue(i))
+                    i += 1
+                Next
+            End If
             da.SelectCommand = cmd
             da.Fill(ds, dsname)
 
@@ -387,6 +392,7 @@ Module SQLQuery
 
         ' StatusSet = ""
     End Sub
+
     Public Sub itemDelete(ByVal TableName As String, ByVal arrTableColumn As String(), ByVal arrTextBox As Object(), Optional ByRef ObjListDisplay As Object = Nothing)
         Dim i As Integer = 0
         For Each arrCol In arrTableColumn

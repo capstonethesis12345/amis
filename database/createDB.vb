@@ -39,6 +39,7 @@ Public Class createDB
             `EmpImage` longblob NULL,
             PRIMARY KEY(`EmpID`)
         ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;")
+
         sqlList.Add("CREATE TABLE IF NOT EXISTS `Users`(
            `UserID` int(30) Not NULL AUTO_INCREMENT,
            `EmpID` int(30) Not NULL,
@@ -56,31 +57,44 @@ Public Class createDB
 
 
         'THIS WILL CREATE A PURCHASE ORDERLIST VIEW
+        'SELECT DATE_FORMAT( NOW( ) ,  '%Y-%m-%d' ) DATE
+        'THIS WILL CREAE PO TABLE FOR SUMMARY OF PURCHASE ORDER LISTS
+        sqlList.Add("CREATE TABLE IF NOT EXISTS `po` (
+                  `POID` int(11) NOT NULL AUTO_INCREMENT,
+                  `EmpID` int(11) NOT NULL,
+                  `PODate` date NOT NULL ,
+                  `TotalCost` double NOT NULL default 0.0,
+                  `Status` tinyint(4) NOT NULL,
+                  PRIMARY KEY (`POID`)
+                )
+            ")
         sqlList.Add("CREATE TABLE POList(
             POListID INT NOT NULL AUTO_INCREMENT ,
             POID INT NOT NULL ,
             ItemID INT NOT NULL,
             Quantity DOUBLE( 10, 2 ) NOT NULL ,
+            Cost double not null default 0.0,
             PRIMARY KEY ( POListID )
-            )")
-        'THIS WILL CREAE PO TABLE FOR SUMMARY OF PURCHASE ORDER LISTS
-        sqlList.Add("create table PO(
-                POID int Not null auto_increment,
-                EmpID int Not null,
-                PODate DateTime Not NULL DEFAULT NOW(),
-                TotalCost Double Not null,
-                Status tinyint Not null Default 0,
-                primary key(POID)
             )")
         'THIS WILL CREATE ITEMS FOR SUMMARY OF ITEMS BEING PURCHASED
         sqlList.Add("CREATE TABLE ITEMS(
-                ItemID int not null auto_increment,
-                SupplierID int not null,
-                Barcode INT NOT NULL,
-                ItemDescription Varchar(200) not null,
-                ItemBrand varchar(200) not null,
-                Cost double not null default 0.0,
-                PRIMARY KEY(ItemID)
+                ItemID INT NOT NULL AUTO_INCREMENT ,
+                SupplierID INT NOT NULL ,
+                Barcode INT NOT NULL ,
+                Description VARCHAR( 45 ) NOT NULL ,
+                Brand VARCHAR( 45 ) ,
+                UnitType VARCHAR( 10 ) NOT NULL ,
+                UnitValue DOUBLE NOT NULL DEFAULT 0.0,
+                Category VARCHAR( 45 ) NOT NULL ,
+                ItemType VARCHAR( 15 ) NOT NULL ,
+                PRIMARY KEY ( ItemID, SupplierID )
+                )")
+        sqlList.Add("CREATE TABLE ItemInfo(
+                ItemInfoID int not null auto_increment,
+                Barcode varchar(45) not null,
+                Description Varchar(45) not null,
+                Brand varchar(45) not null,
+                primary KEYS(ItemInfoID)
                 )")
         'CREATE USER ON DATABASE PHPMYADMIN
         'sqlList.Add("GRANT ALL PRIVILEGES ON  `" & dbname & "` . * TO  '" & dbUser & "'@'localhost' WITH GRANT OPTION")

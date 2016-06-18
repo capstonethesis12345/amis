@@ -49,7 +49,7 @@
             '
             '           thread1.Join()
 
-
+            MessageBox.Show(vEmp)
             If status = "Admin" Then
                 PictureBox2.Visible = False
                 Dim fmain As New frmMain(txtFunction.Text)
@@ -78,11 +78,13 @@
         txtFunction.Text = status
     End Sub
     Private Function logmein()
+        Dim fnc As New TextBox
         getData()
-        SqlRefresh = "SELECT Function FROM `Users` WHERE Username LIKE @0 and Password LIKE @1"
+        SqlRefresh = "SELECT Function,empid FROM `Users` WHERE Username LIKE @0 and Password LIKE @1"
         ErrMessageText = "Incorrect username and password"
-        SqlReFill("Users", Nothing, "ShowValueInTextbox", {"0", "1"}, {tUsername, tPassword}, {txtFunction})
-        Return txtFunction.Text
+        SqlReFill("Users", Nothing, "ShowValueInTextbox", {"0", "1"}, {tUsername, tPassword}, {fnc})
+        vEmp = ds.Tables("Users").Rows(0).Item(1).ToString
+        Return fnc.Text
     End Function
 
     Private Sub showError(ByVal errPicture As PictureBox)
