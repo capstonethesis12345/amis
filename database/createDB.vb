@@ -20,6 +20,7 @@ Public Class createDB
         'sqlList.Add("CREATE USER '" & dbUser & "'@'localhost' IDENTIFIED BY '" & dbPass & "'")
         'sqlList.Add("GRANT ALL PRIVILEGES ON `" & dbname & "\_%`.* TO '" & dbUser & "'@'localhost'")
         'EMPLOYEE TABLE
+
         sqlList.Add("CREATE TABLE IF NOT EXISTS `Employees` (
             `EmpID` int(30) Not NULL AUTO_INCREMENT,
             `NameFirst` varchar(45) Not NULL,
@@ -37,8 +38,9 @@ Public Class createDB
             `Contact` varchar(15) NULL,
             `EmploymentStatus` tinyint not NULL,
             `EmpImage` longblob NULL,
+            `Deleted` tinyint not null default 0,
             PRIMARY KEY(`EmpID`)
-        ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;")
+        )")
 
         sqlList.Add("CREATE TABLE IF NOT EXISTS `Users`(
            `UserID` int(30) Not NULL AUTO_INCREMENT,
@@ -96,6 +98,8 @@ Public Class createDB
                 Brand varchar(45) not null,
                 primary KEY(ItemInfoID)
                 )")
+        ''ADD HERE ADDITIONAL UPDATES ON TABLE IF EXISTED
+        sqlList.Add("Alter table employees add `deleted` tinyint not null default 0")
         'CREATE USER ON DATABASE PHPMYADMIN
         'sqlList.Add("GRANT ALL PRIVILEGES ON  `" & dbname & "` . * TO  '" & dbUser & "'@'localhost' WITH GRANT OPTION")
         dbTBCreate = sqlList.ToArray()

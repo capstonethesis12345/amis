@@ -72,7 +72,7 @@ Partial Class frmPurchases
         Me.Label12 = New System.Windows.Forms.Label()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
+        Me.lblTotal = New System.Windows.Forms.Label()
         Me.ToolStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -544,20 +544,20 @@ Partial Class frmPurchases
         Me.Label13.Font = New System.Drawing.Font("MS Reference Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.Location = New System.Drawing.Point(834, 98)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(42, 16)
+        Me.Label13.Size = New System.Drawing.Size(52, 16)
         Me.Label13.TabIndex = 35
-        Me.Label13.Text = "Total"
+        Me.Label13.Text = "Total  "
         '
-        'Label14
+        'lblTotal
         '
-        Me.Label14.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("MS Reference Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(882, 98)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(42, 16)
-        Me.Label14.TabIndex = 35
-        Me.Label14.Text = "Total"
+        Me.lblTotal.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblTotal.AutoSize = True
+        Me.lblTotal.Font = New System.Drawing.Font("MS Reference Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotal.Location = New System.Drawing.Point(898, 98)
+        Me.lblTotal.Name = "lblTotal"
+        Me.lblTotal.Size = New System.Drawing.Size(16, 16)
+        Me.lblTotal.TabIndex = 35
+        Me.lblTotal.Text = "0"
         '
         'frmPurchases
         '
@@ -565,7 +565,7 @@ Partial Class frmPurchases
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1234, 621)
         Me.Controls.Add(Me.DateTimePicker1)
-        Me.Controls.Add(Me.Label14)
+        Me.Controls.Add(Me.lblTotal)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Button1)
@@ -640,7 +640,7 @@ Partial Class frmPurchases
     Friend WithEvents Label12 As Label
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents Label13 As Label
-    Friend WithEvents Label14 As Label
+    Friend WithEvents lblTotal As Label
     Friend WithEvents ColumnHeader8 As ColumnHeader
     Friend WithEvents btnDelete As Button
     Friend WithEvents Label15 As Label

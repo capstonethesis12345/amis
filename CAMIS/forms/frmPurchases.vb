@@ -10,6 +10,7 @@ Public Class frmPurchases
                     concat(i.unitvalue,' ',i.unittype)Unit,
                     l.cost,
                     l.quantity,
+                    (l.cost*l.quantity)rTotal,
                     If (i.itemtype = 1,'Ingredient','NonIngredient')
                     from polist l left join items i
                     On l.itemid=i.itemid
@@ -27,6 +28,8 @@ Public Class frmPurchases
         'get current po
         Dim poid As String = getIDFunction("select ifnull(max(poid),1) from po", "purchaseorder", Nothing)
         lblPONum.Text = poid
+        lblTotal.Text = String.Format(Globalization.CultureInfo.GetCultureInfo("en-PH"), computeSum())
+
     End Sub
 
     Private Sub btnNew_Click(sender As Object, e As EventArgs)
@@ -71,7 +74,7 @@ Public Class frmPurchases
 
         End If
         'COMPUTE SUM AMOUNT
-        computeSum()
+        lblTotal.Text = computeSum()
         'clear text
         Dim txtboxes As Object() = {lblSupplierID, txtSupplier, lblItemID, txtBarcode, txtProductName, txtBrand, txtCost, txtQuantity}
         ' ClearTextBoxes(txtboxes)
@@ -130,7 +133,8 @@ Public Class frmPurchases
         For Each row In ListView1.Items
             total += Double.Parse(row.subitems(4).text) * Double.Parse(row.subitems(5).text)
         Next
-        Return total
+
+        Return total.ToString("C", Globalization.CultureInfo.GetCultureInfo("en-PH"))
     End Function
 
     Private Sub ListView1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListView1.MouseDoubleClick
