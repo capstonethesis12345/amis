@@ -64,7 +64,7 @@ Public Class createDB
                   `EmpID` int(11) NOT NULL,
                   `PODate` date NOT NULL ,
                   `TotalCost` double NOT NULL default 0.0,
-                  `Status` tinyint(4) NOT NULL,
+                  `Status` tinyint(4) NOT NULL default 0,
                   PRIMARY KEY (`POID`)
                 )
             ")

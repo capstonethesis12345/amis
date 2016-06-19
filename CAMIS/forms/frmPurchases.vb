@@ -3,7 +3,17 @@
 Public Class frmPurchases
     Private poid As String
     Private vItemid As String
-
+    Private vRefresh As String = "Select 
+                    l.polistid,
+                    i.barcode,
+                    i.description,
+                    concat(i.unitvalue,' ',i.unittype)Unit,
+                    l.cost,
+                    l.quantity,
+                    If (i.itemtype = 1,'Ingredient','NonIngredient')
+                    from polist l left join items i
+                    On l.itemid=i.itemid
+                    where poid = 1"
     Public Sub New()
         InitializeComponent()
         'poid = getID("")
@@ -12,17 +22,7 @@ Public Class frmPurchases
         itemAutoComplete("Supplier", txtSupplier)
         SqlRefresh = "select barcode from items group by itemid"
         itemAutoComplete("AutoDescription", txtBarcode)
-        SqlRefresh = "select 
-                    l.polistid,
-                    i.barcode,
-                    i.description,
-                    concat(i.unitvalue,' ',i.unittype)Unit,
-                    l.cost,
-                    l.quantity,
-                    if(i.itemtype=1,'Ingredient','NonIngredient')
-                    from polist l left join items i
-                    on l.itemid=i.itemid
-                    where poid =1"
+        SqlRefresh = vRefresh
         SqlReFill("polist", ListView1)
         'get current po
         Dim poid As String = getIDFunction("select ifnull(max(poid),1) from po", "purchaseorder", Nothing)
@@ -54,23 +54,28 @@ Public Class frmPurchases
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAddItem.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAddUpdate.Click
         If lblSupplierID.Text = vbNullString Then
             openFull(frmSupplier)
         Else
             sqL = "SELECT  `Supplierid` FROM  `supplier` WHERE Company LIKE  @0"
             If getIDFunction(sqL, "SupplierID", {txtSupplier.Text}) = 0 Then    'is supplier is still not present repeat txtsupplier_leave
-                txtSupplier_Leave(btnAddItem, e)
+                txtSupplier_Leave(btnAddUpdate, e)
             Else
 
                 'MessageBox.Show(vItemid)
-                itemNew("POList", {"POID", "ItemID", "Quantity", "Cost"}, {lblPONum, lblItemID, txtQuantity, txtCost})
+                SqlRefresh = vRefresh
+                itemNew("POList", {"POID", "ItemID", "Quantity", "Cost"}, {lblPONum, lblItemID, txtQuantity, txtCost}, ListView1)
                 MessageBox.Show("Success")
             End If
 
         End If
         'COMPUTE SUM AMOUNT
-
+        computeSum()
+        'clear text
+        Dim txtboxes As Object() = {lblSupplierID, txtSupplier, lblItemID, txtBarcode, txtProductName, txtBrand, txtCost, txtQuantity}
+        ' ClearTextBoxes(txtboxes)
+        clearField(txtboxes)
     End Sub
 
     Private Sub txtSupplier_Leave(sender As Object, e As EventArgs) Handles txtSupplier.Leave
@@ -100,17 +105,25 @@ Public Class frmPurchases
             msgShow = False
             vItemid = getIDFunction(sqL, "items", {txtBarcode.Text})
             lblItemID.Text = vItemid
+            If vItemid = 0 Then
+                openFull(frmProduct)
+            End If
         Catch ex As Exception
             MessageBox.Show("error")
         End Try
     End Sub
 
     Private Sub lblItemID_TextChanged(sender As Object, e As EventArgs) Handles lblItemID.TextChanged
-        If Not lblItemID.Text = 0 Or lblItemID.Text IsNot vbNullString Then
-            SqlRefresh = "select description,brand from items where itemid like @itemid"
-            msgShow = False
-            SqlReFill("items", Nothing, "ShowValueInTextbox", {"itemid"}, {lblItemID}, {txtProductName, txtBrand})
-        End If
+        Try
+            If Not lblItemID.Text = 0 Or lblItemID.Text IsNot vbNullString Then
+                SqlRefresh = "select description,brand from items where itemid like @itemid"
+                msgShow = False
+                SqlReFill("items", Nothing, "ShowValueInTextbox", {"itemid"}, {lblItemID}, {txtProductName, txtBrand})
+            End If
+        Catch ex As Exception
+
+        End Try
+
     End Sub
     Private Function computeSum()
         Dim total As Double = 0.0
@@ -119,4 +132,54 @@ Public Class frmPurchases
         Next
         Return total
     End Function
+
+    Private Sub ListView1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListView1.MouseDoubleClick
+
+
+        Dim ref As New TextBox
+        ref.Text = ListView1.SelectedItems(0).Text.ToString
+        SqlRefresh =
+            "select polist.itemid,
+           (supplier.company)supplierName,
+           items.barcode
+           from                polist 
+           left join            items
+           ON polist.itemid=items.itemid
+            left join           supplier
+            on supplier.supplierid=items.supplierid
+           WHERE polist.polistid like  @itemid"
+        SqlReFill("updateitem", Nothing, "ShowValueInTextbox", {"itemid"}, {ref}, {lblItemID, txtSupplier, txtBarcode})
+        'DISABLE SUPPLIER
+        txtSupplier.ReadOnly = True
+        txtBarcode.ReadOnly = True
+        btnDelete.Visible = True
+    End Sub
+
+    Private Sub txtProductName_Leave(sender As Object, e As EventArgs) Handles txtProductName.Leave
+        Try
+            'MessageBox.Show(txtSupplier.Text)
+            sqL = "SELECT  `itemid` FROM  `items` WHERE barcode LIKE  @0 and description like @1"
+            msgShow = False
+            vItemid = getIDFunction(sqL, "items", {txtBarcode.Text, txtProductName.Text})
+            lblItemID.Text = vItemid
+
+        Catch ex As Exception
+            MessageBox.Show("error")
+        End Try
+    End Sub
+
+    Private Sub txtBrand_Leave(sender As Object, e As EventArgs) Handles txtBrand.Leave
+        Try
+            'MessageBox.Show(txtSupplier.Text)
+            sqL = "SELECT  `itemid` FROM  `items` WHERE barcode LIKE  @0 and description like @1 and brand like @2"
+            msgShow = False
+            vItemid = getIDFunction(sqL, "items", {txtBarcode.Text, txtProductName.Text, txtBrand.Text})
+            lblItemID.Text = vItemid
+            If vItemid = 0 Then
+                openFull(frmProduct)
+            End If
+        Catch ex As Exception
+            MessageBox.Show("error")
+        End Try
+    End Sub
 End Class
