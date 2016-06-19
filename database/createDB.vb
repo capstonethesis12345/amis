@@ -14,13 +14,15 @@ Public Class createDB
     Public Function createDB() As String()
         Dim dbUser = vUSER, dbPass = vPASS, dbTBCreate() As String
         Dim sqlList As New List(Of String)
+        '0
         sqlList.Add("CREATE DATABASE IF NOT EXISTS `" & dbname & "` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;")
+        '1
         sqlList.Add("USE `" & dbname & "`;")
         'sqlList.Add("set password for 'root'@'localhost'=PASSWORD('admin456')")
         'sqlList.Add("CREATE USER '" & dbUser & "'@'localhost' IDENTIFIED BY '" & dbPass & "'")
         'sqlList.Add("GRANT ALL PRIVILEGES ON `" & dbname & "\_%`.* TO '" & dbUser & "'@'localhost'")
         'EMPLOYEE TABLE
-
+        '2
         sqlList.Add("CREATE TABLE IF NOT EXISTS `Employees` (
             `EmpID` int(30) Not NULL AUTO_INCREMENT,
             `NameFirst` varchar(45) Not NULL,
@@ -41,7 +43,7 @@ Public Class createDB
             `Deleted` tinyint not null default 0,
             PRIMARY KEY(`EmpID`)
         )")
-
+        '3
         sqlList.Add("CREATE TABLE IF NOT EXISTS `Users`(
            `UserID` int(30) Not NULL AUTO_INCREMENT,
            `EmpID` int(30) Not NULL,
@@ -54,13 +56,16 @@ Public Class createDB
         'INSERT INITIAL VALUE
         '2 tables must always be linked by not all employees have the access to the program
         'each user must have employee record. need only once.
-        sqlList.Add("insert into employees(`namefirst`,`namemiddle`,`namelast`,`employmentstatus`) values('Administrator','Administrator','Administrator',1);")
-        sqlList.Add("insert into Users(`Empid`,`username`,`password`,`function`) values(1,'Admin','Admin','Admin');")
+        '4
+        sqlList.Add("insert into employees(`namefirst`,`namemiddle`,`namelast`,`employmentstatus`) values('Administrator','Administrator','Administrator',1) on duplicate key update namefirst='Administrator'")
+        '5
+        sqlList.Add("insert into Users(`Empid`,`username`,`password`,`function`) values(1,'Admin','Admin','Admin') on duplicate key update `username`='Admin',`password`='Admin'")
 
 
         'THIS WILL CREATE A PURCHASE ORDERLIST VIEW
         'SELECT DATE_FORMAT( NOW( ) ,  '%Y-%m-%d' ) DATE
         'THIS WILL CREAE PO TABLE FOR SUMMARY OF PURCHASE ORDER LISTS
+        '6
         sqlList.Add("CREATE TABLE IF NOT EXISTS `po` (
                   `POID` int(11) NOT NULL AUTO_INCREMENT,
                   `EmpID` int(11) NOT NULL,
@@ -70,7 +75,8 @@ Public Class createDB
                   PRIMARY KEY (`POID`)
                 )
             ")
-        sqlList.Add("CREATE TABLE POList(
+        '7
+        sqlList.Add("CREATE TABLE IF NOT EXISTS POList(
             POListID INT NOT NULL AUTO_INCREMENT ,
             POID INT NOT NULL ,
             ItemID INT NOT NULL,
@@ -78,8 +84,9 @@ Public Class createDB
             Cost double not null default 0.0,
             PRIMARY KEY ( POListID )
             )")
+        '8
         'THIS WILL CREATE ITEMS FOR SUMMARY OF ITEMS BEING PURCHASED
-        sqlList.Add("CREATE TABLE ITEMS(
+        sqlList.Add("CREATE TABLE IF NOT EXISTS ITEMS(
                 ItemID INT NOT NULL AUTO_INCREMENT ,
                 SupplierID INT NOT NULL ,
                 Barcode INT NOT NULL ,
@@ -91,7 +98,8 @@ Public Class createDB
                 ItemType VARCHAR( 15 ) NOT NULL ,
                 PRIMARY KEY ( ItemID, SupplierID )
                 )")
-        sqlList.Add("CREATE TABLE ItemInfo(
+        '9
+        sqlList.Add("CREATE TABLE IF NOT EXISTS ItemInfo(
                 ItemInfoID int not null auto_increment,
                 Barcode varchar(45) not null,
                 Description Varchar(45) not null,
@@ -99,7 +107,13 @@ Public Class createDB
                 primary KEY(ItemInfoID)
                 )")
         ''ADD HERE ADDITIONAL UPDATES ON TABLE IF EXISTED
-        sqlList.Add("Alter table employees add `deleted` tinyint not null default 0")
+        'THIS THE the way to insert column in a table for update without changing its content
+        '10
+        sqlList.Add("DELIMITER $$ CREATE DEFINER=`root`@`localhost` PROCEDURE `Alter_Table_Insert_DELETED_column`() BEGIN DECLARE _count INT; SET _count = (  SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE   TABLE_NAME = 'employees' AND  COLUMN_NAME = 'deleted'); IF _count = 0 THEN ALTER TABLE `employees` ADD COLUMN `deleted` TINYINT(1) NOT NULL DEFAULT 0; END IF; END$$ DELIMITER ;")
+        '11
+        sqlList.Add("CALL Alter_Table_Insert_DELETED_column()") 'EXECUTE THE ALTERATION
+        sqlList.Add("DROP PROCEDURE Alter_Table_Insert_DELETED_column()")
+
         'CREATE USER ON DATABASE PHPMYADMIN
         'sqlList.Add("GRANT ALL PRIVILEGES ON  `" & dbname & "` . * TO  '" & dbUser & "'@'localhost' WITH GRANT OPTION")
         dbTBCreate = sqlList.ToArray()

@@ -82,7 +82,7 @@ Module SQLConn
                     Case Is = 3
                     Case Is = 4
                     Case Else
-                        MessageBox.Show("Unable to generate database in #" & i.ToString, "Connection not establish")
+                        MessageBox.Show("Unable to generate database in #" & i.ToString & ex.Message.ToString, "Connection not establish")
                         Exit Sub
                 End Select
 
