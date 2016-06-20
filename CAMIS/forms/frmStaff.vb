@@ -114,7 +114,7 @@ Public Class frmStaff
         Else
             isEditStaff = True
         End If
-        SqlRefresh = "SELECT  e.Empid
+        SqlRefresh = "SELECT  e.Empid 
                         from Employees e
                             LEFT JOIN Users u
                             ON u.EmpID=e.Empid
