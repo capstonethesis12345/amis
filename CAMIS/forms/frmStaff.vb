@@ -107,6 +107,7 @@ Public Class frmStaff
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        Dim isError As Boolean = False
         Dim empStatus As New TextBox 'create a temporary object textbox to store string inorder to transfer a data into function itemnew() or itemupdate()
         'create search if fname and lastname or md has existed
         If txtEmployeeNo.Text = vbNullString Then
@@ -137,13 +138,41 @@ Public Class frmStaff
 
             Else
                 'MessageBox.Show("insert information")
+
                 If isEditStaff = False Then
                     msgShow = True
-                    SqlRefresh = "select e.empid,concat(e.namelast,', ',e.namefirst,' ',e.namemiddle) from employees e left join users u on u.empid=e.empid order by e.empid asc"
-                    itemNew("Employees",
+                    'CHECK if user is not in use
+                    msgShow = False
+                    Dim user As String = getIDFunction("select username from users where username like @0", "users", {txtUsername.Text})
+                    ' MessageBox.Show(user)
+                    If CheckBox1.Checked = True Then
+
+                        If txtUsername.Text = vbNullString Then
+                            MessageBox.Show("Username is required")
+                            isError = True
+                            Exit Sub
+                        End If
+                        If txtUsername.Text = txtPassword.Text Then
+                            MessageBox.Show("Password and confirmation do not match")
+                            isError = True
+                            Exit Sub
+                        End If
+
+                        If isError = False Then
+                            MessageBox.Show("Insert to users table")
+                            MessageBox.Show("Insert to employees table")
+                        End If
+
+
+                    Else
+                        SqlRefresh = "select e.empid,concat(e.namelast,', ',e.namefirst,' ',e.namemiddle) from employees e left join users u on u.empid=e.empid order by e.empid asc"
+                        itemNew("Employees",
                    {"NameFirst", "NameMiddle", "NameLast", "BirthDate", "Gender", "MaritalStatus", "EmpImage", "BirthAddress", "AddressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact", "EmploymentStatus"},
                     {txtFirstname, txtMI, txtLastname, txtBirthDate, txtGender, txtMaritalStatus, PictureBox1, txtBirthAddress, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, empStatus},
                     ListView1)
+
+                    End If
+
                 Else
                     MessageBox.Show("Update")
                 End If
@@ -153,10 +182,55 @@ Public Class frmStaff
         Else
             If isEditStaff = True Then
                 msgShow = True
-                MessageBox.Show("Update data")
-                SqlRefresh = sStaff
-                itemUpdate("employees", {"Gender", "BirthDate", "BirthAddress", "MaritalStatus", "AddressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact"},
+
+                If CheckBox1.Checked = True Then
+                    If txtUsername.Text = vbNullString Then
+                        MessageBox.Show("Fillup username first")
+                        isError = True
+                        Exit Sub
+                    End If
+                    If txtFunction.Text = vbNullString Then
+                        MessageBox.Show("Select function first")
+                        isError = True
+                        Exit Sub
+                    End If
+                    If txtConfirmPWD.Text = txtPassword.Text And txtPassword.Text <> vbNullString Then
+
+                        If isError = False Then
+                            MessageBox.Show("Update user login")
+                            SqlRefresh = sStaff
+                            itemUpdate("employees", {"Gender", "BirthDate", "BirthAddress", "MaritalStatus", "AddressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact"},
                            {txtGender, txtBirthDate, txtBirthAddress, txtMaritalStatus, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo}, "EmpID", txtEmployeeNo.Text)
+                            itemNew("users", {"Empid", "Username", "Password", "Function"}, {txtEmployeeNo, txtUsername, txtPassword, txtFunction})
+                        End If
+                    Else
+                        If txtPassword.Text = vbNullString Then
+                            MessageBox.Show("Empty password not allowed")
+                            isError = True
+                            Exit Sub
+                        End If
+                        If Not txtPassword.Text = txtConfirmPWD.Text Then
+                            MessageBox.Show("Password and confirmation do not match please try again.")
+                            txtConfirmPWD.Text = ""
+                            txtPassword.Text = ""
+                            isError = True
+                        Else
+                            MessageBox.Show("Password and confirm acccepted")
+                        End If
+                    End If
+
+                Else
+                    MessageBox.Show("delete user login")
+
+                    SqlRefresh = sStaff
+                    itemUpdate("employees", {"Gender", "BirthDate", "BirthAddress", "MaritalStatus", "AddressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact"},
+                           {txtGender, txtBirthDate, txtBirthAddress, txtMaritalStatus, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo}, "EmpID", txtEmployeeNo.Text)
+
+
+                End If
+
+
+
                 '     SqlRefresh = sStaff
                 '      itemUpdate("Employees", {"NameFirst", "NameMiddle", "NameLast", "BirthDate", "Gender", "MaritalStatus", "EmpImage", "BirthAddress", "AddressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact", "EmploymentStatus"},
                 '           {txtFirstname, txtMI, txtLastname, txtBirthDate, txtGender, txtMaritalStatus, PictureBox1, txtBirthAddress, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, empStatus}, "Empid", txtEmployeeNo.Text, ListView1)
