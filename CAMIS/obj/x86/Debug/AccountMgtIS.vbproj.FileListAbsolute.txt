@@ -174,8 +174,9 @@ C:\github\CAMIS\obj\x86\Debug\AccountManagementIS.frmStaff.resources
 C:\github\CAMIS\obj\x86\Debug\AccountMgtIS.vbproj.GenerateResource.Cache
 C:\github\CAMIS\obj\x86\Debug\AccountManagementIS.exe
 C:\github\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
-H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.xml
 H:\github\CAMIS\obj\x86\Debug\AccountManagementIS.xml
+H:\github\CAMIS\obj\x86\Debug\AccountManagementIS.exe
+H:\github\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
 H:\github\amis\CAMIS\bin\Debug\AccountManagementIS.exe
 H:\github\amis\CAMIS\bin\Debug\AccountManagementIS.pdb
 H:\github\amis\CAMIS\bin\Debug\AccountManagementIS.xml
@@ -194,6 +195,7 @@ H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.fMainForm.resources
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateCategory.resources
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateProduct.resources
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateRequisition.resources
+H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmFood.resources
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmFoodMenu.resources
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmRequest.resources
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmPurchases.resources
@@ -205,6 +207,7 @@ H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmFilterStockOut.resourc
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmSupplier.resources
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmMain.resources
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmPayment.resources
+H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmSales.resources
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmPrintReceipt.resources
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmProduct.resources
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmReportDailySales.resources
@@ -216,8 +219,5 @@ H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.Resources.resources
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmStaff.resources
 H:\github\amis\CAMIS\obj\x86\Debug\AccountMgtIS.vbproj.GenerateResource.Cache
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.exe
+H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.xml
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
-H:\github\CAMIS\obj\x86\Debug\AccountManagementIS.exe
-H:\github\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
-H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmFood.resources
-H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmSales.resources

@@ -51,6 +51,7 @@ Partial Class frmStaff
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.txtConfirmPWD = New System.Windows.Forms.TextBox()
         Me.txtPassword = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtUsername = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -376,6 +377,7 @@ Partial Class frmStaff
         '
         Me.GroupBox3.Controls.Add(Me.txtConfirmPWD)
         Me.GroupBox3.Controls.Add(Me.txtPassword)
+        Me.GroupBox3.Controls.Add(Me.Label9)
         Me.GroupBox3.Controls.Add(Me.Label8)
         Me.GroupBox3.Controls.Add(Me.txtUsername)
         Me.GroupBox3.Controls.Add(Me.Label5)
@@ -407,6 +409,15 @@ Partial Class frmStaff
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassword.Size = New System.Drawing.Size(362, 23)
         Me.txtPassword.TabIndex = 3
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(49, 122)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(54, 15)
+        Me.Label9.TabIndex = 9
+        Me.Label9.Text = "Confirm:"
         '
         'Label8
         '
@@ -757,4 +768,5 @@ Partial Class frmStaff
     Friend WithEvents txtSearch As ToolStripTextBox
     Friend WithEvents CheckBox1 As CheckBox
     Friend WithEvents txtMaritalStatus As ComboBox
+    Friend WithEvents Label9 As Label
 End Class
