@@ -113,8 +113,8 @@ Public Class frmStaff
         End If
 
         msgShow = False
-        If txtEmployeeNo.Text = vbNullString Then 'basihan nato kung available ang employee no if not add if available update ra.
-
+        If txtEmployeeNo.Text IsNot vbNullString Then 'basihan nato kung available ang employee no if not add if available update ra.
+            MessageBox.Show("")
             SqlRefresh = "select e.empid,concat(e.namelast,', ',e.namefirst,' ',e.namemiddle) from employees e left join users u on u.empid=e.empid order by e.empid asc"
             itemNew("Employees",
                    {"NameFirst", "NameMiddle", "NameLast", "BirthDate", "Gender", "MaritalStatus", "EmpImage", "BirthAddress", "AddressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact", "EmploymentStatus"},
@@ -137,20 +137,9 @@ Public Class frmStaff
         'BELOW CODES INITIATE IF USERS HAS ABILITY TO INSERT ACCESSIBLE SOFTWARE AND ITS FUNCTIONS
         msgShow = True
         If CheckBox1.Checked = True Then
-            If txtUsername.Text IsNot vbNullString Then
-                'SqlRefresh = sStaff
-                'itemNew("Users", {"EmpID", "Username", "Password", "Function"}, {txtEmployeeNo, txtUsername, txtPassword, txtFunction}, ListView1)
-                Try
-                    ConnDB()
-                    cmd = New MySqlCommand()
-                    cmd.CommandText = "insert into users(`Username`,`Password`,`Function`)Values(@0,@1,@2) on duplicate key update ``"
-                Catch ex As Exception
 
-                End Try
-            Else
-                SqlRefresh = sStaff
-                itemUpdate("Users", {"Username", "Password", "Function"}, {txtUsername, txtPassword, txtFunction}, "Empid", txtEmployeeNo.Text, ListView1)
-            End If
+            MessageBox.Show("Input information first")
+
             '     If (txtUsername.Text Is vbNullString) Then
             '     
             ' Else
