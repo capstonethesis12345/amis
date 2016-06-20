@@ -72,7 +72,9 @@ Module SQLConn
         For Each dataY In y
             Try
                 ConnDB()
-                cmd = New MySqlCommand(dataY, conn)
+                cmd = New MySqlCommand()
+                cmd.Connection = conn
+                cmd.CommandText = dataY
                 cmd.ExecuteNonQuery()
             Catch ex As Exception
                 Select Case i'prevent occurance on existed user

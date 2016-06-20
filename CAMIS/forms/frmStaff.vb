@@ -4,11 +4,12 @@ Imports MySql.Data.MySqlClient
 
 Public Class frmStaff
     Dim usrPass As New TextBox
+    Dim sStaff As String = "select e.empid,concat(e.namelast,', ',e.namefirst,' ',e.namemiddle) from employees e left join users u on u.empid=e.empid order by e.empid asc"
     Public Sub New()
         InitializeComponent()
         Try
             objForm = Me
-            SqlRefresh = "select e.empid,concat(e.namelast,', ',e.namefirst,' ',e.namemiddle) from employees e left join users u on u.empid=e.empid order by e.empid asc"
+            SqlRefresh = sStaff
             SqlReFill("Employees", ListView1)
 
         Catch ex As Exception
@@ -136,17 +137,33 @@ Public Class frmStaff
         'BELOW CODES INITIATE IF USERS HAS ABILITY TO INSERT ACCESSIBLE SOFTWARE AND ITS FUNCTIONS
         msgShow = True
         If CheckBox1.Checked = True Then
-            If (txtUsername.Text Is vbNullString) Then
-                itemNew("Users", {"EmpID", "Username", "Password", "Function"}, {txtEmployeeNo, txtUsername, txtPassword, txtFunction}, ListView1)
+            If txtUsername.Text IsNot vbNullString Then
+                'SqlRefresh = sStaff
+                'itemNew("Users", {"EmpID", "Username", "Password", "Function"}, {txtEmployeeNo, txtUsername, txtPassword, txtFunction}, ListView1)
+                Try
+                    ConnDB()
+                    cmd = New MySqlCommand()
+                    cmd.CommandText = "insert into users(`Username`,`Password`,`Function`)Values(@0,@1,@2) on duplicate key update ``"
+                Catch ex As Exception
+
+                End Try
             Else
-                If Not txtPassword.Text = txtConfirmPWD.Text Then
-                    MessageBox.Show("Password and Confirmation doesn't match. Please Try again")
-                    Exit Sub
-                End If
-                itemUpdate("Users", {"EmpID", "Username", "Password", "Function"}, {txtEmployeeNo, txtUsername, usrPass, txtFunction}, "EmpID", txtEmployeeNo.Text)
+                SqlRefresh = sStaff
+                itemUpdate("Users", {"Username", "Password", "Function"}, {txtUsername, txtPassword, txtFunction}, "Empid", txtEmployeeNo.Text, ListView1)
             End If
-        Else
-            itemDelete("Users", {"EmpID"}, {txtEmployeeNo})
+            '     If (txtUsername.Text Is vbNullString) Then
+            '     
+            ' Else
+            '     If Not txtPassword.Text = txtConfirmPWD.Text Then
+            '     MessageBox.Show("Password and Confirmation doesn't match. Please Try again")
+            '     Exit Sub
+            ' Else
+            '    itemUpdate("Users", {"EmpID", "Username", "Password", "Function"}, {txtEmployeeNo, txtUsername, usrPass, txtFunction}, "EmpID", txtEmployeeNo.Text)
+            ''End If
+            '
+            '       End If
+            '       Else
+            '          itemDelete("Users", {"EmpID"}, {txtEmployeeNo})
         End If
 
 

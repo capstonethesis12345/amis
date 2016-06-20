@@ -93,7 +93,6 @@ Public Class createDB
                 Description VARCHAR( 45 ) NOT NULL ,
                 Brand VARCHAR( 45 ) ,
                 UnitType VARCHAR( 10 ) NOT NULL ,
-                UnitValue DOUBLE NOT NULL DEFAULT 0.0,
                 Category VARCHAR( 45 ) NOT NULL ,
                 ItemType VARCHAR( 15 ) NOT NULL ,
                 PRIMARY KEY ( ItemID, SupplierID )
@@ -109,13 +108,14 @@ Public Class createDB
         ''ADD HERE ADDITIONAL UPDATES ON TABLE IF EXISTED
         'THIS THE the way to insert column in a table for update without changing its content
         '10
-        sqlList.Add("DELIMITER $$ CREATE DEFINER=`root`@`localhost` PROCEDURE `Alter_Table_Insert_DELETED_column`() BEGIN DECLARE _count INT; SET _count = (  SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE   TABLE_NAME = 'employees' AND  COLUMN_NAME = 'deleted'); IF _count = 0 THEN ALTER TABLE `employees` ADD COLUMN `deleted` TINYINT(1) NOT NULL DEFAULT 0; END IF; END$$ DELIMITER ;")
+
+
         '11
-        sqlList.Add("CALL Alter_Table_Insert_DELETED_column()") 'EXECUTE THE ALTERATION
-        sqlList.Add("DROP PROCEDURE Alter_Table_Insert_DELETED_column()")
+        'sqlList.Add("CALL Alter_Table_Insert_DELETED_column()") 'EXECUTE THE ALTERATION
+        'sqlList.Add("DROP PROCEDURE If EXISTS Alter_Table_Insert_DELETED_column()")
 
         'CREATE USER ON DATABASE PHPMYADMIN
-        'sqlList.Add("GRANT ALL PRIVILEGES ON  `" & dbname & "` . * TO  '" & dbUser & "'@'localhost' WITH GRANT OPTION")
+        'sqlList.Add("GRANT ALL PRIVILEGES On  `" & dbname & "` . * To  '" & dbUser & "'@'localhost' WITH GRANT OPTION")
         dbTBCreate = sqlList.ToArray()
 
         '        dbTBCreate(3) = "CREATE TABLE IF NOT EXISTS `category` (" &

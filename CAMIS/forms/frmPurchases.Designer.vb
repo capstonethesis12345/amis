@@ -73,12 +73,20 @@ Partial Class frmPurchases
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.lblTotal = New System.Windows.Forms.Label()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.lbs = New System.Windows.Forms.RadioButton()
+        Me.pcs = New System.Windows.Forms.RadioButton()
+        Me.kgs = New System.Windows.Forms.RadioButton()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.txtcategory = New System.Windows.Forms.ComboBox()
         Me.ToolStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.gtype.SuspendLayout()
         Me.gItem.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox2.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'ListView1
@@ -94,7 +102,7 @@ Partial Class frmPurchases
         Me.ListView1.GridLines = True
         Me.ListView1.Location = New System.Drawing.Point(12, 44)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(780, 512)
+        Me.ListView1.Size = New System.Drawing.Size(780, 594)
         Me.ListView1.TabIndex = 27
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
@@ -199,7 +207,7 @@ Partial Class frmPurchases
         Me.Panel1.Controls.Add(Me.ListView1)
         Me.Panel1.Location = New System.Drawing.Point(12, 43)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(801, 566)
+        Me.Panel1.Size = New System.Drawing.Size(801, 648)
         Me.Panel1.TabIndex = 32
         '
         'Label10
@@ -266,15 +274,17 @@ Partial Class frmPurchases
         '
         Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.btnDelete)
+        Me.GroupBox1.Controls.Add(Me.GroupBox3)
+        Me.GroupBox1.Controls.Add(Me.GroupBox2)
         Me.GroupBox1.Controls.Add(Me.gtype)
         Me.GroupBox1.Controls.Add(Me.gItem)
         Me.GroupBox1.Controls.Add(Me.lblSupplierID)
         Me.GroupBox1.Controls.Add(Me.Label15)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.txtSupplier)
-        Me.GroupBox1.Location = New System.Drawing.Point(819, 177)
+        Me.GroupBox1.Location = New System.Drawing.Point(828, 177)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(403, 374)
+        Me.GroupBox1.Size = New System.Drawing.Size(390, 488)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Product Info"
@@ -295,7 +305,7 @@ Partial Class frmPurchases
         Me.gtype.Controls.Add(Me.RadioButton1)
         Me.gtype.Location = New System.Drawing.Point(18, 286)
         Me.gtype.Name = "gtype"
-        Me.gtype.Size = New System.Drawing.Size(269, 64)
+        Me.gtype.Size = New System.Drawing.Size(239, 59)
         Me.gtype.TabIndex = 6
         Me.gtype.TabStop = False
         Me.gtype.Text = "Product type"
@@ -338,7 +348,7 @@ Partial Class frmPurchases
         Me.gItem.Controls.Add(Me.txtCost)
         Me.gItem.Location = New System.Drawing.Point(18, 87)
         Me.gItem.Name = "gItem"
-        Me.gItem.Size = New System.Drawing.Size(363, 174)
+        Me.gItem.Size = New System.Drawing.Size(363, 193)
         Me.gItem.TabIndex = 1
         Me.gItem.TabStop = False
         Me.gItem.Text = "Item"
@@ -347,7 +357,7 @@ Partial Class frmPurchases
         '
         Me.txtQuantity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txtQuantity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txtQuantity.Location = New System.Drawing.Point(84, 142)
+        Me.txtQuantity.Location = New System.Drawing.Point(84, 145)
         Me.txtQuantity.Name = "txtQuantity"
         Me.txtQuantity.Size = New System.Drawing.Size(257, 20)
         Me.txtQuantity.TabIndex = 4
@@ -355,7 +365,7 @@ Partial Class frmPurchases
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(27, 142)
+        Me.Label11.Location = New System.Drawing.Point(27, 145)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(46, 13)
         Me.Label11.TabIndex = 1
@@ -436,7 +446,7 @@ Partial Class frmPurchases
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(45, 120)
+        Me.Label5.Location = New System.Drawing.Point(45, 123)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(28, 13)
         Me.Label5.TabIndex = 1
@@ -446,7 +456,7 @@ Partial Class frmPurchases
         '
         Me.txtCost.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txtCost.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txtCost.Location = New System.Drawing.Point(84, 116)
+        Me.txtCost.Location = New System.Drawing.Point(84, 119)
         Me.txtCost.Name = "txtCost"
         Me.txtCost.Size = New System.Drawing.Size(257, 20)
         Me.txtCost.TabIndex = 3
@@ -559,11 +569,73 @@ Partial Class frmPurchases
         Me.lblTotal.TabIndex = 35
         Me.lblTotal.Text = "0"
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.kgs)
+        Me.GroupBox2.Controls.Add(Me.lbs)
+        Me.GroupBox2.Controls.Add(Me.pcs)
+        Me.GroupBox2.Location = New System.Drawing.Point(18, 351)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(239, 55)
+        Me.GroupBox2.TabIndex = 6
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Unit"
+        '
+        'lbs
+        '
+        Me.lbs.AutoSize = True
+        Me.lbs.Location = New System.Drawing.Point(90, 28)
+        Me.lbs.Name = "lbs"
+        Me.lbs.Size = New System.Drawing.Size(38, 17)
+        Me.lbs.TabIndex = 0
+        Me.lbs.Text = "lbs"
+        Me.lbs.UseVisualStyleBackColor = True
+        '
+        'pcs
+        '
+        Me.pcs.AutoSize = True
+        Me.pcs.Checked = True
+        Me.pcs.Location = New System.Drawing.Point(35, 28)
+        Me.pcs.Name = "pcs"
+        Me.pcs.Size = New System.Drawing.Size(42, 17)
+        Me.pcs.TabIndex = 0
+        Me.pcs.TabStop = True
+        Me.pcs.Text = "pcs"
+        Me.pcs.UseVisualStyleBackColor = True
+        '
+        'kgs
+        '
+        Me.kgs.AutoSize = True
+        Me.kgs.Location = New System.Drawing.Point(134, 28)
+        Me.kgs.Name = "kgs"
+        Me.kgs.Size = New System.Drawing.Size(42, 17)
+        Me.kgs.TabIndex = 0
+        Me.kgs.Text = "kgs"
+        Me.kgs.UseVisualStyleBackColor = True
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.txtcategory)
+        Me.GroupBox3.Location = New System.Drawing.Point(18, 412)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(239, 70)
+        Me.GroupBox3.TabIndex = 6
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Category"
+        '
+        'txtcategory
+        '
+        Me.txtcategory.FormattingEnabled = True
+        Me.txtcategory.Location = New System.Drawing.Point(20, 31)
+        Me.txtcategory.Name = "txtcategory"
+        Me.txtcategory.Size = New System.Drawing.Size(202, 21)
+        Me.txtcategory.TabIndex = 0
+        '
         'frmPurchases
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1234, 621)
+        Me.ClientSize = New System.Drawing.Size(1234, 703)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.lblTotal)
         Me.Controls.Add(Me.Label13)
@@ -590,6 +662,9 @@ Partial Class frmPurchases
         Me.gItem.ResumeLayout(False)
         Me.gItem.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -644,4 +719,10 @@ Partial Class frmPurchases
     Friend WithEvents ColumnHeader8 As ColumnHeader
     Friend WithEvents btnDelete As Button
     Friend WithEvents Label15 As Label
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents kgs As RadioButton
+    Friend WithEvents lbs As RadioButton
+    Friend WithEvents pcs As RadioButton
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents txtcategory As ComboBox
 End Class

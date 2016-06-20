@@ -1,13 +1,14 @@
 ﻿Imports MySql.Data
 
 Public Class frmPurchases
+    Private insertProduct As Boolean = False
     Private poid As String
     Private vItemid As String
     Private vRefresh As String = "Select 
                     l.polistid,
                     i.barcode,
                     i.description,
-                    concat(i.unitvalue,' ',i.unittype)Unit,
+                    concat('1 ',i.unittype)Unit,
                     l.cost,
                     l.quantity,
                     (l.cost*l.quantity)rTotal,
@@ -29,7 +30,8 @@ Public Class frmPurchases
         Dim poid As String = getIDFunction("select ifnull(max(poid),1) from po", "purchaseorder", Nothing)
         lblPONum.Text = poid
         lblTotal.Text = String.Format(Globalization.CultureInfo.GetCultureInfo("en-PH"), computeSum())
-
+        SqlRefresh = "select category from items where category <> null"
+        SqlFill(SqlRefresh, "categroy", txtcategory)
     End Sub
 
     Private Sub btnNew_Click(sender As Object, e As EventArgs)
@@ -58,6 +60,44 @@ Public Class frmPurchases
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAddUpdate.Click
+        If insertProduct = True Then
+            '    Dim strunittype As String = InputBox("Unit type", "Notice")
+            '    Dim strunitValue As String = InputBox("Unit value for each item", "Notice")
+            '    Dim stritemtype As String
+            '    If RadioButton1.Checked = True Then
+            '    stritemtype = 1
+            ' Else
+            '     stritemtype = 0
+            ' End If
+            '     Dim unittype, unitvalue, itemtype As Object
+            '     Try
+            '     unittype.text = strunittype
+            '     unitvalue.text = strunitValue
+            '     itemtype.text = stritemtype
+            '
+            '            Catch ex As Exception
+            '
+            '            End Try
+
+            'MessageBox.Show("Insert a product description to items table")
+            msgShow = False
+            Dim sunittype As String = InputBox("Enter unit type eg pcs,qrts,kl,lbs")
+            Dim sunitvalue As String = InputBox("Enter unit")
+            Dim unittype As New TextBox
+            If pcs.Checked = True Then
+                unittype.Text = pcs.Text
+            ElseIf (kgs.Checked = True) Then
+                unittype.Text = kgs.Text
+            ElseIf (lbs.Checked = True) Then
+                unittype.Text = lbs.Text
+            End If
+            unittype.Text = sunittype
+            itemNew("items",
+                    {"Barcode", "Description", "Brand", "UnitType"},
+                    {txtBarcode, txtProductName, txtBrand, unittype})
+            txtBarcode_Leave(Button1, e)
+        End If
+
         If lblSupplierID.Text = vbNullString Then
             openFull(frmSupplier)
         Else
@@ -79,6 +119,7 @@ Public Class frmPurchases
         Dim txtboxes As Object() = {lblSupplierID, txtSupplier, lblItemID, txtBarcode, txtProductName, txtBrand, txtCost, txtQuantity}
         ' ClearTextBoxes(txtboxes)
         clearField(txtboxes)
+
     End Sub
 
     Private Sub txtSupplier_Leave(sender As Object, e As EventArgs) Handles txtSupplier.Leave
@@ -109,7 +150,8 @@ Public Class frmPurchases
             vItemid = getIDFunction(sqL, "items", {txtBarcode.Text})
             lblItemID.Text = vItemid
             If vItemid = 0 Then
-                openFull(frmProduct)
+                ' openFull(frmProduct)
+                insertProduct = True
             End If
         Catch ex As Exception
             MessageBox.Show("error")
@@ -180,10 +222,12 @@ Public Class frmPurchases
             vItemid = getIDFunction(sqL, "items", {txtBarcode.Text, txtProductName.Text, txtBrand.Text})
             lblItemID.Text = vItemid
             If vItemid = 0 Then
-                openFull(frmProduct)
+                'openFull(frmProduct)
+                insertProduct = True
             End If
         Catch ex As Exception
             MessageBox.Show("error")
         End Try
     End Sub
+
 End Class

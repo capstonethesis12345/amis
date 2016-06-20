@@ -366,7 +366,7 @@ Partial Class frmStaff
         Me.txtEmployStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.txtEmployStatus.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.txtEmployStatus.FormattingEnabled = True
-        Me.txtEmployStatus.Items.AddRange(New Object() {"Employed", "Not Employed"})
+        Me.txtEmployStatus.Items.AddRange(New Object() {"Job Order", "Regular", "Provision", "Contractual"})
         Me.txtEmployStatus.Location = New System.Drawing.Point(131, 313)
         Me.txtEmployStatus.Name = "txtEmployStatus"
         Me.txtEmployStatus.Size = New System.Drawing.Size(136, 23)
