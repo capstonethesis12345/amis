@@ -69,7 +69,8 @@ Public Class frmStaff
             Dim empAccess As String = ds.Tables("Employees").Rows(0).Item("role").ToString
             usrPass = New TextBox
             usrPass.Text = ds.Tables("Employees").Rows(0).Item("Ucode").ToString
-
+            txtPassword.Text = usrPass.Text
+            txtConfirmPWD.Text = usrPass.Text
             'NOW WE WILL SET EMPLOYMENT STATUS BASED ON THE 1 = EMPLOYED AND 0 AS NOT EMPLOYED
             If empStatus = 1 Then
                 txtEmployStatus.SelectedIndex = 0
@@ -201,7 +202,22 @@ Public Class frmStaff
                             SqlRefresh = sStaff
                             itemUpdate("employees", {"Gender", "BirthDate", "BirthAddress", "MaritalStatus", "AddressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact"},
                            {txtGender, txtBirthDate, txtBirthAddress, txtMaritalStatus, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo}, "EmpID", txtEmployeeNo.Text)
-                            itemNew("users", {"Empid", "Username", "Password", "Function"}, {txtEmployeeNo, txtUsername, txtPassword, txtFunction})
+
+                            Dim isExists As String = getIDFunction("select empid from users where empid like @0", "Empid", {txtEmployeeNo.Text})
+
+                            If isExists > 0 Then
+                                itemNew("users", {"Empid", "Username", "Password", "Function"}, {txtEmployeeNo, txtUsername, txtPassword, txtFunction})
+                            Else
+                                If txtUsername.Text = vbNullString Then
+                                    MessageBox.Show("Empty username not allowed")
+                                    itemUpdate("Users", {"Function", "Username", "Password"}, {txtFunction, txtUsername, txtPassword}, "empid", txtEmployeeNo.Text)
+                                End If
+
+
+                            End If
+
+
+
                         End If
                     Else
                         If txtPassword.Text = vbNullString Then
