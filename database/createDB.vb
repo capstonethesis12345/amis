@@ -57,9 +57,9 @@ Public Class createDB
         '2 tables must always be linked by not all employees have the access to the program
         'each user must have employee record. need only once.
         '4
-        sqlList.Add("insert into employees(`namefirst`,`namemiddle`,`namelast`,`employmentstatus`) values('Administrator','Administrator','Administrator',1) on duplicate key update namefirst='Administrator'")
+        sqlList.Add("insert into employees(`empid`,`namefirst`,`namemiddle`,`namelast`,`employmentstatus`) values('1','Administrator','Administrator','Administrator',1) on duplicate key update namefirst='Administrator'")
         '5
-        sqlList.Add("insert into Users(`Empid`,`username`,`password`,`function`) values(1,'Admin','Admin','Admin') on duplicate key update `username`='Admin',`password`='Admin'")
+        sqlList.Add("insert into Users(`userid`,`Empid`,`username`,`password`,`function`) values(1,1,'Admin','Admin','Admin') on duplicate key update `username`='Admin',`password`='Admin'")
 
 
         'THIS WILL CREATE A PURCHASE ORDERLIST VIEW
@@ -105,6 +105,24 @@ Public Class createDB
                 Brand varchar(45) not null,
                 primary KEY(ItemInfoID)
                 )")
+
+        sqlList.Add("create table if not exists JobGrade(
+    JobGradeID int(10) not null auto_increment,
+    JobDescription varchar(30) not null,
+    Salary double(10,2) not null default 0.0,
+    Primary key(JobGradeID)
+    );")
+        sqlList.Add("delimiter //
+
+CREATE PROCEDURE simpleproc (OUT param1 INT)
+  BEGIN
+SELECT COUNT(*) INTO param1 FROM users;
+END//
+
+
+delimiter ;
+")
+
         ''ADD HERE ADDITIONAL UPDATES ON TABLE IF EXISTED
         'THIS THE the way to insert column in a table for update without changing its content
         '10

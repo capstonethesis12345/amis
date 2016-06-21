@@ -39,8 +39,6 @@ Partial Class frmSupplier
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
-        Me.btnNew = New System.Windows.Forms.ToolStripButton()
-        Me.btnUpdate = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -56,6 +54,7 @@ Partial Class frmSupplier
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4})
+        Me.ListView1.FullRowSelect = True
         Me.ListView1.Location = New System.Drawing.Point(3, 3)
         Me.ListView1.Name = "ListView1"
         Me.ListView1.Size = New System.Drawing.Size(822, 448)
@@ -99,7 +98,7 @@ Partial Class frmSupplier
         Me.btnSave.BackColor = System.Drawing.Color.PowderBlue
         Me.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.Location = New System.Drawing.Point(1057, 278)
+        Me.btnSave.Location = New System.Drawing.Point(1046, 253)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 48)
         Me.btnSave.TabIndex = 3
@@ -109,7 +108,7 @@ Partial Class frmSupplier
         'txtAddress
         '
         Me.txtAddress.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtAddress.Location = New System.Drawing.Point(962, 166)
+        Me.txtAddress.Location = New System.Drawing.Point(951, 141)
         Me.txtAddress.MaxLength = 245
         Me.txtAddress.Multiline = True
         Me.txtAddress.Name = "txtAddress"
@@ -119,7 +118,7 @@ Partial Class frmSupplier
         'txtSupplier
         '
         Me.txtSupplier.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtSupplier.Location = New System.Drawing.Point(1010, 137)
+        Me.txtSupplier.Location = New System.Drawing.Point(999, 112)
         Me.txtSupplier.MaxLength = 45
         Me.txtSupplier.Name = "txtSupplier"
         Me.txtSupplier.Size = New System.Drawing.Size(122, 23)
@@ -128,7 +127,7 @@ Partial Class frmSupplier
         'txtContact
         '
         Me.txtContact.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtContact.Location = New System.Drawing.Point(962, 238)
+        Me.txtContact.Location = New System.Drawing.Point(951, 213)
         Me.txtContact.MaxLength = 11
         Me.txtContact.Name = "txtContact"
         Me.txtContact.Size = New System.Drawing.Size(170, 23)
@@ -138,7 +137,7 @@ Partial Class frmSupplier
         '
         Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(907, 238)
+        Me.Label4.Location = New System.Drawing.Point(896, 213)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(42, 15)
         Me.Label4.TabIndex = 1
@@ -148,7 +147,7 @@ Partial Class frmSupplier
         '
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(907, 169)
+        Me.Label3.Location = New System.Drawing.Point(896, 144)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(49, 15)
         Me.Label3.TabIndex = 1
@@ -158,7 +157,7 @@ Partial Class frmSupplier
         '
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(907, 137)
+        Me.Label2.Location = New System.Drawing.Point(896, 112)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(97, 15)
         Me.Label2.TabIndex = 1
@@ -180,7 +179,7 @@ Partial Class frmSupplier
         Me.ToolStrip1.AutoSize = False
         Me.ToolStrip1.BackColor = System.Drawing.Color.CadetBlue
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.btnNew, Me.btnUpdate, Me.ToolStripButton2, Me.ToolStripButton1})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.ToolStripButton2, Me.ToolStripButton1})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(1217, 40)
@@ -192,24 +191,6 @@ Partial Class frmSupplier
         Me.ToolStripLabel1.Name = "ToolStripLabel1"
         Me.ToolStripLabel1.Size = New System.Drawing.Size(16, 37)
         Me.ToolStripLabel1.Text = "   "
-        '
-        'btnNew
-        '
-        Me.btnNew.AutoSize = False
-        Me.btnNew.Image = CType(resources.GetObject("btnNew.Image"), System.Drawing.Image)
-        Me.btnNew.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btnNew.Name = "btnNew"
-        Me.btnNew.Size = New System.Drawing.Size(65, 40)
-        Me.btnNew.Text = "&New"
-        '
-        'btnUpdate
-        '
-        Me.btnUpdate.AutoSize = False
-        Me.btnUpdate.Image = CType(resources.GetObject("btnUpdate.Image"), System.Drawing.Image)
-        Me.btnUpdate.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(65, 40)
-        Me.btnUpdate.Text = "&Update"
         '
         'ToolStripButton2
         '
@@ -233,7 +214,7 @@ Partial Class frmSupplier
         '
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(907, 105)
+        Me.Label1.Location = New System.Drawing.Point(896, 80)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(64, 15)
         Me.Label1.TabIndex = 1
@@ -243,7 +224,7 @@ Partial Class frmSupplier
         '
         Me.txtSupplierID.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtSupplierID.AutoSize = True
-        Me.txtSupplierID.Location = New System.Drawing.Point(1007, 105)
+        Me.txtSupplierID.Location = New System.Drawing.Point(996, 80)
         Me.txtSupplierID.Name = "txtSupplierID"
         Me.txtSupplierID.Size = New System.Drawing.Size(0, 15)
         Me.txtSupplierID.TabIndex = 1
@@ -303,8 +284,6 @@ Partial Class frmSupplier
     Friend WithEvents txtSupplier As TextBox
     Friend WithEvents ToolStrip1 As ToolStrip
     Friend WithEvents ToolStripLabel1 As ToolStripLabel
-    Friend WithEvents btnNew As ToolStripButton
-    Friend WithEvents btnUpdate As ToolStripButton
     Friend WithEvents ToolStripButton2 As ToolStripButton
     Friend WithEvents ToolStripButton1 As ToolStripButton
     Friend WithEvents Label1 As Label

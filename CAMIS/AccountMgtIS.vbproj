@@ -420,6 +420,7 @@
     <Content Include="Resources\Ecommerce-Cash-Register-icon.png" />
     <None Include="Resources\empty-profile.jpg" />
     <None Include="Resources\empty-profile1.jpg" />
+    <Content Include="Resources\exit.png" />
     <Content Include="Resources\Food-Coffee-icon.png" />
     <Content Include="Resources\Food-Waiter-icon.png" />
     <None Include="Resources\print.png" />

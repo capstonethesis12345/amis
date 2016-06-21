@@ -39,3 +39,4 @@ H:\github\amis\database\bin\Debug\database.xml
 H:\github\amis\database\obj\Debug\database.dll
 H:\github\amis\database\obj\Debug\database.xml
 H:\github\amis\database\obj\Debug\database.pdb
+H:\github\amis\database\obj\Debug\database.vbprojResolveAssemblyReference.cache

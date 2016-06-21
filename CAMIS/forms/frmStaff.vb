@@ -1,12 +1,7 @@
 ﻿
 Imports MySql.Data.MySqlClient
 
-'EMPLOYMENT STATUS
-'0=discharge
-'1=Job Order
-'2=Regular
-'3=Provision
-'4=Contractual
+
 Public Class frmStaff
     Private isEditStaff As Boolean = False
     Dim usrPass As New TextBox
@@ -47,7 +42,7 @@ Public Class frmStaff
         PictureBox1.Visible = True
         Dim obj As Object = Nothing
         isEditStaff = True
-        textboxes = {txtEmployeeNo, txtFirstname, txtMI, txtLastname, txtGender, txtBirthDate, txtBirthAddress, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, txtUsername, txtEmployStatus, txtMaritalStatus, PictureBox1, txtFunction}
+        textboxes = {txtEmployeeNo, txtFirstname, txtMI, txtLastname, txtGender, txtBirthDate, txtBirthAddress, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, txtUsername, txtEmployStatus, txtMaritalStatus, txtFunction}
 
         clearField(textboxes)
         clearField({txtPassword, txtConfirmPWD})
@@ -56,12 +51,12 @@ Public Class frmStaff
             'StatusSet = ""
             'ErrMessageText = ""
 
-            SqlRefresh = "SELECT  e.Empid, e.NameFirst, e.NameMiddle,e.NameLast,ifnull(e.Gender,''),ifnull(e.BirthDate,''),ifnull(e.BirthAddress,''),ifnull(e.AddressStreet,''),ifnull(e.AddressBarangay,''),ifnull(e.AddressMunCity,''),ifnull(e.AddressProvince,''),ifnull(e.AddressZip,''),ifnull(e.Contact,''),ifnull(u.Username,''),ifnull(e.EmploymentStatus,'')EmploymentStatus,ifnull(e.maritalstatus,'')maritalstatus,ifnull(e.EmpImage,''),ifnull(`u`.`Function`,'')role,ifnull(`u`.`Password`,'')Ucode from Employees e
+            SqlRefresh = "SELECT  e.Empid, e.NameFirst, e.NameMiddle,e.NameLast,ifnull(e.Gender,''),ifnull(e.BirthDate,''),ifnull(e.BirthAddress,''),ifnull(e.AddressStreet,''),ifnull(e.AddressBarangay,''),ifnull(e.AddressMunCity,''),ifnull(e.AddressProvince,''),ifnull(e.AddressZip,''),ifnull(e.Contact,''),ifnull(e.EmpImage,''),ifnull(u.Username,''),ifnull(e.EmploymentStatus,'')EmploymentStatus,ifnull(e.maritalstatus,'')maritalstatus,ifnull(`u`.`Function`,'')role,ifnull(`u`.`Password`,'')Ucode from Employees e
                             LEFT JOIN Users u
                             ON u.EmpID=e.Empid
                         where e.empid=@empid"
             msgShow = False 'PREVENT OCCURANCE OF MESSAGEBOX SHOW
-            SqlReFill("Employees", Nothing, "ShowValueInTextbox", {"empid"}, {txtEmployeeNo}, textboxes)
+            SqlReFill("Employees", Nothing, "ShowValueInTextbox", {"empid"}, {txtEmployeeNo}, {txtEmployeeNo, txtFirstname, txtMI, txtLastname, txtGender, txtBirthDate, txtBirthAddress, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, PictureBox1})
 
             'COMMENTED CODED IS TO ACCESS MANUAL INFORMATION F DATASET TABLE.
             ' Dim mstatus As String = ds.Tables("employees").Rows(0).Item("maritalstatus").ToString
@@ -71,12 +66,30 @@ Public Class frmStaff
             usrPass.Text = ds.Tables("Employees").Rows(0).Item("Ucode").ToString
             txtPassword.Text = usrPass.Text
             txtConfirmPWD.Text = usrPass.Text
-            'NOW WE WILL SET EMPLOYMENT STATUS BASED ON THE 1 = EMPLOYED AND 0 AS NOT EMPLOYED
-            If empStatus = 1 Then
+
+            'NOW WE WILL SET EMPLOYMENT STATUS BASED ON THE FOLLOWING
+            'EMPLOYMENT STATUS
+            '0=Job Order
+            '1=Regular
+            '2=Provisionary
+            '3=Contractual
+            '4=Resigned
+            '5=Dismissed
+
+            If empStatus = 0 Then
                 txtEmployStatus.SelectedIndex = 0
-            Else
+            ElseIf (empStatus = 1) Then
                 txtEmployStatus.SelectedIndex = 1
+            ElseIf (empStatus = 2) Then
+                txtEmployStatus.SelectedIndex = 2
+            ElseIf (empStatus = 3) Then
+                txtEmployStatus.SelectedIndex = 3
+            ElseIf (empStatus = 4) Then
+                txtEmployStatus.SelectedIndex = 4
+            ElseIf (empStatus = 5) Then
+                txtEmployStatus.SelectedIndex = 5
             End If
+
 
             'SHOW ACCESS ROLES AS BASED ON ROLE ACCESS WHETHER ADMIN MANAGER OR CASHIER
             Select Case empAccess
@@ -166,6 +179,7 @@ Public Class frmStaff
 
 
                     Else
+                        MessageBox.Show("Inserting data")
                         SqlRefresh = "select e.empid,concat(e.namelast,', ',e.namefirst,' ',e.namemiddle) from employees e left join users u on u.empid=e.empid order by e.empid asc"
                         itemNew("Employees",
                    {"NameFirst", "NameMiddle", "NameLast", "BirthDate", "Gender", "MaritalStatus", "EmpImage", "BirthAddress", "AddressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact", "EmploymentStatus"},
@@ -198,23 +212,40 @@ Public Class frmStaff
                     If txtConfirmPWD.Text = txtPassword.Text And txtPassword.Text <> vbNullString Then
 
                         If isError = False Then
-                            MessageBox.Show("Update user login")
-                            SqlRefresh = sStaff
-                            itemUpdate("employees", {"Gender", "BirthDate", "BirthAddress", "MaritalStatus", "AddressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact"},
-                           {txtGender, txtBirthDate, txtBirthAddress, txtMaritalStatus, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo}, "EmpID", txtEmployeeNo.Text)
 
-                            Dim isExists As String = getIDFunction("select empid from users where empid like @0", "Empid", {txtEmployeeNo.Text})
+                            Dim isExists As Integer = Integer.Parse(getIDFunction("select empid from users where empid like @0", "Empid", {txtEmployeeNo.Text}))
 
-                            If isExists > 0 Then
-                                itemNew("users", {"Empid", "Username", "Password", "Function"}, {txtEmployeeNo, txtUsername, txtPassword, txtFunction})
+
+                            If isExists = 0 Then
+                                MessageBox.Show("Inserting user access")
+                                If txtUsername.Text = vbNullString Then
+                                    MessageBox.Show("Username required")
+                                    isError = True
+                                End If
+                                If Not txtPassword.Text = txtConfirmPWD.Text Then
+                                    isError = True
+                                    MessageBox.Show("Username and confirmation do not match.")
+                                End If
+                                If isError = False Then
+                                    itemNew("users", {"Empid", "Username", "Password", "Function"}, {txtEmployeeNo, txtUsername, txtPassword, txtFunction})
+                                End If
+
                             Else
                                 If txtUsername.Text = vbNullString Then
                                     MessageBox.Show("Empty username not allowed")
+                                    Exit Sub
+                                Else
+                                    MessageBox.Show("Update user")
                                     itemUpdate("Users", {"Function", "Username", "Password"}, {txtFunction, txtUsername, txtPassword}, "empid", txtEmployeeNo.Text)
                                 End If
 
 
                             End If
+
+                            MessageBox.Show("Update user login")
+                            SqlRefresh = sStaff
+                            itemUpdate("employees", {"Gender", "BirthDate", "BirthAddress", "MaritalStatus", "AddressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact"},
+                           {txtGender, txtBirthDate, txtBirthAddress, txtMaritalStatus, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo}, "EmpID", txtEmployeeNo.Text)
 
 
 
@@ -241,8 +272,8 @@ Public Class frmStaff
                     SqlRefresh = sStaff
                     itemUpdate("employees", {"Gender", "BirthDate", "BirthAddress", "MaritalStatus", "AddressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact"},
                            {txtGender, txtBirthDate, txtBirthAddress, txtMaritalStatus, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo}, "EmpID", txtEmployeeNo.Text)
-
-
+                    itemDelete("users", {"Empid"}, {txtEmployeeNo})
+                    Exit Sub
                 End If
 
 
@@ -296,9 +327,10 @@ WHERE e.empid LIKE  @empid"
             ' Dim mstatus As String = ds.Tables("employees").Rows(0).Item("maritalstatus").ToString
             Dim empStatus As String = ds.Tables("Employees").Rows(0).Item("EmploymentStatus").ToString
             Dim empAccess As String = ds.Tables("Employees").Rows(0).Item("role").ToString
-            usrPass = New TextBox
-            usrPass.Text = ds.Tables("Employees").Rows(0).Item("Ucode").ToString
-
+            ' usrPass = New TextBox
+            'usrPass.Text = ds.Tables("Employees").Rows(0).Item("Ucode").ToString
+            txtPassword.Text = ds.Tables("Employees").Rows(0).Item("Ucode").ToString
+            txtConfirmPWD.Text = ds.Tables("Employees").Rows(0).Item("Ucode").ToString
             'NOW WE WILL SET EMPLOYMENT STATUS BASED ON THE 1 = EMPLOYED AND 0 AS NOT EMPLOYED
             If empStatus = 1 Then
                 txtEmployStatus.SelectedIndex = 0
@@ -362,7 +394,4 @@ WHERE e.empid LIKE  @empid"
         End If
     End Sub
 
-    Private Sub ListView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListView1.SelectedIndexChanged
-
-    End Sub
 End Class

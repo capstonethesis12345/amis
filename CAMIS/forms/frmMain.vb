@@ -108,4 +108,11 @@ Public Class frmMain
     Private Sub SuppliersToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SuppliersToolStripMenuItem.Click
         openFull(frmSupplier)
     End Sub
+
+    Private Sub ToolStripButton3_Click(sender As Object, e As EventArgs) Handles ToolStripButton3.Click
+        Dim login As New fMainForm()
+        login.Show()
+        Me.Hide()
+
+    End Sub
 End Class
