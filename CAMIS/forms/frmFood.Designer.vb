@@ -96,7 +96,7 @@ Partial Class frmFood
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 6
-        Me.Button1.Text = "Add"
+        Me.Button1.Text = ">>"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Button2
@@ -105,7 +105,7 @@ Partial Class frmFood
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 7
-        Me.Button2.Text = "Remove"
+        Me.Button2.Text = "<<"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'TextBox1
