@@ -67,16 +67,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MetroFramework, Version=1.3.5.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Metroframe\MetroFramework.dll</HintPath>
+      <HintPath>..\packages\MetroModernUI.1.3.5.0\lib\net40\MetroFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Demo">
+      <HintPath>C:\Users\MarloA-PC\Downloads\metroframework-modern-ui-master\metroframework-modern-ui-master\MetroFramework.Demo\bin\Debug\MetroFramework.Demo.exe</HintPath>
     </Reference>
     <Reference Include="MetroFramework.Design, Version=1.3.5.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Metroframe\MetroFramework.Design.dll</HintPath>
+      <HintPath>..\packages\MetroModernUI.1.3.5.0\lib\net40\MetroFramework.Design.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="MetroFramework.Fonts, Version=1.3.5.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Metroframe\MetroFramework.Fonts.dll</HintPath>
+      <HintPath>..\packages\MetroModernUI.1.3.5.0\lib\net40\MetroFramework.Fonts.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="MetroStyle, Version=3.2.56.700, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -405,12 +408,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\Stock-Index-Up-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Metroframe\MetroFramework.Design.dll" />
-    <Content Include="Metroframe\MetroFramework.dll" />
-    <Content Include="Metroframe\MetroFramework.Fonts.dll" />
     <Content Include="MetroStyle.dll" />
     <Content Include="MySql.Data.dll" />
     <Content Include="Resources\51882.png" />
@@ -436,7 +437,6 @@
     <None Include="Resources\print20x20.png" />
     <None Include="Resources\reject30x30.png" />
     <None Include="Resources\icon-staff.png" />
-    <Content Include="Resources\lineSalesbar.png" />
     <Content Include="Resources\loginForm.png" />
     <Content Include="Resources\Stock-Index-Down-icon.png" />
     <Content Include="Resources\отчет о работе.png" />
@@ -450,7 +450,6 @@
       <Name>database</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
