@@ -23,14 +23,14 @@ Public Class frmMain
         ' Public DBNameMySQL As String
         lblDate.Text = Date.Now.ToString("MM/dd/yyyy")
         formMain(Me)
-        MessageBox.Show("Greetings " & vfunction, "Welcome")
+        'MessageBox.Show("Greetings " & vfunction, "Welcome")
     End Sub
 
     Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton2.Click
         openFull(frmProduct)
     End Sub
     Private Sub ToolStripButton5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton5.Click
-        frmPOS.ShowDialog()
+        frmSales.ShowDialog()
     End Sub
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
@@ -99,5 +99,20 @@ Public Class frmMain
 
     Private Sub PurchasesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PurchasesToolStripMenuItem.Click
         openFull(frmPurchases)
+    End Sub
+
+    Private Sub POSToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles POSToolStripMenuItem.Click
+        openFull(frmSales)
+    End Sub
+
+    Private Sub SuppliersToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SuppliersToolStripMenuItem.Click
+        openFull(frmSupplier)
+    End Sub
+
+    Private Sub ToolStripButton3_Click(sender As Object, e As EventArgs) Handles ToolStripButton3.Click
+        Dim login As New fMainForm()
+        login.Show()
+        Me.Hide()
+
     End Sub
 End Class

@@ -102,12 +102,6 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="forms\frmFood.Designer.vb">
       <DependentUpon>frmFood.vb</DependentUpon>
     </Compile>
@@ -139,12 +133,6 @@
     <Compile Include="forms\frmAddUpdateRequisition.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\frmAddUpdateStaff.Designer.vb">
-      <DependentUpon>frmAddUpdateStaff.vb</DependentUpon>
-    </Compile>
-    <Compile Include="forms\frmAddUpdateStaff.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="forms\frmFoodMenu.Designer.vb">
       <DependentUpon>frmFoodMenu.vb</DependentUpon>
     </Compile>
@@ -157,10 +145,10 @@
     <Compile Include="forms\frmRequest.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\frnPurchases.Designer.vb">
-      <DependentUpon>frnPurchases.vb</DependentUpon>
+    <Compile Include="forms\frmPurchases.Designer.vb">
+      <DependentUpon>frmPurchases.vb</DependentUpon>
     </Compile>
-    <Compile Include="forms\frnPurchases.vb">
+    <Compile Include="forms\frmPurchases.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\frmCategory.Designer.vb">
@@ -169,10 +157,10 @@
     <Compile Include="forms\frmCategory.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\frmPOS.Designer.vb">
-      <DependentUpon>frmPOS.vb</DependentUpon>
+    <Compile Include="forms\frmSales.Designer.vb">
+      <DependentUpon>frmSales.vb</DependentUpon>
     </Compile>
-    <Compile Include="forms\frmPOS.vb">
+    <Compile Include="forms\frmSales.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\frmReportDailySales.Designer.vb">
@@ -291,9 +279,6 @@
     <EmbeddedResource Include="fMainForm.resx">
       <DependentUpon>fMainForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="forms\frmAddUpdateCategory.resx">
       <DependentUpon>frmAddUpdateCategory.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -305,10 +290,6 @@
     <EmbeddedResource Include="forms\frmAddUpdateRequisition.resx">
       <DependentUpon>frmAddUpdateRequisition.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\frmAddUpdateStaff.resx">
-      <DependentUpon>frmAddUpdateStaff.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="forms\frmFood.resx">
       <DependentUpon>frmFood.vb</DependentUpon>
     </EmbeddedResource>
@@ -318,8 +299,8 @@
     <EmbeddedResource Include="forms\frmRequest.resx">
       <DependentUpon>frmRequest.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\frnPurchases.resx">
-      <DependentUpon>frnPurchases.vb</DependentUpon>
+    <EmbeddedResource Include="forms\frmPurchases.resx">
+      <DependentUpon>frmPurchases.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmCategory.resx">
       <DependentUpon>frmCategory.vb</DependentUpon>
@@ -346,8 +327,8 @@
     <EmbeddedResource Include="forms\frmPayment.resx">
       <DependentUpon>frmPayment.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\frmPOS.resx">
-      <DependentUpon>frmPOS.vb</DependentUpon>
+    <EmbeddedResource Include="forms\frmSales.resx">
+      <DependentUpon>frmSales.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmPrintReceipt.resx">
       <DependentUpon>frmPrintReceipt.vb</DependentUpon>
@@ -439,6 +420,7 @@
     <Content Include="Resources\Ecommerce-Cash-Register-icon.png" />
     <None Include="Resources\empty-profile.jpg" />
     <None Include="Resources\empty-profile1.jpg" />
+    <Content Include="Resources\exit.png" />
     <Content Include="Resources\Food-Coffee-icon.png" />
     <Content Include="Resources\Food-Waiter-icon.png" />
     <None Include="Resources\print.png" />

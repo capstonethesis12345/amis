@@ -49,7 +49,7 @@
             '
             '           thread1.Join()
 
-            MessageBox.Show(vEmp)
+            'MessageBox.Show(vEmp)
             If status = "Admin" Then
                 PictureBox2.Visible = False
                 Dim fmain As New frmMain(txtFunction.Text)

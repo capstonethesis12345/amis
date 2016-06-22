@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmPOS
+Partial Class frmSales
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -305,17 +305,19 @@ Partial Class frmPOS
         Me.Label13.BackColor = System.Drawing.Color.SkyBlue
         Me.Label13.Font = New System.Drawing.Font("Segoe Print", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label13.Location = New System.Drawing.Point(4, 0)
+        Me.Label13.Location = New System.Drawing.Point(31, 13)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(127, 43)
+        Me.Label13.Size = New System.Drawing.Size(77, 43)
         Me.Label13.TabIndex = 23
-        Me.Label13.Text = "Payment"
+        Me.Label13.Text = "Sales"
         '
         'Panel1
         '
+        Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.BackColor = System.Drawing.Color.SkyBlue
-        Me.Panel1.Controls.Add(Me.Label12)
         Me.Panel1.Controls.Add(Me.Label13)
+        Me.Panel1.Controls.Add(Me.Label12)
         Me.Panel1.Location = New System.Drawing.Point(-6, -4)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(663, 60)
@@ -351,7 +353,7 @@ Partial Class frmPOS
         Me.Button1.Text = "Print Reciept"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'frmPOS
+        'frmSales
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -386,7 +388,7 @@ Partial Class frmPOS
         Me.Font = New System.Drawing.Font("Courier New", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.Name = "frmPOS"
+        Me.Name = "frmSales"
         Me.Text = "Transaction"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()

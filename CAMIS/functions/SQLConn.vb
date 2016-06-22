@@ -72,7 +72,9 @@ Module SQLConn
         For Each dataY In y
             Try
                 ConnDB()
-                cmd = New MySqlCommand(dataY, conn)
+                cmd = New MySqlCommand()
+                cmd.Connection = conn
+                cmd.CommandText = dataY
                 cmd.ExecuteNonQuery()
             Catch ex As Exception
                 Select Case i'prevent occurance on existed user
@@ -82,7 +84,7 @@ Module SQLConn
                     Case Is = 3
                     Case Is = 4
                     Case Else
-                        MessageBox.Show("Unable to generate database in #" & i.ToString, "Connection not establish")
+                        MessageBox.Show("Unable to generate database in #" & i.ToString & ex.Message.ToString, "Connection not establish")
                         Exit Sub
                 End Select
 

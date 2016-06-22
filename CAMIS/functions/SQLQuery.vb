@@ -17,6 +17,7 @@ Module SQLQuery
     Public d As Date = Date.Today
     Public todate As String = d.ToString("yyyy-MM-dd")
     Public vEmp As String
+
     Public Sub itemAutoComplete(ByVal DataSetName As String, ByVal objAutoCompleteTextBox As Object)
         Try
 
@@ -167,13 +168,14 @@ Module SQLQuery
                     Dim ctrl As Control = txt
                     If TypeOf (ctrl) Is PictureBox Then
                         arrImage = ds.Tables(sDSName).Rows(0).Item(i)
-                        If arrImage.Length = 0 Then
-                            If msgShow = True Then
-                                MessageBox.Show("Empty Image")
-                            End If
+                        'MessageBox.Show(arrImage.Count.ToString)
+                        If arrImage.Count = 0 Then
+
+                            txt.Image = My.Resources.empty_profile11
                             msgShow = True
                         Else
-                                Dim mstream As New System.IO.MemoryStream(arrImage)
+
+                            Dim mstream As New System.IO.MemoryStream(arrImage)
                             txt.Image = Image.FromStream(mstream)
                         End If
 
