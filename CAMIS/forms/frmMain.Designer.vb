@@ -32,16 +32,14 @@ Partial Class frmMain
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RecordToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StaffToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CategoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProductToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ViewMenusToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SetupMenuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SuppliersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.POSToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BillsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PayrollToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EncodeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RequestToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PurchasesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReturnsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AdjustmentToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -70,6 +68,7 @@ Partial Class frmMain
         Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
+        Me.DTRToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -120,7 +119,7 @@ Partial Class frmMain
         '
         'RecordToolStripMenuItem
         '
-        Me.RecordToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StaffToolStripMenuItem, Me.CategoryToolStripMenuItem, Me.ProductToolStripMenuItem, Me.MenuToolStripMenuItem, Me.SuppliersToolStripMenuItem})
+        Me.RecordToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StaffToolStripMenuItem, Me.ProductToolStripMenuItem, Me.MenuToolStripMenuItem, Me.SuppliersToolStripMenuItem})
         Me.RecordToolStripMenuItem.Name = "RecordToolStripMenuItem"
         Me.RecordToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
         Me.RecordToolStripMenuItem.Text = "Records"
@@ -128,36 +127,43 @@ Partial Class frmMain
         'StaffToolStripMenuItem
         '
         Me.StaffToolStripMenuItem.Name = "StaffToolStripMenuItem"
-        Me.StaffToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.StaffToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.StaffToolStripMenuItem.Text = "Staff"
-        '
-        'CategoryToolStripMenuItem
-        '
-        Me.CategoryToolStripMenuItem.Name = "CategoryToolStripMenuItem"
-        Me.CategoryToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
-        Me.CategoryToolStripMenuItem.Text = "Categories"
         '
         'ProductToolStripMenuItem
         '
         Me.ProductToolStripMenuItem.Name = "ProductToolStripMenuItem"
-        Me.ProductToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.ProductToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ProductToolStripMenuItem.Text = "Products"
         '
         'MenuToolStripMenuItem
         '
+        Me.MenuToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewMenusToolStripMenuItem, Me.SetupMenuToolStripMenuItem})
         Me.MenuToolStripMenuItem.Name = "MenuToolStripMenuItem"
-        Me.MenuToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
-        Me.MenuToolStripMenuItem.Text = "Food Menus"
+        Me.MenuToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.MenuToolStripMenuItem.Text = "Foods"
+        '
+        'ViewMenusToolStripMenuItem
+        '
+        Me.ViewMenusToolStripMenuItem.Name = "ViewMenusToolStripMenuItem"
+        Me.ViewMenusToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.ViewMenusToolStripMenuItem.Text = "Food Menu"
+        '
+        'SetupMenuToolStripMenuItem
+        '
+        Me.SetupMenuToolStripMenuItem.Name = "SetupMenuToolStripMenuItem"
+        Me.SetupMenuToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.SetupMenuToolStripMenuItem.Text = "Set-up Menu"
         '
         'SuppliersToolStripMenuItem
         '
         Me.SuppliersToolStripMenuItem.Name = "SuppliersToolStripMenuItem"
-        Me.SuppliersToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.SuppliersToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SuppliersToolStripMenuItem.Text = "Suppliers"
         '
         'TransactionToolStripMenuItem
         '
-        Me.TransactionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.POSToolStripMenuItem, Me.BillsToolStripMenuItem, Me.PayrollToolStripMenuItem, Me.PurchasesToolStripMenuItem, Me.ReturnsToolStripMenuItem, Me.AdjustmentToolStripMenuItem})
+        Me.TransactionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.POSToolStripMenuItem, Me.PayrollToolStripMenuItem, Me.PurchasesToolStripMenuItem, Me.ReturnsToolStripMenuItem, Me.AdjustmentToolStripMenuItem})
         Me.TransactionToolStripMenuItem.Name = "TransactionToolStripMenuItem"
         Me.TransactionToolStripMenuItem.Size = New System.Drawing.Size(81, 20)
         Me.TransactionToolStripMenuItem.Text = "Transaction"
@@ -168,30 +174,12 @@ Partial Class frmMain
         Me.POSToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.POSToolStripMenuItem.Text = "Sales"
         '
-        'BillsToolStripMenuItem
-        '
-        Me.BillsToolStripMenuItem.Name = "BillsToolStripMenuItem"
-        Me.BillsToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
-        Me.BillsToolStripMenuItem.Text = "Payables"
-        '
         'PayrollToolStripMenuItem
         '
-        Me.PayrollToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EncodeToolStripMenuItem, Me.RequestToolStripMenuItem1})
+        Me.PayrollToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DTRToolStripMenuItem})
         Me.PayrollToolStripMenuItem.Name = "PayrollToolStripMenuItem"
-        Me.PayrollToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.PayrollToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.PayrollToolStripMenuItem.Text = "Payroll"
-        '
-        'EncodeToolStripMenuItem
-        '
-        Me.EncodeToolStripMenuItem.Name = "EncodeToolStripMenuItem"
-        Me.EncodeToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
-        Me.EncodeToolStripMenuItem.Text = "Encode"
-        '
-        'RequestToolStripMenuItem1
-        '
-        Me.RequestToolStripMenuItem1.Name = "RequestToolStripMenuItem1"
-        Me.RequestToolStripMenuItem1.Size = New System.Drawing.Size(116, 22)
-        Me.RequestToolStripMenuItem1.Text = "Request"
         '
         'PurchasesToolStripMenuItem
         '
@@ -439,6 +427,12 @@ Partial Class frmMain
         Me.ToolStripButton3.Text = "Log Out"
         Me.ToolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
+        'DTRToolStripMenuItem
+        '
+        Me.DTRToolStripMenuItem.Name = "DTRToolStripMenuItem"
+        Me.DTRToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DTRToolStripMenuItem.Text = "DTR"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -485,7 +479,6 @@ Partial Class frmMain
     Friend WithEvents VatToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents StaffToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents CategoryToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ProductToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents POSToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents StocksInToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -502,14 +495,11 @@ Partial Class frmMain
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents MenuToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents BillsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PayrollToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FinancialStatusToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PurchasesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SuppliersToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents EncodeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents RequestToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ReturnsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AdjustmentToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStrip1 As ToolStrip
@@ -520,4 +510,7 @@ Partial Class frmMain
     Friend WithEvents ToolStripButton6 As ToolStripButton
     Friend WithEvents ToolStripButton1 As ToolStripButton
     Friend WithEvents ToolStripButton3 As ToolStripButton
+    Friend WithEvents ViewMenusToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SetupMenuToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DTRToolStripMenuItem As ToolStripMenuItem
 End Class

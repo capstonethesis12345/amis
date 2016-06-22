@@ -26,7 +26,6 @@ Partial Class frmFoodMenu
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
@@ -37,24 +36,25 @@ Partial Class frmFoodMenu
         Me.txtProductID = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtMenuName = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.cbAvailable = New System.Windows.Forms.CheckBox()
-        Me.lblCategoryID = New System.Windows.Forms.Label()
-        Me.txtFoodCategory = New System.Windows.Forms.ComboBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.lblStatus = New System.Windows.Forms.Label()
         Me.txtPrice = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.ToolStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'ListView1
         '
         Me.ListView1.BackColor = System.Drawing.Color.White
-        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5})
+        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader4, Me.ColumnHeader5})
         Me.ListView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ListView1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListView1.FullRowSelect = True
@@ -68,26 +68,23 @@ Partial Class frmFoodMenu
         '
         'ColumnHeader1
         '
-        Me.ColumnHeader1.Text = "ProductID"
+        Me.ColumnHeader1.Text = "Barcode"
         Me.ColumnHeader1.Width = 93
         '
         'ColumnHeader2
         '
         Me.ColumnHeader2.Text = "Menu Name"
-        Me.ColumnHeader2.Width = 254
-        '
-        'ColumnHeader3
-        '
-        Me.ColumnHeader3.Text = "Food Category"
-        Me.ColumnHeader3.Width = 177
+        Me.ColumnHeader2.Width = 282
         '
         'ColumnHeader4
         '
         Me.ColumnHeader4.Text = "Price"
+        Me.ColumnHeader4.Width = 110
         '
         'ColumnHeader5
         '
         Me.ColumnHeader5.Text = "Available"
+        Me.ColumnHeader5.Width = 97
         '
         'ToolStrip1
         '
@@ -130,9 +127,9 @@ Partial Class frmFoodMenu
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(35, 87)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(55, 13)
+        Me.Label1.Size = New System.Drawing.Size(47, 13)
         Me.Label1.TabIndex = 32
-        Me.Label1.Text = "ProductID"
+        Me.Label1.Text = "Barcode"
         '
         'txtProductID
         '
@@ -157,27 +154,16 @@ Partial Class frmFoodMenu
         Me.txtMenuName.Size = New System.Drawing.Size(274, 20)
         Me.txtMenuName.TabIndex = 33
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(24, 160)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(76, 13)
-        Me.Label3.TabIndex = 32
-        Me.Label3.Text = "Food Category"
-        '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.cbAvailable)
-        Me.Panel1.Controls.Add(Me.lblCategoryID)
-        Me.Panel1.Controls.Add(Me.txtFoodCategory)
+        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.GroupBox1)
         Me.Panel1.Controls.Add(Me.lblStatus)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.txtPrice)
         Me.Panel1.Controls.Add(Me.txtProductID)
         Me.Panel1.Controls.Add(Me.Label5)
-        Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.txtMenuName)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel1.Location = New System.Drawing.Point(678, 40)
@@ -185,31 +171,47 @@ Partial Class frmFoodMenu
         Me.Panel1.Size = New System.Drawing.Size(430, 446)
         Me.Panel1.TabIndex = 37
         '
-        'cbAvailable
+        'Button1
         '
-        Me.cbAvailable.AutoSize = True
-        Me.cbAvailable.Location = New System.Drawing.Point(38, 236)
-        Me.cbAvailable.Name = "cbAvailable"
-        Me.cbAvailable.Size = New System.Drawing.Size(69, 17)
-        Me.cbAvailable.TabIndex = 39
-        Me.cbAvailable.Text = "Available"
-        Me.cbAvailable.UseVisualStyleBackColor = True
+        Me.Button1.Location = New System.Drawing.Point(304, 263)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 35
+        Me.Button1.Text = "Save"
+        Me.Button1.UseVisualStyleBackColor = True
         '
-        'lblCategoryID
+        'GroupBox1
         '
-        Me.lblCategoryID.AutoSize = True
-        Me.lblCategoryID.Location = New System.Drawing.Point(106, 170)
-        Me.lblCategoryID.Name = "lblCategoryID"
-        Me.lblCategoryID.Size = New System.Drawing.Size(0, 13)
-        Me.lblCategoryID.TabIndex = 38
+        Me.GroupBox1.Controls.Add(Me.RadioButton2)
+        Me.GroupBox1.Controls.Add(Me.RadioButton1)
+        Me.GroupBox1.Location = New System.Drawing.Point(38, 201)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(341, 44)
+        Me.GroupBox1.TabIndex = 34
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Availability"
         '
-        'txtFoodCategory
+        'RadioButton2
         '
-        Me.txtFoodCategory.FormattingEnabled = True
-        Me.txtFoodCategory.Location = New System.Drawing.Point(171, 167)
-        Me.txtFoodCategory.Name = "txtFoodCategory"
-        Me.txtFoodCategory.Size = New System.Drawing.Size(97, 21)
-        Me.txtFoodCategory.TabIndex = 37
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Location = New System.Drawing.Point(67, 19)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(71, 17)
+        Me.RadioButton2.TabIndex = 0
+        Me.RadioButton2.TabStop = True
+        Me.RadioButton2.Text = "Add to list"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Location = New System.Drawing.Point(187, 19)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(81, 17)
+        Me.RadioButton1.TabIndex = 0
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "Discontinue"
+        Me.RadioButton1.UseVisualStyleBackColor = True
         '
         'lblStatus
         '
@@ -218,13 +220,13 @@ Partial Class frmFoodMenu
         Me.lblStatus.ForeColor = System.Drawing.Color.Gray
         Me.lblStatus.Location = New System.Drawing.Point(49, 15)
         Me.lblStatus.Name = "lblStatus"
-        Me.lblStatus.Size = New System.Drawing.Size(286, 42)
+        Me.lblStatus.Size = New System.Drawing.Size(182, 42)
         Me.lblStatus.TabIndex = 2
-        Me.lblStatus.Text = "Adding New Category"
+        Me.lblStatus.Text = "Update Menu"
         '
         'txtPrice
         '
-        Me.txtPrice.Location = New System.Drawing.Point(105, 199)
+        Me.txtPrice.Location = New System.Drawing.Point(105, 160)
         Me.txtPrice.Name = "txtPrice"
         Me.txtPrice.Size = New System.Drawing.Size(274, 20)
         Me.txtPrice.TabIndex = 33
@@ -232,7 +234,7 @@ Partial Class frmFoodMenu
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(35, 202)
+        Me.Label5.Location = New System.Drawing.Point(35, 163)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(31, 13)
         Me.Label5.TabIndex = 32
@@ -263,6 +265,8 @@ Partial Class frmFoodMenu
         Me.ToolStrip1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -273,21 +277,20 @@ Partial Class frmFoodMenu
     Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripButton
     Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ToolStripLabel1 As System.Windows.Forms.ToolStripLabel
     Friend WithEvents ColumnHeader4 As ColumnHeader
     Friend WithEvents Label1 As Label
     Friend WithEvents txtProductID As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents txtMenuName As TextBox
-    Friend WithEvents Label3 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents txtFoodCategory As ComboBox
     Friend WithEvents lblStatus As Label
-    Friend WithEvents lblCategoryID As Label
     Friend WithEvents ColumnHeader5 As ColumnHeader
-    Friend WithEvents cbAvailable As CheckBox
     Friend WithEvents txtPrice As TextBox
     Friend WithEvents Label5 As Label
+    Friend WithEvents Button1 As Button
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents RadioButton1 As RadioButton
 End Class

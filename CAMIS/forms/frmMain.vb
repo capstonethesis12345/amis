@@ -56,7 +56,7 @@ Public Class frmMain
     Private Sub StaffToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StaffToolStripMenuItem.Click, ToolStripButton4.Click
         openFull(frmStaff)
     End Sub
-    Private Sub CategoryToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CategoryToolStripMenuItem.Click
+    Private Sub CategoryToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         openFull(frmCategory)
     End Sub
     Private Sub ProductToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProductToolStripMenuItem.Click
@@ -94,7 +94,7 @@ Public Class frmMain
 
 
     Private Sub MenuToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MenuToolStripMenuItem.Click
-        openFull(frmFoodMenu)
+
     End Sub
 
     Private Sub PurchasesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PurchasesToolStripMenuItem.Click
@@ -102,7 +102,11 @@ Public Class frmMain
     End Sub
 
     Private Sub POSToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles POSToolStripMenuItem.Click
-        openFull(frmSales)
+
+        Dim sales As New frmSales()
+        sales.Show()
+
+
     End Sub
 
     Private Sub SuppliersToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SuppliersToolStripMenuItem.Click
@@ -114,5 +118,9 @@ Public Class frmMain
         login.Show()
         Me.Hide()
 
+    End Sub
+
+    Private Sub ViewMenusToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewMenusToolStripMenuItem.Click
+        openFull(frmFoodMenu)
     End Sub
 End Class

@@ -97,6 +97,11 @@ AccountManagementIS
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:AccountManagementIS.My.Resources.Resources.lineSalesbar">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:AccountManagementIS.My.Resources.Resources.loginForm">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

@@ -14,6 +14,7 @@
             .Show()
         End With
     End Sub
+
     Public Sub ClearTextBoxes(ByRef objForm As Form, Optional ByVal ctlcol As Control.ControlCollection = Nothing)
         If ctlcol Is Nothing Then ctlcol = objForm.Controls
         For Each ctl As Control In ctlcol

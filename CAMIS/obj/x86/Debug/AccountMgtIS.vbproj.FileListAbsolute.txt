@@ -183,13 +183,10 @@ H:\github\amis\CAMIS\bin\Debug\AccountManagementIS.xml
 H:\github\amis\CAMIS\bin\Debug\AccountManagementIS.exe.CodeAnalysisLog.xml
 H:\github\amis\CAMIS\bin\Debug\AccountManagementIS.exe.lastcodeanalysissucceeded
 H:\github\amis\CAMIS\bin\Debug\database.dll
-H:\github\amis\CAMIS\bin\Debug\MetroFramework.Demo.exe
 H:\github\amis\CAMIS\bin\Debug\MetroFramework.dll
 H:\github\amis\CAMIS\bin\Debug\MySql.Data.dll
 H:\github\amis\CAMIS\bin\Debug\database.pdb
 H:\github\amis\CAMIS\bin\Debug\database.xml
-H:\github\amis\CAMIS\bin\Debug\MetroFramework.pdb
-H:\github\amis\CAMIS\bin\Debug\MetroFramework.Demo.pdb
 H:\github\amis\CAMIS\obj\x86\Debug\AccountMgtIS.vbprojResolveAssemblyReference.cache
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.fMainForm.resources
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmAddUpdateCategory.resources
@@ -221,3 +218,4 @@ H:\github\amis\CAMIS\obj\x86\Debug\AccountMgtIS.vbproj.GenerateResource.Cache
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.exe
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.xml
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
+H:\github\amis\CAMIS\bin\Debug\MetroFramework.Fonts.dll

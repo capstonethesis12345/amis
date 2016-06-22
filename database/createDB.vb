@@ -105,23 +105,30 @@ Public Class createDB
                 Brand varchar(45) not null,
                 primary KEY(ItemInfoID)
                 )")
-
+        '10
         sqlList.Add("create table if not exists JobGrade(
-    JobGradeID int(10) not null auto_increment,
-    JobDescription varchar(30) not null,
-    Salary double(10,2) not null default 0.0,
-    Primary key(JobGradeID)
-    );")
-        sqlList.Add("delimiter //
-
-CREATE PROCEDURE simpleproc (OUT param1 INT)
-  BEGIN
-SELECT COUNT(*) INTO param1 FROM users;
-END//
-
-
-delimiter ;
-")
+            JobGradeID int(10) not null auto_increment,
+            JobDescription varchar(30) not null,
+            Salary double(10,2) not null default 0.0,
+            Primary key(JobGradeID)
+            );")
+        '11
+        sqlList.Add("CREATE TABLE IF NOT EXISTS `order` (
+          `OrderID` int(30) NOT NULL AUTO_INCREMENT,
+          `ItemID` int(30) NOT NULL,
+          `CustomerID` int(30) NOT NULL,
+          `Total` double(12,2) NOT NULL,
+          `OrderDate` date NOT NULL,
+          `EmpID` int(30) NOT NULL,
+          PRIMARY KEY (`OrderID`)
+        )")
+        sqlList.Add("CREATE TABLE IF NOT EXISTS `orderline` (
+          `orderlineID` int(30) NOT NULL,
+          `orderid` int(30) NOT NULL,
+          `itemid` int(30) NOT NULL,
+          `quantity` double(12,2) NOT NULL
+        )")
+        '    sqlList.Add("call AddColumnUnlessExists(Database(), 'dbamis', 'category', 'varchar(32) null');")
 
         ''ADD HERE ADDITIONAL UPDATES ON TABLE IF EXISTED
         'THIS THE the way to insert column in a table for update without changing its content
