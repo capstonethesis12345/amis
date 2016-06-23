@@ -46,14 +46,16 @@ Partial Class frmProduct
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.ToolStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'ListView1
@@ -184,7 +186,6 @@ Partial Class frmProduct
         '
         'TextBox4
         '
-        Me.TextBox4.Enabled = False
         Me.TextBox4.Location = New System.Drawing.Point(81, 103)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(223, 20)
@@ -245,22 +246,6 @@ Partial Class frmProduct
         Me.RadioButton1.Text = "Non Ingredient"
         Me.RadioButton1.UseVisualStyleBackColor = True
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(933, 380)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(46, 13)
-        Me.Label3.TabIndex = 11
-        Me.Label3.Text = "Quantity"
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Location = New System.Drawing.Point(990, 377)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(223, 20)
-        Me.TextBox3.TabIndex = 10
-        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -272,7 +257,7 @@ Partial Class frmProduct
         '
         'TextBox5
         '
-        Me.TextBox5.Location = New System.Drawing.Point(81, 32)
+        Me.TextBox5.Location = New System.Drawing.Point(81, 28)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(223, 20)
         Me.TextBox5.TabIndex = 12
@@ -288,14 +273,40 @@ Partial Class frmProduct
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "GroupBox2"
         '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.TextBox6)
+        Me.GroupBox3.Controls.Add(Me.Label6)
+        Me.GroupBox3.Location = New System.Drawing.Point(909, 329)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(321, 100)
+        Me.GroupBox3.TabIndex = 32
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "GroupBox2"
+        '
+        'TextBox6
+        '
+        Me.TextBox6.Location = New System.Drawing.Point(81, 28)
+        Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.Size = New System.Drawing.Size(223, 20)
+        Me.TextBox6.TabIndex = 12
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(24, 35)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(31, 13)
+        Me.Label6.TabIndex = 13
+        Me.Label6.Text = "Price"
+        '
         'frmProduct
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1242, 592)
+        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.ListView1)
         Me.Controls.Add(Me.ToolStrip1)
@@ -310,8 +321,9 @@ Partial Class frmProduct
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents ListView1 As System.Windows.Forms.ListView
@@ -337,9 +349,10 @@ Partial Class frmProduct
     Friend WithEvents RadioButton1 As RadioButton
     Friend WithEvents Label4 As Label
     Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox3 As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents TextBox5 As TextBox
     Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents Label6 As Label
 End Class

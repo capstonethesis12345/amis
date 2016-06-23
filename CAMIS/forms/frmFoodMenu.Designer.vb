@@ -135,6 +135,7 @@ Partial Class frmFoodMenu
         '
         Me.txtProductID.Location = New System.Drawing.Point(105, 84)
         Me.txtProductID.Name = "txtProductID"
+        Me.txtProductID.ReadOnly = True
         Me.txtProductID.Size = New System.Drawing.Size(274, 20)
         Me.txtProductID.TabIndex = 33
         '

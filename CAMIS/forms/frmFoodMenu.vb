@@ -5,7 +5,7 @@ Public Class frmFoodMenu
         InitializeComponent()
         Try
             objForm = Me
-            SqlRefresh = "select `ItemID`, `Barcode`,`Description`,`Price` from `Items` where `itemtype` like 1"
+            SqlRefresh = "select ifnull(`ItemID`,'')ItemID, ifnull(`Barcode`,'')Barcode,ifnull(`Description`,'')description,ifnull(`Price`,'')Price from `Items` where `itemtype` like 1"
             SqlReFill("Items", ListView1)
         Catch ex As Exception
             MessageBox.Show("Error in establishing connection in category form" & ex.Message.ToString, "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

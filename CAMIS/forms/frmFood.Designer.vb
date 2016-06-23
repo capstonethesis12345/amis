@@ -29,7 +29,6 @@ Partial Class frmFood
         Me.Description = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Quantity = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ListView3 = New System.Windows.Forms.ListView()
-        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Label1 = New System.Windows.Forms.Label()
@@ -39,14 +38,16 @@ Partial Class frmFood
         Me.Button2 = New System.Windows.Forms.Button()
         Me.MetroTextBox1 = New MetroFramework.Controls.MetroTextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.MetroTextBox2 = New MetroFramework.Controls.MetroTextBox()
-        Me.MetroTextBox3 = New MetroFramework.Controls.MetroTextBox()
-        Me.MetroTextBox4 = New MetroFramework.Controls.MetroTextBox()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.txtBarcode = New MetroFramework.Controls.MetroTextBox()
+        Me.txtMenuName = New MetroFramework.Controls.MetroTextBox()
+        Me.txtPrice = New MetroFramework.Controls.MetroTextBox()
+        Me.btnSave = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
@@ -57,9 +58,10 @@ Partial Class frmFood
         Me.ListView1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2})
+        Me.ListView1.FullRowSelect = True
         Me.ListView1.Location = New System.Drawing.Point(0, 24)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(251, 339)
+        Me.ListView1.Size = New System.Drawing.Size(251, 417)
         Me.ListView1.TabIndex = 0
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
@@ -83,7 +85,7 @@ Partial Class frmFood
         Me.ListView2.GridLines = True
         Me.ListView2.Location = New System.Drawing.Point(0, 23)
         Me.ListView2.Name = "ListView2"
-        Me.ListView2.Size = New System.Drawing.Size(296, 340)
+        Me.ListView2.Size = New System.Drawing.Size(296, 418)
         Me.ListView2.TabIndex = 1
         Me.ListView2.UseCompatibleStateImageBehavior = False
         Me.ListView2.View = System.Windows.Forms.View.Details
@@ -107,26 +109,22 @@ Partial Class frmFood
         '
         Me.ListView3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ListView3.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5})
-        Me.ListView3.Location = New System.Drawing.Point(827, 126)
+        Me.ListView3.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6})
+        Me.ListView3.Location = New System.Drawing.Point(856, 120)
         Me.ListView3.Name = "ListView3"
-        Me.ListView3.Size = New System.Drawing.Size(298, 327)
+        Me.ListView3.Size = New System.Drawing.Size(403, 421)
         Me.ListView3.TabIndex = 2
         Me.ListView3.UseCompatibleStateImageBehavior = False
         Me.ListView3.View = System.Windows.Forms.View.Details
         '
-        'ColumnHeader3
-        '
-        Me.ColumnHeader3.Text = "Barcode"
-        '
         'ColumnHeader4
         '
-        Me.ColumnHeader4.Text = "Description"
-        Me.ColumnHeader4.Width = 118
+        Me.ColumnHeader4.Text = "Barcode"
+        Me.ColumnHeader4.Width = 99
         '
         'ColumnHeader5
         '
-        Me.ColumnHeader5.Text = "Price"
+        Me.ColumnHeader5.Text = "Food Name"
         Me.ColumnHeader5.Width = 114
         '
         'Label1
@@ -158,7 +156,7 @@ Partial Class frmFood
         '
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(889, 110)
+        Me.Label3.Location = New System.Drawing.Point(883, 99)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(34, 13)
         Me.Label3.TabIndex = 5
@@ -192,7 +190,7 @@ Partial Class frmFood
         '
         '
         Me.MetroTextBox1.CustomButton.Image = Nothing
-        Me.MetroTextBox1.CustomButton.Location = New System.Drawing.Point(229, 1)
+        Me.MetroTextBox1.CustomButton.Location = New System.Drawing.Point(363, 1)
         Me.MetroTextBox1.CustomButton.Name = ""
         Me.MetroTextBox1.CustomButton.Size = New System.Drawing.Size(21, 21)
         Me.MetroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
@@ -220,121 +218,122 @@ Partial Class frmFood
         '
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.Button2)
-        Me.Panel1.Location = New System.Drawing.Point(269, 126)
+        Me.Panel1.Location = New System.Drawing.Point(269, 197)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(62, 100)
         Me.Panel1.TabIndex = 18
         '
-        'MetroTextBox2
+        'txtBarcode
         '
-        Me.MetroTextBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.txtBarcode.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         '
         '
         '
-        Me.MetroTextBox2.CustomButton.Image = Nothing
-        Me.MetroTextBox2.CustomButton.Location = New System.Drawing.Point(160, 1)
-        Me.MetroTextBox2.CustomButton.Name = ""
-        Me.MetroTextBox2.CustomButton.Size = New System.Drawing.Size(21, 21)
-        Me.MetroTextBox2.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
-        Me.MetroTextBox2.CustomButton.TabIndex = 1
-        Me.MetroTextBox2.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
-        Me.MetroTextBox2.CustomButton.UseSelectable = True
-        Me.MetroTextBox2.CustomButton.Visible = False
-        Me.MetroTextBox2.Lines = New String(-1) {}
-        Me.MetroTextBox2.Location = New System.Drawing.Point(639, 126)
-        Me.MetroTextBox2.MaxLength = 32767
-        Me.MetroTextBox2.Name = "MetroTextBox2"
-        Me.MetroTextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MetroTextBox2.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.MetroTextBox2.SelectedText = ""
-        Me.MetroTextBox2.SelectionLength = 0
-        Me.MetroTextBox2.SelectionStart = 0
-        Me.MetroTextBox2.Size = New System.Drawing.Size(182, 23)
-        Me.MetroTextBox2.TabIndex = 17
-        Me.MetroTextBox2.UseSelectable = True
-        Me.MetroTextBox2.WaterMark = "Barcode"
-        Me.MetroTextBox2.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
-        Me.MetroTextBox2.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
+        Me.txtBarcode.CustomButton.Image = Nothing
+        Me.txtBarcode.CustomButton.Location = New System.Drawing.Point(189, 1)
+        Me.txtBarcode.CustomButton.Name = ""
+        Me.txtBarcode.CustomButton.Size = New System.Drawing.Size(21, 21)
+        Me.txtBarcode.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
+        Me.txtBarcode.CustomButton.TabIndex = 1
+        Me.txtBarcode.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
+        Me.txtBarcode.CustomButton.UseSelectable = True
+        Me.txtBarcode.CustomButton.Visible = False
+        Me.txtBarcode.Lines = New String(-1) {}
+        Me.txtBarcode.Location = New System.Drawing.Point(639, 126)
+        Me.txtBarcode.MaxLength = 32767
+        Me.txtBarcode.Name = "txtBarcode"
+        Me.txtBarcode.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtBarcode.ScrollBars = System.Windows.Forms.ScrollBars.None
+        Me.txtBarcode.SelectedText = ""
+        Me.txtBarcode.SelectionLength = 0
+        Me.txtBarcode.SelectionStart = 0
+        Me.txtBarcode.Size = New System.Drawing.Size(211, 23)
+        Me.txtBarcode.TabIndex = 17
+        Me.txtBarcode.UseSelectable = True
+        Me.txtBarcode.WaterMark = "Barcode"
+        Me.txtBarcode.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
+        Me.txtBarcode.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
         '
-        'MetroTextBox3
+        'txtMenuName
         '
-        Me.MetroTextBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.txtMenuName.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         '
         '
         '
-        Me.MetroTextBox3.CustomButton.Image = Nothing
-        Me.MetroTextBox3.CustomButton.Location = New System.Drawing.Point(160, 1)
-        Me.MetroTextBox3.CustomButton.Name = ""
-        Me.MetroTextBox3.CustomButton.Size = New System.Drawing.Size(21, 21)
-        Me.MetroTextBox3.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
-        Me.MetroTextBox3.CustomButton.TabIndex = 1
-        Me.MetroTextBox3.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
-        Me.MetroTextBox3.CustomButton.UseSelectable = True
-        Me.MetroTextBox3.CustomButton.Visible = False
-        Me.MetroTextBox3.Lines = New String(-1) {}
-        Me.MetroTextBox3.Location = New System.Drawing.Point(639, 155)
-        Me.MetroTextBox3.MaxLength = 32767
-        Me.MetroTextBox3.Name = "MetroTextBox3"
-        Me.MetroTextBox3.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MetroTextBox3.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.MetroTextBox3.SelectedText = ""
-        Me.MetroTextBox3.SelectionLength = 0
-        Me.MetroTextBox3.SelectionStart = 0
-        Me.MetroTextBox3.Size = New System.Drawing.Size(182, 23)
-        Me.MetroTextBox3.TabIndex = 17
-        Me.MetroTextBox3.UseSelectable = True
-        Me.MetroTextBox3.WaterMark = "Menu Name"
-        Me.MetroTextBox3.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
-        Me.MetroTextBox3.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
+        Me.txtMenuName.CustomButton.Image = Nothing
+        Me.txtMenuName.CustomButton.Location = New System.Drawing.Point(189, 1)
+        Me.txtMenuName.CustomButton.Name = ""
+        Me.txtMenuName.CustomButton.Size = New System.Drawing.Size(21, 21)
+        Me.txtMenuName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
+        Me.txtMenuName.CustomButton.TabIndex = 1
+        Me.txtMenuName.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
+        Me.txtMenuName.CustomButton.UseSelectable = True
+        Me.txtMenuName.CustomButton.Visible = False
+        Me.txtMenuName.Lines = New String(-1) {}
+        Me.txtMenuName.Location = New System.Drawing.Point(639, 155)
+        Me.txtMenuName.MaxLength = 32767
+        Me.txtMenuName.Name = "txtMenuName"
+        Me.txtMenuName.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtMenuName.ScrollBars = System.Windows.Forms.ScrollBars.None
+        Me.txtMenuName.SelectedText = ""
+        Me.txtMenuName.SelectionLength = 0
+        Me.txtMenuName.SelectionStart = 0
+        Me.txtMenuName.Size = New System.Drawing.Size(211, 23)
+        Me.txtMenuName.TabIndex = 17
+        Me.txtMenuName.UseSelectable = True
+        Me.txtMenuName.WaterMark = "Menu Name"
+        Me.txtMenuName.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
+        Me.txtMenuName.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
         '
-        'MetroTextBox4
+        'txtPrice
         '
-        Me.MetroTextBox4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.txtPrice.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         '
         '
         '
-        Me.MetroTextBox4.CustomButton.Image = Nothing
-        Me.MetroTextBox4.CustomButton.Location = New System.Drawing.Point(160, 1)
-        Me.MetroTextBox4.CustomButton.Name = ""
-        Me.MetroTextBox4.CustomButton.Size = New System.Drawing.Size(21, 21)
-        Me.MetroTextBox4.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
-        Me.MetroTextBox4.CustomButton.TabIndex = 1
-        Me.MetroTextBox4.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
-        Me.MetroTextBox4.CustomButton.UseSelectable = True
-        Me.MetroTextBox4.CustomButton.Visible = False
-        Me.MetroTextBox4.Lines = New String(-1) {}
-        Me.MetroTextBox4.Location = New System.Drawing.Point(639, 184)
-        Me.MetroTextBox4.MaxLength = 32767
-        Me.MetroTextBox4.Name = "MetroTextBox4"
-        Me.MetroTextBox4.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MetroTextBox4.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.MetroTextBox4.SelectedText = ""
-        Me.MetroTextBox4.SelectionLength = 0
-        Me.MetroTextBox4.SelectionStart = 0
-        Me.MetroTextBox4.Size = New System.Drawing.Size(182, 23)
-        Me.MetroTextBox4.TabIndex = 17
-        Me.MetroTextBox4.UseSelectable = True
-        Me.MetroTextBox4.WaterMark = "Price"
-        Me.MetroTextBox4.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
-        Me.MetroTextBox4.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
+        Me.txtPrice.CustomButton.Image = Nothing
+        Me.txtPrice.CustomButton.Location = New System.Drawing.Point(189, 1)
+        Me.txtPrice.CustomButton.Name = ""
+        Me.txtPrice.CustomButton.Size = New System.Drawing.Size(21, 21)
+        Me.txtPrice.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
+        Me.txtPrice.CustomButton.TabIndex = 1
+        Me.txtPrice.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
+        Me.txtPrice.CustomButton.UseSelectable = True
+        Me.txtPrice.CustomButton.Visible = False
+        Me.txtPrice.Lines = New String(-1) {}
+        Me.txtPrice.Location = New System.Drawing.Point(639, 184)
+        Me.txtPrice.MaxLength = 32767
+        Me.txtPrice.Name = "txtPrice"
+        Me.txtPrice.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtPrice.ScrollBars = System.Windows.Forms.ScrollBars.None
+        Me.txtPrice.SelectedText = ""
+        Me.txtPrice.SelectionLength = 0
+        Me.txtPrice.SelectionStart = 0
+        Me.txtPrice.ShowClearButton = True
+        Me.txtPrice.Size = New System.Drawing.Size(211, 23)
+        Me.txtPrice.TabIndex = 17
+        Me.txtPrice.UseSelectable = True
+        Me.txtPrice.WaterMark = "Price"
+        Me.txtPrice.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
+        Me.txtPrice.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
         '
-        'Button3
+        'btnSave
         '
-        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button3.BackColor = System.Drawing.Color.LightSlateGray
-        Me.Button3.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.SystemColors.ControlLight
-        Me.Button3.Location = New System.Drawing.Point(746, 225)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 63)
-        Me.Button3.TabIndex = 19
-        Me.Button3.Text = "Save"
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSave.BackColor = System.Drawing.Color.LightSlateGray
+        Me.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue
+        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSave.ForeColor = System.Drawing.SystemColors.ControlLight
+        Me.btnSave.Location = New System.Drawing.Point(775, 213)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(75, 44)
+        Me.btnSave.TabIndex = 19
+        Me.btnSave.Text = "Save"
+        Me.btnSave.UseVisualStyleBackColor = False
         '
         'Panel2
         '
@@ -342,7 +341,7 @@ Partial Class frmFood
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1137, 7)
+        Me.Panel2.Size = New System.Drawing.Size(1271, 7)
         Me.Panel2.TabIndex = 20
         '
         'Label4
@@ -358,43 +357,63 @@ Partial Class frmFood
         '
         'Panel3
         '
-        Me.Panel3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel3.BackColor = System.Drawing.Color.PowderBlue
         Me.Panel3.Controls.Add(Me.ListView2)
         Me.Panel3.Controls.Add(Me.Label2)
         Me.Panel3.Location = New System.Drawing.Point(337, 97)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(296, 366)
+        Me.Panel3.Size = New System.Drawing.Size(296, 444)
         Me.Panel3.TabIndex = 22
         '
         'Panel4
         '
-        Me.Panel4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel4.BackColor = System.Drawing.Color.PowderBlue
         Me.Panel4.Controls.Add(Me.ListView1)
         Me.Panel4.Controls.Add(Me.Label1)
         Me.Panel4.Location = New System.Drawing.Point(12, 97)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(251, 366)
+        Me.Panel4.Size = New System.Drawing.Size(251, 444)
         Me.Panel4.TabIndex = 23
+        '
+        'Button4
+        '
+        Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button4.BackColor = System.Drawing.Color.LightSlateGray
+        Me.Button4.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.ForeColor = System.Drawing.SystemColors.ControlLight
+        Me.Button4.Location = New System.Drawing.Point(694, 213)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(75, 44)
+        Me.Button4.TabIndex = 19
+        Me.Button4.Text = "Close"
+        Me.Button4.UseVisualStyleBackColor = False
+        '
+        'ColumnHeader6
+        '
+        Me.ColumnHeader6.Text = "Price"
         '
         'frmFood
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1137, 465)
+        Me.ClientSize = New System.Drawing.Size(1271, 553)
         Me.ControlBox = False
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.Button4)
+        Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.MetroTextBox4)
-        Me.Controls.Add(Me.MetroTextBox3)
-        Me.Controls.Add(Me.MetroTextBox2)
+        Me.Controls.Add(Me.txtPrice)
+        Me.Controls.Add(Me.txtMenuName)
+        Me.Controls.Add(Me.txtBarcode)
         Me.Controls.Add(Me.MetroTextBox1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.ListView3)
@@ -428,15 +447,16 @@ Partial Class frmFood
     Friend WithEvents MetroTextBox1 As MetroFramework.Controls.MetroTextBox
     Friend WithEvents Quantity As ColumnHeader
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents MetroTextBox2 As MetroFramework.Controls.MetroTextBox
-    Friend WithEvents MetroTextBox3 As MetroFramework.Controls.MetroTextBox
-    Friend WithEvents MetroTextBox4 As MetroFramework.Controls.MetroTextBox
-    Friend WithEvents Button3 As Button
-    Friend WithEvents ColumnHeader3 As ColumnHeader
+    Friend WithEvents txtBarcode As MetroFramework.Controls.MetroTextBox
+    Friend WithEvents txtMenuName As MetroFramework.Controls.MetroTextBox
+    Friend WithEvents txtPrice As MetroFramework.Controls.MetroTextBox
+    Friend WithEvents btnSave As Button
     Friend WithEvents ColumnHeader4 As ColumnHeader
     Friend WithEvents ColumnHeader5 As ColumnHeader
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Label4 As Label
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel4 As Panel
+    Friend WithEvents Button4 As Button
+    Friend WithEvents ColumnHeader6 As ColumnHeader
 End Class

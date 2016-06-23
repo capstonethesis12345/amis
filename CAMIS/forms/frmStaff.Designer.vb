@@ -26,14 +26,22 @@ Partial Class frmStaff
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.txtSearch = New System.Windows.Forms.ToolStripTextBox()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.txtMaritalStatus = New System.Windows.Forms.ComboBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.btnClear = New System.Windows.Forms.Button()
         Me.btnOpenImage = New System.Windows.Forms.Button()
+        Me.btnSave = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.txtEmpStarted = New System.Windows.Forms.DateTimePicker()
         Me.txtBirthDate = New System.Windows.Forms.DateTimePicker()
         Me.txtGender = New System.Windows.Forms.ComboBox()
         Me.Label22 = New System.Windows.Forms.Label()
@@ -63,6 +71,8 @@ Partial Class frmStaff
         Me.txtEmployeeNo = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtContractNo = New System.Windows.Forms.TextBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.txtZip = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -77,20 +87,12 @@ Partial Class frmStaff
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.btnClear = New System.Windows.Forms.Button()
-        Me.btnSave = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.ToolStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ToolStrip1
@@ -116,6 +118,24 @@ Partial Class frmStaff
         Me.ToolStripLabel1.Name = "ToolStripLabel1"
         Me.ToolStripLabel1.Size = New System.Drawing.Size(16, 37)
         Me.ToolStripLabel1.Text = "   "
+        '
+        'ToolStripButton2
+        '
+        Me.ToolStripButton2.AutoSize = False
+        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
+        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton2.Name = "ToolStripButton2"
+        Me.ToolStripButton2.Size = New System.Drawing.Size(65, 40)
+        Me.ToolStripButton2.Text = "&Search"
+        '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.AutoSize = False
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(65, 40)
+        Me.ToolStripButton1.Text = "Clos&e"
         '
         'ListView1
         '
@@ -158,6 +178,7 @@ Partial Class frmStaff
         Me.GroupBox1.Controls.Add(Me.btnOpenImage)
         Me.GroupBox1.Controls.Add(Me.btnSave)
         Me.GroupBox1.Controls.Add(Me.PictureBox1)
+        Me.GroupBox1.Controls.Add(Me.txtEmpStarted)
         Me.GroupBox1.Controls.Add(Me.txtBirthDate)
         Me.GroupBox1.Controls.Add(Me.txtGender)
         Me.GroupBox1.Controls.Add(Me.Label22)
@@ -180,6 +201,7 @@ Partial Class frmStaff
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.txtContractNo)
         Me.GroupBox1.Controls.Add(Me.Label17)
+        Me.GroupBox1.Controls.Add(Me.Label18)
         Me.GroupBox1.Controls.Add(Me.Label25)
         Me.GroupBox1.Controls.Add(Me.txtZip)
         Me.GroupBox1.Controls.Add(Me.Label4)
@@ -201,9 +223,27 @@ Partial Class frmStaff
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Staff Information"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(224, 348)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(43, 23)
+        Me.Button1.TabIndex = 22
+        Me.Button1.Text = "Add"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(131, 349)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(86, 23)
+        Me.ComboBox1.TabIndex = 21
+        '
         'txtMaritalStatus
         '
-        Me.txtMaritalStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.txtMaritalStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.txtMaritalStatus.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.txtMaritalStatus.FormattingEnabled = True
         Me.txtMaritalStatus.Items.AddRange(New Object() {"Single", "Married", "Widow"})
         Me.txtMaritalStatus.Location = New System.Drawing.Point(104, 140)
@@ -222,6 +262,22 @@ Partial Class frmStaff
         Me.CheckBox1.Text = "ENABLE ACCESS TO APPLICATION"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
+        'btnClear
+        '
+        Me.btnClear.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btnClear.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnClear.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClear.Image = CType(resources.GetObject("btnClear.Image"), System.Drawing.Image)
+        Me.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnClear.Location = New System.Drawing.Point(527, 533)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(99, 33)
+        Me.btnClear.TabIndex = 18
+        Me.btnClear.Text = "&Clear/New"
+        Me.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnClear.UseVisualStyleBackColor = False
+        '
         'btnOpenImage
         '
         Me.btnOpenImage.Location = New System.Drawing.Point(513, 135)
@@ -230,6 +286,43 @@ Partial Class frmStaff
         Me.btnOpenImage.TabIndex = 4
         Me.btnOpenImage.Text = "Image"
         Me.btnOpenImage.UseVisualStyleBackColor = True
+        '
+        'btnSave
+        '
+        Me.btnSave.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnSave.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
+        Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnSave.Location = New System.Drawing.Point(527, 479)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(99, 33)
+        Me.btnSave.TabIndex = 17
+        Me.btnSave.Text = "&Save"
+        Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnSave.UseVisualStyleBackColor = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(490, 53)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(120, 76)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 20
+        Me.PictureBox1.TabStop = False
+        '
+        'txtEmpStarted
+        '
+        Me.txtEmpStarted.CustomFormat = "yyyy-MM-dd"
+        Me.txtEmpStarted.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.txtEmpStarted.Location = New System.Drawing.Point(397, 316)
+        Me.txtEmpStarted.Name = "txtEmpStarted"
+        Me.txtEmpStarted.Size = New System.Drawing.Size(165, 23)
+        Me.txtEmpStarted.TabIndex = 7
         '
         'txtBirthDate
         '
@@ -242,7 +335,8 @@ Partial Class frmStaff
         '
         'txtGender
         '
-        Me.txtGender.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.txtGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.txtGender.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.txtGender.FormattingEnabled = True
         Me.txtGender.Items.AddRange(New Object() {"M", "F"})
         Me.txtGender.Location = New System.Drawing.Point(361, 135)
@@ -311,7 +405,7 @@ Partial Class frmStaff
         Me.txtEmployStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.txtEmployStatus.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.txtEmployStatus.FormattingEnabled = True
-        Me.txtEmployStatus.Items.AddRange(New Object() {"Job Order", "Regular", "Provisionary", "Contractual", "Dismissed", "Resigned"})
+        Me.txtEmployStatus.Items.AddRange(New Object() {"Regular", "Job Order", "Provisionary", "Contractual", "InActive"})
         Me.txtEmployStatus.Location = New System.Drawing.Point(131, 313)
         Me.txtEmployStatus.Name = "txtEmployStatus"
         Me.txtEmployStatus.Size = New System.Drawing.Size(136, 23)
@@ -514,6 +608,24 @@ Partial Class frmStaff
         Me.txtContractNo.Size = New System.Drawing.Size(165, 23)
         Me.txtContractNo.TabIndex = 14
         '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(15, 349)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(59, 15)
+        Me.Label17.TabIndex = 4
+        Me.Label17.Text = "Job Grade"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(276, 321)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(115, 15)
+        Me.Label18.TabIndex = 4
+        Me.Label18.Text = "Employment Started"
+        '
         'Label25
         '
         Me.Label25.AutoSize = True
@@ -628,94 +740,6 @@ Partial Class frmStaff
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
-        'btnClear
-        '
-        Me.btnClear.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnClear.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnClear.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.Image = CType(resources.GetObject("btnClear.Image"), System.Drawing.Image)
-        Me.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnClear.Location = New System.Drawing.Point(527, 533)
-        Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(99, 33)
-        Me.btnClear.TabIndex = 18
-        Me.btnClear.Text = "&Clear/New"
-        Me.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnClear.UseVisualStyleBackColor = False
-        '
-        'btnSave
-        '
-        Me.btnSave.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnSave.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
-        Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSave.Location = New System.Drawing.Point(527, 479)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(99, 33)
-        Me.btnSave.TabIndex = 17
-        Me.btnSave.Text = "&Save"
-        Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnSave.UseVisualStyleBackColor = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(490, 53)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(120, 76)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 20
-        Me.PictureBox1.TabStop = False
-        '
-        'ToolStripButton2
-        '
-        Me.ToolStripButton2.AutoSize = False
-        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
-        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(65, 40)
-        Me.ToolStripButton2.Text = "&Search"
-        '
-        'ToolStripButton1
-        '
-        Me.ToolStripButton1.AutoSize = False
-        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(65, 40)
-        Me.ToolStripButton1.Text = "Clos&e"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(131, 349)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(86, 23)
-        Me.ComboBox1.TabIndex = 21
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(15, 349)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(59, 15)
-        Me.Label17.TabIndex = 4
-        Me.Label17.Text = "Job Grade"
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(224, 348)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(43, 23)
-        Me.Button1.TabIndex = 22
-        Me.Button1.Text = "Add"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'frmStaff
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -735,10 +759,10 @@ Partial Class frmStaff
         Me.Panel1.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.Panel2.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -804,4 +828,6 @@ Partial Class frmStaff
     Friend WithEvents Button1 As Button
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Label17 As Label
+    Friend WithEvents txtEmpStarted As DateTimePicker
+    Friend WithEvents Label18 As Label
 End Class

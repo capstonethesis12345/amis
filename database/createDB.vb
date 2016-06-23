@@ -23,26 +23,27 @@ Public Class createDB
         'sqlList.Add("GRANT ALL PRIVILEGES ON `" & dbname & "\_%`.* TO '" & dbUser & "'@'localhost'")
         'EMPLOYEE TABLE
         '2
-        sqlList.Add("CREATE TABLE IF NOT EXISTS `Employees` (
-            `EmpID` int(30) Not NULL AUTO_INCREMENT,
-            `NameFirst` varchar(45) Not NULL,
-            `NameMiddle` varchar(45) Not NULL,
-            `NameLast` varchar(45) Not NULL,
-            `Gender` ENUM('M','F') NULL,
-            `BirthDate` Date NULL,
-            `BirthAddress` varchar(100) NULL,
-            `MaritalStatus` ENUM('Single','Married') NULL,
-            `AddressStreet` varchar(45) NULL,
-            `AddressBarangay` varchar(45) NULL,
-            `AddressMunCity` varchar(45) NULL,
-            `AddressProvince` varchar(45) NULL,
-            `AddressZip` varchar(5) NULL,
-            `Contact` varchar(15) NULL,
-            `EmploymentStatus` tinyint not NULL,
-            `EmpImage` longblob NULL,
-            `Deleted` tinyint not null default 0,
-            PRIMARY KEY(`EmpID`)
-        )")
+        sqlList.Add("CREATE TABLE IF NOT EXISTS `employees` (
+  `EmpID` int(30) NOT NULL AUTO_INCREMENT,
+  `NameFirst` varchar(45) NOT NULL,
+  `NameMiddle` varchar(45) NOT NULL,
+  `NameLast` varchar(45) NOT NULL,
+  `Gender` char(1) DEFAULT NULL,
+  `BirthDate` date DEFAULT NULL,
+  `BirthAddress` varchar(100) DEFAULT NULL,
+  `MaritalStatus` tinyint(1) DEFAULT NULL,
+  `AddressStreet` varchar(45) DEFAULT NULL,
+  `AddressBarangay` varchar(45) DEFAULT NULL,
+  `AddressMunCity` varchar(45) DEFAULT NULL,
+  `AddressProvince` varchar(45) DEFAULT NULL,
+  `AddressZip` varchar(5) DEFAULT NULL,
+  `Contact` varchar(15) DEFAULT NULL,
+  `EmploymentStatus` tinyint(4) NOT NULL,
+  `EmpImage` longblob,
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  `EmploymentStarted` date NOT NULL,
+  PRIMARY KEY (`EmpID`)
+) ")
         '3
         sqlList.Add("CREATE TABLE IF NOT EXISTS `Users`(
            `UserID` int(30) Not NULL AUTO_INCREMENT,
@@ -67,14 +68,14 @@ Public Class createDB
         'THIS WILL CREAE PO TABLE FOR SUMMARY OF PURCHASE ORDER LISTS
         '6
         sqlList.Add("CREATE TABLE IF NOT EXISTS `po` (
-                  `POID` int(11) NOT NULL AUTO_INCREMENT,
-                  `EmpID` int(11) NOT NULL,
-                  `PODate` date NOT NULL ,
-                  `TotalCost` double NOT NULL default 0.0,
-                  `Status` tinyint(4) NOT NULL default 0,
-                  PRIMARY KEY (`POID`)
-                )
-            ")
+  `POID` int(11) NOT NULL AUTO_INCREMENT,
+  `SupplierID` int(11) NOT NULL,
+  `EmpID` int(11) NOT NULL,
+  `PODate` date NOT NULL,
+  `TotalCost` double NOT NULL DEFAULT '0',
+  `Status` tinyint(4) NOT NULL,
+  PRIMARY KEY (`POID`)
+) ")
         '7
         sqlList.Add("CREATE TABLE IF NOT EXISTS POList(
             POListID INT NOT NULL AUTO_INCREMENT ,
@@ -88,23 +89,23 @@ Public Class createDB
         'THIS WILL CREATE ITEMS FOR SUMMARY OF ITEMS BEING PURCHASED
         sqlList.Add("CREATE TABLE IF NOT EXISTS ITEMS(
                 ItemID INT NOT NULL AUTO_INCREMENT ,
-                SupplierID INT NOT NULL ,
                 Barcode INT NOT NULL ,
                 Description VARCHAR( 45 ) NOT NULL ,
                 Brand VARCHAR( 45 ) ,
+                `Price` double(12,4) NOT NULL,
                 UnitType VARCHAR( 10 ) NOT NULL ,
                 Category VARCHAR( 45 ) NOT NULL ,
+                `taxable` tinyint(1) NOT NULL,
                 ItemType VARCHAR( 15 ) NOT NULL ,
-                PRIMARY KEY ( ItemID, SupplierID )
+                PRIMARY KEY ( ItemID )
                 )")
         '9
-        sqlList.Add("CREATE TABLE IF NOT EXISTS ItemInfo(
-                ItemInfoID int not null auto_increment,
-                Barcode varchar(45) not null,
-                Description Varchar(45) not null,
-                Brand varchar(45) not null,
-                primary KEY(ItemInfoID)
-                )")
+        sqlList.Add("CREATE TABLE IF NOT EXISTS `jobgrade` (
+              `JobGradeID` int(10) NOT NULL AUTO_INCREMENT,
+              `JobDescription` varchar(30) NOT NULL,
+              `Salary` double(10,2) NOT NULL DEFAULT '0.00',
+              PRIMARY KEY (`JobGradeID`)
+            ) ")
         '10
         sqlList.Add("create table if not exists JobGrade(
             JobGradeID int(10) not null auto_increment,
@@ -128,6 +129,13 @@ Public Class createDB
           `itemid` int(30) NOT NULL,
           `quantity` double(12,2) NOT NULL
         )")
+        sqlList.Add("CREATE TABLE IF NOT EXISTS `supplier` (
+              `SupplierID` int(11) NOT NULL AUTO_INCREMENT,
+              `Company` varchar(45) NOT NULL,
+              `Address` varchar(45) NOT NULL,
+              `Contact` varchar(45) DEFAULT NULL,
+              PRIMARY KEY (`SupplierID`)
+            )")
         '    sqlList.Add("call AddColumnUnlessExists(Database(), 'dbamis', 'category', 'varchar(32) null');")
 
         ''ADD HERE ADDITIONAL UPDATES ON TABLE IF EXISTED
