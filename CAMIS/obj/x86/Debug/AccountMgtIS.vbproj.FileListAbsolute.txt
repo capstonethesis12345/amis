@@ -219,3 +219,4 @@ H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.exe
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.xml
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
 H:\github\amis\CAMIS\bin\Debug\MetroFramework.Fonts.dll
+H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmJob.resources

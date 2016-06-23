@@ -8,7 +8,8 @@ Public Class frmMain
         InitializeComponent()
         vfunction = f
         ' Add any initialization after the InitializeComponent() call.
-
+        tsslUser.Text = vEmp
+        tUser.Text = vUser
     End Sub
     Private Sub frmMain_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         Application.Exit()
@@ -126,5 +127,14 @@ Public Class frmMain
 
     Private Sub SetupMenuToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SetupMenuToolStripMenuItem.Click
         openFull(frmFood)
+    End Sub
+
+    Private Sub JobsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles JobsToolStripMenuItem.Click
+        Try
+            frmJob.ShowDialog()
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 End Class

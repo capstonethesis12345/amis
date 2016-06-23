@@ -115,6 +115,12 @@
     <Compile Include="forms\frmFood.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="forms\frmJob.Designer.vb">
+      <DependentUpon>frmJob.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmJob.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="functions\SQLQuery.vb" />
     <Compile Include="fMainForm.designer.vb">
       <DependentUpon>fMainForm.vb</DependentUpon>
@@ -302,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmFoodMenu.resx">
       <DependentUpon>frmFoodMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmJob.resx">
+      <DependentUpon>frmJob.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmRequest.resx">
       <DependentUpon>frmRequest.vb</DependentUpon>

@@ -17,6 +17,7 @@ Module SQLQuery
     Public d As Date = Date.Today
     Public todate As String = d.ToString("yyyy-MM-dd")
     Public vEmp As String
+    Public vUser As String
 
     Public Sub itemAutoComplete(ByVal DataSetName As String, ByVal objAutoCompleteTextBox As Object)
         Try

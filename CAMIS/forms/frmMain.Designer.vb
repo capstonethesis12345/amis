@@ -54,7 +54,6 @@ Partial Class frmMain
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.tsslUser = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.lblDate = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
@@ -69,6 +68,9 @@ Partial Class frmMain
         Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
+        Me.JobsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsslUser = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.tUser = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -119,7 +121,7 @@ Partial Class frmMain
         '
         'RecordToolStripMenuItem
         '
-        Me.RecordToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StaffToolStripMenuItem, Me.ProductToolStripMenuItem, Me.MenuToolStripMenuItem, Me.SuppliersToolStripMenuItem})
+        Me.RecordToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StaffToolStripMenuItem, Me.ProductToolStripMenuItem, Me.MenuToolStripMenuItem, Me.SuppliersToolStripMenuItem, Me.JobsToolStripMenuItem})
         Me.RecordToolStripMenuItem.Name = "RecordToolStripMenuItem"
         Me.RecordToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
         Me.RecordToolStripMenuItem.Text = "Records"
@@ -146,13 +148,13 @@ Partial Class frmMain
         'ViewMenusToolStripMenuItem
         '
         Me.ViewMenusToolStripMenuItem.Name = "ViewMenusToolStripMenuItem"
-        Me.ViewMenusToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ViewMenusToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.ViewMenusToolStripMenuItem.Text = "Food Menu"
         '
         'SetupMenuToolStripMenuItem
         '
         Me.SetupMenuToolStripMenuItem.Name = "SetupMenuToolStripMenuItem"
-        Me.SetupMenuToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SetupMenuToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.SetupMenuToolStripMenuItem.Text = "Set-up Menu"
         '
         'SuppliersToolStripMenuItem
@@ -258,7 +260,7 @@ Partial Class frmMain
         'StatusStrip1
         '
         Me.StatusStrip1.BackColor = System.Drawing.Color.DarkSlateBlue
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.tsslUser, Me.ToolStripStatusLabel3, Me.lblDate, Me.ToolStripStatusLabel5, Me.lblTimer})
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.tsslUser, Me.tUser, Me.ToolStripStatusLabel3, Me.lblDate, Me.ToolStripStatusLabel5, Me.lblTimer})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 487)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(804, 22)
@@ -272,16 +274,6 @@ Partial Class frmMain
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
         Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(81, 17)
         Me.ToolStripStatusLabel1.Text = "Active User :"
-        '
-        'tsslUser
-        '
-        Me.tsslUser.AutoSize = False
-        Me.tsslUser.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tsslUser.ForeColor = System.Drawing.Color.White
-        Me.tsslUser.Name = "tsslUser"
-        Me.tsslUser.Size = New System.Drawing.Size(150, 17)
-        Me.tsslUser.Text = " "
-        Me.tsslUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'ToolStripStatusLabel3
         '
@@ -433,6 +425,29 @@ Partial Class frmMain
         Me.ToolStripButton3.Text = "Log Out"
         Me.ToolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
+        'JobsToolStripMenuItem
+        '
+        Me.JobsToolStripMenuItem.Name = "JobsToolStripMenuItem"
+        Me.JobsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.JobsToolStripMenuItem.Text = "Jobs"
+        '
+        'tsslUser
+        '
+        Me.tsslUser.AutoSize = False
+        Me.tsslUser.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tsslUser.ForeColor = System.Drawing.Color.White
+        Me.tsslUser.Name = "tsslUser"
+        Me.tsslUser.Size = New System.Drawing.Size(50, 17)
+        Me.tsslUser.Text = " "
+        Me.tsslUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'tUser
+        '
+        Me.tUser.ForeColor = System.Drawing.Color.White
+        Me.tUser.Name = "tUser"
+        Me.tUser.Size = New System.Drawing.Size(16, 17)
+        Me.tUser.Text = "   "
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -487,7 +502,6 @@ Partial Class frmMain
     Friend WithEvents NotepadToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents StatusStrip1 As System.Windows.Forms.StatusStrip
     Friend WithEvents ToolStripStatusLabel1 As System.Windows.Forms.ToolStripStatusLabel
-    Friend WithEvents tsslUser As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel3 As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents lblDate As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel5 As System.Windows.Forms.ToolStripStatusLabel
@@ -513,4 +527,7 @@ Partial Class frmMain
     Friend WithEvents ViewMenusToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SetupMenuToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DTRToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents JobsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tsslUser As ToolStripStatusLabel
+    Friend WithEvents tUser As ToolStripStatusLabel
 End Class

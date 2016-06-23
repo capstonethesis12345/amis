@@ -89,7 +89,7 @@ Public Class createDB
         'THIS WILL CREATE ITEMS FOR SUMMARY OF ITEMS BEING PURCHASED
         sqlList.Add("CREATE TABLE IF NOT EXISTS ITEMS(
                 ItemID INT NOT NULL AUTO_INCREMENT ,
-                Barcode INT NOT NULL ,
+                Barcode INT(30) NOT NULL ,
                 Description VARCHAR( 45 ) NOT NULL ,
                 Brand VARCHAR( 45 ) ,
                 `Price` double(12,4) NOT NULL,
@@ -97,6 +97,7 @@ Public Class createDB
                 Category VARCHAR( 45 ) NOT NULL ,
                 `taxable` tinyint(1) NOT NULL,
                 ItemType VARCHAR( 15 ) NOT NULL ,
+                `InitialQuantity` double(5,2),
                 PRIMARY KEY ( ItemID )
                 )")
         '9
