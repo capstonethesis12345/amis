@@ -31,6 +31,7 @@ Partial Class fMainForm
         Me.erTextboxUser = New System.Windows.Forms.PictureBox()
         Me.erTextboxPass = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.erTextboxUser, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -87,6 +88,7 @@ Partial Class fMainForm
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Transparent
+        Me.Panel1.Controls.Add(Me.MetroLabel1)
         Me.Panel1.Controls.Add(Me.txtFunction)
         Me.Panel1.Controls.Add(Me.btnSubmit)
         Me.Panel1.Controls.Add(Me.tUsername)
@@ -103,10 +105,11 @@ Partial Class fMainForm
         'txtFunction
         '
         Me.txtFunction.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtFunction.Location = New System.Drawing.Point(149, 202)
+        Me.txtFunction.Location = New System.Drawing.Point(47, 175)
         Me.txtFunction.Name = "txtFunction"
         Me.txtFunction.Size = New System.Drawing.Size(100, 13)
         Me.txtFunction.TabIndex = 5
+        Me.txtFunction.Visible = False
         '
         'erTextboxUser
         '
@@ -136,6 +139,17 @@ Partial Class fMainForm
         Me.PictureBox2.TabIndex = 6
         Me.PictureBox2.TabStop = False
         Me.PictureBox2.Visible = False
+        '
+        'MetroLabel1
+        '
+        Me.MetroLabel1.AutoSize = True
+        Me.MetroLabel1.ForeColor = System.Drawing.Color.DarkRed
+        Me.MetroLabel1.Location = New System.Drawing.Point(134, 170)
+        Me.MetroLabel1.Name = "MetroLabel1"
+        Me.MetroLabel1.Size = New System.Drawing.Size(219, 19)
+        Me.MetroLabel1.TabIndex = 7
+        Me.MetroLabel1.Text = "Username and Password is incorrect"
+        Me.MetroLabel1.Visible = False
         '
         'fMainForm
         '
@@ -168,4 +182,5 @@ Partial Class fMainForm
     Friend WithEvents erTextboxPass As PictureBox
     Friend WithEvents txtFunction As TextBox
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents MetroLabel1 As MetroFramework.Controls.MetroLabel
 End Class

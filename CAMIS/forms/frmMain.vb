@@ -123,4 +123,8 @@ Public Class frmMain
     Private Sub ViewMenusToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewMenusToolStripMenuItem.Click
         openFull(frmFoodMenu)
     End Sub
+
+    Private Sub SetupMenuToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SetupMenuToolStripMenuItem.Click
+        openFull(frmFood)
+    End Sub
 End Class

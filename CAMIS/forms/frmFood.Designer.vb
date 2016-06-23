@@ -1,7 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class frmFood
-    Inherits MetroFramework.Forms.MetroForm
-
+    Inherits System.Windows.Forms.Form
     'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
@@ -28,23 +27,29 @@ Partial Class frmFood
         Me.ListView2 = New System.Windows.Forms.ListView()
         Me.ItemID = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Description = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Quantity = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ListView3 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.MetroTextBox1 = New MetroFramework.Controls.MetroTextBox()
-        Me.Quantity = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.MetroTextBox2 = New MetroFramework.Controls.MetroTextBox()
         Me.MetroTextBox3 = New MetroFramework.Controls.MetroTextBox()
         Me.MetroTextBox4 = New MetroFramework.Controls.MetroTextBox()
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
+        Me.Panel3.SuspendLayout()
+        Me.Panel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'ListView1
@@ -52,9 +57,9 @@ Partial Class frmFood
         Me.ListView1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2})
-        Me.ListView1.Location = New System.Drawing.Point(33, 123)
+        Me.ListView1.Location = New System.Drawing.Point(0, 24)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(230, 330)
+        Me.ListView1.Size = New System.Drawing.Size(251, 339)
         Me.ListView1.TabIndex = 0
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
@@ -74,9 +79,11 @@ Partial Class frmFood
         Me.ListView2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ListView2.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ItemID, Me.Description, Me.Quantity})
-        Me.ListView2.Location = New System.Drawing.Point(344, 126)
+        Me.ListView2.FullRowSelect = True
+        Me.ListView2.GridLines = True
+        Me.ListView2.Location = New System.Drawing.Point(0, 23)
         Me.ListView2.Name = "ListView2"
-        Me.ListView2.Size = New System.Drawing.Size(289, 330)
+        Me.ListView2.Size = New System.Drawing.Size(296, 340)
         Me.ListView2.TabIndex = 1
         Me.ListView2.UseCompatibleStateImageBehavior = False
         Me.ListView2.View = System.Windows.Forms.View.Details
@@ -84,11 +91,17 @@ Partial Class frmFood
         'ItemID
         '
         Me.ItemID.Text = "ItemID"
+        Me.ItemID.Width = 79
         '
         'Description
         '
         Me.Description.Text = "Description"
-        Me.Description.Width = 135
+        Me.Description.Width = 140
+        '
+        'Quantity
+        '
+        Me.Quantity.Text = "Quantity"
+        Me.Quantity.Width = 67
         '
         'ListView3
         '
@@ -102,30 +115,50 @@ Partial Class frmFood
         Me.ListView3.UseCompatibleStateImageBehavior = False
         Me.ListView3.View = System.Windows.Forms.View.Details
         '
+        'ColumnHeader3
+        '
+        Me.ColumnHeader3.Text = "Barcode"
+        '
+        'ColumnHeader4
+        '
+        Me.ColumnHeader4.Text = "Description"
+        Me.ColumnHeader4.Width = 118
+        '
+        'ColumnHeader5
+        '
+        Me.ColumnHeader5.Text = "Price"
+        Me.ColumnHeader5.Width = 114
+        '
         'Label1
         '
         Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(113, 107)
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI Semilight", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.DarkSlateGray
+        Me.Label1.Location = New System.Drawing.Point(72, 2)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(73, 13)
+        Me.Label1.Size = New System.Drawing.Size(97, 20)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Ingredient List"
         '
         'Label2
         '
-        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Label2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(410, 107)
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.DarkSlateGray
+        Me.Label2.Location = New System.Drawing.Point(119, 3)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(48, 13)
+        Me.Label2.Size = New System.Drawing.Size(66, 20)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Contains"
         '
         'Label3
         '
+        Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(824, 110)
+        Me.Label3.Location = New System.Drawing.Point(889, 110)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(34, 13)
         Me.Label3.TabIndex = 5
@@ -153,11 +186,13 @@ Partial Class frmFood
         '
         'MetroTextBox1
         '
+        Me.MetroTextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         '
         '
         '
         Me.MetroTextBox1.CustomButton.Image = Nothing
-        Me.MetroTextBox1.CustomButton.Location = New System.Drawing.Point(122, 1)
+        Me.MetroTextBox1.CustomButton.Location = New System.Drawing.Point(229, 1)
         Me.MetroTextBox1.CustomButton.Name = ""
         Me.MetroTextBox1.CustomButton.Size = New System.Drawing.Size(21, 21)
         Me.MetroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
@@ -166,7 +201,7 @@ Partial Class frmFood
         Me.MetroTextBox1.CustomButton.UseSelectable = True
         Me.MetroTextBox1.CustomButton.Visible = False
         Me.MetroTextBox1.Lines = New String(-1) {}
-        Me.MetroTextBox1.Location = New System.Drawing.Point(33, 69)
+        Me.MetroTextBox1.Location = New System.Drawing.Point(12, 69)
         Me.MetroTextBox1.MaxLength = 32767
         Me.MetroTextBox1.Name = "MetroTextBox1"
         Me.MetroTextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -174,16 +209,12 @@ Partial Class frmFood
         Me.MetroTextBox1.SelectedText = ""
         Me.MetroTextBox1.SelectionLength = 0
         Me.MetroTextBox1.SelectionStart = 0
-        Me.MetroTextBox1.Size = New System.Drawing.Size(144, 23)
+        Me.MetroTextBox1.Size = New System.Drawing.Size(251, 23)
         Me.MetroTextBox1.TabIndex = 17
         Me.MetroTextBox1.UseSelectable = True
         Me.MetroTextBox1.WaterMark = "Search Item"
         Me.MetroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
         Me.MetroTextBox1.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
-        '
-        'Quantity
-        '
-        Me.Quantity.Text = "Quantity"
         '
         'Panel1
         '
@@ -196,11 +227,13 @@ Partial Class frmFood
         '
         'MetroTextBox2
         '
+        Me.MetroTextBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         '
         '
         '
         Me.MetroTextBox2.CustomButton.Image = Nothing
-        Me.MetroTextBox2.CustomButton.Location = New System.Drawing.Point(214, 1)
+        Me.MetroTextBox2.CustomButton.Location = New System.Drawing.Point(160, 1)
         Me.MetroTextBox2.CustomButton.Name = ""
         Me.MetroTextBox2.CustomButton.Size = New System.Drawing.Size(21, 21)
         Me.MetroTextBox2.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
@@ -226,11 +259,13 @@ Partial Class frmFood
         '
         'MetroTextBox3
         '
+        Me.MetroTextBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         '
         '
         '
         Me.MetroTextBox3.CustomButton.Image = Nothing
-        Me.MetroTextBox3.CustomButton.Location = New System.Drawing.Point(214, 1)
+        Me.MetroTextBox3.CustomButton.Location = New System.Drawing.Point(160, 1)
         Me.MetroTextBox3.CustomButton.Name = ""
         Me.MetroTextBox3.CustomButton.Size = New System.Drawing.Size(21, 21)
         Me.MetroTextBox3.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
@@ -256,11 +291,13 @@ Partial Class frmFood
         '
         'MetroTextBox4
         '
+        Me.MetroTextBox4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         '
         '
         '
         Me.MetroTextBox4.CustomButton.Image = Nothing
-        Me.MetroTextBox4.CustomButton.Location = New System.Drawing.Point(214, 1)
+        Me.MetroTextBox4.CustomButton.Location = New System.Drawing.Point(160, 1)
         Me.MetroTextBox4.CustomButton.Name = ""
         Me.MetroTextBox4.CustomButton.Size = New System.Drawing.Size(21, 21)
         Me.MetroTextBox4.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
@@ -286,6 +323,7 @@ Partial Class frmFood
         '
         'Button3
         '
+        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button3.BackColor = System.Drawing.Color.LightSlateGray
         Me.Button3.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -298,25 +336,60 @@ Partial Class frmFood
         Me.Button3.Text = "Save"
         Me.Button3.UseVisualStyleBackColor = False
         '
-        'ColumnHeader3
+        'Panel2
         '
-        Me.ColumnHeader3.Text = "Barcode"
+        Me.Panel2.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel2.Location = New System.Drawing.Point(0, 0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(1137, 7)
+        Me.Panel2.TabIndex = 20
         '
-        'ColumnHeader4
+        'Label4
         '
-        Me.ColumnHeader4.Text = "Description"
-        Me.ColumnHeader4.Width = 118
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI Light", 21.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label4.Location = New System.Drawing.Point(26, 10)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(327, 40)
+        Me.Label4.TabIndex = 21
+        Me.Label4.Text = "Food - Ingredient Settings"
         '
-        'ColumnHeader5
+        'Panel3
         '
-        Me.ColumnHeader5.Text = "Price"
-        Me.ColumnHeader5.Width = 114
+        Me.Panel3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel3.BackColor = System.Drawing.Color.PowderBlue
+        Me.Panel3.Controls.Add(Me.ListView2)
+        Me.Panel3.Controls.Add(Me.Label2)
+        Me.Panel3.Location = New System.Drawing.Point(337, 97)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(296, 366)
+        Me.Panel3.TabIndex = 22
+        '
+        'Panel4
+        '
+        Me.Panel4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel4.BackColor = System.Drawing.Color.PowderBlue
+        Me.Panel4.Controls.Add(Me.ListView1)
+        Me.Panel4.Controls.Add(Me.Label1)
+        Me.Panel4.Location = New System.Drawing.Point(12, 97)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(251, 366)
+        Me.Panel4.TabIndex = 23
         '
         'frmFood
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1137, 465)
+        Me.ControlBox = False
+        Me.Controls.Add(Me.Panel4)
+        Me.Controls.Add(Me.Panel3)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.MetroTextBox4)
@@ -324,16 +397,17 @@ Partial Class frmFood
         Me.Controls.Add(Me.MetroTextBox2)
         Me.Controls.Add(Me.MetroTextBox1)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ListView3)
-        Me.Controls.Add(Me.ListView2)
-        Me.Controls.Add(Me.ListView1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmFood"
+        Me.ShowIcon = False
+        Me.ShowInTaskbar = False
         Me.Text = "Food Set-up"
-        Me.Theme = MetroFramework.MetroThemeStyle.[Default]
-        Me.TopMost = True
         Me.Panel1.ResumeLayout(False)
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -361,4 +435,8 @@ Partial Class frmFood
     Friend WithEvents ColumnHeader3 As ColumnHeader
     Friend WithEvents ColumnHeader4 As ColumnHeader
     Friend WithEvents ColumnHeader5 As ColumnHeader
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents Panel4 As Panel
 End Class

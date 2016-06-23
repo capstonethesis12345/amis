@@ -40,6 +40,7 @@ Partial Class frmMain
         Me.TransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.POSToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PayrollToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DTRToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PurchasesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReturnsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AdjustmentToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -68,7 +69,6 @@ Partial Class frmMain
         Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
-        Me.DTRToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -146,13 +146,13 @@ Partial Class frmMain
         'ViewMenusToolStripMenuItem
         '
         Me.ViewMenusToolStripMenuItem.Name = "ViewMenusToolStripMenuItem"
-        Me.ViewMenusToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.ViewMenusToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ViewMenusToolStripMenuItem.Text = "Food Menu"
         '
         'SetupMenuToolStripMenuItem
         '
         Me.SetupMenuToolStripMenuItem.Name = "SetupMenuToolStripMenuItem"
-        Me.SetupMenuToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.SetupMenuToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SetupMenuToolStripMenuItem.Text = "Set-up Menu"
         '
         'SuppliersToolStripMenuItem
@@ -178,8 +178,14 @@ Partial Class frmMain
         '
         Me.PayrollToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DTRToolStripMenuItem})
         Me.PayrollToolStripMenuItem.Name = "PayrollToolStripMenuItem"
-        Me.PayrollToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PayrollToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.PayrollToolStripMenuItem.Text = "Payroll"
+        '
+        'DTRToolStripMenuItem
+        '
+        Me.DTRToolStripMenuItem.Name = "DTRToolStripMenuItem"
+        Me.DTRToolStripMenuItem.Size = New System.Drawing.Size(96, 22)
+        Me.DTRToolStripMenuItem.Text = "DTR"
         '
         'PurchasesToolStripMenuItem
         '
@@ -426,12 +432,6 @@ Partial Class frmMain
         Me.ToolStripButton3.Size = New System.Drawing.Size(68, 55)
         Me.ToolStripButton3.Text = "Log Out"
         Me.ToolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'DTRToolStripMenuItem
-        '
-        Me.DTRToolStripMenuItem.Name = "DTRToolStripMenuItem"
-        Me.DTRToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.DTRToolStripMenuItem.Text = "DTR"
         '
         'frmMain
         '

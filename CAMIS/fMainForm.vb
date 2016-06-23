@@ -50,28 +50,48 @@
             '           thread1.Join()
 
             'MessageBox.Show(vEmp)
-            If status = "Admin" Then
+            'If status = "Admin" Then
+
+            'ElseIf status = "Cashier" Then
+            ' PictureBox2.Visible = False
+            ' Else
+
+        End If
+            Select Case status
+            Case Is = "Admin"
                 PictureBox2.Visible = False
                 Dim fmain As New frmMain(txtFunction.Text)
                 fmain.Show()
                 Me.Hide()
-            ElseIf status = "Cashier" Then
+                Exit Select
+            Case Is = "Manager"
                 PictureBox2.Visible = False
-            Else
+                Dim fmain As New frmMain(txtFunction.Text)
+                fmain.Show()
+                Me.Hide()
+                Exit Select
+            Case Is = "Cashier"
+                PictureBox2.Visible = False
+                Dim pos As New frmSales()
+                pos.Show()
+                Me.Hide()
 
-            End If
+                Exit Select
+                Case Else
+                    PictureBox2.Visible = False
+                    MetroLabel1.Visible = True
+            End Select
 
+        'PictureBox2.Visible = True
 
-            'PictureBox2.Visible = True
-
-            'If Not txtFunction.Text = vbNullString Then
-            '         PictureBox2.Visible = False
-            '     Dim fmain As New frmMain(txtFunction.Text)
-            '  fmain.Show()
-            '
-            '           Me.Hide()
-            '      End If
-        End If
+        'If Not txtFunction.Text = vbNullString Then
+        '         PictureBox2.Visible = False
+        '     Dim fmain As New frmMain(txtFunction.Text)
+        '  fmain.Show()
+        '
+        '           Me.Hide()
+        '      End If
+        '  End If
     End Sub
 
     Sub getLogUser()
@@ -87,7 +107,6 @@
             vEmp = ds.Tables("Users").Rows(0).Item(1).ToString
         Catch ex As Exception
             MsgBox(ex.Message)
-
         End Try
         Return fnc.Text
     End Function

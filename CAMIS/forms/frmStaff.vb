@@ -4,7 +4,7 @@ Imports MySql.Data.MySqlClient
 
 Public Class frmStaff
     Private isEditStaff As Boolean = False
-    Dim usrPass As New TextBox
+    Dim usrPass, usrName As New TextBox
     Dim sStaff As String = "select e.empid,concat(e.namelast,', ',e.namefirst,' ',e.namemiddle) from employees e left join users u on u.empid=e.empid order by e.empid asc"
     Public Sub New()
         InitializeComponent()
@@ -46,70 +46,8 @@ Public Class frmStaff
 
         clearField(textboxes)
         clearField({txtPassword, txtConfirmPWD})
-        Try
-            txtEmployeeNo.Text = ListView1.SelectedItems(0).Text.ToString
-            'StatusSet = ""
-            'ErrMessageText = ""
-
-            SqlRefresh = "SELECT  e.Empid, e.NameFirst, e.NameMiddle,e.NameLast,ifnull(e.Gender,''),ifnull(e.BirthDate,''),ifnull(e.BirthAddress,''),ifnull(e.AddressStreet,''),ifnull(e.AddressBarangay,''),ifnull(e.AddressMunCity,''),ifnull(e.AddressProvince,''),ifnull(e.AddressZip,''),ifnull(e.Contact,''),ifnull(e.EmpImage,''),ifnull(u.Username,''),ifnull(e.EmploymentStatus,'')EmploymentStatus,ifnull(e.maritalstatus,'')maritalstatus,ifnull(`u`.`Function`,'')role,ifnull(`u`.`Password`,'')Ucode from Employees e
-                            LEFT JOIN Users u
-                            ON u.EmpID=e.Empid
-                        where e.empid=@empid"
-            msgShow = False 'PREVENT OCCURANCE OF MESSAGEBOX SHOW
-            SqlReFill("Employees", Nothing, "ShowValueInTextbox", {"empid"}, {txtEmployeeNo}, {txtEmployeeNo, txtFirstname, txtMI, txtLastname, txtGender, txtBirthDate, txtBirthAddress, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, PictureBox1})
-
-            'COMMENTED CODED IS TO ACCESS MANUAL INFORMATION F DATASET TABLE.
-            ' Dim mstatus As String = ds.Tables("employees").Rows(0).Item("maritalstatus").ToString
-            Dim empStatus As String = ds.Tables("Employees").Rows(0).Item("EmploymentStatus").ToString
-            Dim empAccess As String = ds.Tables("Employees").Rows(0).Item("role").ToString
-            usrPass = New TextBox
-            usrPass.Text = ds.Tables("Employees").Rows(0).Item("Ucode").ToString
-            txtPassword.Text = usrPass.Text
-            txtConfirmPWD.Text = usrPass.Text
-
-            'NOW WE WILL SET EMPLOYMENT STATUS BASED ON THE FOLLOWING
-            'EMPLOYMENT STATUS
-            '0=Job Order
-            '1=Regular
-            '2=Provisionary
-            '3=Contractual
-            '4=Resigned
-            '5=Dismissed
-
-            If empStatus = 0 Then
-                txtEmployStatus.SelectedIndex = 0
-            ElseIf (empStatus = 1) Then
-                txtEmployStatus.SelectedIndex = 1
-            ElseIf (empStatus = 2) Then
-                txtEmployStatus.SelectedIndex = 2
-            ElseIf (empStatus = 3) Then
-                txtEmployStatus.SelectedIndex = 3
-            ElseIf (empStatus = 4) Then
-                txtEmployStatus.SelectedIndex = 4
-            ElseIf (empStatus = 5) Then
-                txtEmployStatus.SelectedIndex = 5
-            End If
-
-
-            'SHOW ACCESS ROLES AS BASED ON ROLE ACCESS WHETHER ADMIN MANAGER OR CASHIER
-            Select Case empAccess
-                Case Is = "Admin"
-                    CheckBox1.Checked = True
-                Case Is = "Manager"
-                    CheckBox1.Checked = True
-                Case Is = "Cashier"
-                    CheckBox1.Checked = True
-                Case Else
-                    CheckBox1.Checked = False
-            End Select
-
-
-            If Not txtEmployeeNo.Text = vbNullString Then
-                lblStatus.Text = "Updating existed employee"
-            End If
-        Catch ex As Exception
-
-        End Try
+        txtEmployeeNo.Text = ListView1.SelectedItems(0).Text.ToString
+        reloadinfo()
 
     End Sub
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
@@ -142,8 +80,12 @@ Public Class frmStaff
         Else
             empStatus.Text = 0
         End If
-
-
+        Dim userDuplicationCheck As Integer = Integer.Parse(getIDFunction("select count(`Username`) from `users` where `Username` like @0", "Username", {txtUsername.Text}))
+        If Not userDuplicationCheck = 0 Then
+            isError = True
+            MessageBox.Show("Username not avaiable.")
+            Exit Sub
+        End If
         If txtEmployeeNo.Text = vbNullString Then
             'Adding
             If txtFirstname.Text = vbNullString Or txtLastname.Text = vbNullString Or txtMI.Text = vbNullString Then
@@ -199,6 +141,7 @@ Public Class frmStaff
                 msgShow = True
 
                 If CheckBox1.Checked = True Then
+                    MessageBox.Show("CHeckbox enabled ")
                     If txtUsername.Text = vbNullString Then
                         MessageBox.Show("Fillup username first")
                         isError = True
@@ -210,12 +153,13 @@ Public Class frmStaff
                         Exit Sub
                     End If
                     If txtConfirmPWD.Text = txtPassword.Text And txtPassword.Text <> vbNullString Then
+                        MessageBox.Show("Ready for adding user.")
+                        If isError = True Then
+                            MessageBox.Show("Error found.")
+                        Else
+                            MessageBox.Show("Ready adding user.")
 
-                        If isError = False Then
-
-                            Dim isExists As Integer = Integer.Parse(getIDFunction("select empid from users where empid like @0", "Empid", {txtEmployeeNo.Text}))
-
-
+                            Dim isExists As Integer = Integer.Parse(getIDFunction("select ifnull(empid,0) from users where empid like @0", "Empid", {txtEmployeeNo.Text}))
                             If isExists = 0 Then
                                 MessageBox.Show("Inserting user access")
                                 If txtUsername.Text = vbNullString Then
@@ -226,8 +170,11 @@ Public Class frmStaff
                                     isError = True
                                     MessageBox.Show("Username and confirmation do not match.")
                                 End If
-                                If isError = False Then
+
+                                ' MessageBox.Show("Available User" & userDuplicationCheck.ToString)
+                                If userDuplicationCheck = 0 Then
                                     itemNew("users", {"Empid", "Username", "Password", "Function"}, {txtEmployeeNo, txtUsername, txtPassword, txtFunction})
+
                                 End If
 
                             Else
@@ -312,42 +259,68 @@ Public Class frmStaff
         clearField(textboxes)
         clearField({txtPassword, txtConfirmPWD})
         Try
-            'txtEmployeeNo.Text = ListView1.SelectedItems(0).Text.ToString
+            '  txtEmployeeNo.Text = ListView1.SelectedItems(0).Text.ToString
             'StatusSet = ""
             'ErrMessageText = ""
 
-            SqlRefresh = "SELECT e.NameFirst, e.NameMiddle, e.NameLast, IFNULL( e.Gender,  '' ) , IFNULL( e.BirthDate,  '' ) , IFNULL( e.BirthAddress,  '' ) , IFNULL( e.AddressStreet,  '' ) , IFNULL( e.AddressBarangay,  '' ) , IFNULL( e.AddressMunCity,  '' ) , IFNULL( e.AddressProvince,  '' ) , IFNULL( e.AddressZip,  '' ) , IFNULL( e.Contact,  '' ) , IFNULL( u.Username,  '' ) , IFNULL( e.EmploymentStatus,  '' ) EmploymentStatus, IFNULL( e.maritalstatus,  '' ) maritalstatus, IFNULL( e.EmpImage,  '' ) , IFNULL(  `u`.`Function` ,  '' ) role, IFNULL(  `u`.`Password` ,  '' ) Ucode
-FROM Employees e
-LEFT JOIN Users u ON u.EmpID = e.Empid
-WHERE e.empid LIKE  @empid"
+            SqlRefresh = "SELECT  e.Empid, e.NameFirst, e.NameMiddle,e.NameLast,ifnull(e.Gender,''),ifnull(e.BirthDate,''),ifnull(e.BirthAddress,''),ifnull(e.AddressStreet,''),ifnull(e.AddressBarangay,''),ifnull(e.AddressMunCity,''),ifnull(e.AddressProvince,''),ifnull(e.AddressZip,''),ifnull(e.Contact,''),ifnull(e.EmpImage,''),ifnull(u.Username,''),ifnull(e.EmploymentStatus,'')EmploymentStatus,ifnull(e.maritalstatus,'')maritalstatus,ifnull(`u`.`Function`,'')role,ifnull(`u`.`Password`,'')Ucode,ifnull(`u`.`Username`,'')Uname from Employees e
+                            LEFT JOIN Users u
+                            ON u.EmpID=e.Empid
+                        where e.empid=@empid"
             msgShow = False 'PREVENT OCCURANCE OF MESSAGEBOX SHOW
-            SqlReFill("Employees", Nothing, "ShowValueInTextbox", {"empid"}, {txtEmployeeNo}, textboxes)
+            SqlReFill("Employees", Nothing, "ShowValueInTextbox", {"empid"}, {txtEmployeeNo}, {txtEmployeeNo, txtFirstname, txtMI, txtLastname, txtGender, txtBirthDate, txtBirthAddress, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, PictureBox1})
 
             'COMMENTED CODED IS TO ACCESS MANUAL INFORMATION F DATASET TABLE.
             ' Dim mstatus As String = ds.Tables("employees").Rows(0).Item("maritalstatus").ToString
             Dim empStatus As String = ds.Tables("Employees").Rows(0).Item("EmploymentStatus").ToString
             Dim empAccess As String = ds.Tables("Employees").Rows(0).Item("role").ToString
-            ' usrPass = New TextBox
-            'usrPass.Text = ds.Tables("Employees").Rows(0).Item("Ucode").ToString
-            txtPassword.Text = ds.Tables("Employees").Rows(0).Item("Ucode").ToString
-            txtConfirmPWD.Text = ds.Tables("Employees").Rows(0).Item("Ucode").ToString
-            'NOW WE WILL SET EMPLOYMENT STATUS BASED ON THE 1 = EMPLOYED AND 0 AS NOT EMPLOYED
-            If empStatus = 1 Then
-                txtEmployStatus.SelectedIndex = 0
+            ' MessageBox.Show(empAccess)
+            usrPass = New TextBox
+            usrPass.Text = ds.Tables("Employees").Rows(0).Item("Ucode").ToString
+            txtPassword.Text = usrPass.Text
+            txtConfirmPWD.Text = usrPass.Text
+            txtUsername.Text = ds.Tables("Employees").Rows(0).Item("Uname").ToString
+            If empAccess = "" Then
+                CheckBox1.Checked = False
+                GroupBox3.Enabled = False
             Else
-                txtEmployStatus.SelectedIndex = 1
+                CheckBox1.Checked = True
+                GroupBox3.Enabled = True
             End If
+            'NOW WE WILL SET EMPLOYMENT STATUS BASED ON THE FOLLOWING
+            'EMPLOYMENT STATUS
+            '0=Job Order
+            '1=Regular
+            '2=Provisionary
+            '3=Contractual
+            '4=Resigned
+            '5=Dismissed
+
+            If empStatus = 0 Then
+                txtEmployStatus.SelectedIndex = 0
+            ElseIf (empStatus = 1) Then
+                txtEmployStatus.SelectedIndex = 1
+            ElseIf (empStatus = 2) Then
+                txtEmployStatus.SelectedIndex = 2
+            ElseIf (empStatus = 3) Then
+                txtEmployStatus.SelectedIndex = 3
+            ElseIf (empStatus = 4) Then
+                txtEmployStatus.SelectedIndex = 4
+            ElseIf (empStatus = 5) Then
+                txtEmployStatus.SelectedIndex = 5
+            End If
+
 
             'SHOW ACCESS ROLES AS BASED ON ROLE ACCESS WHETHER ADMIN MANAGER OR CASHIER
             Select Case empAccess
                 Case Is = "Admin"
-                    CheckBox1.Checked = True
+                    txtFunction.SelectedIndex = 0
                 Case Is = "Manager"
-                    CheckBox1.Checked = True
+                    txtFunction.SelectedIndex = 1
                 Case Is = "Cashier"
-                    CheckBox1.Checked = True
+                    txtFunction.SelectedIndex = 2
                 Case Else
-                    CheckBox1.Checked = False
+                    txtFunction.SelectedIndex = -1
             End Select
 
 
