@@ -87,19 +87,20 @@ Public Class createDB
             )")
         '8
         'THIS WILL CREATE ITEMS FOR SUMMARY OF ITEMS BEING PURCHASED
-        sqlList.Add("CREATE TABLE IF NOT EXISTS ITEMS(
-                ItemID INT NOT NULL AUTO_INCREMENT ,
-                Barcode INT(30) NOT NULL ,
-                Description VARCHAR( 45 ) NOT NULL ,
-                Brand VARCHAR( 45 ) ,
-                `Price` double(12,4) NOT NULL,
-                UnitType VARCHAR( 10 ) NOT NULL ,
-                Category VARCHAR( 45 ) NOT NULL ,
-                `taxable` tinyint(1) NOT NULL,
-                ItemType VARCHAR( 15 ) NOT NULL ,
-                `InitialQuantity` double(5,2),
-                PRIMARY KEY ( ItemID )
-                )")
+        sqlList.Add("CREATE TABLE IF NOT EXISTS `items` (
+              `ItemID` int(11) NOT NULL AUTO_INCREMENT,
+              `Barcode` varchar(50) DEFAULT NULL,
+              `Description` varchar(45) NOT NULL,
+              `Brand` varchar(45) DEFAULT NULL,
+              `Price` double(12,4) NOT NULL,
+              `UnitType` varchar(10) NOT NULL,
+              `Category` varchar(45) NOT NULL,
+              `taxable` tinyint(1) NOT NULL,
+              `ItemType` tinyint(1) NOT NULL,
+              `InitialQuantity` double(5,2) NOT NULL,
+              `SaleStatus` tinyint(4) NOT NULL,
+              PRIMARY KEY (`ItemID`)
+            )")
         '9
         sqlList.Add("CREATE TABLE IF NOT EXISTS `jobgrade` (
               `JobGradeID` int(10) NOT NULL AUTO_INCREMENT,

@@ -280,6 +280,7 @@ Public Class frmStaff
                 Else
                     MessageBox.Show("delete user login")
                     EmpItemUpdate()
+                    itemDelete("users", {"userid"}, {txtEmployeeNo})
                     Exit Sub
                 End If
 
