@@ -206,7 +206,42 @@ Module SQLQuery
 
         showTxtboxValue = Nothing
     End Sub
+    Function getStrData(ByVal sql As String, ByVal dsname As String, Optional ByVal parameterValue As String() = Nothing, Optional isSalesID As Boolean = Nothing)
 
+        Dim id As String = ""
+        Try
+            ConnDB()
+            cmd = New MySqlCommand(sql, conn)
+            da = New MySqlDataAdapter
+            ds = New DataSet()
+            cmd.CommandType = CommandType.Text
+
+            If parameterValue IsNot Nothing Then
+                Dim i As Integer = 0
+                For Each param In parameterValue
+                    cmd.Parameters.AddWithValue("@" & i.ToString, parameterValue(i))
+                    i += 1
+                Next
+            End If
+            da.SelectCommand = cmd
+            da.Fill(ds, dsname)
+            'count total columns'
+
+            id = ds.Tables(dsname).Rows(0).Item(0).ToString
+
+            ' MessageBox.Show(ds.Tables(0).Rows.Count.ToString)
+            ' End If
+            ' id = ds.Tables(dsname).Rows(0).Item(0).ToString
+        Catch ex As Exception
+            ' MessageBox.Show("Unable to retreve id")
+            If msgShow = True Then
+                MessageBox.Show("Error on getting ID :" & ex.Message.ToString, "Waring notice")
+            End If
+        Finally
+            DisconnDB()
+        End Try
+        Return id
+    End Function
 
     Function getIDFunction(ByVal sql As String, ByVal dsname As String, Optional ByVal parameterValue As String() = Nothing, Optional isSalesID As Boolean = Nothing)
 

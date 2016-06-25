@@ -32,13 +32,9 @@ Partial Class frmPurchases
         Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
-        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.lblSearch = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label10 = New System.Windows.Forms.Label()
+        Me.lblSupplier = New System.Windows.Forms.Label()
         Me.lblEmpID = New System.Windows.Forms.Label()
         Me.lblPONum = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -46,9 +42,15 @@ Partial Class frmPurchases
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnDelete = New System.Windows.Forms.Button()
-        Me.gtype = New System.Windows.Forms.GroupBox()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.txtcategory = New System.Windows.Forms.ComboBox()
+        Me.groupUnit = New System.Windows.Forms.GroupBox()
+        Me.kgs = New System.Windows.Forms.RadioButton()
+        Me.lbs = New System.Windows.Forms.RadioButton()
+        Me.pcs = New System.Windows.Forms.RadioButton()
+        Me.groupProductType = New System.Windows.Forms.GroupBox()
+        Me.ingredient = New System.Windows.Forms.RadioButton()
+        Me.nonIngredient = New System.Windows.Forms.RadioButton()
         Me.gItem = New System.Windows.Forms.GroupBox()
         Me.txtQuantity = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -65,28 +67,27 @@ Partial Class frmPurchases
         Me.lblSupplierID = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnAddUpdate = New System.Windows.Forms.Button()
         Me.txtSupplier = New System.Windows.Forms.TextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.btnAddUpdate = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.lblTotal = New System.Windows.Forms.Label()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.lbs = New System.Windows.Forms.RadioButton()
-        Me.pcs = New System.Windows.Forms.RadioButton()
-        Me.kgs = New System.Windows.Forms.RadioButton()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.txtcategory = New System.Windows.Forms.ComboBox()
-        Me.ToolStrip1.SuspendLayout()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        Me.gtype.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        Me.groupUnit.SuspendLayout()
+        Me.groupProductType.SuspendLayout()
         Me.gItem.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox2.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
+        Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ListView1
@@ -146,42 +147,6 @@ Partial Class frmPurchases
         Me.ColumnHeader8.Text = "ITEM TYPE"
         Me.ColumnHeader8.Width = 92
         '
-        'ToolStrip1
-        '
-        Me.ToolStrip1.AutoSize = False
-        Me.ToolStrip1.BackColor = System.Drawing.Color.CadetBlue
-        Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.ToolStripButton2, Me.ToolStripButton1})
-        Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(1234, 40)
-        Me.ToolStrip1.TabIndex = 26
-        Me.ToolStrip1.Text = "ToolStrip1"
-        '
-        'ToolStripLabel1
-        '
-        Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(16, 37)
-        Me.ToolStripLabel1.Text = "   "
-        '
-        'ToolStripButton2
-        '
-        Me.ToolStripButton2.AutoSize = False
-        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
-        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(65, 40)
-        Me.ToolStripButton2.Text = "&Search"
-        '
-        'ToolStripButton1
-        '
-        Me.ToolStripButton1.AutoSize = False
-        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(65, 40)
-        Me.ToolStripButton1.Text = "Clos&e"
-        '
         'lblSearch
         '
         Me.lblSearch.AutoSize = True
@@ -197,8 +162,8 @@ Partial Class frmPurchases
         Me.Panel1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel1.BackColor = System.Drawing.Color.SlateBlue
-        Me.Panel1.Controls.Add(Me.Label10)
+        Me.Panel1.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.Panel1.Controls.Add(Me.lblSupplier)
         Me.Panel1.Controls.Add(Me.lblEmpID)
         Me.Panel1.Controls.Add(Me.lblPONum)
         Me.Panel1.Controls.Add(Me.Label9)
@@ -210,77 +175,85 @@ Partial Class frmPurchases
         Me.Panel1.Size = New System.Drawing.Size(801, 648)
         Me.Panel1.TabIndex = 32
         '
-        'Label10
+        'lblSupplier
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label10.Location = New System.Drawing.Point(334, 16)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(13, 13)
-        Me.Label10.TabIndex = 29
-        Me.Label10.Text = "0"
+        Me.lblSupplier.AutoSize = True
+        Me.lblSupplier.Font = New System.Drawing.Font("Segoe UI Semilight", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSupplier.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.lblSupplier.Location = New System.Drawing.Point(611, 16)
+        Me.lblSupplier.Name = "lblSupplier"
+        Me.lblSupplier.Size = New System.Drawing.Size(17, 20)
+        Me.lblSupplier.TabIndex = 29
+        Me.lblSupplier.Text = "0"
         '
         'lblEmpID
         '
         Me.lblEmpID.AutoSize = True
-        Me.lblEmpID.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lblEmpID.Location = New System.Drawing.Point(227, 16)
+        Me.lblEmpID.Font = New System.Drawing.Font("Segoe UI Semilight", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEmpID.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.lblEmpID.Location = New System.Drawing.Point(383, 16)
         Me.lblEmpID.Name = "lblEmpID"
-        Me.lblEmpID.Size = New System.Drawing.Size(13, 13)
+        Me.lblEmpID.Size = New System.Drawing.Size(17, 20)
         Me.lblEmpID.TabIndex = 29
         Me.lblEmpID.Text = "0"
         '
         'lblPONum
         '
         Me.lblPONum.AutoSize = True
-        Me.lblPONum.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.lblPONum.Location = New System.Drawing.Point(96, 16)
+        Me.lblPONum.Font = New System.Drawing.Font("Segoe UI Semilight", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPONum.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.lblPONum.Location = New System.Drawing.Point(120, 16)
         Me.lblPONum.Name = "lblPONum"
-        Me.lblPONum.Size = New System.Drawing.Size(13, 13)
+        Me.lblPONum.Size = New System.Drawing.Size(17, 20)
         Me.lblPONum.TabIndex = 29
         Me.lblPONum.Text = "0"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label9.Location = New System.Drawing.Point(258, 16)
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI Semilight", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.Label9.Location = New System.Drawing.Point(504, 16)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(56, 13)
+        Me.Label9.Size = New System.Drawing.Size(101, 20)
         Me.Label9.TabIndex = 29
-        Me.Label9.Text = "SupplierID"
+        Me.Label9.Text = "Supplier Name"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label7.Location = New System.Drawing.Point(154, 16)
+        Me.Label7.Font = New System.Drawing.Font("Segoe UI Semilight", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.Label7.Location = New System.Drawing.Point(290, 16)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(67, 13)
+        Me.Label7.Size = New System.Drawing.Size(87, 20)
         Me.Label7.TabIndex = 29
         Me.Label7.Text = "Employee ID"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI Semilight", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label2.Location = New System.Drawing.Point(9, 16)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(81, 13)
+        Me.Label2.Size = New System.Drawing.Size(105, 20)
         Me.Label2.TabIndex = 29
         Me.Label2.Text = "Purchase Order"
         '
         'GroupBox1
         '
         Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.btnDelete)
         Me.GroupBox1.Controls.Add(Me.GroupBox3)
-        Me.GroupBox1.Controls.Add(Me.GroupBox2)
-        Me.GroupBox1.Controls.Add(Me.gtype)
+        Me.GroupBox1.Controls.Add(Me.groupUnit)
+        Me.GroupBox1.Controls.Add(Me.groupProductType)
         Me.GroupBox1.Controls.Add(Me.gItem)
         Me.GroupBox1.Controls.Add(Me.lblSupplierID)
         Me.GroupBox1.Controls.Add(Me.Label15)
         Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.btnAddUpdate)
         Me.GroupBox1.Controls.Add(Me.txtSupplier)
         Me.GroupBox1.Location = New System.Drawing.Point(828, 177)
         Me.GroupBox1.Name = "GroupBox1"
@@ -291,46 +264,108 @@ Partial Class frmPurchases
         '
         'btnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(306, 300)
+        Me.btnDelete.Location = New System.Drawing.Point(306, 314)
         Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(75, 45)
+        Me.btnDelete.Size = New System.Drawing.Size(66, 31)
         Me.btnDelete.TabIndex = 1
         Me.btnDelete.Text = "Delete"
         Me.btnDelete.UseVisualStyleBackColor = True
         Me.btnDelete.Visible = False
         '
-        'gtype
+        'GroupBox3
         '
-        Me.gtype.Controls.Add(Me.RadioButton2)
-        Me.gtype.Controls.Add(Me.RadioButton1)
-        Me.gtype.Location = New System.Drawing.Point(18, 286)
-        Me.gtype.Name = "gtype"
-        Me.gtype.Size = New System.Drawing.Size(239, 59)
-        Me.gtype.TabIndex = 6
-        Me.gtype.TabStop = False
-        Me.gtype.Text = "Product type"
+        Me.GroupBox3.Controls.Add(Me.txtcategory)
+        Me.GroupBox3.Location = New System.Drawing.Point(18, 412)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(239, 70)
+        Me.GroupBox3.TabIndex = 6
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Category"
         '
-        'RadioButton2
+        'txtcategory
         '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(150, 28)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(72, 17)
-        Me.RadioButton2.TabIndex = 0
-        Me.RadioButton2.Text = "Ingredient"
-        Me.RadioButton2.UseVisualStyleBackColor = True
+        Me.txtcategory.FormattingEnabled = True
+        Me.txtcategory.Location = New System.Drawing.Point(20, 31)
+        Me.txtcategory.Name = "txtcategory"
+        Me.txtcategory.Size = New System.Drawing.Size(202, 21)
+        Me.txtcategory.TabIndex = 0
         '
-        'RadioButton1
+        'groupUnit
         '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Checked = True
-        Me.RadioButton1.Location = New System.Drawing.Point(37, 28)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(95, 17)
-        Me.RadioButton1.TabIndex = 0
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Non-Ingredient"
-        Me.RadioButton1.UseVisualStyleBackColor = True
+        Me.groupUnit.Controls.Add(Me.kgs)
+        Me.groupUnit.Controls.Add(Me.lbs)
+        Me.groupUnit.Controls.Add(Me.pcs)
+        Me.groupUnit.Location = New System.Drawing.Point(18, 351)
+        Me.groupUnit.Name = "groupUnit"
+        Me.groupUnit.Size = New System.Drawing.Size(239, 55)
+        Me.groupUnit.TabIndex = 6
+        Me.groupUnit.TabStop = False
+        Me.groupUnit.Text = "Unit"
+        '
+        'kgs
+        '
+        Me.kgs.AutoSize = True
+        Me.kgs.Location = New System.Drawing.Point(134, 28)
+        Me.kgs.Name = "kgs"
+        Me.kgs.Size = New System.Drawing.Size(42, 17)
+        Me.kgs.TabIndex = 0
+        Me.kgs.Text = "kgs"
+        Me.kgs.UseVisualStyleBackColor = True
+        '
+        'lbs
+        '
+        Me.lbs.AutoSize = True
+        Me.lbs.Location = New System.Drawing.Point(90, 28)
+        Me.lbs.Name = "lbs"
+        Me.lbs.Size = New System.Drawing.Size(38, 17)
+        Me.lbs.TabIndex = 0
+        Me.lbs.Text = "lbs"
+        Me.lbs.UseVisualStyleBackColor = True
+        '
+        'pcs
+        '
+        Me.pcs.AutoSize = True
+        Me.pcs.Checked = True
+        Me.pcs.Location = New System.Drawing.Point(35, 28)
+        Me.pcs.Name = "pcs"
+        Me.pcs.Size = New System.Drawing.Size(42, 17)
+        Me.pcs.TabIndex = 0
+        Me.pcs.TabStop = True
+        Me.pcs.Text = "pcs"
+        Me.pcs.UseVisualStyleBackColor = True
+        '
+        'groupProductType
+        '
+        Me.groupProductType.Controls.Add(Me.ingredient)
+        Me.groupProductType.Controls.Add(Me.nonIngredient)
+        Me.groupProductType.Location = New System.Drawing.Point(18, 286)
+        Me.groupProductType.Name = "groupProductType"
+        Me.groupProductType.Size = New System.Drawing.Size(239, 59)
+        Me.groupProductType.TabIndex = 6
+        Me.groupProductType.TabStop = False
+        Me.groupProductType.Text = "Product type"
+        '
+        'ingredient
+        '
+        Me.ingredient.AutoSize = True
+        Me.ingredient.Location = New System.Drawing.Point(150, 28)
+        Me.ingredient.Name = "ingredient"
+        Me.ingredient.Size = New System.Drawing.Size(72, 17)
+        Me.ingredient.TabIndex = 0
+        Me.ingredient.Text = "Ingredient"
+        Me.ingredient.UseVisualStyleBackColor = True
+        '
+        'nonIngredient
+        '
+        Me.nonIngredient.AutoSize = True
+        Me.nonIngredient.Checked = True
+        Me.nonIngredient.Location = New System.Drawing.Point(37, 28)
+        Me.nonIngredient.Name = "nonIngredient"
+        Me.nonIngredient.Size = New System.Drawing.Size(95, 17)
+        Me.nonIngredient.TabIndex = 0
+        Me.nonIngredient.TabStop = True
+        Me.nonIngredient.Text = "Non-Ingredient"
+        Me.nonIngredient.UseVisualStyleBackColor = True
         '
         'gItem
         '
@@ -487,6 +522,16 @@ Partial Class frmPurchases
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Supplier"
         '
+        'btnAddUpdate
+        '
+        Me.btnAddUpdate.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAddUpdate.Location = New System.Drawing.Point(306, 351)
+        Me.btnAddUpdate.Name = "btnAddUpdate"
+        Me.btnAddUpdate.Size = New System.Drawing.Size(66, 29)
+        Me.btnAddUpdate.TabIndex = 3
+        Me.btnAddUpdate.Text = "ADD"
+        Me.btnAddUpdate.UseVisualStyleBackColor = True
+        '
         'txtSupplier
         '
         Me.txtSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
@@ -504,16 +549,6 @@ Partial Class frmPurchases
         Me.PictureBox1.Size = New System.Drawing.Size(100, 88)
         Me.PictureBox1.TabIndex = 4
         Me.PictureBox1.TabStop = False
-        '
-        'btnAddUpdate
-        '
-        Me.btnAddUpdate.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAddUpdate.Location = New System.Drawing.Point(985, 142)
-        Me.btnAddUpdate.Name = "btnAddUpdate"
-        Me.btnAddUpdate.Size = New System.Drawing.Size(100, 29)
-        Me.btnAddUpdate.TabIndex = 3
-        Me.btnAddUpdate.Text = "ADD"
-        Me.btnAddUpdate.UseVisualStyleBackColor = True
         '
         'Button1
         '
@@ -569,72 +604,56 @@ Partial Class frmPurchases
         Me.lblTotal.TabIndex = 35
         Me.lblTotal.Text = "0"
         '
-        'GroupBox2
+        'Button2
         '
-        Me.GroupBox2.Controls.Add(Me.kgs)
-        Me.GroupBox2.Controls.Add(Me.lbs)
-        Me.GroupBox2.Controls.Add(Me.pcs)
-        Me.GroupBox2.Location = New System.Drawing.Point(18, 351)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(239, 55)
-        Me.GroupBox2.TabIndex = 6
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Unit"
+        Me.Button2.Location = New System.Drawing.Point(306, 386)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(66, 29)
+        Me.Button2.TabIndex = 36
+        Me.Button2.Text = "Complete"
+        Me.Button2.UseVisualStyleBackColor = True
         '
-        'lbs
+        'ToolStripLabel1
         '
-        Me.lbs.AutoSize = True
-        Me.lbs.Location = New System.Drawing.Point(90, 28)
-        Me.lbs.Name = "lbs"
-        Me.lbs.Size = New System.Drawing.Size(38, 17)
-        Me.lbs.TabIndex = 0
-        Me.lbs.Text = "lbs"
-        Me.lbs.UseVisualStyleBackColor = True
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(16, 37)
+        Me.ToolStripLabel1.Text = "   "
         '
-        'pcs
+        'ToolStripButton2
         '
-        Me.pcs.AutoSize = True
-        Me.pcs.Checked = True
-        Me.pcs.Location = New System.Drawing.Point(35, 28)
-        Me.pcs.Name = "pcs"
-        Me.pcs.Size = New System.Drawing.Size(42, 17)
-        Me.pcs.TabIndex = 0
-        Me.pcs.TabStop = True
-        Me.pcs.Text = "pcs"
-        Me.pcs.UseVisualStyleBackColor = True
+        Me.ToolStripButton2.AutoSize = False
+        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
+        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton2.Name = "ToolStripButton2"
+        Me.ToolStripButton2.Size = New System.Drawing.Size(65, 40)
+        Me.ToolStripButton2.Text = "&Search"
         '
-        'kgs
+        'ToolStripButton1
         '
-        Me.kgs.AutoSize = True
-        Me.kgs.Location = New System.Drawing.Point(134, 28)
-        Me.kgs.Name = "kgs"
-        Me.kgs.Size = New System.Drawing.Size(42, 17)
-        Me.kgs.TabIndex = 0
-        Me.kgs.Text = "kgs"
-        Me.kgs.UseVisualStyleBackColor = True
+        Me.ToolStripButton1.AutoSize = False
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(65, 40)
+        Me.ToolStripButton1.Text = "Clos&e"
         '
-        'GroupBox3
+        'ToolStrip1
         '
-        Me.GroupBox3.Controls.Add(Me.txtcategory)
-        Me.GroupBox3.Location = New System.Drawing.Point(18, 412)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(239, 70)
-        Me.GroupBox3.TabIndex = 6
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Category"
-        '
-        'txtcategory
-        '
-        Me.txtcategory.FormattingEnabled = True
-        Me.txtcategory.Location = New System.Drawing.Point(20, 31)
-        Me.txtcategory.Name = "txtcategory"
-        Me.txtcategory.Size = New System.Drawing.Size(202, 21)
-        Me.txtcategory.TabIndex = 0
+        Me.ToolStrip1.AutoSize = False
+        Me.ToolStrip1.BackColor = System.Drawing.Color.CadetBlue
+        Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.ToolStripButton2, Me.ToolStripButton1})
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(1234, 40)
+        Me.ToolStrip1.TabIndex = 26
+        Me.ToolStrip1.Text = "ToolStrip1"
         '
         'frmPurchases
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.Honeydew
         Me.ClientSize = New System.Drawing.Size(1234, 703)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.lblTotal)
@@ -643,7 +662,6 @@ Partial Class frmPurchases
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.btnAddUpdate)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.lblSearch)
         Me.Controls.Add(Me.ToolStrip1)
@@ -651,32 +669,28 @@ Partial Class frmPurchases
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmPurchases"
         Me.Text = "Category"
-        Me.ToolStrip1.ResumeLayout(False)
-        Me.ToolStrip1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        Me.gtype.ResumeLayout(False)
-        Me.gtype.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.groupUnit.ResumeLayout(False)
+        Me.groupUnit.PerformLayout()
+        Me.groupProductType.ResumeLayout(False)
+        Me.groupProductType.PerformLayout()
         Me.gItem.ResumeLayout(False)
         Me.gItem.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
-        Me.GroupBox3.ResumeLayout(False)
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents ListView1 As System.Windows.Forms.ListView
-    Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip
-    Friend WithEvents ToolStripButton2 As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripButton
     Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents ToolStripLabel1 As System.Windows.Forms.ToolStripLabel
     Friend WithEvents lblSearch As System.Windows.Forms.Label
     Friend WithEvents ColumnHeader4 As ColumnHeader
     Friend WithEvents ColumnHeader5 As ColumnHeader
@@ -698,7 +712,7 @@ Partial Class frmPurchases
     Friend WithEvents Label5 As Label
     Friend WithEvents txtBrand As TextBox
     Friend WithEvents txtCost As TextBox
-    Friend WithEvents Label10 As Label
+    Friend WithEvents lblSupplier As Label
     Friend WithEvents lblEmpID As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Label7 As Label
@@ -707,9 +721,9 @@ Partial Class frmPurchases
     Friend WithEvents gItem As GroupBox
     Friend WithEvents lblItemID As Label
     Friend WithEvents Label8 As Label
-    Friend WithEvents gtype As GroupBox
-    Friend WithEvents RadioButton2 As RadioButton
-    Friend WithEvents RadioButton1 As RadioButton
+    Friend WithEvents groupProductType As GroupBox
+    Friend WithEvents ingredient As RadioButton
+    Friend WithEvents nonIngredient As RadioButton
     Friend WithEvents ColumnHeader7 As ColumnHeader
     Friend WithEvents Button1 As Button
     Friend WithEvents Label12 As Label
@@ -719,10 +733,15 @@ Partial Class frmPurchases
     Friend WithEvents ColumnHeader8 As ColumnHeader
     Friend WithEvents btnDelete As Button
     Friend WithEvents Label15 As Label
-    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents groupUnit As GroupBox
     Friend WithEvents kgs As RadioButton
     Friend WithEvents lbs As RadioButton
     Friend WithEvents pcs As RadioButton
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents txtcategory As ComboBox
+    Friend WithEvents Button2 As Button
+    Friend WithEvents ToolStripLabel1 As ToolStripLabel
+    Friend WithEvents ToolStripButton2 As ToolStripButton
+    Friend WithEvents ToolStripButton1 As ToolStripButton
+    Friend WithEvents ToolStrip1 As ToolStrip
 End Class

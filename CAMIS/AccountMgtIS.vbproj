@@ -109,6 +109,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="forms\frmDTR.Designer.vb">
+      <DependentUpon>frmDTR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmDTR.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="forms\frmFood.Designer.vb">
       <DependentUpon>frmFood.vb</DependentUpon>
     </Compile>
@@ -291,6 +297,7 @@
   <ItemGroup>
     <EmbeddedResource Include="fMainForm.resx">
       <DependentUpon>fMainForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmAddUpdateCategory.resx">
       <DependentUpon>frmAddUpdateCategory.vb</DependentUpon>
@@ -302,6 +309,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmAddUpdateRequisition.resx">
       <DependentUpon>frmAddUpdateRequisition.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmDTR.resx">
+      <DependentUpon>frmDTR.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmFood.resx">
       <DependentUpon>frmFood.vb</DependentUpon>
@@ -320,6 +331,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmCategory.resx">
       <DependentUpon>frmCategory.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmDatabase.resx">
       <DependentUpon>frmDatabase.vb</DependentUpon>

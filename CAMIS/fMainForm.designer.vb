@@ -27,11 +27,11 @@ Partial Class fMainForm
         Me.tPassword = New System.Windows.Forms.TextBox()
         Me.btnSubmit = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
         Me.txtFunction = New System.Windows.Forms.TextBox()
         Me.erTextboxUser = New System.Windows.Forms.PictureBox()
         Me.erTextboxPass = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.erTextboxUser, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -82,6 +82,7 @@ Partial Class fMainForm
         Me.btnSubmit.Name = "btnSubmit"
         Me.btnSubmit.Size = New System.Drawing.Size(336, 41)
         Me.btnSubmit.TabIndex = 2
+        Me.btnSubmit.TabStop = False
         Me.btnSubmit.Text = "SUBMIT"
         Me.btnSubmit.UseVisualStyleBackColor = True
         '
@@ -101,6 +102,17 @@ Partial Class fMainForm
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(406, 292)
         Me.Panel1.TabIndex = 0
+        '
+        'MetroLabel1
+        '
+        Me.MetroLabel1.AutoSize = True
+        Me.MetroLabel1.ForeColor = System.Drawing.Color.DarkRed
+        Me.MetroLabel1.Location = New System.Drawing.Point(134, 170)
+        Me.MetroLabel1.Name = "MetroLabel1"
+        Me.MetroLabel1.Size = New System.Drawing.Size(219, 19)
+        Me.MetroLabel1.TabIndex = 7
+        Me.MetroLabel1.Text = "Username and Password is incorrect"
+        Me.MetroLabel1.Visible = False
         '
         'txtFunction
         '
@@ -139,17 +151,6 @@ Partial Class fMainForm
         Me.PictureBox2.TabIndex = 6
         Me.PictureBox2.TabStop = False
         Me.PictureBox2.Visible = False
-        '
-        'MetroLabel1
-        '
-        Me.MetroLabel1.AutoSize = True
-        Me.MetroLabel1.ForeColor = System.Drawing.Color.DarkRed
-        Me.MetroLabel1.Location = New System.Drawing.Point(134, 170)
-        Me.MetroLabel1.Name = "MetroLabel1"
-        Me.MetroLabel1.Size = New System.Drawing.Size(219, 19)
-        Me.MetroLabel1.TabIndex = 7
-        Me.MetroLabel1.Text = "Username and Password is incorrect"
-        Me.MetroLabel1.Visible = False
         '
         'fMainForm
         '

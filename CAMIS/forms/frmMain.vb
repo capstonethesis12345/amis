@@ -99,7 +99,8 @@ Public Class frmMain
     End Sub
 
     Private Sub PurchasesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PurchasesToolStripMenuItem.Click
-        openFull(frmPurchases)
+        Dim fpurchase As New frmPurchases
+        openFull(fpurchase)
     End Sub
 
     Private Sub POSToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles POSToolStripMenuItem.Click
@@ -115,9 +116,13 @@ Public Class frmMain
     End Sub
 
     Private Sub ToolStripButton3_Click(sender As Object, e As EventArgs) Handles ToolStripButton3.Click
-        Dim login As New fMainForm()
-        login.Show()
         Me.Hide()
+        fMainForm.tUsername.Text = ""
+        fMainForm.tPassword.Text = ""
+        fMainForm.tUsername.Focus()
+        fMainForm.Show()
+        vEmp = ""
+
 
     End Sub
 
@@ -136,5 +141,9 @@ Public Class frmMain
 
         End Try
 
+    End Sub
+
+    Private Sub DTRToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DTRToolStripMenuItem.Click
+        openFull(frmDTR)
     End Sub
 End Class

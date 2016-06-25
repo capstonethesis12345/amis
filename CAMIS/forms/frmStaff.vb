@@ -217,7 +217,7 @@ Public Class frmStaff
                         Exit Sub
                     End If
                     If txtConfirmPWD.Text = txtPassword.Text And txtPassword.Text <> vbNullString Then
-                        MessageBox.Show("Ready for adding user.")
+                        'MessageBox.Show("Ready for adding user.")
                         If isError = True Then
                             MessageBox.Show("Error found.")
                         Else
@@ -225,7 +225,7 @@ Public Class frmStaff
 
                             Dim isExists As Integer = Integer.Parse(getIDFunction("select ifnull(empid,0) from users where empid like @0", "Empid", {txtEmployeeNo.Text}))
                             If isExists = 0 Then
-                                MessageBox.Show("Inserting user access")
+                                MessageBox.Show("Inserting user access ")
                                 If txtUsername.Text = vbNullString Then
                                     MessageBox.Show("Username required")
                                     isError = True
@@ -253,14 +253,11 @@ Public Class frmStaff
 
                             End If
 
-                            MessageBox.Show("Update user login")
-                            SqlRefresh = sStaff
-                            Dim ms As New TextBox
-                            ms.Text = txtMaritalStatus.SelectedIndex
-                            SqlRefresh = sStaff
-                            itemUpdate("employees", {"Gender", "BirthDate", "BirthAddress", "MaritalStatus", "AddressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact", "EmploymentStarted"},
-                           {txtGender, txtBirthDate, txtBirthAddress, ms, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, txtEmpStarted}, "EmpID", txtEmployeeNo.Text)
 
+                            'SqlRefresh = sStaff
+                            SqlRefresh = sStaff
+                            MessageBox.Show("update employees")
+                            EmpItemUpdate()
 
 
                         End If
@@ -282,12 +279,7 @@ Public Class frmStaff
 
                 Else
                     MessageBox.Show("delete user login")
-                    Dim ms As New TextBox
-                    ms.Text = txtMaritalStatus.SelectedIndex
-                    SqlRefresh = sStaff
-                    itemUpdate("employees", {"Gender", "BirthDate", "BirthAddress", "MaritalStatus", "AddressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact", "EmploymentStarted"},
-                           {txtGender, txtBirthDate, txtBirthAddress, ms, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, txtEmpStarted}, "EmpID", txtEmployeeNo.Text)
-                    itemDelete("users", {"Empid"}, {txtEmployeeNo})
+                    EmpItemUpdate()
                     Exit Sub
                 End If
 
@@ -319,6 +311,14 @@ Public Class frmStaff
 
         ischanged = False
 
+
+    End Sub
+    Sub EmpItemUpdate()
+        Dim ms As New TextBox
+        ms.Text = txtMaritalStatus.SelectedIndex
+
+        itemUpdate("employees", {"Gender", "BirthDate", "BirthAddress", "MaritalStatus", "AddressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact", "EmploymentStarted", "EmpImage"},
+                           {txtGender, txtBirthDate, txtBirthAddress, MS, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, txtEmpStarted, PictureBox1}, "EmpID", txtEmployeeNo.Text)
 
     End Sub
     Sub reloadinfo()

@@ -1,5 +1,5 @@
 ﻿Public Class frmFood
-    Dim siRefresh As String = "select barcode,description,price from items where itemtype like 1"
+    Dim siRefresh As String = "select barcode,description,price from items where itemtype like 2"
     Sub New()
 
         ' This call is required by the designer.

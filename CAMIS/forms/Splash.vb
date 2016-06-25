@@ -17,8 +17,9 @@
             'If the application title is missing, use the application name, without the extension
             ApplicationTitle.Text = System.IO.Path.GetFileNameWithoutExtension(My.Application.Info.AssemblyName)
         End If
+
         If Process.GetProcessesByName(Process.GetCurrentProcess.ProcessName).Length > 1 Then
-            Application.Exit()
+            'Application.Exit()
         End If
         'Format the version information using the text set into the Version control at design time as the
         '  formatting string.  This allows for effective localization if desired.

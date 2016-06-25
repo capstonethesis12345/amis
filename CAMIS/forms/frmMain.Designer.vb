@@ -37,6 +37,7 @@ Partial Class frmMain
         Me.ViewMenusToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SetupMenuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SuppliersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.JobsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.POSToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PayrollToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -54,6 +55,8 @@ Partial Class frmMain
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.tsslUser = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.tUser = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.lblDate = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
@@ -68,9 +71,6 @@ Partial Class frmMain
         Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
-        Me.JobsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tsslUser = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.tUser = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -163,6 +163,12 @@ Partial Class frmMain
         Me.SuppliersToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SuppliersToolStripMenuItem.Text = "Suppliers"
         '
+        'JobsToolStripMenuItem
+        '
+        Me.JobsToolStripMenuItem.Name = "JobsToolStripMenuItem"
+        Me.JobsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.JobsToolStripMenuItem.Text = "Jobs"
+        '
         'TransactionToolStripMenuItem
         '
         Me.TransactionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.POSToolStripMenuItem, Me.PayrollToolStripMenuItem, Me.PurchasesToolStripMenuItem, Me.ReturnsToolStripMenuItem, Me.AdjustmentToolStripMenuItem})
@@ -173,38 +179,38 @@ Partial Class frmMain
         'POSToolStripMenuItem
         '
         Me.POSToolStripMenuItem.Name = "POSToolStripMenuItem"
-        Me.POSToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.POSToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.POSToolStripMenuItem.Text = "Sales"
         '
         'PayrollToolStripMenuItem
         '
         Me.PayrollToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DTRToolStripMenuItem})
         Me.PayrollToolStripMenuItem.Name = "PayrollToolStripMenuItem"
-        Me.PayrollToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.PayrollToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.PayrollToolStripMenuItem.Text = "Payroll"
         '
         'DTRToolStripMenuItem
         '
         Me.DTRToolStripMenuItem.Name = "DTRToolStripMenuItem"
-        Me.DTRToolStripMenuItem.Size = New System.Drawing.Size(96, 22)
+        Me.DTRToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.DTRToolStripMenuItem.Text = "DTR"
         '
         'PurchasesToolStripMenuItem
         '
         Me.PurchasesToolStripMenuItem.Name = "PurchasesToolStripMenuItem"
-        Me.PurchasesToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.PurchasesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.PurchasesToolStripMenuItem.Text = "Purchases"
         '
         'ReturnsToolStripMenuItem
         '
         Me.ReturnsToolStripMenuItem.Name = "ReturnsToolStripMenuItem"
-        Me.ReturnsToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.ReturnsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ReturnsToolStripMenuItem.Text = "Returns"
         '
         'AdjustmentToolStripMenuItem
         '
         Me.AdjustmentToolStripMenuItem.Name = "AdjustmentToolStripMenuItem"
-        Me.AdjustmentToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.AdjustmentToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AdjustmentToolStripMenuItem.Text = "Adjustment"
         '
         'ReportToolStripMenuItem
@@ -274,6 +280,23 @@ Partial Class frmMain
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
         Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(81, 17)
         Me.ToolStripStatusLabel1.Text = "Active User :"
+        '
+        'tsslUser
+        '
+        Me.tsslUser.AutoSize = False
+        Me.tsslUser.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tsslUser.ForeColor = System.Drawing.Color.White
+        Me.tsslUser.Name = "tsslUser"
+        Me.tsslUser.Size = New System.Drawing.Size(50, 17)
+        Me.tsslUser.Text = " "
+        Me.tsslUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'tUser
+        '
+        Me.tUser.ForeColor = System.Drawing.Color.White
+        Me.tUser.Name = "tUser"
+        Me.tUser.Size = New System.Drawing.Size(16, 17)
+        Me.tUser.Text = "   "
         '
         'ToolStripStatusLabel3
         '
@@ -424,29 +447,6 @@ Partial Class frmMain
         Me.ToolStripButton3.Size = New System.Drawing.Size(68, 55)
         Me.ToolStripButton3.Text = "Log Out"
         Me.ToolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'JobsToolStripMenuItem
-        '
-        Me.JobsToolStripMenuItem.Name = "JobsToolStripMenuItem"
-        Me.JobsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.JobsToolStripMenuItem.Text = "Jobs"
-        '
-        'tsslUser
-        '
-        Me.tsslUser.AutoSize = False
-        Me.tsslUser.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tsslUser.ForeColor = System.Drawing.Color.White
-        Me.tsslUser.Name = "tsslUser"
-        Me.tsslUser.Size = New System.Drawing.Size(50, 17)
-        Me.tsslUser.Text = " "
-        Me.tsslUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'tUser
-        '
-        Me.tUser.ForeColor = System.Drawing.Color.White
-        Me.tUser.Name = "tUser"
-        Me.tUser.Size = New System.Drawing.Size(16, 17)
-        Me.tUser.Text = "   "
         '
         'frmMain
         '

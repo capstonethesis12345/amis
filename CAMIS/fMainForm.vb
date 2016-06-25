@@ -25,18 +25,23 @@
     End Sub
 
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
+
+        tUsername.Focus()
         hideError(erTextboxUser)
         hideError(erTextboxPass)
         If tUsername.Text = vbNullString AndAlso tPassword.Text = vbNullString Then
             showError(erTextboxUser)
             showError(erTextboxPass)
             tUsername.Focus()
+            Exit Sub
         ElseIf (tUsername.Text = vbNullString AndAlso tPassword.Text IsNot vbNullString) Then
             showError(erTextboxUser)
             tUsername.Focus()
+            Exit Sub
         ElseIf (tUsername.Text IsNot vbNullString AndAlso tPassword.Text = vbNullString) Then
             showError(erTextboxPass)
             tPassword.Focus()
+            Exit Sub
         Else
             'Set user and password 
             'match inputed user and password
@@ -57,7 +62,7 @@
             ' Else
 
         End If
-            Select Case status
+        Select Case status
             Case Is = "Admin"
                 PictureBox2.Visible = False
                 Dim fmain As New frmMain(txtFunction.Text)
@@ -77,10 +82,11 @@
                 Me.Hide()
 
                 Exit Select
-                Case Else
-                    PictureBox2.Visible = False
-                    MetroLabel1.Visible = True
-            End Select
+            Case Else
+
+                PictureBox2.Visible = False
+                MetroLabel1.Visible = True
+        End Select
 
         'PictureBox2.Visible = True
 

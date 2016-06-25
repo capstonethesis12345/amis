@@ -24,26 +24,26 @@ Public Class createDB
         'EMPLOYEE TABLE
         '2
         sqlList.Add("CREATE TABLE IF NOT EXISTS `employees` (
-  `EmpID` int(30) NOT NULL AUTO_INCREMENT,
-  `NameFirst` varchar(45) NOT NULL,
-  `NameMiddle` varchar(45) NOT NULL,
-  `NameLast` varchar(45) NOT NULL,
-  `Gender` char(1) DEFAULT NULL,
-  `BirthDate` date DEFAULT NULL,
-  `BirthAddress` varchar(100) DEFAULT NULL,
-  `MaritalStatus` tinyint(1) DEFAULT NULL,
-  `AddressStreet` varchar(45) DEFAULT NULL,
-  `AddressBarangay` varchar(45) DEFAULT NULL,
-  `AddressMunCity` varchar(45) DEFAULT NULL,
-  `AddressProvince` varchar(45) DEFAULT NULL,
-  `AddressZip` varchar(5) DEFAULT NULL,
-  `Contact` varchar(15) DEFAULT NULL,
-  `EmploymentStatus` tinyint(4) NOT NULL,
-  `EmpImage` longblob,
-  `deleted` tinyint(1) NOT NULL DEFAULT '0',
-  `EmploymentStarted` date NOT NULL,
-  PRIMARY KEY (`EmpID`)
-) ")
+              `EmpID` int(30) NOT NULL AUTO_INCREMENT,
+              `NameFirst` varchar(45) NOT NULL,
+              `NameMiddle` varchar(45) NOT NULL,
+              `NameLast` varchar(45) NOT NULL,
+              `Gender` char(1) DEFAULT NULL,
+              `BirthDate` date DEFAULT NULL,
+              `BirthAddress` varchar(100) DEFAULT NULL,
+              `MaritalStatus` tinyint(1) DEFAULT NULL,
+              `AddressStreet` varchar(45) DEFAULT NULL,
+              `AddressBarangay` varchar(45) DEFAULT NULL,
+              `AddressMunCity` varchar(45) DEFAULT NULL,
+              `AddressProvince` varchar(45) DEFAULT NULL,
+              `AddressZip` varchar(5) DEFAULT NULL,
+              `Contact` varchar(15) DEFAULT NULL,
+              `EmploymentStatus` tinyint(4) NOT NULL,
+              `EmpImage` longblob,
+              `deleted` tinyint(1) NOT NULL DEFAULT '0',
+              `EmploymentStarted` date NOT NULL,
+              PRIMARY KEY (`EmpID`)
+            ) ")
         '3
         sqlList.Add("CREATE TABLE IF NOT EXISTS `Users`(
            `UserID` int(30) Not NULL AUTO_INCREMENT,
@@ -137,6 +137,17 @@ Public Class createDB
               `Contact` varchar(45) DEFAULT NULL,
               PRIMARY KEY (`SupplierID`)
             )")
+
+        sqlList.Add("CREATE TABLE IF NOT EXISTS `jobdtr` (
+              `DTRID` bigint(20) NOT NULL AUTO_INCREMENT,
+              `dateTimeIn` datetime NOT NULL,
+              `dateTimeOut` datetime NOT NULL,
+              `EmpID` int(11) NOT NULL,
+              PRIMARY KEY (`DTRID`),
+              KEY `EmpID` (`EmpID`)
+            )")
+        sqlList.Add("ALTER TABLE  `order` ADD  `OrderStatus` TINYINT NOT NULL COMMENT '0=pending;1=completed' AFTER  `EmpID` ")
+        sqlList.Add("ALTER TABLE  `items` CHANGE  `ItemType`  `ItemType` TINYINT( 1 ) NOT NULL ")
         '    sqlList.Add("call AddColumnUnlessExists(Database(), 'dbamis', 'category', 'varchar(32) null');")
 
         ''ADD HERE ADDITIONAL UPDATES ON TABLE IF EXISTED
