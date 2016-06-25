@@ -43,17 +43,17 @@ Public Class createDB
               `deleted` tinyint(1) NOT NULL DEFAULT '0',
               `EmploymentStarted` date NOT NULL,
               PRIMARY KEY (`EmpID`)
-            ) ")
+            )")
         '3
-        sqlList.Add("CREATE TABLE IF NOT EXISTS `Users`(
-           `UserID` int(30) Not NULL AUTO_INCREMENT,
-           `EmpID` int(30) Not NULL,
-            `Username` varchar(20) Not NULL,
-            `Password` varchar(50) Not NULL,
-            `Function` ENUM('Admin','Cashier','Manager') Not NULL,
-            PRIMARY KEY(`UserID`),
-            UNIQUE KEY `Username_UNIQUE` (`Username`)
-           )")
+        sqlList.Add("CREATE TABLE IF NOT EXISTS `users` (
+              `UserID` int(30) NOT NULL AUTO_INCREMENT,
+              `EmpID` int(30) NOT NULL,
+              `Username` varchar(20) NOT NULL,
+              `Password` varchar(50) NOT NULL,
+              `Function` enum('Admin','Cashier','Manager') NOT NULL,
+              PRIMARY KEY (`UserID`),
+              UNIQUE KEY `Username_UNIQUE` (`Username`)
+            )")
         'INSERT INITIAL VALUE
         '2 tables must always be linked by not all employees have the access to the program
         'each user must have employee record. need only once.
@@ -68,22 +68,23 @@ Public Class createDB
         'THIS WILL CREAE PO TABLE FOR SUMMARY OF PURCHASE ORDER LISTS
         '6
         sqlList.Add("CREATE TABLE IF NOT EXISTS `po` (
-  `POID` int(11) NOT NULL AUTO_INCREMENT,
-  `SupplierID` int(11) NOT NULL,
-  `EmpID` int(11) NOT NULL,
-  `PODate` date NOT NULL,
-  `TotalCost` double NOT NULL DEFAULT '0',
-  `Status` tinyint(4) NOT NULL,
-  PRIMARY KEY (`POID`)
-) ")
+          `POID` int(11) NOT NULL AUTO_INCREMENT,
+          `SupplierID` int(11) NOT NULL,
+          `EmpID` int(11) NOT NULL,
+          `PODate` date NOT NULL,
+          `TotalCost` double NOT NULL DEFAULT '0',
+          `Status` tinyint(4) NOT NULL,
+          PRIMARY KEY (`POID`),
+          KEY `SupplierID` (`SupplierID`)
+        )")
         '7
-        sqlList.Add("CREATE TABLE IF NOT EXISTS POList(
-            POListID INT NOT NULL AUTO_INCREMENT ,
-            POID INT NOT NULL ,
-            ItemID INT NOT NULL,
-            Quantity DOUBLE( 10, 2 ) NOT NULL ,
-            Cost double not null default 0.0,
-            PRIMARY KEY ( POListID )
+        sqlList.Add("CREATE TABLE IF NOT EXISTS `polist` (
+              `POListID` int(11) NOT NULL AUTO_INCREMENT,
+              `POID` int(11) NOT NULL,
+              `ItemID` int(11) NOT NULL,
+              `Quantity` double(10,2) NOT NULL,
+              `Cost` double NOT NULL DEFAULT '0',
+              PRIMARY KEY (`POListID`)
             )")
         '8
         'THIS WILL CREATE ITEMS FOR SUMMARY OF ITEMS BEING PURCHASED
@@ -99,46 +100,17 @@ Public Class createDB
               `ItemType` tinyint(1) NOT NULL,
               `InitialQuantity` double(5,2) NOT NULL,
               `SaleStatus` tinyint(4) NOT NULL,
-              PRIMARY KEY (`ItemID`)
+              PRIMARY KEY (`ItemID`),
+              UNIQUE KEY `Description` (`Description`)
             )")
         '9
-        sqlList.Add("CREATE TABLE IF NOT EXISTS `jobgrade` (
+        sqlList.Add("CREATE TABLE IF NOT EXISTS `job` (
               `JobGradeID` int(10) NOT NULL AUTO_INCREMENT,
               `JobDescription` varchar(30) NOT NULL,
               `Salary` double(10,2) NOT NULL DEFAULT '0.00',
               PRIMARY KEY (`JobGradeID`)
-            ) ")
-        '10
-        sqlList.Add("create table if not exists JobGrade(
-            JobGradeID int(10) not null auto_increment,
-            JobDescription varchar(30) not null,
-            Salary double(10,2) not null default 0.0,
-            Primary key(JobGradeID)
-            );")
-        '11
-        sqlList.Add("CREATE TABLE IF NOT EXISTS `order` (
-          `OrderID` int(30) NOT NULL AUTO_INCREMENT,
-          `ItemID` int(30) NOT NULL,
-          `CustomerID` int(30) NOT NULL,
-          `Total` double(12,2) NOT NULL,
-          `OrderDate` date NOT NULL,
-          `EmpID` int(30) NOT NULL,
-          PRIMARY KEY (`OrderID`)
-        )")
-        sqlList.Add("CREATE TABLE IF NOT EXISTS `orderline` (
-          `orderlineID` int(30) NOT NULL,
-          `orderid` int(30) NOT NULL,
-          `itemid` int(30) NOT NULL,
-          `quantity` double(12,2) NOT NULL
-        )")
-        sqlList.Add("CREATE TABLE IF NOT EXISTS `supplier` (
-              `SupplierID` int(11) NOT NULL AUTO_INCREMENT,
-              `Company` varchar(45) NOT NULL,
-              `Address` varchar(45) NOT NULL,
-              `Contact` varchar(45) DEFAULT NULL,
-              PRIMARY KEY (`SupplierID`)
             )")
-
+        '10
         sqlList.Add("CREATE TABLE IF NOT EXISTS `jobdtr` (
               `DTRID` bigint(20) NOT NULL AUTO_INCREMENT,
               `dateTimeIn` datetime NOT NULL,
@@ -147,8 +119,43 @@ Public Class createDB
               PRIMARY KEY (`DTRID`),
               KEY `EmpID` (`EmpID`)
             )")
-        sqlList.Add("ALTER TABLE  `order` ADD  `OrderStatus` TINYINT NOT NULL COMMENT '0=pending;1=completed' AFTER  `EmpID` ")
-        sqlList.Add("ALTER TABLE  `items` CHANGE  `ItemType`  `ItemType` TINYINT( 1 ) NOT NULL ")
+        '11
+        sqlList.Add("CREATE TABLE IF NOT EXISTS `order` (
+              `OrderID` int(30) NOT NULL AUTO_INCREMENT,
+              `ItemID` int(30) NOT NULL,
+              `CustomerID` int(30) NOT NULL,
+              `Total` double(12,2) NOT NULL,
+              `OrderDate` date NOT NULL,
+              `EmpID` int(30) NOT NULL,
+              `OrderStatus` tinyint(4) NOT NULL COMMENT '0=pending;1=completed',
+              PRIMARY KEY (`OrderID`)
+            )")
+        '12
+        sqlList.Add("CREATE TABLE IF NOT EXISTS `orderline` (
+              `orderlineID` int(30) NOT NULL,
+              `orderid` int(30) NOT NULL,
+              `ItemID` int(30) NOT NULL,
+              `quantity` double(12,2) NOT NULL
+            )")
+        '13
+        sqlList.Add("CREATE TABLE IF NOT EXISTS `supplier` (
+              `SupplierID` int(11) NOT NULL AUTO_INCREMENT,
+              `Company` varchar(45) NOT NULL,
+              `Address` varchar(45) NOT NULL,
+              `Contact` varchar(45) DEFAULT NULL,
+              PRIMARY KEY (`SupplierID`)
+            )")
+        '14
+        sqlList.Add("CREATE TABLE IF NOT EXISTS `jobdtr` (
+              `DTRID` bigint(20) NOT NULL AUTO_INCREMENT,
+              `dateTimeIn` datetime NOT NULL,
+              `dateTimeOut` datetime NOT NULL,
+              `EmpID` int(11) NOT NULL,
+              PRIMARY KEY (`DTRID`),
+              KEY `EmpID` (`EmpID`)
+            )")
+        '15
+
         '    sqlList.Add("call AddColumnUnlessExists(Database(), 'dbamis', 'category', 'varchar(32) null');")
 
         ''ADD HERE ADDITIONAL UPDATES ON TABLE IF EXISTED

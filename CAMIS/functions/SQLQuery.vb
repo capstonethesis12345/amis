@@ -444,7 +444,7 @@ Module SQLQuery
         ' StatusSet = ""
     End Sub
 
-    Public Sub itemDelete(ByVal TableName As String, ByVal arrTableColumn As String(), ByVal arrTextBox As Object(), Optional ByRef ObjListDisplay As Object = Nothing)
+    Public Sub itemDelete(ByVal TableName As String, ByVal arrTableColumn As String(), ByVal arrTextBox As Object())
         Dim i As Integer = 0
         For Each arrCol In arrTableColumn
             sqL = "DELETE FROM " & TableName & " WHERE " &
@@ -454,6 +454,7 @@ Module SQLQuery
                 cmd = New MySqlCommand(sqL, conn)
                 cmd.Parameters.AddWithValue("@" & i.ToString, arrTextBox(i).Text)
                 cmd.ExecuteNonQuery()
+                MessageBox.Show("Success user deleted")
             Catch ex As Exception
                 MessageBox.Show("Error")
             Finally

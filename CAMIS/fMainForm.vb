@@ -113,18 +113,23 @@
         'If ds.Tables("Users").Rows(0).Item("countUser").ToString = 0 Then
 
         'End If
-        If ds.Tables("Users").Rows(0).Item("countUser").ToString = 1 Then
-            Dim usr As String = ds.Tables("Users").Rows(0).Item("username").ToString
-            Dim psd As String = ds.Tables("Users").Rows(0).Item("password").ToString
-            If usr = tUsername.Text And psd = tPassword.Text Then
-                vEmp = ds.Tables("Users").Rows(0).Item("empid").ToString
-                fnc.Text = ds.Tables("Users").Rows(0).Item("Function").ToString
-                vUser = ds.Tables("Users").Rows(0).Item("username").ToString
-            Else
-                fnc.Text = ""
-            End If
+        Try
+            If ds.Tables("Users").Rows(0).Item("countUser").ToString = 1 Then
+                Dim usr As String = ds.Tables("Users").Rows(0).Item("username").ToString
+                Dim psd As String = ds.Tables("Users").Rows(0).Item("password").ToString
+                If usr = tUsername.Text And psd = tPassword.Text Then
+                    vEmp = ds.Tables("Users").Rows(0).Item("empid").ToString
+                    fnc.Text = ds.Tables("Users").Rows(0).Item("Function").ToString
+                    vUser = ds.Tables("Users").Rows(0).Item("username").ToString
+                Else
+                    fnc.Text = ""
+                End If
 
-        End If
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Something went wrong between database connection.")
+        End Try
+
 
 
         Return fnc.Text

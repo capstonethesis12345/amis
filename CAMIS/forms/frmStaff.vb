@@ -73,7 +73,7 @@ Public Class frmStaff
                             LEFT JOIN Users u
                             ON u.EmpID=e.Empid
                         where e.namefirst like @namefirst and e.namelast like @namelast and e.namemiddle like @namemiddle"
-        msgShow = False 'PREVENT OCCURANCE OF MESSAGEBOX SHOW
+        msgShow = True 'PREVENT OCCURANCE OF MESSAGEBOX SHOW
         SqlReFill("Employees", Nothing, "ShowValueInTextbox", {"namefirst", "namelast", "namemiddle"}, {txtFirstname, txtLastname, txtMI}, {txtEmployeeNo})
 
         ' If txtEmployStatus.SelectedIndex = 0 Then
@@ -164,7 +164,7 @@ Public Class frmStaff
                                     Dim getEmpID As New TextBox
                                     getEmpID.Text = Integer.Parse(getIDFunction("select ifnull(empid,0) from employees where namefirst like @0 and namelast like @1 and namemiddle like @2", "Empid", {txtFirstname.Text, txtLastname.Text, txtMI.Text}))
                                     MessageBox.Show("Insert to users table with " & getEmpID.ToString)
-                                    itemNew("users", {"Empid", "Username", "Password", "Function"}, {getEmpID, txtUsername, txtPassword, txtFunction})
+                                    itemNew("usersinsert", {"Empid", "Username", "Password", "Function"}, {getEmpID, txtUsername, txtPassword, txtFunction})
 
                                 End If
                             Else
@@ -186,6 +186,7 @@ Public Class frmStaff
                    {"NameFirst", "NameMiddle", "NameLast", "BirthDate", "Gender", "MaritalStatus", "EmpImage", "BirthAddress", "AddressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact", "EmploymentStatus"},
                     {txtFirstname, txtMI, txtLastname, txtBirthDate, txtGender, ms, PictureBox1, txtBirthAddress, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, empStatus},
                     ListView1)
+                            MessageBox.Show("Inserting User access")
                             itemNew("users", {"Empid", "Username", "Password", "Function"}, {txtEmployeeNo, txtUsername, txtPassword, txtFunction})
 
                         End If
@@ -201,6 +202,7 @@ Public Class frmStaff
 
             End If
         Else
+            MessageBox.Show("isEditStaff = " & isEditStaff.ToString)
             If isEditStaff = True Then
                 msgShow = True
 
@@ -278,10 +280,10 @@ Public Class frmStaff
                     End If
 
                 Else
-                    MessageBox.Show("delete user login")
+                    'MessageBox.Show("delete user login")
+                    msgShow = False
                     EmpItemUpdate()
-                    itemDelete("users", {"userid"}, {txtEmployeeNo})
-                    Exit Sub
+                    itemDelete("`Users`", {"EmpID"}, {txtEmployeeNo})
                 End If
 
 
@@ -292,13 +294,6 @@ Public Class frmStaff
             Else
                 If MessageBox.Show("Employee already existed on the database. " & vbNewLine & "Do you want to reload information?", "Notice", MessageBoxButtons.OKCancel) = DialogResult.OK Then
                     MessageBox.Show("Employee already existed in the system")
-                    '     SqlRefresh = "SELECT   e.NameFirst,     e.NameMiddle,   e.NameLast, ifnull(e.Gender,''),    ifnull(e.BirthDate,''),ifnull(e.BirthAddress,''),ifnull(e.AddressStreet,''),ifnull(e.AddressBarangay,''),ifnull(e.AddressMunCity,''),ifnull(e.AddressProvince,''),ifnull(e.AddressZip,''),ifnull(e.Contact,''),ifnull(e.maritalstatus,'')maritalstatus,ifnull(e.EmpImage,'') from Employees e
-                    '    Left JOIN Users u
-                    '   On u.EmpID=e.Empid
-                    '  where e.empid=@empid"
-                    ' msgShow = False 'PREVENT OCCURANCE OF MESSAGEBOX SHOW
-                    'textboxes = {txtFirstname, txtMI, txtLastname, txtGender, txtBirthDate, txtBirthAddress, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, txtMaritalStatus, PictureBox1}
-                    'SqlReFill("Employees", Nothing, "ShowValueInTextbox", {"empid"}, {txtEmployeeNo}, textboxes)
                     reloadinfo()
                 Else
                     clearField(textboxes)
@@ -332,7 +327,7 @@ Public Class frmStaff
             'StatusSet = ""
             'ErrMessageText = ""
 
-            SqlRefresh = "SELECT  e.Empid, e.NameFirst, e.NameMiddle,e.NameLast, IFNULL( IF( e.gender =  'M', 0, IF( e.gender =  'F', 1 , -1 ) ) , -1 ) gender,ifnull(e.BirthDate,''),ifnull(e.BirthAddress,''),ifnull(e.AddressStreet,''),ifnull(e.AddressBarangay,''),ifnull(e.AddressMunCity,''),ifnull(e.AddressProvince,''),ifnull(e.AddressZip,''),ifnull(e.Contact,''),ifnull(e.EmpImage,''),ifnull(`e`.`EmploymentStarted`,'0000-00-00'),ifnull(e.maritalstatus,0)maritalstatus,ifnull(u.Username,''),ifnull(e.EmploymentStatus,'')EmploymentStatus,ifnull(`u`.`Function`,'')role,ifnull(`u`.`Password`,'')Ucode,ifnull(`u`.`Username`,'')Uname from Employees e
+            SqlRefresh = "SELECT  e.Empid, e.NameFirst, e.NameMiddle,e.NameLast, IFNULL( IF( e.gender =  'M', 0, IF( e.gender =  'F', 1 , -1 ) ) , -1 ) gender,ifnull(e.BirthDate,'')BirthDate,ifnull(e.BirthAddress,'')BirthAddress,ifnull(e.AddressStreet,'')AddressStreet,ifnull(e.AddressBarangay,'')AddressBarangay,ifnull(e.AddressMunCity,'')AddressMunCity,ifnull(e.AddressProvince,'')AddressProvince,ifnull(e.AddressZip,'')AddressZip,ifnull(e.Contact,'')Contact,ifnull(e.EmpImage,'')EmpImage,if(employmentstarted='0000-00-00',curdate(),employmentstarted)employmentstarted,ifnull(e.employmentstatus,-1)employmentstatus,ifnull(e.maritalstatus,0)maritalstatus,ifnull(u.Username,''),ifnull(`u`.`Function`,'')role,ifnull(`u`.`Password`,'')Ucode,ifnull(`u`.`Username`,'')Uname from Employees e
                             LEFT JOIN Users u
                             ON u.EmpID=e.Empid
                         where e.empid=@empid"
@@ -351,6 +346,7 @@ Public Class frmStaff
             txtPassword.Text = usrPass.Text
             txtConfirmPWD.Text = usrPass.Text
             txtUsername.Text = ds.Tables("Employees").Rows(0).Item("Uname").ToString
+
             If empAccess = "" Then
                 CheckBox1.Checked = False
                 GroupBox3.Enabled = False
@@ -367,17 +363,17 @@ Public Class frmStaff
             '4=Resigned
             '5=Dismissed
 
-            If empStatus = 0 Then
+            If empStatus = "0" Then
                 txtEmployStatus.SelectedIndex = 0
-            ElseIf (empStatus = 1) Then
+            ElseIf (empStatus = "1") Then
                 txtEmployStatus.SelectedIndex = 1
-            ElseIf (empStatus = 2) Then
+            ElseIf (empStatus = "2") Then
                 txtEmployStatus.SelectedIndex = 2
-            ElseIf (empStatus = 3) Then
+            ElseIf (empStatus = "3") Then
                 txtEmployStatus.SelectedIndex = 3
-            ElseIf (empStatus = 4) Then
+            ElseIf (empStatus = "4") Then
                 txtEmployStatus.SelectedIndex = 4
-            ElseIf (empStatus = 5) Then
+            ElseIf (empStatus = "5") Then
                 txtEmployStatus.SelectedIndex = 5
             End If
 
@@ -399,7 +395,7 @@ Public Class frmStaff
                 lblStatus.Text = "Updating existed employee"
             End If
         Catch ex As Exception
-
+            MessageBox.Show(ex.Message.ToString)
         End Try
     End Sub
 
@@ -421,6 +417,7 @@ Public Class frmStaff
     End Sub
 
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+
         If CheckBox1.Checked = True Then
             CheckBox1.Text = "ENABLE ACCESS TO APPLICATION"
             GroupBox3.Enabled = True
