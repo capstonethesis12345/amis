@@ -42,15 +42,16 @@ Partial Class frmSales
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.txtProductName = New System.Windows.Forms.ComboBox()
         Me.txtQuantity = New MetroFramework.Controls.MetroTextBox()
         Me.txtBarcode = New MetroFramework.Controls.MetroTextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -221,6 +222,7 @@ Partial Class frmSales
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.Button4)
         Me.Panel2.Controls.Add(Me.Button3)
         Me.Panel2.Controls.Add(Me.Button2)
         Me.Panel2.Controls.Add(Me.Button1)
@@ -242,6 +244,33 @@ Partial Class frmSales
         Me.Panel2.Size = New System.Drawing.Size(740, 476)
         Me.Panel2.TabIndex = 30
         '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(572, 7)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 15
+        Me.Button3.Text = "Delete"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(131, 280)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 33
+        Me.Button2.Text = "Transact"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(114, 156)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(99, 23)
+        Me.Button1.TabIndex = 33
+        Me.Button1.Text = "Add"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'txtProductName
         '
         Me.txtProductName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
@@ -258,7 +287,7 @@ Partial Class frmSales
         '
         '
         Me.txtQuantity.CustomButton.Image = Nothing
-        Me.txtQuantity.CustomButton.Location = New System.Drawing.Point(78, 1)
+        Me.txtQuantity.CustomButton.Location = New System.Drawing.Point(102, 1)
         Me.txtQuantity.CustomButton.Name = ""
         Me.txtQuantity.CustomButton.Size = New System.Drawing.Size(21, 21)
         Me.txtQuantity.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
@@ -315,24 +344,6 @@ Partial Class frmSales
         Me.txtBarcode.WaterMarkColor = System.Drawing.Color.SlateGray
         Me.txtBarcode.WaterMarkFont = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(114, 156)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(99, 23)
-        Me.Button1.TabIndex = 33
-        Me.Button1.Text = "Add"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(131, 280)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 33
-        Me.Button2.Text = "Transact"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -362,14 +373,14 @@ Partial Class frmSales
         Me.TextBox1.TabIndex = 8
         Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'Button3
+        'Button4
         '
-        Me.Button3.Location = New System.Drawing.Point(649, 10)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 15
-        Me.Button3.Text = "Delete"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.Button4.Location = New System.Drawing.Point(649, 7)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(75, 23)
+        Me.Button4.TabIndex = 15
+        Me.Button4.Text = "Logout"
+        Me.Button4.UseVisualStyleBackColor = True
         '
         'frmSales
         '
@@ -434,4 +445,5 @@ Partial Class frmSales
     Friend WithEvents Label3 As Label
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Button3 As Button
+    Friend WithEvents Button4 As Button
 End Class

@@ -232,7 +232,7 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
         If inItem = False Then
             lblItemID.Text = id
             SqlRefresh = vRefresh
-            itemNew("POList", {"POID", "ItemID", "Quantity", "Cost"}, {lblPONum, lblItemID, txtQuantity, txtCost}, ListView1)
+            itemNew("polist", {"POID", "ItemID", "Quantity", "Cost"}, {lblPONum, lblItemID, txtQuantity, txtCost}, ListView1)
             inItem = True
 
         End If

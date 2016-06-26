@@ -399,9 +399,9 @@ Partial Class frmReportDailySales
         Me.lblTitle.ForeColor = System.Drawing.Color.White
         Me.lblTitle.Location = New System.Drawing.Point(13, 11)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(247, 42)
+        Me.lblTitle.Size = New System.Drawing.Size(76, 42)
         Me.lblTitle.TabIndex = 1
-        Me.lblTitle.Text = "Stocks-Out Report"
+        Me.lblTitle.Text = "Sales"
         '
         'Button1
         '

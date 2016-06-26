@@ -106,7 +106,7 @@
     Private Function logmein()
         Dim fnc As New TextBox
         getData()
-        SqlRefresh = "SELECT Function,empid,username,password,count(empid)countUser FROM `Users` WHERE  Username like @0 and  Password like @1"
+        SqlRefresh = "SELECT Function,empid,username,password,count(empid)countUser FROM `users` WHERE  Username like @0 and  Password like @1"
         ErrMessageText = "Incorrect username and password"
 
         SqlReFill("Users", Nothing, "ShowValueInTextbox", {"0", "1"}, {tUsername, tPassword}, {fnc})
@@ -146,6 +146,9 @@
         'This will result for a shortcut keys implementation
         If e.Alt And e.KeyCode = Keys.F12 Then
             frmDatabase.ShowDialog()
+        End If
+        If e.Alt And e.KeyCode = Keys.F4 Then
+            Application.Exit()
         End If
     End Sub
 

@@ -63,7 +63,17 @@ Class frmSales
         End Try
     End Sub
 
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Dim log As New fMainForm()
+        log.Show()
+        Me.Close()
+    End Sub
+
     Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
 
+    End Sub
+
+    Private Sub frmSales_Leave(sender As Object, e As EventArgs) Handles Me.Leave
+        Me.Close()
     End Sub
 End Class

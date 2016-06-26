@@ -18,6 +18,15 @@ Public Class createDB
         sqlList.Add("CREATE DATABASE IF NOT EXISTS `" & dbname & "` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;")
         '1
         sqlList.Add("USE `" & dbname & "`;")
+
+
+        ' sqlList.Add("GRANT USAGE On *.* To 'dbamis'@'%' IDENTIFIED BY PASSWORD '*782549B9754817AA3E7BF376341B7E3095896546';")
+        ' sqlList.Add("GRANT ALL PRIVILEGES ON `dbamis`.* TO 'dbamis'@'%';")
+        ' sqlList.Add("GRANT SELECT, INSERT, UPDATE, DELETE, DROP, REFERENCES, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON `dbamis\_%`.* TO 'dbamis'@'%';")
+        ' sqlList.Add("GRANT Select, INSERT, UPDATE, DELETE, FILE On *.* To 'dbamis'@'localhost' IDENTIFIED BY PASSWORD '*304B05346FD9C1EB06294BC2678C85AFBD3C4BF0';")
+        ' sqlList.Add("GRANT ALL PRIVILEGES ON `dbamis\_%`.* TO 'dbamis'@'localhost';")
+        'REVOKE ALL PRIVILEGES ON `dbamis\_%`.* FROM 'dbamis'@'localhost'; GRANT SELECT, INSERT, UPDATE, DELETE, DROP, REFERENCES, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES, CREATE VIEW, EVENT, TRIGGER, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EXECUTE ON `dbamis\_%`.* TO 'dbamis'@'localhost';
+
         'sqlList.Add("set password for 'root'@'localhost'=PASSWORD('admin456')")
         'sqlList.Add("CREATE USER '" & dbUser & "'@'localhost' IDENTIFIED BY '" & dbPass & "'")
         'sqlList.Add("GRANT ALL PRIVILEGES ON `" & dbname & "\_%`.* TO '" & dbUser & "'@'localhost'")
@@ -60,7 +69,7 @@ Public Class createDB
         '4
         sqlList.Add("insert into employees(`empid`,`namefirst`,`namemiddle`,`namelast`,`employmentstatus`) values('1','Administrator','Administrator','Administrator',1) on duplicate key update namefirst='Administrator'")
         '5
-        sqlList.Add("insert into Users(`userid`,`Empid`,`username`,`password`,`function`) values(1,1,'Admin','Admin','Admin') on duplicate key update `username`='Admin',`password`='Admin'")
+        sqlList.Add("insert into users(`userid`,`Empid`,`username`,`password`,`function`) values(1,1,'Admin','Admin','Admin') on duplicate key update `username`='Admin',`password`='Admin'")
 
 
         'THIS WILL CREATE A PURCHASE ORDERLIST VIEW

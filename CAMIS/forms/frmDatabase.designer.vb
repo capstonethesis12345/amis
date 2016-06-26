@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmDatabase
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmDatabase
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -107,8 +107,10 @@ Partial Class frmDatabase
         '
         Me.ProgressBar1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.ProgressBar1.Location = New System.Drawing.Point(3, 260)
+        Me.ProgressBar1.MarqueeAnimationSpeed = 60
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(305, 23)
+        Me.ProgressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous
         Me.ProgressBar1.TabIndex = 24
         '
         'Button1
@@ -117,7 +119,7 @@ Partial Class frmDatabase
         Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button1.Enabled = False
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Location = New System.Drawing.Point(206, 197)
+        Me.Button1.Location = New System.Drawing.Point(203, 164)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(80, 35)
         Me.Button1.TabIndex = 23
@@ -129,7 +131,7 @@ Partial Class frmDatabase
         Me.cmdSave.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.cmdSave.Cursor = System.Windows.Forms.Cursors.Hand
         Me.cmdSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmdSave.Location = New System.Drawing.Point(121, 197)
+        Me.cmdSave.Location = New System.Drawing.Point(118, 164)
         Me.cmdSave.Name = "cmdSave"
         Me.cmdSave.Size = New System.Drawing.Size(80, 35)
         Me.cmdSave.TabIndex = 22
@@ -149,7 +151,7 @@ Partial Class frmDatabase
         Me.cmdTest.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.cmdTest.Cursor = System.Windows.Forms.Cursors.Hand
         Me.cmdTest.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.cmdTest.Location = New System.Drawing.Point(36, 197)
+        Me.cmdTest.Location = New System.Drawing.Point(33, 164)
         Me.cmdTest.Name = "cmdTest"
         Me.cmdTest.Size = New System.Drawing.Size(80, 35)
         Me.cmdTest.TabIndex = 21
