@@ -28,6 +28,7 @@ Partial Class frmFoodMenu
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
@@ -45,7 +46,6 @@ Partial Class frmFoodMenu
         Me.txtPrice = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ToolStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -86,6 +86,10 @@ Partial Class frmFoodMenu
         '
         Me.ColumnHeader5.Text = "Price"
         Me.ColumnHeader5.Width = 97
+        '
+        'ColumnHeader3
+        '
+        Me.ColumnHeader3.Text = "Available"
         '
         'ToolStrip1
         '
@@ -134,7 +138,7 @@ Partial Class frmFoodMenu
         '
         'txtBcode
         '
-        Me.txtBcode.Location = New System.Drawing.Point(105, 84)
+        Me.txtBcode.Location = New System.Drawing.Point(105, 87)
         Me.txtBcode.Name = "txtBcode"
         Me.txtBcode.Size = New System.Drawing.Size(274, 20)
         Me.txtBcode.TabIndex = 33
@@ -250,10 +254,6 @@ Partial Class frmFoodMenu
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(678, 446)
         Me.Panel2.TabIndex = 38
-        '
-        'ColumnHeader3
-        '
-        Me.ColumnHeader3.Text = "Available"
         '
         'frmFoodMenu
         '
