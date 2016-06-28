@@ -26,12 +26,12 @@ Partial Class frmJob
         Me.jobid = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.MetroTextButton1 = New MetroFramework.Controls.MetroTextBox.MetroTextButton()
         Me.txtDescription = New MetroFramework.Controls.MetroTextBox()
         Me.txtSalary = New MetroFramework.Controls.MetroTextBox()
         Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
         Me.txtID = New MetroFramework.Controls.MetroLabel()
         Me.btnClose = New MetroFramework.Controls.MetroTextBox.MetroTextButton()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'ListView1
@@ -56,21 +56,8 @@ Partial Class frmJob
         '
         'ColumnHeader2
         '
-        Me.ColumnHeader2.Text = "Salary/Hr"
+        Me.ColumnHeader2.Text = "Salary"
         Me.ColumnHeader2.Width = 110
-        '
-        'MetroTextButton1
-        '
-        Me.MetroTextButton1.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MetroTextButton1.Image = Nothing
-        Me.MetroTextButton1.Location = New System.Drawing.Point(403, 187)
-        Me.MetroTextButton1.Name = "MetroTextButton1"
-        Me.MetroTextButton1.Size = New System.Drawing.Size(121, 49)
-        Me.MetroTextButton1.TabIndex = 1
-        Me.MetroTextButton1.Text = "Save"
-        Me.MetroTextButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.MetroTextButton1.UseSelectable = True
-        Me.MetroTextButton1.UseVisualStyleBackColor = True
         '
         'txtDescription
         '
@@ -163,18 +150,26 @@ Partial Class frmJob
         Me.btnClose.UseSelectable = True
         Me.btnClose.UseVisualStyleBackColor = True
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(403, 192)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(121, 44)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'frmJob
         '
-        Me.AcceptButton = Me.MetroTextButton1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(561, 302)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txtID)
         Me.Controls.Add(Me.MetroLabel1)
         Me.Controls.Add(Me.txtSalary)
         Me.Controls.Add(Me.txtDescription)
         Me.Controls.Add(Me.btnClose)
-        Me.Controls.Add(Me.MetroTextButton1)
         Me.Controls.Add(Me.ListView1)
         Me.Movable = False
         Me.Name = "frmJob"
@@ -187,7 +182,6 @@ Partial Class frmJob
     End Sub
 
     Friend WithEvents ListView1 As ListView
-    Friend WithEvents MetroTextButton1 As MetroFramework.Controls.MetroTextBox.MetroTextButton
     Friend WithEvents jobid As ColumnHeader
     Friend WithEvents ColumnHeader1 As ColumnHeader
     Friend WithEvents ColumnHeader2 As ColumnHeader
@@ -196,4 +190,5 @@ Partial Class frmJob
     Friend WithEvents MetroLabel1 As MetroFramework.Controls.MetroLabel
     Friend WithEvents txtID As MetroFramework.Controls.MetroLabel
     Friend WithEvents btnClose As MetroFramework.Controls.MetroTextBox.MetroTextButton
+    Friend WithEvents Button1 As Button
 End Class

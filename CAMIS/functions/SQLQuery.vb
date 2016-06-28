@@ -245,7 +245,7 @@ Module SQLQuery
 
     Function getIDFunction(ByVal sql As String, ByVal dsname As String, Optional ByVal parameterValue As String() = Nothing, Optional isSalesID As Boolean = Nothing)
 
-        Dim id As Integer
+        Dim id As Integer = ""
         Try
             ConnDB()
             cmd = New MySqlCommand(sql, conn)
@@ -279,7 +279,7 @@ Module SQLQuery
         Return id
     End Function
     Function getValue(ByVal sql As String, ByVal dsname As String, Optional ByVal parameterValue As String() = Nothing, Optional isSalesID As Boolean = Nothing)
-        Dim id As String
+        Dim id As String = ""
         Try
             ConnDB()
             cmd = New MySqlCommand(sql, conn)

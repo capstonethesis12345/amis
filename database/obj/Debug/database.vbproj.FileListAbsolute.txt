@@ -74,3 +74,4 @@ H:\github\database\bin\Debug\database.xml
 H:\github\database\obj\Debug\database.dll
 H:\github\database\obj\Debug\database.xml
 H:\github\database\obj\Debug\database.pdb
+H:\github\database\obj\Debug\database.vbprojResolveAssemblyReference.cache

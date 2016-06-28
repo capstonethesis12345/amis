@@ -31,6 +31,7 @@ Partial Class frmFood
         Me.ListView3 = New System.Windows.Forms.ListView()
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -47,7 +48,6 @@ Partial Class frmFood
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Button4 = New System.Windows.Forms.Button()
-        Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
@@ -127,6 +127,10 @@ Partial Class frmFood
         Me.ColumnHeader5.Text = "Food Name"
         Me.ColumnHeader5.Width = 114
         '
+        'ColumnHeader6
+        '
+        Me.ColumnHeader6.Text = "Price"
+        '
         'Label1
         '
         Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Top
@@ -190,7 +194,7 @@ Partial Class frmFood
         '
         '
         Me.MetroTextBox1.CustomButton.Image = Nothing
-        Me.MetroTextBox1.CustomButton.Location = New System.Drawing.Point(363, 1)
+        Me.MetroTextBox1.CustomButton.Location = New System.Drawing.Point(229, 1)
         Me.MetroTextBox1.CustomButton.Name = ""
         Me.MetroTextBox1.CustomButton.Size = New System.Drawing.Size(21, 21)
         Me.MetroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
@@ -393,10 +397,6 @@ Partial Class frmFood
         Me.Button4.TabIndex = 19
         Me.Button4.Text = "Close"
         Me.Button4.UseVisualStyleBackColor = False
-        '
-        'ColumnHeader6
-        '
-        Me.ColumnHeader6.Text = "Price"
         '
         'frmFood
         '
