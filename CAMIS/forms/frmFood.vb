@@ -5,16 +5,16 @@
         ' This call is required by the designer.
         getData()
         InitializeComponent()
+        filldata()
+    End Sub
+
+    Sub filldata()
         SqlRefresh = siRefresh
         SqlReFill("foodingredient", ListView3)
         ' Add any initialization after the InitializeComponent() call.
         SqlRefresh = "select itemid, description from items where itemtype=2"
         SqlReFill("Ingredient", ListView1)
     End Sub
-    Private Sub frmFood_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
     Private Sub Button3_Click(sender As Object, e As EventArgs)
 
     End Sub
@@ -35,6 +35,7 @@
         ' For Each r In ListView2.Items
         Dim idSelected As String = ListView1.SelectedItems(0).Text.ToString
         ListView2.Items.Add(idSelected.ToString)
+        ListView1.SelectedItems(0).Remove()
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -45,5 +46,13 @@
 
             ListView2.Items(ListView2.Items.Count - 1).Selected = True
         End If
+    End Sub
+
+    Private Sub ListView3_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListView3.MouseDoubleClick
+        SqlRefresh = siRefresh
+        Dim itemid, idsc As New TextBox
+        itemid.Text = ListView3.SelectedItems(0).ToString
+        idsc.Text = ListView3.SelectedItems(0).ToString
+        SqlReFill("FoodMenu", Nothing, "ShowValueInTextbox", {"Barcode", "Description", "Price"}, {itemid, idsc}, {txtBarcode, txtMenuName, txtPrice})
     End Sub
 End Class
