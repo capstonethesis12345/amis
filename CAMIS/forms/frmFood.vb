@@ -42,7 +42,7 @@
         For Each item As ListViewItem In ListView2.SelectedItems
             item.Remove()
         Next
-        If ListView2.Items.Count > 0 Then
+        If ListView2.Items.Count > 1 Then
 
             ListView2.Items(ListView2.Items.Count - 1).Selected = True
         End If
