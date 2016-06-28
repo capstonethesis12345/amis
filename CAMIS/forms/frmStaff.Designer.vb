@@ -257,7 +257,7 @@ Partial Class frmStaff
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Location = New System.Drawing.Point(88, 393)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(210, 19)
+        Me.CheckBox1.Size = New System.Drawing.Size(208, 19)
         Me.CheckBox1.TabIndex = 15
         Me.CheckBox1.Text = "ENABLE ACCESS TO APPLICATION"
         Me.CheckBox1.UseVisualStyleBackColor = True

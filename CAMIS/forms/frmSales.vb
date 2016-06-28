@@ -1,6 +1,6 @@
 ﻿
 Class frmSales
-    Dim lef, top As Integer
+    'Dim lef, top As Integer
     Dim sizeW As Integer
     Dim sizeH As Integer
     Sub New()
