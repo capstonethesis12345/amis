@@ -271,7 +271,7 @@ Module SQLQuery
         Catch ex As Exception
             ' MessageBox.Show("Unable to retreve id")
             If msgShow = True Then
-                MessageBox.Show("Error on getting ID :" & ex.Message.ToString, "Waring notice")
+                MessageBox.Show("Error on getting ID :" & ex.Message.ToString & vbNullString & ErrMessageText, "Waring notice")
             End If
         Finally
             DisconnDB()
@@ -355,12 +355,17 @@ Module SQLQuery
             'SqlReFill(DataSetName, ObjListDisplay)
 
         Catch ex As Exception
-            If ex.GetType.ToString = "MySql.Data.MySqlClient.MySqlException" Then
-                err = True
-                MessageBox.Show("Duplicate id and name are already available.", "Excited ID,Name not allowed")
+            If msgShow = True Then
 
-            Else
-                MessageBox.Show(ex.GetType.ToString, "Error addting data")
+
+                If ex.GetType.ToString = "MySql.Data.MySqlClient.MySqlException" Then
+                    err = True
+                    MessageBox.Show("Duplicate id and name are already available." & ErrMessageText, "Excited ID,Name not allowed")
+
+                Else
+                    MessageBox.Show(ex.GetType.ToString, "Error addting data")
+                End If
+                ErrMessageText = ""
             End If
             'MessageBox.Show("Unable to add Values " & ex.Message.ToString & " --" & ex.GetType.ToString & "--", "Error")
         Finally
@@ -444,7 +449,7 @@ Module SQLQuery
         ' StatusSet = ""
     End Sub
 
-    Public Sub itemDelete(ByVal TableName As String, ByVal arrTableColumn As String(), ByVal arrTextBox As Object(), Optional ByRef ObjListDisplay As Object = Nothing)
+    Public Sub itemDelete(ByVal TableName As String, ByVal arrTableColumn As String(), ByVal arrTextBox As Object())
         Dim i As Integer = 0
         For Each arrCol In arrTableColumn
             sqL = "DELETE FROM " & TableName & " WHERE " &
@@ -454,6 +459,7 @@ Module SQLQuery
                 cmd = New MySqlCommand(sqL, conn)
                 cmd.Parameters.AddWithValue("@" & i.ToString, arrTextBox(i).Text)
                 cmd.ExecuteNonQuery()
+                MessageBox.Show("Success user deleted")
             Catch ex As Exception
                 MessageBox.Show("Error")
             Finally

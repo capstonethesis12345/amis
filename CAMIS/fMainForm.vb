@@ -106,25 +106,30 @@
     Private Function logmein()
         Dim fnc As New TextBox
         getData()
-        SqlRefresh = "SELECT Function,empid,username,password,count(empid)countUser FROM `Users` WHERE  Username like @0 and  Password like @1"
+        SqlRefresh = "SELECT Function,empid,username,password,count(empid)countUser FROM `users` WHERE  Username like @0 and  Password like @1"
         ErrMessageText = "Incorrect username and password"
 
         SqlReFill("Users", Nothing, "ShowValueInTextbox", {"0", "1"}, {tUsername, tPassword}, {fnc})
         'If ds.Tables("Users").Rows(0).Item("countUser").ToString = 0 Then
 
         'End If
-        If ds.Tables("Users").Rows(0).Item("countUser").ToString = 1 Then
-            Dim usr As String = ds.Tables("Users").Rows(0).Item("username").ToString
-            Dim psd As String = ds.Tables("Users").Rows(0).Item("password").ToString
-            If usr = tUsername.Text And psd = tPassword.Text Then
-                vEmp = ds.Tables("Users").Rows(0).Item("empid").ToString
-                fnc.Text = ds.Tables("Users").Rows(0).Item("Function").ToString
-                vUser = ds.Tables("Users").Rows(0).Item("username").ToString
-            Else
-                fnc.Text = ""
-            End If
+        Try
+            If ds.Tables("Users").Rows(0).Item("countUser").ToString = 1 Then
+                Dim usr As String = ds.Tables("Users").Rows(0).Item("username").ToString
+                Dim psd As String = ds.Tables("Users").Rows(0).Item("password").ToString
+                If usr = tUsername.Text And psd = tPassword.Text Then
+                    vEmp = ds.Tables("Users").Rows(0).Item("empid").ToString
+                    fnc.Text = ds.Tables("Users").Rows(0).Item("Function").ToString
+                    vUser = ds.Tables("Users").Rows(0).Item("username").ToString
+                Else
+                    fnc.Text = ""
+                End If
 
-        End If
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Something went wrong between database connection.")
+        End Try
+
 
 
         Return fnc.Text
@@ -141,6 +146,9 @@
         'This will result for a shortcut keys implementation
         If e.Alt And e.KeyCode = Keys.F12 Then
             frmDatabase.ShowDialog()
+        End If
+        If e.Alt And e.KeyCode = Keys.F4 Then
+            Application.Exit()
         End If
     End Sub
 

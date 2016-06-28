@@ -5,7 +5,7 @@ Public Class frmFoodMenu
         InitializeComponent()
         Try
             objForm = Me
-            SqlRefresh = "select ifnull(`ItemID`,'')ItemID, ifnull(`Barcode`,'')Barcode,ifnull(`Description`,'')description,ifnull(`Price`,'')Price from `Items` where `itemtype` like 2"
+            SqlRefresh = "select ifnull(`ItemID`,'')ItemID, ifnull(`Barcode`,'')Barcode,ifnull(`Description`,'')description,ifnull(`Price`,'')Price from `items` where `itemtype` like 2"
             SqlReFill("Items", ListView1)
         Catch ex As Exception
             MessageBox.Show("Error in establishing connection in category form" & ex.Message.ToString, "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -18,7 +18,11 @@ Public Class frmFoodMenu
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        SqlRefresh = "select ifnull(`ItemID`,'')ItemID, ifnull(`Barcode`,'')Barcode,ifnull(`Description`,'')description,ifnull(`Price`,'')Price from `Items` where `itemtype` like 2"
+        If txtBcode.Text = vbNullString And txtName.Text = vbNullString Then
+            MessageBox.Show("Food menu and barcode required.")
+            Exit Sub
+        End If
+        SqlRefresh = "select ifnull(`ItemID`,'')ItemID, ifnull(`Barcode`,'')Barcode,ifnull(`Description`,'')description,ifnull(`Price`,'')Price from `items` where `itemtype` like 2"
         Dim status, itemtype As New TextBox
         itemtype.Text = "2"
         If r1.Checked = True Then

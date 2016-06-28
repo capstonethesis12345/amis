@@ -68,13 +68,17 @@ Module SQLConn
         Dim len As Integer = y.Count - 1
         'MessageBox.Show(len.ToString)
         Dim i As Integer = 0
-        Dim progress As Integer = 100 / (len - 1)
+        Dim progress As Integer = 100 / (len)
+        Dim stepProgress As Integer = 0
+        frmDatabase.ProgressBar1.Step = process
         For Each dataY In y
+            ' MessageBox.Show("Generating " & i.ToString)
             Try
                 ConnDB()
                 cmd = New MySqlCommand()
                 cmd.Connection = conn
                 cmd.CommandText = dataY
+
                 cmd.ExecuteNonQuery()
             Catch ex As Exception
                 Select Case i'prevent occurance on existed user
@@ -91,11 +95,18 @@ Module SQLConn
             Finally
                 DisconnDB()
             End Try
-            frmDatabase.ProgressBar1.Value = progress
+            stepProgress += progress
+            If stepProgress < 100 Then
+                frmDatabase.ProgressBar1.Value += progress
+            Else
+                frmDatabase.ProgressBar1.Value = 100
+            End If
+
             i += 1
         Next
-        frmDatabase.ProgressBar1.Value = 100
+        ' frmDatabase.ProgressBar1.Value = 100
         MessageBox.Show("Database created successfully")
     End Sub
+
 End Module
 

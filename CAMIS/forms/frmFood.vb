@@ -24,7 +24,7 @@
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         SqlRefresh = siRefresh
         Dim t As New TextBox
-        t.Text = 1
-        itemNew("Items", {"Barcode", "Description", "Price", "ItemType"}, {txtBarcode, txtMenuName, txtPrice, t})
+        t.Text = 2
+        itemNew("items", {"Barcode", "Description", "Price", "ItemType"}, {txtBarcode, txtMenuName, txtPrice, t})
     End Sub
 End Class
