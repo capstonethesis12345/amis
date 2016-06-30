@@ -41,6 +41,7 @@ Partial Class frmPurchases
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.txtcategory = New System.Windows.Forms.ComboBox()
@@ -75,7 +76,6 @@ Partial Class frmPurchases
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.lblTotal = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
@@ -262,6 +262,15 @@ Partial Class frmPurchases
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Product Info"
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(306, 386)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(66, 29)
+        Me.Button2.TabIndex = 36
+        Me.Button2.Text = "Complete"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'btnDelete
         '
         Me.btnDelete.Location = New System.Drawing.Point(306, 314)
@@ -422,7 +431,7 @@ Partial Class frmPurchases
         Me.txtProductName.Location = New System.Drawing.Point(84, 64)
         Me.txtProductName.Name = "txtProductName"
         Me.txtProductName.Size = New System.Drawing.Size(257, 20)
-        Me.txtProductName.TabIndex = 5
+        Me.txtProductName.TabIndex = 1
         '
         'Label3
         '
@@ -528,7 +537,7 @@ Partial Class frmPurchases
         Me.btnAddUpdate.Location = New System.Drawing.Point(306, 351)
         Me.btnAddUpdate.Name = "btnAddUpdate"
         Me.btnAddUpdate.Size = New System.Drawing.Size(66, 29)
-        Me.btnAddUpdate.TabIndex = 3
+        Me.btnAddUpdate.TabIndex = 2
         Me.btnAddUpdate.Text = "ADD"
         Me.btnAddUpdate.UseVisualStyleBackColor = True
         '
@@ -603,15 +612,6 @@ Partial Class frmPurchases
         Me.lblTotal.Size = New System.Drawing.Size(16, 16)
         Me.lblTotal.TabIndex = 35
         Me.lblTotal.Text = "0"
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(306, 386)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(66, 29)
-        Me.Button2.TabIndex = 36
-        Me.Button2.Text = "Complete"
-        Me.Button2.UseVisualStyleBackColor = True
         '
         'ToolStripLabel1
         '
