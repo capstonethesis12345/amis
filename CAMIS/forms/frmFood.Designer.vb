@@ -386,7 +386,7 @@ Partial Class frmFood
         'Button4
         '
         Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button4.BackColor = System.Drawing.Color.LightSlateGray
+        Me.Button4.BackColor = System.Drawing.Color.SkyBlue
         Me.Button4.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
