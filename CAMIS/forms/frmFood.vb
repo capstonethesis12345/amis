@@ -34,17 +34,24 @@
             SqlRefresh = siRefresh
 
         itemNew("items", {"Barcode", "Description", "Price", "ItemType"}, {txtBarcode, txtMenuName, txtPrice, t})
-        SqlRefresh = "select barcode,foodname,price from items where itemtype=1"
+        SqlRefresh = "select barcode,description,price from items where itemtype=1"
         SqlReFill("items", ListView3)
         Dim fid As New TextBox
-        fid.Text = getStrData("select itemid from foodid where description like @0", "id", {txtMenuName.Text})
+        fid.Text = getStrData("select ItemID from items where description like @0", "txtMenuName", {txtMenuName.Text})
 
-        For Each list As ListViewItem In ListView2.Items
-            'MessageBox.Show(list.SubItems(0).Text.ToString)
-            Dim txt As New TextBox
-            txt.Text = list.SubItems(0).Text.ToString
-            itemNew("foodingredient", {"itemid", "quantity"}, {fid, txt})
-        Next
+        If ListView2.Items.Count > 0 Then
+            For i As Integer = 0 To ListView2.Items.Count - 1
+
+                Dim ing As New TextBox
+                ing.Text = ListView2.Items(i).SubItems(1).Text
+                Dim txt As New TextBox
+                txt.Text = ListView2.Items(i).SubItems(2).Text
+
+
+                itemNew("foodingredient", {"foodid", "itemd", "quantity"}, {fid, ing, txt})
+            Next
+        End If
+
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -64,6 +71,13 @@
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim idSelected As String = ListView2.SelectedItems(0).Text.ToString
+        Dim description As String = ListView2.SelectedItems(0).SubItems(1).Text.ToString
+
+        Dim lv As New ListViewItem(idSelected.ToString)
+        lv.SubItems.Add(description)
+        ListView1.Items.Add(lv)
+
         For Each item As ListViewItem In ListView2.SelectedItems
             item.Remove()
         Next
