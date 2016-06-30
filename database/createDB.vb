@@ -163,6 +163,11 @@ Public Class createDB
               PRIMARY KEY (`DTRID`),
               KEY `EmpID` (`EmpID`)
             )")
+        sqlList.Add("CREATE TABLE IF NOT EXISTS `foodingredient` (
+              `foodid` int(30) NOT NULL,
+              `itemid` int(20) NOT NULL,
+              `quantity` int(20) NOT NULL
+            )")
         '15
 
         '    sqlList.Add("call AddColumnUnlessExists(Database(), 'dbamis', 'category', 'varchar(32) null');")
