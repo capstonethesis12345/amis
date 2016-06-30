@@ -34,36 +34,48 @@
             SqlRefresh = siRefresh
 
         itemNew("items", {"Barcode", "Description", "Price", "ItemType"}, {txtBarcode, txtMenuName, txtPrice, t})
-        SqlRefresh = "select barcode,description,price from items where itemtype=1"
-        SqlReFill("items", ListView3)
+
         Dim fid As New TextBox
-        fid.Text = getStrData("select ItemID from items where description like @0", "txtMenuName", {txtMenuName.Text})
+        msgShow = False
+        fid.Text = getStrData("SELECT itemid FROM items where description like @0", "thing", {txtMenuName.Text})
 
         If ListView2.Items.Count > 0 Then
             For i As Integer = 0 To ListView2.Items.Count - 1
 
                 Dim ing As New TextBox
-                ing.Text = ListView2.Items(i).SubItems(1).Text
+                ing.Text = ListView2.Items(i).SubItems(0).Text
                 Dim txt As New TextBox
                 txt.Text = ListView2.Items(i).SubItems(2).Text
 
+                msgShow = False
+                itemNew("foodingredient", {"foodid", "itemid", "quantity"}, {fid, ing, txt})
 
-                itemNew("foodingredient", {"foodid", "itemd", "quantity"}, {fid, ing, txt})
             Next
         End If
+
+        SqlRefresh = "select barcode,description,price from items where itemtype=2"
+        SqlReFill("items", ListView3)
 
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         'get data list view2
         ' For Each r In ListView2.Items
-        Dim quantity As Integer = InputBox("Enter Quantity")
+        Dim quantity As Integer
+        Try
+            quantity = InputBox("Enter Quantity")
+        Catch ex As Exception
+            MessageBox.Show("Please input quantity")
+            Exit Sub
+        End Try
+
+
         Dim idSelected As String = ListView1.SelectedItems(0).Text.ToString
         Dim description As String = ListView1.SelectedItems(0).SubItems(1).Text.ToString
 
         Dim lv As New ListViewItem(idSelected.ToString)
         lv.SubItems.Add(description)
-        lv.SubItems.Add(quantity)
+        lv.SubItems.Add(Quantity)
         ListView2.Items.Add(lv)
 
 
@@ -91,10 +103,14 @@
         SqlRefresh = siRefresh
         Dim itemid, idsc As New TextBox
         itemid.Text = ListView3.SelectedItems(0).ToString
-        idsc.Text = ListView3.SelectedItems(0).ToString
 
-        SqlReFill("FoodMenu", Nothing, "ShowValueInTextbox", {"Barcode", "Description", "Price"}, {itemid, idsc}, {txtBarcode, txtMenuName, txtPrice})
+
+        SqlReFill("items", {"barcode", "description", "price"}, "ShowValueInTextbox", {""})
     End Sub
 
+    Private Sub ListView3_DoubleClick(sender As Object, e As EventArgs) Handles ListView3.DoubleClick
+        Dim selected As String = ListView3.SelectedItems(0).SubItems(0).Text
+        MessageBox.Show(selected)
 
+    End Sub
 End Class
