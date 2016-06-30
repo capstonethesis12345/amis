@@ -110,6 +110,7 @@ Partial Class frmFood
         Me.ListView3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListView3.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6})
+        Me.ListView3.FullRowSelect = True
         Me.ListView3.Location = New System.Drawing.Point(856, 120)
         Me.ListView3.Name = "ListView3"
         Me.ListView3.Size = New System.Drawing.Size(403, 421)
