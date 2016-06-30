@@ -24,17 +24,42 @@
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        If txtMenuName.Text = vbNullString Then
+            MessageBox.Show("Provide product name")
+            Exit Sub
+        End If
         SqlRefresh = siRefresh
-        Dim t As New TextBox
-        t.Text = 2
+            Dim t As New TextBox
+            t.Text = 2
+            SqlRefresh = siRefresh
+
         itemNew("items", {"Barcode", "Description", "Price", "ItemType"}, {txtBarcode, txtMenuName, txtPrice, t})
+        SqlRefresh = "select barcode,foodname,price from items where itemtype=1"
+        SqlReFill("items", ListView3)
+        Dim fid As New TextBox
+        fid.Text = getStrData("select itemid from foodid where description like @0", "id", {txtMenuName.Text})
+
+        For Each list As ListViewItem In ListView2.Items
+            'MessageBox.Show(list.SubItems(0).Text.ToString)
+            Dim txt As New TextBox
+            txt.Text = list.SubItems(0).Text.ToString
+            itemNew("foodingredient", {"itemid", "quantity"}, {fid, txt})
+        Next
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         'get data list view2
         ' For Each r In ListView2.Items
+        Dim quantity As Integer = InputBox("Enter Quantity")
         Dim idSelected As String = ListView1.SelectedItems(0).Text.ToString
-        ListView2.Items.Add(idSelected.ToString)
+        Dim description As String = ListView1.SelectedItems(0).SubItems(1).Text.ToString
+
+        Dim lv As New ListViewItem(idSelected.ToString)
+        lv.SubItems.Add(description)
+        lv.SubItems.Add(quantity)
+        ListView2.Items.Add(lv)
+
+
         ListView1.SelectedItems(0).Remove()
     End Sub
 
@@ -53,6 +78,9 @@
         Dim itemid, idsc As New TextBox
         itemid.Text = ListView3.SelectedItems(0).ToString
         idsc.Text = ListView3.SelectedItems(0).ToString
+
         SqlReFill("FoodMenu", Nothing, "ShowValueInTextbox", {"Barcode", "Description", "Price"}, {itemid, idsc}, {txtBarcode, txtMenuName, txtPrice})
     End Sub
+
+
 End Class

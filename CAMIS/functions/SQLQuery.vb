@@ -245,7 +245,7 @@ Module SQLQuery
 
     Function getIDFunction(ByVal sql As String, ByVal dsname As String, Optional ByVal parameterValue As String() = Nothing, Optional isSalesID As Boolean = Nothing)
 
-        Dim id As Integer = ""
+        Dim id As Integer = 0
         Try
             ConnDB()
             cmd = New MySqlCommand(sql, conn)
