@@ -12,7 +12,7 @@
         SqlRefresh = siRefresh
         SqlReFill("foodingredient", ListView3)
         ' Add any initialization after the InitializeComponent() call.
-        SqlRefresh = "select itemid, description from items where itemtype=2"
+        SqlRefresh = "select itemid, description from items where itemtype=0"
         SqlReFill("Ingredient", ListView1)
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs)

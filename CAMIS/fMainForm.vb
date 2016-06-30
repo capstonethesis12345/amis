@@ -27,6 +27,7 @@
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
 
         tUsername.Focus()
+
         hideError(erTextboxUser)
         hideError(erTextboxPass)
         If tUsername.Text = vbNullString AndAlso tPassword.Text = vbNullString Then
@@ -47,7 +48,9 @@
             'match inputed user and password
 
             PictureBox2.Visible = True
+
             status = logmein()
+
             'Dim thread1 As New System.Threading.Thread(AddressOf logulogmeinser)
 
             '            thread1.Start()
