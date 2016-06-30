@@ -34,7 +34,7 @@ Partial Class frmStaff
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.txtJobs = New System.Windows.Forms.ComboBox()
         Me.txtMaritalStatus = New System.Windows.Forms.ComboBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.btnClear = New System.Windows.Forms.Button()
@@ -171,7 +171,7 @@ Partial Class frmStaff
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Button1)
-        Me.GroupBox1.Controls.Add(Me.ComboBox1)
+        Me.GroupBox1.Controls.Add(Me.txtJobs)
         Me.GroupBox1.Controls.Add(Me.txtMaritalStatus)
         Me.GroupBox1.Controls.Add(Me.CheckBox1)
         Me.GroupBox1.Controls.Add(Me.btnClear)
@@ -232,13 +232,13 @@ Partial Class frmStaff
         Me.Button1.Text = "Add"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'ComboBox1
+        'txtJobs
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(131, 349)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(86, 23)
-        Me.ComboBox1.TabIndex = 21
+        Me.txtJobs.FormattingEnabled = True
+        Me.txtJobs.Location = New System.Drawing.Point(131, 349)
+        Me.txtJobs.Name = "txtJobs"
+        Me.txtJobs.Size = New System.Drawing.Size(86, 23)
+        Me.txtJobs.TabIndex = 21
         '
         'txtMaritalStatus
         '
@@ -257,7 +257,7 @@ Partial Class frmStaff
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Location = New System.Drawing.Point(88, 393)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(208, 19)
+        Me.CheckBox1.Size = New System.Drawing.Size(210, 19)
         Me.CheckBox1.TabIndex = 15
         Me.CheckBox1.Text = "ENABLE ACCESS TO APPLICATION"
         Me.CheckBox1.UseVisualStyleBackColor = True
@@ -613,9 +613,9 @@ Partial Class frmStaff
         Me.Label17.AutoSize = True
         Me.Label17.Location = New System.Drawing.Point(15, 349)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(59, 15)
+        Me.Label17.Size = New System.Drawing.Size(54, 15)
         Me.Label17.TabIndex = 4
-        Me.Label17.Text = "Job Grade"
+        Me.Label17.Text = "Job Type"
         '
         'Label18
         '
@@ -826,7 +826,7 @@ Partial Class frmStaff
     Friend WithEvents txtMaritalStatus As ComboBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Button1 As Button
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents txtJobs As ComboBox
     Friend WithEvents Label17 As Label
     Friend WithEvents txtEmpStarted As DateTimePicker
     Friend WithEvents Label18 As Label

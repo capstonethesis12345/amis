@@ -264,3 +264,5 @@ H:\github\CAMIS\obj\x86\Debug\AccountMgtIS.vbproj.GenerateResource.Cache
 H:\github\CAMIS\obj\x86\Debug\AccountManagementIS.exe
 H:\github\CAMIS\obj\x86\Debug\AccountManagementIS.xml
 H:\github\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
+H:\github\amis\CAMIS\bin\Debug\AccountManagementIS.exe.config
+H:\github\amis\CAMIS\bin\Debug\MetroFramework.Design.dll

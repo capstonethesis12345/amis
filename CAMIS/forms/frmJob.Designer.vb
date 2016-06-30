@@ -30,8 +30,8 @@ Partial Class frmJob
         Me.txtSalary = New MetroFramework.Controls.MetroTextBox()
         Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
         Me.txtID = New MetroFramework.Controls.MetroLabel()
-        Me.btnClose = New MetroFramework.Controls.MetroTextBox.MetroTextButton()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'ListView1
@@ -137,39 +137,47 @@ Partial Class frmJob
         Me.txtID.TabIndex = 3
         Me.txtID.Text = "Job ID"
         '
-        'btnClose
-        '
-        Me.btnClose.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClose.Image = Nothing
-        Me.btnClose.Location = New System.Drawing.Point(403, 242)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(121, 49)
-        Me.btnClose.TabIndex = 1
-        Me.btnClose.Text = "Close"
-        Me.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnClose.UseSelectable = True
-        Me.btnClose.UseVisualStyleBackColor = True
-        '
         'Button1
         '
+        Me.Button1.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Consolas", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.Button1.Location = New System.Drawing.Point(403, 192)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(121, 44)
         Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Text = "Save"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'btnClose
+        '
+        Me.btnClose.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnClose.FlatAppearance.BorderSize = 0
+        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClose.Font = New System.Drawing.Font("Consolas", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnClose.Location = New System.Drawing.Point(403, 242)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(121, 44)
+        Me.btnClose.TabIndex = 4
+        Me.btnClose.Text = "Close"
+        Me.btnClose.UseVisualStyleBackColor = False
         '
         'frmJob
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(561, 302)
+        Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txtID)
         Me.Controls.Add(Me.MetroLabel1)
         Me.Controls.Add(Me.txtSalary)
         Me.Controls.Add(Me.txtDescription)
-        Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.ListView1)
         Me.Movable = False
         Me.Name = "frmJob"
@@ -189,6 +197,6 @@ Partial Class frmJob
     Friend WithEvents txtSalary As MetroFramework.Controls.MetroTextBox
     Friend WithEvents MetroLabel1 As MetroFramework.Controls.MetroLabel
     Friend WithEvents txtID As MetroFramework.Controls.MetroLabel
-    Friend WithEvents btnClose As MetroFramework.Controls.MetroTextBox.MetroTextButton
     Friend WithEvents Button1 As Button
+    Friend WithEvents btnClose As Button
 End Class

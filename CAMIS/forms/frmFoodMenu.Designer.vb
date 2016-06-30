@@ -46,6 +46,8 @@ Partial Class frmFoodMenu
         Me.txtPrice = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.itemID = New System.Windows.Forms.Label()
         Me.ToolStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -164,6 +166,8 @@ Partial Class frmFoodMenu
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.GroupBox1)
         Me.Panel1.Controls.Add(Me.lblStatus)
+        Me.Panel1.Controls.Add(Me.itemID)
+        Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.txtPrice)
@@ -255,6 +259,24 @@ Partial Class frmFoodMenu
         Me.Panel2.Size = New System.Drawing.Size(678, 446)
         Me.Panel2.TabIndex = 38
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(35, 57)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(38, 13)
+        Me.Label3.TabIndex = 32
+        Me.Label3.Text = "ItemID"
+        '
+        'itemID
+        '
+        Me.itemID.AutoSize = True
+        Me.itemID.Location = New System.Drawing.Point(102, 57)
+        Me.itemID.Name = "itemID"
+        Me.itemID.Size = New System.Drawing.Size(47, 13)
+        Me.itemID.TabIndex = 32
+        Me.itemID.Text = "Barcode"
+        '
         'frmFoodMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -300,4 +322,6 @@ Partial Class frmFoodMenu
     Friend WithEvents r1 As RadioButton
     Friend WithEvents r2 As RadioButton
     Friend WithEvents ColumnHeader3 As ColumnHeader
+    Friend WithEvents itemID As Label
+    Friend WithEvents Label3 As Label
 End Class

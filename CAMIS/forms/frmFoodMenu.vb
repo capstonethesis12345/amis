@@ -5,8 +5,8 @@ Public Class frmFoodMenu
         InitializeComponent()
         Try
             objForm = Me
-            SqlRefresh = "select ifnull(`ItemID`,'')ItemID, ifnull(`Barcode`,'')Barcode,ifnull(`Description`,'')description,ifnull(`Price`,'')Price from `items` where `itemtype` like 2"
-            SqlReFill("Items", ListView1)
+            SqlRefresh = "select itemid, ifnull(`Barcode`,'')Barcode,ifnull(`Description`,'')description,price from `items` where `itemtype` like 2"
+            SqlReFill("itemsDetails", ListView1)
         Catch ex As Exception
             MessageBox.Show("Error in establishing connection in category form" & ex.Message.ToString, "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -22,7 +22,7 @@ Public Class frmFoodMenu
             MessageBox.Show("Food menu and barcode required.")
             Exit Sub
         End If
-        SqlRefresh = "select ifnull(`ItemID`,'')ItemID, ifnull(`Barcode`,'')Barcode,ifnull(`Description`,'')description,ifnull(`Price`,'')Price from `items` where `itemtype` like 2"
+        SqlRefresh = "select ifnull(`itemid`,'')itemid, ifnull(`barcode`,'')barcode,ifnull(`description`,'')description,ifnull(`price`,'')price from `items` where `itemtype` like 2"
         Dim status, itemtype As New TextBox
         itemtype.Text = "2"
         If r1.Checked = True Then
@@ -37,7 +37,7 @@ Public Class frmFoodMenu
             txtBcode.Text = ds.Tables("checkFoodExistence").Rows(0).Item("barcode").ToString
             txtName.Text = ds.Tables("checkFoodExistence").Rows(0).Item("description").ToString
         Else
-            itemNew("items", {"Barcode", "Description", "Price", "salestatus", "itemtype"}, {txtBcode, txtName, txtPrice, status, itemtype}, ListView1)
+            itemNew("items", {"barcode", "description", "price", "salestatus", "itemtype"}, {txtBcode, txtName, txtPrice, status, itemtype}, ListView1)
 
         End If
 
@@ -45,5 +45,11 @@ Public Class frmFoodMenu
 
 
 
+    End Sub
+
+    Private Sub ListView1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListView1.MouseDoubleClick
+        Dim mid As String = ListView1.SelectedItems(0).Text.ToString
+        SqlRefresh = "select itemid,barcode,description,price from `items` where itemtype=0"
+        SqlReFill("FMenu", Nothing, "ShowValueInTextbox", {"itemid"}, {itemID}, {itemID, txtBcode, txtName, txtPrice})
     End Sub
 End Class

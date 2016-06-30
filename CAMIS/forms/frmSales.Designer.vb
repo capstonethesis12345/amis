@@ -42,6 +42,7 @@ Partial Class frmSales
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -51,7 +52,6 @@ Partial Class frmSales
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button4 = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -60,19 +60,21 @@ Partial Class frmSales
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(245, 33)
+        Me.Label1.Location = New System.Drawing.Point(177, 8)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(40, 16)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Date"
+        Me.Label1.Visible = False
         '
         'txtDate
         '
-        Me.txtDate.Location = New System.Drawing.Point(291, 33)
+        Me.txtDate.Location = New System.Drawing.Point(223, 8)
         Me.txtDate.Name = "txtDate"
         Me.txtDate.ReadOnly = True
         Me.txtDate.Size = New System.Drawing.Size(100, 22)
         Me.txtDate.TabIndex = 1
+        Me.txtDate.Visible = False
         '
         'ListItems
         '
@@ -130,7 +132,7 @@ Partial Class frmSales
         '
         'txtOrderNum
         '
-        Me.txtOrderNum.Location = New System.Drawing.Point(578, 36)
+        Me.txtOrderNum.Location = New System.Drawing.Point(409, 8)
         Me.txtOrderNum.Name = "txtOrderNum"
         Me.txtOrderNum.ReadOnly = True
         Me.txtOrderNum.Size = New System.Drawing.Size(139, 22)
@@ -139,7 +141,7 @@ Partial Class frmSales
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(508, 39)
+        Me.Label6.Location = New System.Drawing.Point(339, 11)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(64, 16)
         Me.Label6.TabIndex = 11
@@ -224,8 +226,12 @@ Partial Class frmSales
         '
         Me.Panel2.Controls.Add(Me.Button4)
         Me.Panel2.Controls.Add(Me.Button3)
+        Me.Panel2.Controls.Add(Me.txtOrderNum)
+        Me.Panel2.Controls.Add(Me.Label6)
         Me.Panel2.Controls.Add(Me.Button2)
         Me.Panel2.Controls.Add(Me.Button1)
+        Me.Panel2.Controls.Add(Me.txtDate)
+        Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Controls.Add(Me.txtProductName)
         Me.Panel2.Controls.Add(Me.txtQuantity)
         Me.Panel2.Controls.Add(Me.txtPaid)
@@ -243,6 +249,15 @@ Partial Class frmSales
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(740, 476)
         Me.Panel2.TabIndex = 30
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(649, 7)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(75, 23)
+        Me.Button4.TabIndex = 15
+        Me.Button4.Text = "Logout"
+        Me.Button4.UseVisualStyleBackColor = True
         '
         'Button3
         '
@@ -373,15 +388,6 @@ Partial Class frmSales
         Me.TextBox1.TabIndex = 8
         Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'Button4
-        '
-        Me.Button4.Location = New System.Drawing.Point(649, 7)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 23)
-        Me.Button4.TabIndex = 15
-        Me.Button4.Text = "Logout"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
         'frmSales
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -391,10 +397,6 @@ Partial Class frmSales
         Me.ControlBox = False
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.txtOrderNum)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.txtDate)
-        Me.Controls.Add(Me.Label1)
         Me.Font = New System.Drawing.Font("Courier New", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Movable = False
@@ -413,7 +415,6 @@ Partial Class frmSales
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label

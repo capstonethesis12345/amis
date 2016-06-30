@@ -37,7 +37,7 @@
         SqlRefresh = "select barcode,description,price from items where itemtype=1"
         SqlReFill("items", ListView3)
         Dim fid As New TextBox
-        fid.Text = getStrData("select ItemID from items where description like @0", "itemid", {txtMenuName.Text})
+        fid.Text = getStrData("select ItemID from items where description like @0", "txtMenuName", {txtMenuName.Text})
 
         If ListView2.Items.Count > 0 Then
             For i As Integer = 0 To ListView2.Items.Count - 1
@@ -48,7 +48,7 @@
                 txt.Text = ListView2.Items(i).SubItems(2).Text
 
 
-                itemNew("FoodIngredient", {"FoodId", "itemId", "quantity"}, {fid, ing, txt})
+                itemNew("foodingredient", {"foodid", "itemd", "quantity"}, {fid, ing, txt})
             Next
         End If
 

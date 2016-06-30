@@ -10,30 +10,17 @@
 
     End Sub
 
-    Private Sub MetroTextButton1_Click(sender As Object, e As EventArgs)
-        Dim id As New TextBox
 
-        If txtID.Text = vbNullString Then
-            id.Text = "Null"
-            SqlRefresh = fill
-            itemNew("job", {"JobDescription", "Salary"}, {id, txtDescription, txtSalary})
-        Else
-            SqlRefresh = fill
-            itemUpdate("job", {"JobDescription", "Salary"}, {txtDescription, txtSalary}, "JobGradeid", txtID.Text, ListView1)
-        End If
 
-    End Sub
 
-    Private Sub MetroTextButton1_Leave(sender As Object, e As EventArgs)
-        Me.Dispose()
-    End Sub
-
-    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
-        Me.Hide()
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Close()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        SqlRefresh = "select jobdescription, jobsalary from job"
-        itemNew("job", {"jobdescription", "jobsalary"}, {txtDescription, txtSalary})
+        Dim n As New TextBox
+        n.Text = vbNullString
+        SqlRefresh = "select * from `job`"
+        itemNew("`job`", {"`JobGradeID`", "`JobDescription`", "`Salary`"}, {n, txtDescription, txtSalary}, ListView1)
     End Sub
 End Class
