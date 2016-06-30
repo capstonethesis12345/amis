@@ -46,6 +46,7 @@ Partial Class frmPurchases
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.txtcategory = New System.Windows.Forms.ComboBox()
         Me.groupUnit = New System.Windows.Forms.GroupBox()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.kgs = New System.Windows.Forms.RadioButton()
         Me.lbs = New System.Windows.Forms.RadioButton()
         Me.pcs = New System.Windows.Forms.RadioButton()
@@ -73,13 +74,15 @@ Partial Class frmPurchases
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.podate = New System.Windows.Forms.DateTimePicker()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -88,6 +91,8 @@ Partial Class frmPurchases
         Me.gItem.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'ListView1
@@ -170,7 +175,7 @@ Partial Class frmPurchases
         Me.Panel1.Controls.Add(Me.Label7)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.ListView1)
-        Me.Panel1.Location = New System.Drawing.Point(12, 43)
+        Me.Panel1.Location = New System.Drawing.Point(-1, 47)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(801, 648)
         Me.Panel1.TabIndex = 32
@@ -255,7 +260,7 @@ Partial Class frmPurchases
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.btnAddUpdate)
         Me.GroupBox1.Controls.Add(Me.txtSupplier)
-        Me.GroupBox1.Location = New System.Drawing.Point(828, 177)
+        Me.GroupBox1.Location = New System.Drawing.Point(20, 140)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(390, 488)
         Me.GroupBox1.TabIndex = 1
@@ -301,6 +306,7 @@ Partial Class frmPurchases
         '
         'groupUnit
         '
+        Me.groupUnit.Controls.Add(Me.RadioButton1)
         Me.groupUnit.Controls.Add(Me.kgs)
         Me.groupUnit.Controls.Add(Me.lbs)
         Me.groupUnit.Controls.Add(Me.pcs)
@@ -311,10 +317,20 @@ Partial Class frmPurchases
         Me.groupUnit.TabStop = False
         Me.groupUnit.Text = "Unit"
         '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Location = New System.Drawing.Point(180, 19)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(44, 17)
+        Me.RadioButton1.TabIndex = 0
+        Me.RadioButton1.Text = "mgs"
+        Me.RadioButton1.UseVisualStyleBackColor = True
+        '
         'kgs
         '
         Me.kgs.AutoSize = True
-        Me.kgs.Location = New System.Drawing.Point(134, 28)
+        Me.kgs.Location = New System.Drawing.Point(134, 19)
         Me.kgs.Name = "kgs"
         Me.kgs.Size = New System.Drawing.Size(42, 17)
         Me.kgs.TabIndex = 0
@@ -324,7 +340,7 @@ Partial Class frmPurchases
         'lbs
         '
         Me.lbs.AutoSize = True
-        Me.lbs.Location = New System.Drawing.Point(90, 28)
+        Me.lbs.Location = New System.Drawing.Point(90, 19)
         Me.lbs.Name = "lbs"
         Me.lbs.Size = New System.Drawing.Size(38, 17)
         Me.lbs.TabIndex = 0
@@ -335,7 +351,7 @@ Partial Class frmPurchases
         '
         Me.pcs.AutoSize = True
         Me.pcs.Checked = True
-        Me.pcs.Location = New System.Drawing.Point(35, 28)
+        Me.pcs.Location = New System.Drawing.Point(35, 19)
         Me.pcs.Name = "pcs"
         Me.pcs.Size = New System.Drawing.Size(42, 17)
         Me.pcs.TabIndex = 0
@@ -553,7 +569,7 @@ Partial Class frmPurchases
         'PictureBox1
         '
         Me.PictureBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PictureBox1.Location = New System.Drawing.Point(1100, 47)
+        Me.PictureBox1.Location = New System.Drawing.Point(292, 10)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(100, 88)
         Me.PictureBox1.TabIndex = 4
@@ -562,7 +578,7 @@ Partial Class frmPurchases
         'Button1
         '
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Location = New System.Drawing.Point(1100, 142)
+        Me.Button1.Location = New System.Drawing.Point(292, 105)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(100, 29)
         Me.Button1.TabIndex = 2
@@ -574,29 +590,29 @@ Partial Class frmPurchases
         Me.Label12.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("MS Reference Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(834, 66)
+        Me.Label12.Location = New System.Drawing.Point(26, 29)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(39, 16)
         Me.Label12.TabIndex = 35
         Me.Label12.Text = "Date"
         '
-        'DateTimePicker1
+        'podate
         '
-        Me.DateTimePicker1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DateTimePicker1.CustomFormat = "yyyy-MM-dd"
-        Me.DateTimePicker1.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(879, 61)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(105, 23)
-        Me.DateTimePicker1.TabIndex = 0
+        Me.podate.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.podate.CustomFormat = "yyyy-MM-dd"
+        Me.podate.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.podate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.podate.Location = New System.Drawing.Point(71, 24)
+        Me.podate.Name = "podate"
+        Me.podate.Size = New System.Drawing.Size(105, 23)
+        Me.podate.TabIndex = 0
         '
         'Label13
         '
         Me.Label13.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("MS Reference Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(834, 98)
+        Me.Label13.Location = New System.Drawing.Point(26, 61)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(52, 16)
         Me.Label13.TabIndex = 35
@@ -607,7 +623,7 @@ Partial Class frmPurchases
         Me.lblTotal.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblTotal.AutoSize = True
         Me.lblTotal.Font = New System.Drawing.Font("MS Reference Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotal.Location = New System.Drawing.Point(898, 98)
+        Me.lblTotal.Location = New System.Drawing.Point(90, 61)
         Me.lblTotal.Name = "lblTotal"
         Me.lblTotal.Size = New System.Drawing.Size(16, 16)
         Me.lblTotal.TabIndex = 35
@@ -649,22 +665,40 @@ Partial Class frmPurchases
         Me.ToolStrip1.TabIndex = 26
         Me.ToolStrip1.Text = "ToolStrip1"
         '
+        'Panel2
+        '
+        Me.Panel2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel2.Controls.Add(Me.Label13)
+        Me.Panel2.Controls.Add(Me.podate)
+        Me.Panel2.Controls.Add(Me.PictureBox1)
+        Me.Panel2.Controls.Add(Me.lblTotal)
+        Me.Panel2.Controls.Add(Me.GroupBox1)
+        Me.Panel2.Controls.Add(Me.Button1)
+        Me.Panel2.Controls.Add(Me.Label12)
+        Me.Panel2.Location = New System.Drawing.Point(801, 40)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(433, 663)
+        Me.Panel2.TabIndex = 36
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.Panel1)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel3.Location = New System.Drawing.Point(0, 0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(1234, 703)
+        Me.Panel3.TabIndex = 37
+        '
         'frmPurchases
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Honeydew
         Me.ClientSize = New System.Drawing.Size(1234, 703)
-        Me.Controls.Add(Me.DateTimePicker1)
-        Me.Controls.Add(Me.lblTotal)
-        Me.Controls.Add(Me.Label13)
-        Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.lblSearch)
         Me.Controls.Add(Me.ToolStrip1)
+        Me.Controls.Add(Me.Panel3)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmPurchases"
@@ -683,6 +717,9 @@ Partial Class frmPurchases
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -727,7 +764,7 @@ Partial Class frmPurchases
     Friend WithEvents ColumnHeader7 As ColumnHeader
     Friend WithEvents Button1 As Button
     Friend WithEvents Label12 As Label
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents podate As DateTimePicker
     Friend WithEvents Label13 As Label
     Friend WithEvents lblTotal As Label
     Friend WithEvents ColumnHeader8 As ColumnHeader
@@ -744,4 +781,7 @@ Partial Class frmPurchases
     Friend WithEvents ToolStripButton2 As ToolStripButton
     Friend WithEvents ToolStripButton1 As ToolStripButton
     Friend WithEvents ToolStrip1 As ToolStrip
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents RadioButton1 As RadioButton
 End Class
