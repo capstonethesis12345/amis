@@ -15,7 +15,7 @@ Public Class frmStaff
             SqlRefresh = sStaff
             SqlReFill("Employees", ListView1)
             SqlRefresh = "select jobdescription from job"
-            SqlReFill("jobs", ComboBox1, "ShowValueInComboBox")
+            SqlReFill("jobs", txtJobs, "ShowValueInComboBox")
         Catch ex As Exception
             MessageBox.Show("Error in establishing connection " & ex.Message.ToString, "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
