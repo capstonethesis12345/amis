@@ -83,6 +83,10 @@ Partial Class frmPurchases
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.ListView2 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -394,6 +398,7 @@ Partial Class frmPurchases
         '
         'gItem
         '
+        Me.gItem.Controls.Add(Me.Button3)
         Me.gItem.Controls.Add(Me.txtQuantity)
         Me.gItem.Controls.Add(Me.Label11)
         Me.gItem.Controls.Add(Me.txtBrand)
@@ -406,6 +411,7 @@ Partial Class frmPurchases
         Me.gItem.Controls.Add(Me.Label6)
         Me.gItem.Controls.Add(Me.Label5)
         Me.gItem.Controls.Add(Me.txtCost)
+        Me.gItem.Controls.Add(Me.ListView2)
         Me.gItem.Location = New System.Drawing.Point(18, 87)
         Me.gItem.Name = "gItem"
         Me.gItem.Size = New System.Drawing.Size(363, 193)
@@ -446,7 +452,7 @@ Partial Class frmPurchases
         Me.txtProductName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtProductName.Location = New System.Drawing.Point(84, 64)
         Me.txtProductName.Name = "txtProductName"
-        Me.txtProductName.Size = New System.Drawing.Size(257, 20)
+        Me.txtProductName.Size = New System.Drawing.Size(218, 20)
         Me.txtProductName.TabIndex = 1
         '
         'Label3
@@ -689,6 +695,36 @@ Partial Class frmPurchases
         Me.Panel3.Size = New System.Drawing.Size(1234, 703)
         Me.Panel3.TabIndex = 37
         '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(308, 61)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(33, 23)
+        Me.Button3.TabIndex = 5
+        Me.Button3.Text = "Button3"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'ListView2
+        '
+        Me.ListView2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ListView2.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader9, Me.ColumnHeader10})
+        Me.ListView2.Location = New System.Drawing.Point(84, 85)
+        Me.ListView2.Name = "ListView2"
+        Me.ListView2.Size = New System.Drawing.Size(219, 97)
+        Me.ListView2.TabIndex = 6
+        Me.ListView2.UseCompatibleStateImageBehavior = False
+        Me.ListView2.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader9
+        '
+        Me.ColumnHeader9.Text = "Item ID"
+        '
+        'ColumnHeader10
+        '
+        Me.ColumnHeader10.Text = "Description"
+        Me.ColumnHeader10.Width = 152
+        '
         'frmPurchases
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -784,4 +820,8 @@ Partial Class frmPurchases
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel3 As Panel
     Friend WithEvents RadioButton1 As RadioButton
+    Friend WithEvents Button3 As Button
+    Friend WithEvents ListView2 As ListView
+    Friend WithEvents ColumnHeader9 As ColumnHeader
+    Friend WithEvents ColumnHeader10 As ColumnHeader
 End Class

@@ -43,6 +43,7 @@ Partial Class frmMain
         Me.PurchasesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReturnsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AdjustmentToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DTRToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StocksInToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StocksOutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -70,7 +71,6 @@ Partial Class frmMain
         Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
-        Me.DTRToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -129,20 +129,20 @@ Partial Class frmMain
         'StaffToolStripMenuItem
         '
         Me.StaffToolStripMenuItem.Name = "StaffToolStripMenuItem"
-        Me.StaffToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.StaffToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
         Me.StaffToolStripMenuItem.Text = "Staff"
         '
         'ProductToolStripMenuItem
         '
         Me.ProductToolStripMenuItem.Name = "ProductToolStripMenuItem"
-        Me.ProductToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ProductToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
         Me.ProductToolStripMenuItem.Text = "Products"
         '
         'MenuToolStripMenuItem
         '
         Me.MenuToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewMenusToolStripMenuItem, Me.SetupMenuToolStripMenuItem})
         Me.MenuToolStripMenuItem.Name = "MenuToolStripMenuItem"
-        Me.MenuToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.MenuToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
         Me.MenuToolStripMenuItem.Text = "Foods"
         '
         'ViewMenusToolStripMenuItem
@@ -160,13 +160,13 @@ Partial Class frmMain
         'SuppliersToolStripMenuItem
         '
         Me.SuppliersToolStripMenuItem.Name = "SuppliersToolStripMenuItem"
-        Me.SuppliersToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SuppliersToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
         Me.SuppliersToolStripMenuItem.Text = "Suppliers"
         '
         'JobsToolStripMenuItem
         '
         Me.JobsToolStripMenuItem.Name = "JobsToolStripMenuItem"
-        Me.JobsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.JobsToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
         Me.JobsToolStripMenuItem.Text = "Jobs"
         '
         'TransactionToolStripMenuItem
@@ -179,26 +179,32 @@ Partial Class frmMain
         'POSToolStripMenuItem
         '
         Me.POSToolStripMenuItem.Name = "POSToolStripMenuItem"
-        Me.POSToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.POSToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.POSToolStripMenuItem.Text = "Sales"
         '
         'PurchasesToolStripMenuItem
         '
         Me.PurchasesToolStripMenuItem.Name = "PurchasesToolStripMenuItem"
-        Me.PurchasesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PurchasesToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.PurchasesToolStripMenuItem.Text = "Purchases"
         '
         'ReturnsToolStripMenuItem
         '
         Me.ReturnsToolStripMenuItem.Name = "ReturnsToolStripMenuItem"
-        Me.ReturnsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ReturnsToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.ReturnsToolStripMenuItem.Text = "Returns"
         '
         'AdjustmentToolStripMenuItem
         '
         Me.AdjustmentToolStripMenuItem.Name = "AdjustmentToolStripMenuItem"
-        Me.AdjustmentToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AdjustmentToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.AdjustmentToolStripMenuItem.Text = "Adjustment"
+        '
+        'DTRToolStripMenuItem
+        '
+        Me.DTRToolStripMenuItem.Name = "DTRToolStripMenuItem"
+        Me.DTRToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.DTRToolStripMenuItem.Text = "DTR"
         '
         'ReportToolStripMenuItem
         '
@@ -271,8 +277,8 @@ Partial Class frmMain
         Me.ToolStripStatusLabel1.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripStatusLabel1.ForeColor = System.Drawing.Color.White
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(81, 17)
-        Me.ToolStripStatusLabel1.Text = "Active User :"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(56, 17)
+        Me.ToolStripStatusLabel1.Text = "UserID :"
         '
         'tsslUser
         '
@@ -440,12 +446,6 @@ Partial Class frmMain
         Me.ToolStripButton3.Size = New System.Drawing.Size(68, 55)
         Me.ToolStripButton3.Text = "Log Out"
         Me.ToolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'DTRToolStripMenuItem
-        '
-        Me.DTRToolStripMenuItem.Name = "DTRToolStripMenuItem"
-        Me.DTRToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.DTRToolStripMenuItem.Text = "DTR"
         '
         'frmMain
         '

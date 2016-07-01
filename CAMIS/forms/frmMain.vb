@@ -8,7 +8,9 @@ Public Class frmMain
         InitializeComponent()
         vfunction = f
         ' Add any initialization after the InitializeComponent() call.
-        tsslUser.Text = vEmp
+        'Dim aEmp As Int32 = vEmp
+        'vEmp.ToString("D5")
+        tsslUser.Text = String.Format("{0:D5}", vEmp)
         tUser.Text = vUser
     End Sub
     Private Sub frmMain_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing

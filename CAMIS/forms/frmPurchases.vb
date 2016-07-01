@@ -71,6 +71,7 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
 
         lblTotal.Text = computeSum()
         If lblSupplier.Text = "0" Or lblSupplier.Text = vbNullString Then
+            txtSupplier.ReadOnly = False
         Else
 
             Dim currDate As String = getStrData("select podate from po where poid=@0", "getPODate", {lblPONum.Text})
@@ -550,6 +551,15 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
     End Sub
 
     Private Sub podate_ValueChanged(sender As Object, e As EventArgs) Handles podate.ValueChanged
+
+    End Sub
+    Dim lv2 As New ListView()
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        ListView2.Visible = True
+        ListView2.BringToFront()
+        SqlRefresh = "select itemid,description from items where description like @description"
+        SqlReFill("searchItem", ListView1, Nothing, {"description"}, {txtProductName})
+
 
     End Sub
 End Class
