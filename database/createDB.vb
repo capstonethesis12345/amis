@@ -77,15 +77,16 @@ Public Class createDB
         'THIS WILL CREAE PO TABLE FOR SUMMARY OF PURCHASE ORDER LISTS
         '6
         sqlList.Add("CREATE TABLE IF NOT EXISTS `po` (
-          `POID` int(11) NOT NULL AUTO_INCREMENT,
-          `SupplierID` int(11) NOT NULL,
-          `EmpID` int(11) NOT NULL,
-          `PODate` date NOT NULL,
-          `TotalCost` double NOT NULL DEFAULT '0',
-          `Status` tinyint(4) NOT NULL,
-          PRIMARY KEY (`POID`),
-          KEY `SupplierID` (`SupplierID`)
-        )")
+  `POID` int(11) NOT NULL AUTO_INCREMENT,
+  `SupplierID` int(11) NOT NULL,
+  `EmpID` int(11) NOT NULL,
+  `PODate` date NOT NULL,
+  `TotalCost` double NOT NULL DEFAULT '0',
+  `Status` tinyint(4) NOT NULL,
+  `PODeliveryDate` date DEFAULT NULL,
+  PRIMARY KEY (`POID`),
+  KEY `SupplierID` (`SupplierID`)
+)")
         '7
         sqlList.Add("CREATE TABLE IF NOT EXISTS `polist` (
               `POListID` int(11) NOT NULL AUTO_INCREMENT,
@@ -97,15 +98,16 @@ Public Class createDB
             )")
         '8
         'THIS WILL CREATE ITEMS FOR SUMMARY OF ITEMS BEING PURCHASED
-        sqlList.Add("CREATE TABLE IF NOT EXISTS `items` (
+        sqlList.Add("
+            CREATE TABLE IF NOT EXISTS `items` (
               `ItemID` int(11) NOT NULL AUTO_INCREMENT,
               `Barcode` varchar(50) DEFAULT NULL,
               `Description` varchar(45) NOT NULL,
               `Brand` varchar(45) DEFAULT NULL,
-              `Price` double(12,4) NOT NULL,
+              `Price` double(12,4) DEFAULT NULL,
+              `UnitValue` varchar(20) NOT NULL,
               `UnitType` varchar(10) NOT NULL,
               `Category` varchar(45) NOT NULL,
-              `taxable` tinyint(1) NOT NULL,
               `ItemType` tinyint(1) NOT NULL,
               `InitialQuantity` double(5,2) NOT NULL,
               `SaleStatus` tinyint(4) NOT NULL,
@@ -168,6 +170,7 @@ Public Class createDB
               `itemid` int(20) NOT NULL,
               `quantity` int(20) NOT NULL
             )")
+
         '15
 
         '    sqlList.Add("call AddColumnUnlessExists(Database(), 'dbamis', 'category', 'varchar(32) null');")

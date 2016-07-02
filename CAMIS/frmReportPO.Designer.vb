@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmReportStockIn
+Partial Class frmReportPO
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -49,8 +49,9 @@ Partial Class frmReportStockIn
         Me.lblTotalStocksIn = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.lblCollections = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.lbldate = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
@@ -81,8 +82,9 @@ Partial Class frmReportStockIn
         Me.Panel1.Controls.Add(Me.lblTotalStocksIn)
         Me.Panel1.Controls.Add(Me.Label6)
         Me.Panel1.Controls.Add(Me.lblCollections)
-        Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.lbldate)
+        Me.Panel1.Controls.Add(Me.Label3)
+        Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Location = New System.Drawing.Point(6, 92)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(628, 613)
@@ -92,7 +94,7 @@ Partial Class frmReportStockIn
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Verdana", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(220, 2)
+        Me.Label1.Location = New System.Drawing.Point(13, 22)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(223, 18)
         Me.Label1.TabIndex = 5
@@ -298,6 +300,16 @@ Partial Class frmReportStockIn
         Me.lblCollections.TabIndex = 8
         Me.lblCollections.Text = "Stocks-In for the Month of January"
         '
+        'lbldate
+        '
+        Me.lbldate.AutoSize = True
+        Me.lbldate.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbldate.Location = New System.Drawing.Point(454, 47)
+        Me.lbldate.Name = "lbldate"
+        Me.lbldate.Size = New System.Drawing.Size(122, 16)
+        Me.lbldate.TabIndex = 7
+        Me.lbldate.Text = "January 13, 2014"
+        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -308,15 +320,15 @@ Partial Class frmReportStockIn
         Me.Label3.TabIndex = 6
         Me.Label3.Text = "_________________________________________________________"
         '
-        'lbldate
+        'Label2
         '
-        Me.lbldate.AutoSize = True
-        Me.lbldate.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbldate.Location = New System.Drawing.Point(16, 55)
-        Me.lbldate.Name = "lbldate"
-        Me.lbldate.Size = New System.Drawing.Size(83, 16)
-        Me.lbldate.TabIndex = 5
-        Me.lbldate.Text = "STOCKS-IN"
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(12, 42)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(83, 16)
+        Me.Label2.TabIndex = 5
+        Me.Label2.Text = "STOCKS-IN"
         '
         'Panel2
         '
@@ -380,7 +392,7 @@ Partial Class frmReportStockIn
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Name = "frmReportStockIn"
+        Me.Name = "frmReportPO"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
@@ -406,8 +418,9 @@ Partial Class frmReportStockIn
     Friend WithEvents lblTotalStocksIn As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents lblCollections As System.Windows.Forms.Label
-    Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents lbldate As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents lblTitle As System.Windows.Forms.Label
     Friend WithEvents ORNo As System.Windows.Forms.DataGridViewTextBoxColumn

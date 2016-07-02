@@ -124,10 +124,22 @@
     <Compile Include="forms\frmFood.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="forms\frmFoodQtySelection.Designer.vb">
+      <DependentUpon>frmFoodQtySelection.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmFoodQtySelection.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="forms\frmJob.Designer.vb">
       <DependentUpon>frmJob.vb</DependentUpon>
     </Compile>
     <Compile Include="forms\frmJob.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrintPO.Designer.vb">
+      <DependentUpon>frmPrintPO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrintPO.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="functions\SQLQuery.vb" />
@@ -323,6 +335,9 @@
     <EmbeddedResource Include="forms\frmFoodMenu.resx">
       <DependentUpon>frmFoodMenu.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmFoodQtySelection.resx">
+      <DependentUpon>frmFoodQtySelection.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\frmJob.resx">
       <DependentUpon>frmJob.vb</DependentUpon>
     </EmbeddedResource>
@@ -383,6 +398,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Splash.resx">
       <DependentUpon>Splash.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrintPO.resx">
+      <DependentUpon>frmPrintPO.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

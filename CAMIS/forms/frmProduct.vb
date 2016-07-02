@@ -4,7 +4,7 @@ Public Class frmProduct
 
         ' This call is required by the designer.
         InitializeComponent()
-        SqlRefresh = "select itemid,barcode,description,category,price from items"
+        SqlRefresh = "select itemid,barcode,description,category,price from items where itemtype <> 2"
         SqlReFill("items", ListView1)
         ' Add any initialization after the InitializeComponent() call.
 
@@ -14,26 +14,65 @@ Public Class frmProduct
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim tx As New TextBox
-        If txtTaxable.Checked = True Then
-            tx.Text = 1
-        End If
+
         Dim ing As New TextBox
-        If rni.Checked = True Then
+        If nonIncredient.Checked = True Then
             ing.Text = 0
-        ElseIf (ri.Checked = True) Then
+        ElseIf (ingredient.Checked = True) Then
             ing.Text = 1
 
         End If
         SqlRefresh = "select itemid,barcode,description,category,price from items"
         'check barcode if already on the list except empty
-        Dim bcode As Integer = Integer.Parse(getIDFunction("select ifnull(barcode,0)barcode,ifnull(description,'')description,ifnull(Brand,'')Brand,ifnull(Price,'')Price from items where barcode like @0 or description like @1", "itemBarcode", {txtBarcode.Text, txtDescription.Text}))
-        MessageBox.Show(bcode.ToString)
-        If bcode = 0 Then
-            itemNew("items", {"Barcode", "Description", "Brand", "Price", "UnitType", "Category", "Taxable", "ItemType"},
-                {txtBarcode, txtDescription, txtBrand, txtPrice, txtUnit, txtCategory, tx, ing}, ListView1)
+        msgShow = False
+        Dim bcode As Integer = Integer.Parse(getIDFunction("select ifnull(barcode,0)barcode,ifnull(description,'')description,ifnull(Brand,'')Brand,ifnull(Price,'')Price from items where barcode like @0 or description like @1", "itemBarcode", {txtbarcode.Text, txtDescription.Text}))
+        'MessageBox.Show(bcode.ToString)
+        Dim txtboxes() As Object = {txtbarcode, txtDescription, txtBrand, txtPrice, txtUnitValue, txtUnitType, txtCategory, ing, txtInitialStock}
+        If txtItemid.Text = "0" Or txtItemid.Text = vbNullString Then
+            If bcode = 0 Then
+                msgShow = True
+                SqlRefresh = "select itemid,barcode,description,category,price from items where itemtype <> 2"
+                itemNew("items", {"barcode", "description", "brand", "price", "unitvalue", "unittype", "category", "itemtype", "initialquantity"},
+                   txtboxes, ListView1)
+                For Each t In txtboxes
+                    t.text = ""
+                Next
+                txtItemid.Text = ""
+            Else
+                MessageBox.Show("Barcode already available")
+            End If
         Else
-            txtDescription.Text = ds.Tables("itemBarcode").Rows(0).Item("description").ToString
+            SqlRefresh = "select itemid,barcode,description,category,price from items where itemtype <> 2"
+            itemUpdate("items", {"barcode", "description", "brand", "price", "unitvalue", "unittype", "category", "itemtype", "initialquantity"},
+                       txtboxes, "itemid", txtItemid.Text, ListView1)
+            'itemUpdate()
+            'txtDescription.Text = ds.Tables("itemBarcode").Rows(0).Item("description").ToString
         End If
+
+
+    End Sub
+
+    Private Sub ListView1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListView1.MouseDoubleClick
+        txtItemid.Text = ListView1.SelectedItems(0).SubItems(0).Text.ToString
+    End Sub
+
+    Private Sub txtItemid_TextChanged(sender As Object, e As EventArgs) Handles txtItemid.TextChanged
+        'SqlRefresh = "select ifnull(barcode,''),ifnull(description,''),ifnull(brand,''),ifnull(price,'0.0'),ifnull(unittype,''),ifnull(category,''),ifnull(initialquantity,'') from items where items.itemid like @itemid"
+        'SqlReFill("products", Nothing, "ShowValueInTextbox", {"itemid"}, {txtItemid}, {txtbarcode, txtDescription, txtBrand, txtPrice, txtUnitType, txtCategory, txtInitialStock})
+        getArrStrData("select barcode,description,brand,unitvalue,unittype,category,price,itemtype from items where itemid like @0", "products", {txtItemid.Text})
+        txtbarcode.Text = ds.Tables("products").Rows(0).Item(0).ToString
+        txtDescription.Text = ds.Tables("products").Rows(0).Item(1).ToString
+        txtBrand.Text = ds.Tables("products").Rows(0).Item(2).ToString
+        txtUnitValue.Text = ds.Tables("products").Rows(0).Item(3).ToString
+        txtUnitType.Text = ds.Tables("products").Rows(0).Item(4).ToString
+        txtCategory.Text = ds.Tables("products").Rows(0).Item(5).ToString
+        txtPrice.Text = ds.Tables("products").Rows(0).Item(6).ToString
+        ''MessageBox.Show(ds.Tables("products").Rows(0).Item(7).ToString)
+        If ds.Tables("products").Rows(0).Item(7).ToString = False Then
+            nonIncredient.Checked = True
+        Else
+            ingredient.Checked = True
+        End If
+
     End Sub
 End Class

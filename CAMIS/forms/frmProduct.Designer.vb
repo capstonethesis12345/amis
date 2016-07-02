@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmProduct
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmProduct
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProduct))
         Me.ListView1 = New System.Windows.Forms.ListView()
@@ -38,13 +38,19 @@ Partial Class frmProduct
         Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.txtBarcode = New System.Windows.Forms.TextBox()
+        Me.txtbarcode = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtCategory = New System.Windows.Forms.TextBox()
+        Me.txtUnitType = New System.Windows.Forms.TextBox()
+        Me.txtBrand = New System.Windows.Forms.TextBox()
         Me.txtDescription = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.ri = New System.Windows.Forms.RadioButton()
-        Me.rni = New System.Windows.Forms.RadioButton()
+        Me.txtItemid = New System.Windows.Forms.TextBox()
+        Me.ingredient = New System.Windows.Forms.RadioButton()
+        Me.nonIncredient = New System.Windows.Forms.RadioButton()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtPrice = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -52,13 +58,8 @@ Partial Class frmProduct
         Me.txtInitialStock = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.txtBrand = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.txtUnit = New System.Windows.Forms.TextBox()
-        Me.txtCategory = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.txtTaxable = New System.Windows.Forms.CheckBox()
+        Me.txtUnitValue = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.ToolStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -163,22 +164,24 @@ Partial Class frmProduct
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.Controls.Add(Me.txtBarcode)
+        Me.GroupBox1.Controls.Add(Me.txtbarcode)
         Me.GroupBox1.Controls.Add(Me.Label8)
+        Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.txtCategory)
-        Me.GroupBox1.Controls.Add(Me.txtUnit)
+        Me.GroupBox1.Controls.Add(Me.txtUnitValue)
+        Me.GroupBox1.Controls.Add(Me.txtUnitType)
         Me.GroupBox1.Controls.Add(Me.txtBrand)
         Me.GroupBox1.Controls.Add(Me.txtDescription)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
-        Me.GroupBox1.Controls.Add(Me.ri)
-        Me.GroupBox1.Controls.Add(Me.rni)
+        Me.GroupBox1.Controls.Add(Me.txtItemid)
+        Me.GroupBox1.Controls.Add(Me.ingredient)
+        Me.GroupBox1.Controls.Add(Me.nonIncredient)
         Me.GroupBox1.Location = New System.Drawing.Point(909, 43)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(321, 260)
+        Me.GroupBox1.Size = New System.Drawing.Size(321, 269)
         Me.GroupBox1.TabIndex = 31
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "GroupBox1"
@@ -192,12 +195,39 @@ Partial Class frmProduct
         Me.Label4.TabIndex = 9
         Me.Label4.Text = "Bar Code"
         '
-        'txtBarcode
+        'txtbarcode
         '
-        Me.txtBarcode.Location = New System.Drawing.Point(81, 103)
-        Me.txtBarcode.Name = "txtBarcode"
-        Me.txtBarcode.Size = New System.Drawing.Size(223, 20)
-        Me.txtBarcode.TabIndex = 8
+        Me.txtbarcode.Location = New System.Drawing.Point(81, 103)
+        Me.txtbarcode.Name = "txtbarcode"
+        Me.txtbarcode.Size = New System.Drawing.Size(223, 20)
+        Me.txtbarcode.TabIndex = 8
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(26, 235)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(49, 13)
+        Me.Label8.TabIndex = 5
+        Me.Label8.Text = "Category"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(22, 209)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(53, 13)
+        Me.Label7.TabIndex = 5
+        Me.Label7.Text = "Unit Type"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(40, 157)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(35, 13)
+        Me.Label3.TabIndex = 5
+        Me.Label3.Text = "Brand"
         '
         'Label2
         '
@@ -207,6 +237,27 @@ Partial Class frmProduct
         Me.Label2.Size = New System.Drawing.Size(60, 13)
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "Description"
+        '
+        'txtCategory
+        '
+        Me.txtCategory.Location = New System.Drawing.Point(81, 230)
+        Me.txtCategory.Name = "txtCategory"
+        Me.txtCategory.Size = New System.Drawing.Size(223, 20)
+        Me.txtCategory.TabIndex = 4
+        '
+        'txtUnitType
+        '
+        Me.txtUnitType.Location = New System.Drawing.Point(81, 202)
+        Me.txtUnitType.Name = "txtUnitType"
+        Me.txtUnitType.Size = New System.Drawing.Size(223, 20)
+        Me.txtUnitType.TabIndex = 4
+        '
+        'txtBrand
+        '
+        Me.txtBrand.Location = New System.Drawing.Point(81, 154)
+        Me.txtBrand.Name = "txtBrand"
+        Me.txtBrand.Size = New System.Drawing.Size(223, 20)
+        Me.txtBrand.TabIndex = 4
         '
         'txtDescription
         '
@@ -224,35 +275,35 @@ Partial Class frmProduct
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Item ID"
         '
-        'TextBox1
+        'txtItemid
         '
-        Me.TextBox1.Enabled = False
-        Me.TextBox1.Location = New System.Drawing.Point(81, 77)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(223, 20)
-        Me.TextBox1.TabIndex = 2
+        Me.txtItemid.Enabled = False
+        Me.txtItemid.Location = New System.Drawing.Point(81, 77)
+        Me.txtItemid.Name = "txtItemid"
+        Me.txtItemid.Size = New System.Drawing.Size(223, 20)
+        Me.txtItemid.TabIndex = 2
         '
-        'ri
+        'ingredient
         '
-        Me.ri.AutoSize = True
-        Me.ri.Location = New System.Drawing.Point(176, 40)
-        Me.ri.Name = "ri"
-        Me.ri.Size = New System.Drawing.Size(72, 17)
-        Me.ri.TabIndex = 1
-        Me.ri.Text = "Ingredient"
-        Me.ri.UseVisualStyleBackColor = True
+        Me.ingredient.AutoSize = True
+        Me.ingredient.Location = New System.Drawing.Point(176, 40)
+        Me.ingredient.Name = "ingredient"
+        Me.ingredient.Size = New System.Drawing.Size(72, 17)
+        Me.ingredient.TabIndex = 1
+        Me.ingredient.Text = "Ingredient"
+        Me.ingredient.UseVisualStyleBackColor = True
         '
-        'rni
+        'nonIncredient
         '
-        Me.rni.AutoSize = True
-        Me.rni.Checked = True
-        Me.rni.Location = New System.Drawing.Point(75, 40)
-        Me.rni.Name = "rni"
-        Me.rni.Size = New System.Drawing.Size(95, 17)
-        Me.rni.TabIndex = 0
-        Me.rni.TabStop = True
-        Me.rni.Text = "Non Ingredient"
-        Me.rni.UseVisualStyleBackColor = True
+        Me.nonIncredient.AutoSize = True
+        Me.nonIncredient.Checked = True
+        Me.nonIncredient.Location = New System.Drawing.Point(75, 40)
+        Me.nonIncredient.Name = "nonIncredient"
+        Me.nonIncredient.Size = New System.Drawing.Size(95, 17)
+        Me.nonIncredient.TabIndex = 0
+        Me.nonIncredient.TabStop = True
+        Me.nonIncredient.Text = "Non Ingredient"
+        Me.nonIncredient.UseVisualStyleBackColor = True
         '
         'Label5
         '
@@ -272,12 +323,11 @@ Partial Class frmProduct
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.txtTaxable)
         Me.GroupBox2.Controls.Add(Me.txtPrice)
         Me.GroupBox2.Controls.Add(Me.Label5)
-        Me.GroupBox2.Location = New System.Drawing.Point(909, 309)
+        Me.GroupBox2.Location = New System.Drawing.Point(909, 315)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(321, 90)
+        Me.GroupBox2.Size = New System.Drawing.Size(321, 84)
         Me.GroupBox2.TabIndex = 32
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "GroupBox2"
@@ -318,63 +368,21 @@ Partial Class frmProduct
         Me.Button1.Text = "Save"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'txtBrand
+        'txtUnitValue
         '
-        Me.txtBrand.Location = New System.Drawing.Point(81, 154)
-        Me.txtBrand.Name = "txtBrand"
-        Me.txtBrand.Size = New System.Drawing.Size(223, 20)
-        Me.txtBrand.TabIndex = 4
+        Me.txtUnitValue.Location = New System.Drawing.Point(81, 180)
+        Me.txtUnitValue.Name = "txtUnitValue"
+        Me.txtUnitValue.Size = New System.Drawing.Size(223, 20)
+        Me.txtUnitValue.TabIndex = 4
         '
-        'Label3
+        'Label9
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(40, 157)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(35, 13)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Brand"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(49, 187)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(26, 13)
-        Me.Label7.TabIndex = 5
-        Me.Label7.Text = "Unit"
-        '
-        'txtUnit
-        '
-        Me.txtUnit.Location = New System.Drawing.Point(81, 184)
-        Me.txtUnit.Name = "txtUnit"
-        Me.txtUnit.Size = New System.Drawing.Size(223, 20)
-        Me.txtUnit.TabIndex = 4
-        '
-        'txtCategory
-        '
-        Me.txtCategory.Location = New System.Drawing.Point(81, 214)
-        Me.txtCategory.Name = "txtCategory"
-        Me.txtCategory.Size = New System.Drawing.Size(223, 20)
-        Me.txtCategory.TabIndex = 4
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(26, 217)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(49, 13)
-        Me.Label8.TabIndex = 5
-        Me.Label8.Text = "Category"
-        '
-        'txtTaxable
-        '
-        Me.txtTaxable.AutoSize = True
-        Me.txtTaxable.Location = New System.Drawing.Point(81, 54)
-        Me.txtTaxable.Name = "txtTaxable"
-        Me.txtTaxable.Size = New System.Drawing.Size(64, 17)
-        Me.txtTaxable.TabIndex = 14
-        Me.txtTaxable.Text = "Taxable"
-        Me.txtTaxable.UseVisualStyleBackColor = True
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(22, 184)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(55, 13)
+        Me.Label9.TabIndex = 5
+        Me.Label9.Text = "Unit value"
         '
         'frmProduct
         '
@@ -420,11 +428,11 @@ Partial Class frmProduct
     Friend WithEvents Label2 As Label
     Friend WithEvents txtDescription As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents ri As RadioButton
-    Friend WithEvents rni As RadioButton
+    Friend WithEvents txtItemid As TextBox
+    Friend WithEvents ingredient As RadioButton
+    Friend WithEvents nonIncredient As RadioButton
     Friend WithEvents Label4 As Label
-    Friend WithEvents txtBarcode As TextBox
+    Friend WithEvents txtbarcode As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents txtPrice As TextBox
     Friend WithEvents GroupBox2 As GroupBox
@@ -435,8 +443,9 @@ Partial Class frmProduct
     Friend WithEvents Label3 As Label
     Friend WithEvents txtBrand As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents txtUnit As TextBox
+    Friend WithEvents txtUnitType As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents txtCategory As TextBox
-    Friend WithEvents txtTaxable As CheckBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents txtUnitValue As TextBox
 End Class

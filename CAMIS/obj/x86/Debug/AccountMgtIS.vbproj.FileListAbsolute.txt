@@ -266,3 +266,5 @@ H:\github\CAMIS\obj\x86\Debug\AccountManagementIS.xml
 H:\github\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
 H:\github\amis\CAMIS\bin\Debug\AccountManagementIS.exe.config
 H:\github\amis\CAMIS\bin\Debug\MetroFramework.Design.dll
+H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmPrintPO.resources
+H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmFoodQtySelection.resources

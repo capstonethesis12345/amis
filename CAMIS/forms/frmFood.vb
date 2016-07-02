@@ -113,4 +113,20 @@
         MessageBox.Show(selected)
 
     End Sub
+
+    Private Sub Panel4_Paint(sender As Object, e As PaintEventArgs) Handles Panel4.Paint
+
+    End Sub
+
+    Private Sub ListView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListView1.SelectedIndexChanged
+
+    End Sub
+    Public index As Integer = 0
+
+    Private Sub ListView1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListView1.MouseDoubleClick
+
+        frmFoodQtySelection.lblItemID.Text = ListView1.SelectedItems(0).Text
+        frmFoodQtySelection.ShowDialog()
+
+    End Sub
 End Class
