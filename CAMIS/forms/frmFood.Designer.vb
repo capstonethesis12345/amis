@@ -50,7 +50,11 @@ Partial Class frmFood
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.lblFoodItemID = New System.Windows.Forms.Label()
+        Me.btnClear = New System.Windows.Forms.Button()
         Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.lblStatus = New System.Windows.Forms.Label()
+        Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
@@ -89,7 +93,7 @@ Partial Class frmFood
         Me.ListView2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ListView2.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ItemID, Me.Description, Me.Quantity, Me.ColumnHeader3})
+        Me.ListView2.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader7, Me.ItemID, Me.Description, Me.Quantity, Me.ColumnHeader3})
         Me.ListView2.FullRowSelect = True
         Me.ListView2.GridLines = True
         Me.ListView2.Location = New System.Drawing.Point(0, 30)
@@ -127,7 +131,7 @@ Partial Class frmFood
         Me.ListView3.FullRowSelect = True
         Me.ListView3.Location = New System.Drawing.Point(55, 38)
         Me.ListView3.Name = "ListView3"
-        Me.ListView3.Size = New System.Drawing.Size(403, 378)
+        Me.ListView3.Size = New System.Drawing.Size(403, 356)
         Me.ListView3.TabIndex = 2
         Me.ListView3.UseCompatibleStateImageBehavior = False
         Me.ListView3.View = System.Windows.Forms.View.Details
@@ -165,7 +169,7 @@ Partial Class frmFood
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.DarkSlateGray
-        Me.Label2.Location = New System.Drawing.Point(119, 3)
+        Me.Label2.Location = New System.Drawing.Point(176, 5)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(66, 20)
         Me.Label2.TabIndex = 4
@@ -228,7 +232,7 @@ Partial Class frmFood
         Me.txtBarcode.CustomButton.UseSelectable = True
         Me.txtBarcode.CustomButton.Visible = False
         Me.txtBarcode.Lines = New String(-1) {}
-        Me.txtBarcode.Location = New System.Drawing.Point(17, 19)
+        Me.txtBarcode.Location = New System.Drawing.Point(17, 33)
         Me.txtBarcode.MaxLength = 32767
         Me.txtBarcode.Name = "txtBarcode"
         Me.txtBarcode.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -260,7 +264,7 @@ Partial Class frmFood
         Me.txtMenuName.CustomButton.UseSelectable = True
         Me.txtMenuName.CustomButton.Visible = False
         Me.txtMenuName.Lines = New String(-1) {}
-        Me.txtMenuName.Location = New System.Drawing.Point(17, 48)
+        Me.txtMenuName.Location = New System.Drawing.Point(17, 62)
         Me.txtMenuName.MaxLength = 32767
         Me.txtMenuName.Name = "txtMenuName"
         Me.txtMenuName.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -292,7 +296,7 @@ Partial Class frmFood
         Me.txtPrice.CustomButton.UseSelectable = True
         Me.txtPrice.CustomButton.Visible = False
         Me.txtPrice.Lines = New String(-1) {}
-        Me.txtPrice.Location = New System.Drawing.Point(17, 77)
+        Me.txtPrice.Location = New System.Drawing.Point(17, 91)
         Me.txtPrice.MaxLength = 32767
         Me.txtPrice.Name = "txtPrice"
         Me.txtPrice.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -316,7 +320,7 @@ Partial Class frmFood
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSave.ForeColor = System.Drawing.SystemColors.ControlLight
-        Me.btnSave.Location = New System.Drawing.Point(421, 106)
+        Me.btnSave.Location = New System.Drawing.Point(421, 119)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 44)
         Me.btnSave.TabIndex = 19
@@ -377,7 +381,7 @@ Partial Class frmFood
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.ForeColor = System.Drawing.SystemColors.ControlLight
-        Me.Button4.Location = New System.Drawing.Point(340, 106)
+        Me.Button4.Location = New System.Drawing.Point(340, 120)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 44)
         Me.Button4.TabIndex = 19
@@ -398,26 +402,66 @@ Partial Class frmFood
         '
         'Panel6
         '
+        Me.Panel6.Controls.Add(Me.lblStatus)
+        Me.Panel6.Controls.Add(Me.lblFoodItemID)
         Me.Panel6.Controls.Add(Me.btnSave)
         Me.Panel6.Controls.Add(Me.txtBarcode)
         Me.Panel6.Controls.Add(Me.txtMenuName)
+        Me.Panel6.Controls.Add(Me.btnClear)
         Me.Panel6.Controls.Add(Me.Button4)
         Me.Panel6.Controls.Add(Me.txtPrice)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel6.Location = New System.Drawing.Point(757, 7)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(514, 163)
+        Me.Panel6.Size = New System.Drawing.Size(514, 185)
         Me.Panel6.TabIndex = 25
+        '
+        'lblFoodItemID
+        '
+        Me.lblFoodItemID.AutoSize = True
+        Me.lblFoodItemID.Location = New System.Drawing.Point(17, 133)
+        Me.lblFoodItemID.Name = "lblFoodItemID"
+        Me.lblFoodItemID.Size = New System.Drawing.Size(72, 13)
+        Me.lblFoodItemID.TabIndex = 20
+        Me.lblFoodItemID.Text = "lblFoodItemID"
+        '
+        'btnClear
+        '
+        Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnClear.BackColor = System.Drawing.Color.SkyBlue
+        Me.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue
+        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClear.ForeColor = System.Drawing.SystemColors.ControlLight
+        Me.btnClear.Location = New System.Drawing.Point(259, 120)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(75, 44)
+        Me.btnClear.TabIndex = 19
+        Me.btnClear.Text = "Clear"
+        Me.btnClear.UseVisualStyleBackColor = False
         '
         'Panel7
         '
         Me.Panel7.Controls.Add(Me.ListView3)
         Me.Panel7.Controls.Add(Me.Label3)
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel7.Location = New System.Drawing.Point(757, 170)
+        Me.Panel7.Location = New System.Drawing.Point(757, 192)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(514, 438)
+        Me.Panel7.Size = New System.Drawing.Size(514, 416)
         Me.Panel7.TabIndex = 26
+        '
+        'lblStatus
+        '
+        Me.lblStatus.AutoSize = True
+        Me.lblStatus.Location = New System.Drawing.Point(17, 17)
+        Me.lblStatus.Name = "lblStatus"
+        Me.lblStatus.Size = New System.Drawing.Size(48, 13)
+        Me.lblStatus.TabIndex = 20
+        Me.lblStatus.Text = "lblItemID"
+        '
+        'ColumnHeader7
+        '
+        Me.ColumnHeader7.Text = "ID"
         '
         'frmFood
         '
@@ -442,6 +486,7 @@ Partial Class frmFood
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         Me.Panel6.ResumeLayout(False)
+        Me.Panel6.PerformLayout()
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
         Me.ResumeLayout(False)
@@ -478,4 +523,8 @@ Partial Class frmFood
     Friend WithEvents Panel6 As Panel
     Friend WithEvents Panel7 As Panel
     Friend WithEvents ColumnHeader3 As ColumnHeader
+    Friend WithEvents lblFoodItemID As Label
+    Friend WithEvents btnClear As Button
+    Friend WithEvents lblStatus As Label
+    Friend WithEvents ColumnHeader7 As ColumnHeader
 End Class

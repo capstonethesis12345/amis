@@ -89,6 +89,7 @@
 
                 PictureBox2.Visible = False
                 MetroLabel1.Visible = True
+                Timer1.Start()
         End Select
 
         'PictureBox2.Visible = True
@@ -111,7 +112,7 @@
         getData()
         SqlRefresh = "SELECT Function,empid,username,password,count(empid)countUser FROM `users` WHERE  Username like @0 and  Password like @1"
         ErrMessageText = "Incorrect username and password"
-
+        Timer1.Start()
         SqlReFill("Users", Nothing, "ShowValueInTextbox", {"0", "1"}, {tUsername, tPassword}, {fnc})
         'If ds.Tables("Users").Rows(0).Item("countUser").ToString = 0 Then
 
@@ -149,8 +150,9 @@
         'This will result for a shortcut keys implementation
         If e.Alt And e.KeyCode = Keys.F12 Then
             frmDatabase.ShowDialog()
-        End If
-        If e.Alt And e.KeyCode = Keys.F4 Then
+        ElseIf (e.Alt) And e.KeyCode = Keys.f11 Then
+            frmDTRsystem.ShowDialog()
+        ElseIf e.Alt And e.KeyCode = Keys.F4 Then
             Application.Exit()
         End If
     End Sub
@@ -168,4 +170,8 @@
         End If
     End Sub
 
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        MetroLabel1.Visible = False
+        Timer1.Stop()
+    End Sub
 End Class

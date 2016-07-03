@@ -22,88 +22,121 @@ Partial Class frmFoodQtySelection
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.MetroTextBox1 = New MetroFramework.Controls.MetroTextBox()
-        Me.MetroButton1 = New MetroFramework.Controls.MetroButton()
-        Me.MetroComboBox1 = New MetroFramework.Controls.MetroComboBox()
+        Me.txtQuantity = New MetroFramework.Controls.MetroTextBox()
+        Me.btnSet = New MetroFramework.Controls.MetroButton()
         Me.lblItemID = New MetroFramework.Controls.MetroLabel()
         Me.lblDescription = New MetroFramework.Controls.MetroLabel()
+        Me.MetroButton2 = New MetroFramework.Controls.MetroButton()
+        Me.cbtype = New System.Windows.Forms.ComboBox()
+        Me.lblType = New MetroFramework.Controls.MetroLabel()
+        Me.lblfootitemid = New MetroFramework.Controls.MetroLabel()
         Me.SuspendLayout()
         '
-        'MetroTextBox1
+        'txtQuantity
         '
         '
         '
         '
-        Me.MetroTextBox1.CustomButton.Image = Nothing
-        Me.MetroTextBox1.CustomButton.Location = New System.Drawing.Point(194, 1)
-        Me.MetroTextBox1.CustomButton.Name = ""
-        Me.MetroTextBox1.CustomButton.Size = New System.Drawing.Size(21, 21)
-        Me.MetroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
-        Me.MetroTextBox1.CustomButton.TabIndex = 1
-        Me.MetroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
-        Me.MetroTextBox1.CustomButton.UseSelectable = True
-        Me.MetroTextBox1.CustomButton.Visible = False
-        Me.MetroTextBox1.Lines = New String(-1) {}
-        Me.MetroTextBox1.Location = New System.Drawing.Point(58, 137)
-        Me.MetroTextBox1.MaxLength = 32767
-        Me.MetroTextBox1.Name = "MetroTextBox1"
-        Me.MetroTextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MetroTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.MetroTextBox1.SelectedText = ""
-        Me.MetroTextBox1.SelectionLength = 0
-        Me.MetroTextBox1.SelectionStart = 0
-        Me.MetroTextBox1.Size = New System.Drawing.Size(216, 23)
-        Me.MetroTextBox1.TabIndex = 0
-        Me.MetroTextBox1.UseSelectable = True
-        Me.MetroTextBox1.WaterMark = "Quantity"
-        Me.MetroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
-        Me.MetroTextBox1.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
+        Me.txtQuantity.CustomButton.Image = Nothing
+        Me.txtQuantity.CustomButton.Location = New System.Drawing.Point(279, 1)
+        Me.txtQuantity.CustomButton.Name = ""
+        Me.txtQuantity.CustomButton.Size = New System.Drawing.Size(21, 21)
+        Me.txtQuantity.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
+        Me.txtQuantity.CustomButton.TabIndex = 1
+        Me.txtQuantity.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
+        Me.txtQuantity.CustomButton.UseSelectable = True
+        Me.txtQuantity.CustomButton.Visible = False
+        Me.txtQuantity.Lines = New String(-1) {}
+        Me.txtQuantity.Location = New System.Drawing.Point(58, 137)
+        Me.txtQuantity.MaxLength = 32767
+        Me.txtQuantity.Name = "txtQuantity"
+        Me.txtQuantity.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtQuantity.ScrollBars = System.Windows.Forms.ScrollBars.None
+        Me.txtQuantity.SelectedText = ""
+        Me.txtQuantity.SelectionLength = 0
+        Me.txtQuantity.SelectionStart = 0
+        Me.txtQuantity.Size = New System.Drawing.Size(301, 23)
+        Me.txtQuantity.TabIndex = 0
+        Me.txtQuantity.UseSelectable = True
+        Me.txtQuantity.WaterMark = "Quantity"
+        Me.txtQuantity.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
+        Me.txtQuantity.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
         '
-        'MetroButton1
+        'btnSet
         '
-        Me.MetroButton1.Location = New System.Drawing.Point(114, 166)
-        Me.MetroButton1.Name = "MetroButton1"
-        Me.MetroButton1.Size = New System.Drawing.Size(75, 23)
-        Me.MetroButton1.TabIndex = 2
-        Me.MetroButton1.Text = "set"
-        Me.MetroButton1.UseSelectable = True
-        '
-        'MetroComboBox1
-        '
-        Me.MetroComboBox1.FormattingEnabled = True
-        Me.MetroComboBox1.ItemHeight = 23
-        Me.MetroComboBox1.Location = New System.Drawing.Point(58, 91)
-        Me.MetroComboBox1.Name = "MetroComboBox1"
-        Me.MetroComboBox1.Size = New System.Drawing.Size(216, 29)
-        Me.MetroComboBox1.TabIndex = 3
-        Me.MetroComboBox1.UseSelectable = True
+        Me.btnSet.Location = New System.Drawing.Point(119, 166)
+        Me.btnSet.Name = "btnSet"
+        Me.btnSet.Size = New System.Drawing.Size(75, 23)
+        Me.btnSet.TabIndex = 2
+        Me.btnSet.Text = "SET"
+        Me.btnSet.UseSelectable = True
         '
         'lblItemID
         '
         Me.lblItemID.AutoSize = True
-        Me.lblItemID.Location = New System.Drawing.Point(58, 29)
+        Me.lblItemID.Location = New System.Drawing.Point(23, 29)
         Me.lblItemID.Name = "lblItemID"
-        Me.lblItemID.Size = New System.Drawing.Size(0, 0)
+        Me.lblItemID.Size = New System.Drawing.Size(20, 19)
         Me.lblItemID.TabIndex = 4
+        Me.lblItemID.Text = "id"
         '
         'lblDescription
         '
         Me.lblDescription.AutoSize = True
-        Me.lblDescription.Location = New System.Drawing.Point(48, 60)
+        Me.lblDescription.Location = New System.Drawing.Point(23, 60)
         Me.lblDescription.Name = "lblDescription"
-        Me.lblDescription.Size = New System.Drawing.Size(0, 0)
+        Me.lblDescription.Size = New System.Drawing.Size(42, 19)
         Me.lblDescription.TabIndex = 4
+        Me.lblDescription.Text = "name"
+        '
+        'MetroButton2
+        '
+        Me.MetroButton2.Location = New System.Drawing.Point(225, 166)
+        Me.MetroButton2.Name = "MetroButton2"
+        Me.MetroButton2.Size = New System.Drawing.Size(75, 23)
+        Me.MetroButton2.TabIndex = 2
+        Me.MetroButton2.Text = "CANCEL"
+        Me.MetroButton2.UseSelectable = True
+        '
+        'cbtype
+        '
+        Me.cbtype.FormattingEnabled = True
+        Me.cbtype.Location = New System.Drawing.Point(71, 101)
+        Me.cbtype.Name = "cbtype"
+        Me.cbtype.Size = New System.Drawing.Size(288, 21)
+        Me.cbtype.TabIndex = 5
+        '
+        'lblType
+        '
+        Me.lblType.AutoSize = True
+        Me.lblType.Location = New System.Drawing.Point(23, 101)
+        Me.lblType.Name = "lblType"
+        Me.lblType.Size = New System.Drawing.Size(51, 19)
+        Me.lblType.TabIndex = 4
+        Me.lblType.Text = "unitype"
+        '
+        'lblfootitemid
+        '
+        Me.lblfootitemid.AutoSize = True
+        Me.lblfootitemid.Location = New System.Drawing.Point(229, 29)
+        Me.lblfootitemid.Name = "lblfootitemid"
+        Me.lblfootitemid.Size = New System.Drawing.Size(46, 19)
+        Me.lblfootitemid.TabIndex = 4
+        Me.lblfootitemid.Text = "itemid"
         '
         'frmFoodQtySelection
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(313, 200)
+        Me.ClientSize = New System.Drawing.Size(400, 200)
+        Me.Controls.Add(Me.cbtype)
+        Me.Controls.Add(Me.lblType)
         Me.Controls.Add(Me.lblDescription)
+        Me.Controls.Add(Me.lblfootitemid)
         Me.Controls.Add(Me.lblItemID)
-        Me.Controls.Add(Me.MetroComboBox1)
-        Me.Controls.Add(Me.MetroButton1)
-        Me.Controls.Add(Me.MetroTextBox1)
+        Me.Controls.Add(Me.MetroButton2)
+        Me.Controls.Add(Me.btnSet)
+        Me.Controls.Add(Me.txtQuantity)
         Me.Name = "frmFoodQtySelection"
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
@@ -113,9 +146,12 @@ Partial Class frmFoodQtySelection
 
     End Sub
 
-    Friend WithEvents MetroTextBox1 As MetroFramework.Controls.MetroTextBox
-    Friend WithEvents MetroButton1 As MetroFramework.Controls.MetroButton
-    Friend WithEvents MetroComboBox1 As MetroFramework.Controls.MetroComboBox
+    Friend WithEvents txtQuantity As MetroFramework.Controls.MetroTextBox
+    Friend WithEvents btnSet As MetroFramework.Controls.MetroButton
     Friend WithEvents lblItemID As MetroFramework.Controls.MetroLabel
     Friend WithEvents lblDescription As MetroFramework.Controls.MetroLabel
+    Friend WithEvents MetroButton2 As MetroFramework.Controls.MetroButton
+    Friend WithEvents cbtype As ComboBox
+    Friend WithEvents lblType As MetroFramework.Controls.MetroLabel
+    Friend WithEvents lblfootitemid As MetroFramework.Controls.MetroLabel
 End Class

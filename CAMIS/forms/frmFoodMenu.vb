@@ -3,6 +3,7 @@
 Public Class frmFoodMenu
     Public Sub New()
         InitializeComponent()
+        itemID.Text = ""
         Try
             objForm = Me
             SqlRefresh = "select itemid, ifnull(`Barcode`,'')Barcode,ifnull(`Description`,'')description,price from `items` where `itemtype` like 2"
@@ -25,7 +26,7 @@ Public Class frmFoodMenu
         SqlRefresh = "select ifnull(`itemid`,'')itemid, ifnull(`barcode`,'')barcode,ifnull(`description`,'')description,ifnull(`price`,'')price from `items` where `itemtype` like 2"
         Dim status, itemtype As New TextBox
         itemtype.Text = "2"
-        If r1.Checked = True Then
+        If available.Checked = True Then
             status.Text = "1"
         Else
 
@@ -48,8 +49,21 @@ Public Class frmFoodMenu
     End Sub
 
     Private Sub ListView1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListView1.MouseDoubleClick
-        Dim mid As String = ListView1.SelectedItems(0).Text.ToString
-        SqlRefresh = "select itemid,barcode,description,price from `items` where itemtype=0"
-        SqlReFill("FMenu", Nothing, "ShowValueInTextbox", {"itemid"}, {itemID}, {itemID, txtBcode, txtName, txtPrice})
+        Dim menuid As String = ListView1.SelectedItems(0).Text.ToString
+        itemID.Text = menuid
+        'SqlRefresh = "select barcode,description,price from `items` where itemid like @itemid"
+        'SqlReFill("FoodMenu", Nothing, "ShowValueInTextbox", {"itemid"}, {itemID}, {txtBcode, txtName, txtPrice})
+        getDSData("select barcode,description,price,salestatus from items where itemid like @0", "foodmenu", {ListView1.SelectedItems(0).Text.ToString})
+        txtBcode.Text = ds.Tables("foodmenu").Rows(0).Item(0).ToString
+        txtName.Text = ds.Tables("foodmenu").Rows(0).Item(1).ToString
+        txtPrice.Text = ds.Tables("foodmenu").Rows(0).Item(2).ToString
+        Select Case ds.Tables("foodmenu").Rows(0).Item(3).ToString
+            Case Is = "0"
+                available.Checked = False
+                avalablenot.Checked = True
+            Case Is = "1"
+                available.Checked = True
+                Exit Select
+        End Select
     End Sub
 End Class

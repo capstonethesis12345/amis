@@ -7,7 +7,8 @@ Public Class frmProduct
         SqlRefresh = "select itemid,barcode,description,category,price from items where itemtype <> 2"
         SqlReFill("items", ListView1)
         ' Add any initialization after the InitializeComponent() call.
-
+        txtItemid.Text = ""
+        lblSaveStatus.Text = ""
     End Sub
     Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
         Me.Dispose()
@@ -34,6 +35,8 @@ Public Class frmProduct
                 SqlRefresh = "select itemid,barcode,description,category,price from items where itemtype <> 2"
                 itemNew("items", {"barcode", "description", "brand", "price", "unitvalue", "unittype", "category", "itemtype", "initialquantity"},
                    txtboxes, ListView1)
+                lblSaveStatus.Text = "SUCCESS"
+                Timer1.Start()
                 For Each t In txtboxes
                     t.text = ""
                 Next
@@ -45,6 +48,8 @@ Public Class frmProduct
             SqlRefresh = "select itemid,barcode,description,category,price from items where itemtype <> 2"
             itemUpdate("items", {"barcode", "description", "brand", "price", "unitvalue", "unittype", "category", "itemtype", "initialquantity"},
                        txtboxes, "itemid", txtItemid.Text, ListView1)
+            lblSaveStatus.Text = "SAVED"
+            Timer1.Start()
             'itemUpdate()
             'txtDescription.Text = ds.Tables("itemBarcode").Rows(0).Item("description").ToString
         End If
@@ -59,20 +64,34 @@ Public Class frmProduct
     Private Sub txtItemid_TextChanged(sender As Object, e As EventArgs) Handles txtItemid.TextChanged
         'SqlRefresh = "select ifnull(barcode,''),ifnull(description,''),ifnull(brand,''),ifnull(price,'0.0'),ifnull(unittype,''),ifnull(category,''),ifnull(initialquantity,'') from items where items.itemid like @itemid"
         'SqlReFill("products", Nothing, "ShowValueInTextbox", {"itemid"}, {txtItemid}, {txtbarcode, txtDescription, txtBrand, txtPrice, txtUnitType, txtCategory, txtInitialStock})
-        getArrStrData("select barcode,description,brand,unitvalue,unittype,category,price,itemtype from items where itemid like @0", "products", {txtItemid.Text})
-        txtbarcode.Text = ds.Tables("products").Rows(0).Item(0).ToString
-        txtDescription.Text = ds.Tables("products").Rows(0).Item(1).ToString
-        txtBrand.Text = ds.Tables("products").Rows(0).Item(2).ToString
-        txtUnitValue.Text = ds.Tables("products").Rows(0).Item(3).ToString
-        txtUnitType.Text = ds.Tables("products").Rows(0).Item(4).ToString
-        txtCategory.Text = ds.Tables("products").Rows(0).Item(5).ToString
-        txtPrice.Text = ds.Tables("products").Rows(0).Item(6).ToString
-        ''MessageBox.Show(ds.Tables("products").Rows(0).Item(7).ToString)
-        If ds.Tables("products").Rows(0).Item(7).ToString = False Then
-            nonIncredient.Checked = True
-        Else
-            ingredient.Checked = True
+        msgShow = False
+        getDSData("select barcode,description,brand,unitvalue,unittype,category,price,itemtype from items where itemid like @0", "products", {txtItemid.Text})
+        If hasError = False Then
+            Try
+                txtbarcode.Text = ds.Tables("products").Rows(0).Item("barcode").ToString
+                txtDescription.Text = ds.Tables("products").Rows(0).Item(1).ToString
+                txtBrand.Text = ds.Tables("products").Rows(0).Item(2).ToString
+                txtUnitValue.Text = ds.Tables("products").Rows(0).Item(3).ToString
+                txtUnitType.Text = ds.Tables("products").Rows(0).Item(4).ToString
+                txtCategory.Text = ds.Tables("products").Rows(0).Item(5).ToString
+                txtPrice.Text = ds.Tables("products").Rows(0).Item(6).ToString
+                ''MessageBox.Show(ds.Tables("products").Rows(0).Item(7).ToString)
+                If ds.Tables("products").Rows(0).Item(7).ToString = False Then
+                    nonIncredient.Checked = True
+                Else
+                    ingredient.Checked = True
+                End If
+            Catch ex As Exception
+
+            End Try
+
         End If
 
+
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        lblSaveStatus.Text = ""
+        Timer1.Stop()
     End Sub
 End Class

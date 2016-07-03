@@ -18,6 +18,7 @@ Module SQLQuery
     Public todate As String = d.ToString("yyyy-MM-dd")
     Public vEmp As String
     Public vUser As String
+    Public hasError As Boolean = False
 
     Public Sub itemAutoComplete(ByVal DataSetName As String, ByVal objAutoCompleteTextBox As Object)
         Try
@@ -242,7 +243,7 @@ Module SQLQuery
         End Try
         Return id
     End Function
-    Public Sub getArrStrData(ByVal sql As String, ByVal dsname As String, Optional ByVal parameterValue As String() = Nothing, Optional isSalesID As Boolean = Nothing)
+    Public Sub getDSData(ByVal sql As String, ByVal dsname As String, Optional ByVal parameterValue As String() = Nothing, Optional isSalesID As Boolean = Nothing)
         ds = New DataSet()
         Dim id As String = ""
         Try
@@ -269,6 +270,7 @@ Module SQLQuery
             If msgShow = True Then
                 MessageBox.Show("Error on getting ID :" & ex.Message.ToString, "Waring notice")
             End If
+            hasError = True
         Finally
             DisconnDB()
         End Try
