@@ -1,6 +1,6 @@
 ﻿Public Class fMainForm
     Public loading As Boolean = False
-    Dim status As String
+
     Public Sub New()
 
         ' This call is required by the designer.

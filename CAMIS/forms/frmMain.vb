@@ -152,4 +152,8 @@ Public Class frmMain
     Private Sub DTRToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles DTRToolStripMenuItem.Click
         frmDTR.ShowDialog()
     End Sub
+
+    Private Sub AccountToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AccountToolStripMenuItem.Click
+        openFull(frmAccounts)
+    End Sub
 End Class

@@ -1,4 +1,5 @@
 ﻿Module ProgramFunctions
+    Public status As String
     Sub clearField(ByVal objectNames As Object())
         Try
             For Each txt In objectNames
@@ -11,7 +12,6 @@
                 Else
                     txt.text = ""
                 End If
-
             Next
         Catch ex As Exception
             MessageBox.Show("All textfield were empty already.")
