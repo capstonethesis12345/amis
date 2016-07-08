@@ -108,6 +108,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="forms\frmSaleTransaction.Designer.vb">
+      <DependentUpon>frmSaleTransaction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmSaleTransaction.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="forms\frmAccounts.Designer.vb">
       <DependentUpon>frmAccounts.vb</DependentUpon>
     </Compile>
@@ -321,6 +327,9 @@
     <EmbeddedResource Include="fMainForm.resx">
       <DependentUpon>fMainForm.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmSaleTransaction.resx">
+      <DependentUpon>frmSaleTransaction.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmAccounts.resx">
       <DependentUpon>frmAccounts.vb</DependentUpon>

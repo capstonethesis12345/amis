@@ -48,6 +48,7 @@ Class frmSales
         Label11.Text = getIDFunction("select customerid from customers where customername like @0", "customerid", {cbCustomer.Text})
         SqlRefresh = "SELECT i.description,o.quantity,i.price,(o.quantity*i.price)totalamnt FROM `orderline` o left join items i on i.itemid=o.itemid where o.orderid='" & txtOrderNum.Text & "'"
         SqlReFill("orders", ListItems)
+        txtTotal.Text = computeSum()
     End Sub
 
     Private Sub txtProduct_Click(sender As Object, e As EventArgs)
@@ -96,8 +97,9 @@ Class frmSales
         itemNew("orderline", {"orderid", "itemid", "buildid", "quantity"}, {txtOrderNum, lblItemid, lblBuildID, txtQuantity}, ListItems)
         txtTotal.Text = computeSum()
     End Sub
+    Public total As Double = 0.0
     Private Function computeSum()
-        Dim total As Double = 0.0
+        total = 0.0
         For Each row In ListItems.Items
             total += Double.Parse(row.subitems(3).text)
         Next
@@ -112,24 +114,45 @@ Class frmSales
         msgShow = False
         Label1.Text = getStrData("select customerid from customers where customername like @0", "customers", {cbCustomer.Text})
     End Sub
-
+    Public transact As Boolean = False
+    Dim totalAmount As Double = 0.0
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        If txtPaid.Text = vbNullString Then
+            MessageBox.Show("Cash amount required.")
+            Exit Sub
+        End If
+
         Dim total As Double = 0.0
         For Each row In ListItems.Items
             total += Double.Parse(row.subitems(3).text)
         Next
         Dim totalAmt As New TextBox
         totalAmt.Text = total.ToString
-        Dim regDate As DateTime = DateTime.Now
-        Dim strDate As String = regDate.ToString("yyyy-MM-dd HH:mm:ss")
-        Dim ostrDate As New TextBox
-        ostrDate.Text = strDate
-        Dim orderStatus As New TextBox
-        orderStatus.Text = "1"
-        itemUpdate("`order`", {"customerid", "total", "orderdate", "orderstatus"}, {Label11, totalAmt, ostrDate, orderStatus}, "orderid", txtOrderNum.Text)
-        Me.Controls.Clear() 'removes all the controls on the form
-        InitializeComponent() 'load all the controls again
-        frmPOS_Load(e, e) 'Load everything in your form load event again
+        totalAmount = Convert.ToDouble(totalAmt.Text)
+
+        If txtPaid.Text >= totalAmount Then
+
+            Dim change As Double = Convert.ToDouble(txtPaid.Text) - totalAmount
+            change.ToString("C", Globalization.CultureInfo.GetCultureInfo("en-PH"))
+            MessageBox.Show("Total change: " & change.ToString)
+
+            'frmSaleTransaction.ShowDialog()
+
+
+
+            Dim regDate As DateTime = DateTime.Now
+            Dim strDate As String = regDate.ToString("yyyy-MM-dd HH:mm:ss")
+            Dim ostrDate As New TextBox
+            ostrDate.Text = strDate
+            Dim orderStatus As New TextBox
+            orderStatus.Text = "1"
+            itemUpdate("`order`", {"customerid", "total", "orderdate", "orderstatus"}, {Label11, totalAmt, ostrDate, orderStatus}, "orderid", txtOrderNum.Text)
+            Me.Controls.Clear() 'removes all the controls on the form
+            InitializeComponent() 'load all the controls again
+            frmPOS_Load(e, e) 'Load everything in your form load event again
+
+
+        End If
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click

@@ -30,16 +30,17 @@
         Me.Dispose()
     End Sub
 
-
     Private Sub MetroButton1_Click(sender As Object, e As EventArgs) Handles btnSet.Click
-        'CHECK IF FOODITEMID AND INGREDIENT ID EXISTED IN FOODINGREDIENT TABLE
         Dim getExistence As Integer = getIDFunction("select count(ingredientid) from foodingredient where foodid like @0 and itemid like @1", "hasIngredient", {lblfootitemid.Text, lblItemID.Text})
-        '    MessageBox.Show("existed " & getExistence.ToString)
         If getExistence = 0 Then
-            itemNew("foodingredient", {"foodid", "itemid", "quantity"}, {lblfootitemid, lblItemID, txtQuantity})
+            itemNew("foodingredient", {"foodid", "itemid", "quantity", "unit"}, {lblfootitemid, lblItemID, txtQuantity, cbtype})
         Else
             Dim getIngredientID As Integer = getIDFunction("select ingredientid from foodingredient where foodid like @0 and itemid like @1", "ingredientid", {lblfootitemid.Text, lblItemID.Text})
-            itemUpdate("foodingredient", {"quantity"}, {txtQuantity}, "ingredientid", getIngredientID)
+            itemUpdate("foodingredient", {"quantity", "unit"}, {txtQuantity, cbtype}, "ingredientid", getIngredientID)
         End If
+        frmFood.ListView2.Items.Clear()
+        SqlRefresh = "select f.ingredientid,i.itemid,i.description,f.unit,f.quantity from items i left join foodingredient f on f.itemid=i.itemid where f.foodid like '" & frmFood.lblFoodItemID.Text & "'"
+        SqlReFill("ingredients", frmFood.ListView2)
+        'frmFood.ListView1.SelectedItems(0).Remove()
     End Sub
 End Class

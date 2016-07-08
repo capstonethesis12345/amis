@@ -30,42 +30,55 @@
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        If txtMenuName.Text = vbNullString Then
-            MessageBox.Show("Provide product name")
-            Exit Sub
-        End If
-        SqlRefresh = sqlFoodName
-        Dim type As New TextBox
-        type.Text = 2
-        'TO PREVENT ERROR
-        'CHECK EXISTENCE ITEMID
-        Dim isItemIDExists As Integer = getIDFunction("select count(itemid) from items where itemid like @0", "itemid", {lblFoodItemID.Text})
+        '   If txtMenuName.Text = vbNullString Then
+        '   MessageBox.Show("Provide product name")
+        '   Exit Sub
+        '   End If
+        '  SqlRefresh = sqlFoodName
+        '  Dim type As New TextBox
+        '   Type.Text = 2
+        '  Dim isItemIDExists As Integer = getIDFunction("select count(itemid) from items where itemid like @0", "itemid", {lblFoodItemID.Text})
+        ''
+        'If isItemIDExists = 0 Then
+        'itemNew("items", {"Barcode", "Description", "Price", "ItemType"}, {txtBarcode, txtMenuName, txtPrice, type})
+        ''Else
+        '
+        '       End If
+        ''       Dim fid As New TextBox
+        '       msgShow = False
+        '      fid.Text = getStrData("SELECT itemid FROM items where description like @0", "foodIngredientList", {txtMenuName.Text})
+        ''
+        'If ListView2.Items.Count > 0 Then
+        ' For i As Integer = 0 To ListView2.Items.Count - 1
+        '
+        'Dim ing As New TextBox
+        ' ing.Text = ListView2.Items(i).SubItems(0).Text
+        'Dim txt As New TextBox
+        'txt.Text = ListView2.Items(i).SubItems(2).Text
+        '
+        ''       msgShow = False
+        '       itemNew("foodingredient", {"foodid", "itemid", "quantity"}, {fid, ing, txt})
+        '
+        ''Next
+        'End If
 
-        If isItemIDExists = 0 Then
-            itemNew("items", {"Barcode", "Description", "Price", "ItemType"}, {txtBarcode, txtMenuName, txtPrice, type})
-        Else
+        'SqlRefresh = sqlFoodName
+        'SqlReFill("items", ListView3)
+        Dim cIngredient As Integer = 0
+        cIngredient = ListView2.Items.Count
+        For i = 0 To cIngredient - 1
+            Dim fid As New TextBox
+            msgShow = False
+            Dim ing As New TextBox
+            ing.Text = ListView2.Items(i).SubItems(0).Text
+            Dim txt As New TextBox
+            txt.Text = ListView2.Items(i).SubItems(2).Text
 
-        End If
-        Dim fid As New TextBox
-        msgShow = False
-        fid.Text = getStrData("SELECT itemid FROM items where description like @0", "foodIngredientList", {txtMenuName.Text})
+            fid.Text = getStrData("SELECT itemid FROM items where description like @0", "foodIngredientList", {txtMenuName.Text})
+            itemNew("foodingredient", {"foodid", "itemid", "quantity"}, {fid, ing, txt})
 
-        If ListView2.Items.Count > 0 Then
-            For i As Integer = 0 To ListView2.Items.Count - 1
+        Next
 
-                Dim ing As New TextBox
-                ing.Text = ListView2.Items(i).SubItems(0).Text
-                Dim txt As New TextBox
-                txt.Text = ListView2.Items(i).SubItems(2).Text
-
-                msgShow = False
-                itemNew("foodingredient", {"foodid", "itemid", "quantity"}, {fid, ing, txt})
-
-            Next
-        End If
-
-        SqlRefresh = sqlFoodName
-        SqlReFill("items", ListView3)
 
     End Sub
 
@@ -153,6 +166,10 @@
     End Sub
 
     Private Sub ListView3_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListView3.MouseDoubleClick
+
+    End Sub
+
+    Private Sub Panel5_Paint(sender As Object, e As PaintEventArgs) Handles Panel5.Paint
 
     End Sub
 End Class

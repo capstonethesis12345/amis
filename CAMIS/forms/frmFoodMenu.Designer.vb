@@ -31,8 +31,6 @@ Partial Class frmFoodMenu
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
-        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtBcode = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -41,13 +39,15 @@ Partial Class frmFoodMenu
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.available = New System.Windows.Forms.RadioButton()
-        Me.avalablenot = New System.Windows.Forms.RadioButton()
+        Me.outofstock = New System.Windows.Forms.RadioButton()
         Me.lblStatus = New System.Windows.Forms.Label()
         Me.itemID = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtPrice = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -110,24 +110,6 @@ Partial Class frmFoodMenu
         Me.ToolStripLabel1.Name = "ToolStripLabel1"
         Me.ToolStripLabel1.Size = New System.Drawing.Size(16, 37)
         Me.ToolStripLabel1.Text = "   "
-        '
-        'ToolStripButton2
-        '
-        Me.ToolStripButton2.AutoSize = False
-        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
-        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(65, 40)
-        Me.ToolStripButton2.Text = "&Search"
-        '
-        'ToolStripButton1
-        '
-        Me.ToolStripButton1.AutoSize = False
-        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(65, 40)
-        Me.ToolStripButton1.Text = "Clos&e"
         '
         'Label1
         '
@@ -192,7 +174,7 @@ Partial Class frmFoodMenu
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.available)
-        Me.GroupBox1.Controls.Add(Me.avalablenot)
+        Me.GroupBox1.Controls.Add(Me.outofstock)
         Me.GroupBox1.Location = New System.Drawing.Point(38, 201)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(341, 44)
@@ -212,16 +194,16 @@ Partial Class frmFoodMenu
         Me.available.Text = "AVAILABLE"
         Me.available.UseVisualStyleBackColor = True
         '
-        'avalablenot
+        'outofstock
         '
-        Me.avalablenot.AutoSize = True
-        Me.avalablenot.Location = New System.Drawing.Point(187, 19)
-        Me.avalablenot.Name = "avalablenot"
-        Me.avalablenot.Size = New System.Drawing.Size(104, 17)
-        Me.avalablenot.TabIndex = 0
-        Me.avalablenot.TabStop = True
-        Me.avalablenot.Text = "OUT OF STOCK"
-        Me.avalablenot.UseVisualStyleBackColor = True
+        Me.outofstock.AutoSize = True
+        Me.outofstock.Location = New System.Drawing.Point(187, 19)
+        Me.outofstock.Name = "outofstock"
+        Me.outofstock.Size = New System.Drawing.Size(104, 17)
+        Me.outofstock.TabIndex = 0
+        Me.outofstock.TabStop = True
+        Me.outofstock.Text = "OUT OF STOCK"
+        Me.outofstock.UseVisualStyleBackColor = True
         '
         'lblStatus
         '
@@ -277,6 +259,24 @@ Partial Class frmFoodMenu
         Me.Panel2.Size = New System.Drawing.Size(678, 446)
         Me.Panel2.TabIndex = 38
         '
+        'ToolStripButton2
+        '
+        Me.ToolStripButton2.AutoSize = False
+        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
+        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton2.Name = "ToolStripButton2"
+        Me.ToolStripButton2.Size = New System.Drawing.Size(65, 40)
+        Me.ToolStripButton2.Text = "&Search"
+        '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.AutoSize = False
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(65, 40)
+        Me.ToolStripButton1.Text = "Clos&e"
+        '
         'frmFoodMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -320,7 +320,7 @@ Partial Class frmFoodMenu
     Friend WithEvents Button1 As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents available As RadioButton
-    Friend WithEvents avalablenot As RadioButton
+    Friend WithEvents outofstock As RadioButton
     Friend WithEvents ColumnHeader3 As ColumnHeader
     Friend WithEvents itemID As Label
     Friend WithEvents Label3 As Label

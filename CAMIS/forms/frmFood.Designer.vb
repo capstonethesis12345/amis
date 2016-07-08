@@ -25,6 +25,7 @@ Partial Class frmFood
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ListView2 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ItemID = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Description = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Quantity = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -50,11 +51,10 @@ Partial Class frmFood
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.lblStatus = New System.Windows.Forms.Label()
         Me.lblFoodItemID = New System.Windows.Forms.Label()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.lblStatus = New System.Windows.Forms.Label()
-        Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
@@ -102,6 +102,10 @@ Partial Class frmFood
         Me.ListView2.TabIndex = 1
         Me.ListView2.UseCompatibleStateImageBehavior = False
         Me.ListView2.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader7
+        '
+        Me.ColumnHeader7.Text = "ID"
         '
         'ItemID
         '
@@ -381,7 +385,7 @@ Partial Class frmFood
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.ForeColor = System.Drawing.SystemColors.ControlLight
-        Me.Button4.Location = New System.Drawing.Point(340, 120)
+        Me.Button4.Location = New System.Drawing.Point(317, 120)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 44)
         Me.Button4.TabIndex = 19
@@ -416,6 +420,15 @@ Partial Class frmFood
         Me.Panel6.Size = New System.Drawing.Size(514, 185)
         Me.Panel6.TabIndex = 25
         '
+        'lblStatus
+        '
+        Me.lblStatus.AutoSize = True
+        Me.lblStatus.Location = New System.Drawing.Point(17, 17)
+        Me.lblStatus.Name = "lblStatus"
+        Me.lblStatus.Size = New System.Drawing.Size(48, 13)
+        Me.lblStatus.TabIndex = 20
+        Me.lblStatus.Text = "lblItemID"
+        '
         'lblFoodItemID
         '
         Me.lblFoodItemID.AutoSize = True
@@ -433,9 +446,9 @@ Partial Class frmFood
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClear.ForeColor = System.Drawing.SystemColors.ControlLight
-        Me.btnClear.Location = New System.Drawing.Point(259, 120)
+        Me.btnClear.Location = New System.Drawing.Point(212, 120)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(75, 44)
+        Me.btnClear.Size = New System.Drawing.Size(86, 44)
         Me.btnClear.TabIndex = 19
         Me.btnClear.Text = "Clear"
         Me.btnClear.UseVisualStyleBackColor = False
@@ -449,19 +462,6 @@ Partial Class frmFood
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(514, 416)
         Me.Panel7.TabIndex = 26
-        '
-        'lblStatus
-        '
-        Me.lblStatus.AutoSize = True
-        Me.lblStatus.Location = New System.Drawing.Point(17, 17)
-        Me.lblStatus.Name = "lblStatus"
-        Me.lblStatus.Size = New System.Drawing.Size(48, 13)
-        Me.lblStatus.TabIndex = 20
-        Me.lblStatus.Text = "lblItemID"
-        '
-        'ColumnHeader7
-        '
-        Me.ColumnHeader7.Text = "ID"
         '
         'frmFood
         '

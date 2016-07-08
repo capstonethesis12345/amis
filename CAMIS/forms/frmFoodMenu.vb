@@ -1,12 +1,13 @@
 ﻿Imports MySql.Data
 
 Public Class frmFoodMenu
+    Dim vRefresh As String = "select itemid, ifnull(`Barcode`,'')Barcode,ifnull(`Description`,'')description,price from `items` where `itemtype` like 2"
     Public Sub New()
         InitializeComponent()
         itemID.Text = ""
         Try
             objForm = Me
-            SqlRefresh = "select itemid, ifnull(`Barcode`,'')Barcode,ifnull(`Description`,'')description,price from `items` where `itemtype` like 2"
+            SqlRefresh = vRefresh
             SqlReFill("itemsDetails", ListView1)
         Catch ex As Exception
             MessageBox.Show("Error in establishing connection in category form" & ex.Message.ToString, "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -19,6 +20,23 @@ Public Class frmFoodMenu
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If itemID.Text = vbNullString Then
+            subitemadd()
+        Else
+            subitemupdate()
+        End If
+    End Sub
+    Sub subitemupdate()
+        Dim salestauts As New TextBox
+        If available.Checked = True Then
+            salestauts.Text = "1"
+        Else
+            salestauts.Text = "0"
+        End If
+        SqlRefresh = vRefresh
+        itemUpdate("items", {"price", "salestatus"}, {txtPrice, available}, "itemid", itemID.Text, ListView1)
+    End Sub
+    Sub subitemadd()
         If txtBcode.Text = vbNullString And txtName.Text = vbNullString Then
             MessageBox.Show("Food menu and barcode required.")
             Exit Sub
@@ -39,13 +57,7 @@ Public Class frmFoodMenu
             txtName.Text = ds.Tables("checkFoodExistence").Rows(0).Item("description").ToString
         Else
             itemNew("items", {"barcode", "description", "price", "salestatus", "itemtype"}, {txtBcode, txtName, txtPrice, status, itemtype}, ListView1)
-
         End If
-
-
-
-
-
     End Sub
 
     Private Sub ListView1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListView1.MouseDoubleClick
@@ -60,7 +72,7 @@ Public Class frmFoodMenu
         Select Case ds.Tables("foodmenu").Rows(0).Item(3).ToString
             Case Is = "0"
                 available.Checked = False
-                avalablenot.Checked = True
+                outofstock.Checked = True
             Case Is = "1"
                 available.Checked = True
                 Exit Select
