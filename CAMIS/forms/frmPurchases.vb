@@ -471,7 +471,7 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
         End If
         Return type
     End Function
-    Function isItemExisted(ByVal itemid As String)
+    Function isItemExisted(ByVal itemid As String) As Boolean
         Dim isErrOccured As Boolean = False
         Dim id As String = getStrData("select ifnull(itemid,max(itemid)) from items where barcode like @0 and description like @1", "itemsName", {txtBarcode.Text, txtProductName.Text})
         If id = vbNullString Then

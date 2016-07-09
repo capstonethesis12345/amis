@@ -1,7 +1,7 @@
 ﻿Imports MySql.Data
 
 Public Class frmFoodMenu
-    Dim vRefresh As String = "select itemid, ifnull(`Barcode`,'')Barcode,ifnull(`Description`,'')description,price from `items` where `itemtype` like 2"
+    Dim vRefresh As String = "select itemid, ifnull(`Barcode`,'')Barcode,ifnull(`Description`,'')description,price,if(salestatus=1,'Available','Out of Stock')salestatus from `items` where `itemtype` like 2"
     Public Sub New()
         InitializeComponent()
         itemID.Text = ""

@@ -52,6 +52,7 @@ Partial Class frmFood
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.lblStatus = New System.Windows.Forms.Label()
+        Me.lblFoodBuildID = New System.Windows.Forms.Label()
         Me.lblFoodItemID = New System.Windows.Forms.Label()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.Panel7 = New System.Windows.Forms.Panel()
@@ -73,7 +74,7 @@ Partial Class frmFood
         Me.ListView1.GridLines = True
         Me.ListView1.Location = New System.Drawing.Point(0, 32)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(251, 470)
+        Me.ListView1.Size = New System.Drawing.Size(245, 470)
         Me.ListView1.TabIndex = 0
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
@@ -98,7 +99,7 @@ Partial Class frmFood
         Me.ListView2.GridLines = True
         Me.ListView2.Location = New System.Drawing.Point(0, 30)
         Me.ListView2.Name = "ListView2"
-        Me.ListView2.Size = New System.Drawing.Size(411, 465)
+        Me.ListView2.Size = New System.Drawing.Size(382, 465)
         Me.ListView2.TabIndex = 1
         Me.ListView2.UseCompatibleStateImageBehavior = False
         Me.ListView2.View = System.Windows.Forms.View.Details
@@ -106,16 +107,17 @@ Partial Class frmFood
         'ColumnHeader7
         '
         Me.ColumnHeader7.Text = "ID"
+        Me.ColumnHeader7.Width = 33
         '
         'ItemID
         '
         Me.ItemID.Text = "ItemID"
-        Me.ItemID.Width = 79
+        Me.ItemID.Width = 56
         '
         'Description
         '
         Me.Description.Text = "Description"
-        Me.Description.Width = 140
+        Me.Description.Width = 126
         '
         'Quantity
         '
@@ -133,9 +135,9 @@ Partial Class frmFood
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListView3.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6})
         Me.ListView3.FullRowSelect = True
-        Me.ListView3.Location = New System.Drawing.Point(55, 38)
+        Me.ListView3.Location = New System.Drawing.Point(0, 38)
         Me.ListView3.Name = "ListView3"
-        Me.ListView3.Size = New System.Drawing.Size(403, 356)
+        Me.ListView3.Size = New System.Drawing.Size(381, 361)
         Me.ListView3.TabIndex = 2
         Me.ListView3.UseCompatibleStateImageBehavior = False
         Me.ListView3.View = System.Windows.Forms.View.Details
@@ -160,7 +162,7 @@ Partial Class frmFood
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI Semilight", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.DarkSlateGray
-        Me.Label1.Location = New System.Drawing.Point(72, 2)
+        Me.Label1.Location = New System.Drawing.Point(69, 2)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(97, 20)
         Me.Label1.TabIndex = 3
@@ -184,7 +186,7 @@ Partial Class frmFood
         Me.Label3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(98, 9)
+        Me.Label3.Location = New System.Drawing.Point(3, 22)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(34, 13)
         Me.Label3.TabIndex = 5
@@ -193,7 +195,7 @@ Partial Class frmFood
         'Button1
         '
         Me.Button1.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.Button1.Location = New System.Drawing.Point(9, 14)
+        Me.Button1.Location = New System.Drawing.Point(49, 2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(44, 23)
         Me.Button1.TabIndex = 6
@@ -203,7 +205,7 @@ Partial Class frmFood
         'Button2
         '
         Me.Button2.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.Button2.Location = New System.Drawing.Point(9, 50)
+        Me.Button2.Location = New System.Drawing.Point(3, 3)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(44, 23)
         Me.Button2.TabIndex = 7
@@ -214,9 +216,9 @@ Partial Class frmFood
         '
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.Button2)
-        Me.Panel1.Location = New System.Drawing.Point(257, 239)
+        Me.Panel1.Location = New System.Drawing.Point(210, 56)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(62, 100)
+        Me.Panel1.Size = New System.Drawing.Size(96, 32)
         Me.Panel1.TabIndex = 18
         '
         'txtBarcode
@@ -227,7 +229,7 @@ Partial Class frmFood
         '
         '
         Me.txtBarcode.CustomButton.Image = Nothing
-        Me.txtBarcode.CustomButton.Location = New System.Drawing.Point(457, 1)
+        Me.txtBarcode.CustomButton.Location = New System.Drawing.Point(336, 1)
         Me.txtBarcode.CustomButton.Name = ""
         Me.txtBarcode.CustomButton.Size = New System.Drawing.Size(21, 21)
         Me.txtBarcode.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
@@ -244,7 +246,7 @@ Partial Class frmFood
         Me.txtBarcode.SelectedText = ""
         Me.txtBarcode.SelectionLength = 0
         Me.txtBarcode.SelectionStart = 0
-        Me.txtBarcode.Size = New System.Drawing.Size(479, 23)
+        Me.txtBarcode.Size = New System.Drawing.Size(358, 23)
         Me.txtBarcode.TabIndex = 17
         Me.txtBarcode.UseSelectable = True
         Me.txtBarcode.WaterMark = "Barcode"
@@ -259,7 +261,7 @@ Partial Class frmFood
         '
         '
         Me.txtMenuName.CustomButton.Image = Nothing
-        Me.txtMenuName.CustomButton.Location = New System.Drawing.Point(457, 1)
+        Me.txtMenuName.CustomButton.Location = New System.Drawing.Point(336, 1)
         Me.txtMenuName.CustomButton.Name = ""
         Me.txtMenuName.CustomButton.Size = New System.Drawing.Size(21, 21)
         Me.txtMenuName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
@@ -276,7 +278,7 @@ Partial Class frmFood
         Me.txtMenuName.SelectedText = ""
         Me.txtMenuName.SelectionLength = 0
         Me.txtMenuName.SelectionStart = 0
-        Me.txtMenuName.Size = New System.Drawing.Size(479, 23)
+        Me.txtMenuName.Size = New System.Drawing.Size(358, 23)
         Me.txtMenuName.TabIndex = 17
         Me.txtMenuName.UseSelectable = True
         Me.txtMenuName.WaterMark = "Menu Name"
@@ -291,7 +293,7 @@ Partial Class frmFood
         '
         '
         Me.txtPrice.CustomButton.Image = Nothing
-        Me.txtPrice.CustomButton.Location = New System.Drawing.Point(457, 1)
+        Me.txtPrice.CustomButton.Location = New System.Drawing.Point(336, 1)
         Me.txtPrice.CustomButton.Name = ""
         Me.txtPrice.CustomButton.Size = New System.Drawing.Size(21, 21)
         Me.txtPrice.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
@@ -309,7 +311,7 @@ Partial Class frmFood
         Me.txtPrice.SelectionLength = 0
         Me.txtPrice.SelectionStart = 0
         Me.txtPrice.ShowClearButton = True
-        Me.txtPrice.Size = New System.Drawing.Size(479, 23)
+        Me.txtPrice.Size = New System.Drawing.Size(358, 23)
         Me.txtPrice.TabIndex = 17
         Me.txtPrice.UseSelectable = True
         Me.txtPrice.WaterMark = "Price"
@@ -324,7 +326,7 @@ Partial Class frmFood
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSave.ForeColor = System.Drawing.SystemColors.ControlLight
-        Me.btnSave.Location = New System.Drawing.Point(421, 119)
+        Me.btnSave.Location = New System.Drawing.Point(300, 119)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 44)
         Me.btnSave.TabIndex = 19
@@ -337,7 +339,7 @@ Partial Class frmFood
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1271, 7)
+        Me.Panel2.Size = New System.Drawing.Size(1028, 7)
         Me.Panel2.TabIndex = 20
         '
         'Label4
@@ -345,7 +347,7 @@ Partial Class frmFood
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI Light", 21.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Label4.Location = New System.Drawing.Point(3, 16)
+        Me.Label4.Location = New System.Drawing.Point(3, 13)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(327, 40)
         Me.Label4.TabIndex = 21
@@ -353,28 +355,26 @@ Partial Class frmFood
         '
         'Panel3
         '
-        Me.Panel3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel3.BackColor = System.Drawing.Color.PowderBlue
         Me.Panel3.Controls.Add(Me.ListView2)
         Me.Panel3.Controls.Add(Me.Label2)
-        Me.Panel3.Location = New System.Drawing.Point(323, 89)
+        Me.Panel3.Location = New System.Drawing.Point(250, 88)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(411, 495)
+        Me.Panel3.Size = New System.Drawing.Size(382, 495)
         Me.Panel3.TabIndex = 22
         '
         'Panel4
         '
-        Me.Panel4.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel4.BackColor = System.Drawing.Color.PowderBlue
         Me.Panel4.Controls.Add(Me.ListView1)
         Me.Panel4.Controls.Add(Me.Label1)
         Me.Panel4.Location = New System.Drawing.Point(3, 87)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(251, 502)
+        Me.Panel4.Size = New System.Drawing.Size(245, 502)
         Me.Panel4.TabIndex = 23
         '
         'Button4
@@ -385,11 +385,11 @@ Partial Class frmFood
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.ForeColor = System.Drawing.SystemColors.ControlLight
-        Me.Button4.Location = New System.Drawing.Point(317, 120)
+        Me.Button4.Location = New System.Drawing.Point(358, -7)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 44)
+        Me.Button4.Size = New System.Drawing.Size(34, 28)
         Me.Button4.TabIndex = 19
-        Me.Button4.Text = "Close"
+        Me.Button4.Text = "x"
         Me.Button4.UseVisualStyleBackColor = False
         '
         'Panel5
@@ -398,26 +398,28 @@ Partial Class frmFood
         Me.Panel5.Controls.Add(Me.Panel4)
         Me.Panel5.Controls.Add(Me.Panel1)
         Me.Panel5.Controls.Add(Me.Panel3)
-        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel5.Location = New System.Drawing.Point(0, 7)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(757, 601)
+        Me.Panel5.Size = New System.Drawing.Size(1028, 601)
         Me.Panel5.TabIndex = 24
         '
         'Panel6
         '
+        Me.Panel6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel6.Controls.Add(Me.lblStatus)
+        Me.Panel6.Controls.Add(Me.lblFoodBuildID)
         Me.Panel6.Controls.Add(Me.lblFoodItemID)
         Me.Panel6.Controls.Add(Me.btnSave)
-        Me.Panel6.Controls.Add(Me.txtBarcode)
-        Me.Panel6.Controls.Add(Me.txtMenuName)
         Me.Panel6.Controls.Add(Me.btnClear)
+        Me.Panel6.Controls.Add(Me.txtBarcode)
         Me.Panel6.Controls.Add(Me.Button4)
+        Me.Panel6.Controls.Add(Me.txtMenuName)
         Me.Panel6.Controls.Add(Me.txtPrice)
-        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel6.Location = New System.Drawing.Point(757, 7)
+        Me.Panel6.Location = New System.Drawing.Point(635, 7)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(514, 185)
+        Me.Panel6.Size = New System.Drawing.Size(393, 185)
         Me.Panel6.TabIndex = 25
         '
         'lblStatus
@@ -429,10 +431,19 @@ Partial Class frmFood
         Me.lblStatus.TabIndex = 20
         Me.lblStatus.Text = "lblItemID"
         '
+        'lblFoodBuildID
+        '
+        Me.lblFoodBuildID.AutoSize = True
+        Me.lblFoodBuildID.Location = New System.Drawing.Point(17, 137)
+        Me.lblFoodBuildID.Name = "lblFoodBuildID"
+        Me.lblFoodBuildID.Size = New System.Drawing.Size(72, 13)
+        Me.lblFoodBuildID.TabIndex = 20
+        Me.lblFoodBuildID.Text = "lblFoodItemID"
+        '
         'lblFoodItemID
         '
         Me.lblFoodItemID.AutoSize = True
-        Me.lblFoodItemID.Location = New System.Drawing.Point(17, 133)
+        Me.lblFoodItemID.Location = New System.Drawing.Point(17, 120)
         Me.lblFoodItemID.Name = "lblFoodItemID"
         Me.lblFoodItemID.Size = New System.Drawing.Size(72, 13)
         Me.lblFoodItemID.TabIndex = 20
@@ -441,12 +452,12 @@ Partial Class frmFood
         'btnClear
         '
         Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnClear.BackColor = System.Drawing.Color.SkyBlue
+        Me.btnClear.BackColor = System.Drawing.Color.LightSlateGray
         Me.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClear.ForeColor = System.Drawing.SystemColors.ControlLight
-        Me.btnClear.Location = New System.Drawing.Point(212, 120)
+        Me.btnClear.Location = New System.Drawing.Point(208, 120)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(86, 44)
         Me.btnClear.TabIndex = 19
@@ -455,19 +466,20 @@ Partial Class frmFood
         '
         'Panel7
         '
+        Me.Panel7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel7.Controls.Add(Me.ListView3)
         Me.Panel7.Controls.Add(Me.Label3)
-        Me.Panel7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel7.Location = New System.Drawing.Point(757, 192)
+        Me.Panel7.Location = New System.Drawing.Point(635, 187)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(514, 416)
+        Me.Panel7.Size = New System.Drawing.Size(393, 421)
         Me.Panel7.TabIndex = 26
         '
         'frmFood
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1271, 608)
+        Me.ClientSize = New System.Drawing.Size(1028, 608)
         Me.ControlBox = False
         Me.Controls.Add(Me.Panel7)
         Me.Controls.Add(Me.Panel6)
@@ -527,4 +539,5 @@ Partial Class frmFood
     Friend WithEvents btnClear As Button
     Friend WithEvents lblStatus As Label
     Friend WithEvents ColumnHeader7 As ColumnHeader
+    Friend WithEvents lblFoodBuildID As Label
 End Class
