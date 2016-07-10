@@ -4,7 +4,7 @@ Public Class frmProduct
 
         ' This call is required by the designer.
         InitializeComponent()
-        SqlRefresh = "select itemid,barcode,description,category,price from items where itemtype <> 2"
+        SqlRefresh = "SELECT i.itemid, i.barcode, i.description, i.category, i.price, (select sum(quantity) from polist where polist.itemid=i.itemid and polist.postatus=1)FROM ITEMS i LEFT JOIN POLIST l ON i.itemid = l.itemid where i.itemtype<>2 GROUP BY i.description LIMIT 0 , 30"
         SqlReFill("items", ListView1)
         ' Add any initialization after the InitializeComponent() call.
         txtItemid.Text = ""

@@ -225,7 +225,7 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
             Dim getBarcode As String
             Try
                 msgShow = False
-                getBarcode = getStrData("select ifnull(itemid,0)itemid from items where barcode like @0 and itemtype = 0 or itemtype = 1", "Barcode", {txtBarcode.Text})
+                getBarcode = getStrData("select ifnull(itemid,0)itemid from items where barcode like @0 and itemtype <> 2", "Barcode", {txtBarcode.Text})
                 If getBarcode = 0 Then
                     insertProduct = True
                     Exit Sub
@@ -376,6 +376,9 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
             Dim ddate As New TextBox
             ddate.Text = Date.Now.ToString("yyyy-MM-dd")
             itemUpdate("po", {"Status", "podeliverydate"}, {tstatus, ddate}, "poid", lblPONum.Text)
+            Dim status As New TextBox
+            status.Text = "1"
+
             SqlRefresh = vRefresh
             '   SqlReFill("po", ListView1)
             SqlRefresh = vRefresh
@@ -423,7 +426,7 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
             sid.Text = getStrData("select supplierid from supplier where company like @0", "supplier", {txtSupplier.Text})
             itemUpdate("po", {"supplierid", "podate"}, {sid, podate}, "poid", lblPONum.Text)
 
-            If lblItemID.Text = vbNullString Then
+            If lblItemID.Text = vbNullString Or lblItemID.Text = "0" Then
                 Dim unittype As New TextBox
                 unittype.Text = getUnitTypeValue()
                 Dim producttype As New TextBox
@@ -465,9 +468,9 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
     Function getProductType()
         Dim type As String = ""
         If nonIngredient.Checked = True Then
-            type = "1"
-        Else
             type = "0"
+        Else
+            type = "1"
         End If
         Return type
     End Function
@@ -496,11 +499,11 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
             groupProductType.Enabled = True
             groupUnit.Enabled = True
             With txtProductName
-                .Enabled = True
+                .ReadOnly = False
                 .Text = ""
             End With
             With txtBrand
-                .Enabled = True
+                .ReadOnly = False
                 .Text = ""
             End With
 
@@ -535,5 +538,9 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
 
     Private Sub btnPrint_Click(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        MessageBox.Show(ListView1.SelectedItems(0).SubItems(7).Text.ToString)
     End Sub
 End Class
