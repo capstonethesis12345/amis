@@ -4,7 +4,8 @@ Public Class frmProduct
 
         ' This call is required by the designer.
         InitializeComponent()
-        SqlRefresh = "SELECT i.itemid, i.barcode, i.description, i.category, i.price, (select sum(quantity) from polist where polist.itemid=i.itemid and polist.postatus=1)FROM ITEMS i LEFT JOIN POLIST l ON i.itemid = l.itemid where i.itemtype<>2 GROUP BY i.description LIMIT 0 , 30"
+        'SqlRefresh = "SELECT i.itemid, i.barcode, i.description, i.category, i.price, (select sum(quantity) from polist where polist.itemid=i.itemid and polist.postatus=1)FROM ITEMS i LEFT JOIN POLIST l ON i.itemid = l.itemid where i.itemtype<>2 GROUP BY i.description LIMIT 0 , 30"
+        SqlRefresh = "select i.itemid,i.barcode,i.description,i.category, i.price,i.unittype,sum(i.quantity+items.initialquantity) as onhand from vstockin i left join items on items.itemid=i.itemid group by i.itemid"
         SqlReFill("items", ListView1)
         ' Add any initialization after the InitializeComponent() call.
         txtItemid.Text = ""
@@ -57,6 +58,7 @@ Public Class frmProduct
 
     End Sub
 
+
     Private Sub ListView1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListView1.MouseDoubleClick
         txtItemid.Text = ListView1.SelectedItems(0).SubItems(0).Text.ToString
     End Sub
@@ -93,5 +95,30 @@ Public Class frmProduct
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         lblSaveStatus.Text = ""
         Timer1.Stop()
+    End Sub
+
+    Private Sub ListView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListView1.SelectedIndexChanged
+
+    End Sub
+    Dim sortColumn As Integer = -1
+    Private Sub ListView1_ColumnClick(sender As Object, e As ColumnClickEventArgs) Handles ListView1.ColumnClick
+        If e.Column <> sortColumn Then
+            ' Set the sort column to the new column.
+            sortColumn = e.Column
+            ' Set the sort order to ascending by default.
+            ListView1.Sorting = SortOrder.Ascending
+        Else
+            ' Determine what the last sort order was and change it.
+            If ListView1.Sorting = SortOrder.Ascending Then
+                ListView1.Sorting = SortOrder.Descending
+            Else
+                ListView1.Sorting = SortOrder.Ascending
+            End If
+        End If
+        ' Call the sort method to manually sort.
+        ListView1.Sort()
+        ' Set the ListViewItemSorter property to a new ListViewItemComparer
+        ' object.
+        ListView1.ListViewItemSorter = New ListViewItemComparer(e.Column, ListView1.Sorting)
     End Sub
 End Class

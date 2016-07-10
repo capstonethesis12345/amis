@@ -62,8 +62,8 @@ Partial Class frmProduct
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.lblSaveStatus = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ToolStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -75,7 +75,7 @@ Partial Class frmProduct
         '
         Me.ListView1.BackColor = System.Drawing.Color.White
         Me.ListView1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader8, Me.ColumnHeader9, Me.ColumnHeader10, Me.ColumnHeader11})
+        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader8, Me.ColumnHeader9, Me.ColumnHeader11, Me.ColumnHeader10})
         Me.ListView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ListView1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListView1.FullRowSelect = True
@@ -119,7 +119,7 @@ Partial Class frmProduct
         '
         'ColumnHeader11
         '
-        Me.ColumnHeader11.Text = "Reorder Level"
+        Me.ColumnHeader11.Text = "Units"
         Me.ColumnHeader11.Width = 104
         '
         'ToolStripButton1
@@ -428,11 +428,6 @@ Partial Class frmProduct
         Me.Panel1.Size = New System.Drawing.Size(333, 552)
         Me.Panel1.TabIndex = 34
         '
-        'Timer1
-        '
-        Me.Timer1.Enabled = True
-        Me.Timer1.Interval = 1500
-        '
         'lblSaveStatus
         '
         Me.lblSaveStatus.AutoSize = True
@@ -443,6 +438,11 @@ Partial Class frmProduct
         Me.lblSaveStatus.Size = New System.Drawing.Size(65, 16)
         Me.lblSaveStatus.TabIndex = 34
         Me.lblSaveStatus.Text = "Label10"
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 1500
         '
         'frmProduct
         '

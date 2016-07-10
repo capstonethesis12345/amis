@@ -156,6 +156,7 @@
     <Compile Include="frmPrintPO.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="functions\ListViewItemComparer.vb" />
     <Compile Include="functions\SQLQuery.vb" />
     <Compile Include="fMainForm.designer.vb">
       <DependentUpon>fMainForm.vb</DependentUpon>

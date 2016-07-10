@@ -27,14 +27,14 @@ Public Class frmFoodMenu
         End If
     End Sub
     Sub subitemupdate()
-        Dim salestauts As New TextBox
+        Dim salestatus As New TextBox
         If available.Checked = True Then
-            salestauts.Text = "1"
+            salestatus.Text = "1"
         Else
-            salestauts.Text = "0"
+            salestatus.Text = "0"
         End If
         SqlRefresh = vRefresh
-        itemUpdate("items", {"price", "salestatus"}, {txtPrice, available}, "itemid", itemID.Text, ListView1)
+        itemUpdate("items", {"price", "salestatus"}, {txtPrice, salestatus}, "itemid", itemID.Text, ListView1)
     End Sub
     Sub subitemadd()
         If txtBcode.Text = vbNullString And txtName.Text = vbNullString Then

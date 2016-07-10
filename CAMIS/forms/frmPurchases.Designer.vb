@@ -87,7 +87,6 @@ Partial Class frmPurchases
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Button4 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.groupUnit.SuspendLayout()
@@ -699,7 +698,6 @@ Partial Class frmPurchases
         'Panel2
         '
         Me.Panel2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel2.Controls.Add(Me.Button4)
         Me.Panel2.Controls.Add(Me.Label13)
         Me.Panel2.Controls.Add(Me.podate)
         Me.Panel2.Controls.Add(Me.PictureBox1)
@@ -729,15 +727,6 @@ Partial Class frmPurchases
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1234, 703)
         Me.Panel3.TabIndex = 37
-        '
-        'Button4
-        '
-        Me.Button4.Location = New System.Drawing.Point(149, 105)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 23)
-        Me.Button4.TabIndex = 37
-        Me.Button4.Text = "Button4"
-        Me.Button4.UseVisualStyleBackColor = True
         '
         'frmPurchases
         '
@@ -837,5 +826,4 @@ Partial Class frmPurchases
     Friend WithEvents g As RadioButton
     Friend WithEvents Label10 As Label
     Friend WithEvents txtcategory As TextBox
-    Friend WithEvents Button4 As Button
 End Class

@@ -32,7 +32,7 @@ Public Class frmPurchases
         poid = getIDFunction("select ifnull(max(poid),(select max(poid)+1 from po)) from po where status=0 and empid='" & vEmp & "'", "poid", Nothing, True).ToString
         lblPONum.Text = poid
 
-        vRefresh = "select polist.polistid,items.barcode,items.description,concat('1 ',items.unittype)unittype,polist.cost,polist.quantity,(polist.cost*polist.quantity)total,if(items.itemtype=0,'Non-Ingredient',if(items.itemtype=1,'Ingredient','Nonspecified'))itemtype,(supplier.company)company,supplier.supplierid,polist.postatus from polist
+        vRefresh = "select polist.polistid,items.barcode,items.description,concat('1 ',items.unittype)unittype,polist.cost,polist.quantity,(polist.cost*polist.quantity)total,if(items.itemtype=0,'Non-Ingredient',if(items.itemtype=1,'Non-Ingredient','Ingredient'))itemtype,(supplier.company)company,supplier.supplierid,polist.postatus from polist
             left join po
             on po.poid=polist.poid
             left join items
@@ -375,10 +375,17 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
             tstatus.Text = 1
             Dim ddate As New TextBox
             ddate.Text = Date.Now.ToString("yyyy-MM-dd")
-            itemUpdate("po", {"Status", "podeliverydate"}, {tstatus, ddate}, "poid", lblPONum.Text)
-            Dim status As New TextBox
-            status.Text = "1"
 
+
+
+
+            For i = 0 To ListView1.Items.Count - 1
+                If ListView1.Items(i).SubItems(7).Text.ToString = "Non-Ingredient" Then
+                    MessageBox.Show(ListView1.Items(i).Text.ToString)
+                    itemUpdate("items", {"salestatus"}, {tstatus}, "description", ListView1.Items(i).SubItems(2).Text.ToString)
+                End If
+            Next
+            itemUpdate("po", {"Status", "podeliverydate"}, {tstatus, ddate}, "poid", lblPONum.Text)
             SqlRefresh = vRefresh
             '   SqlReFill("po", ListView1)
             SqlRefresh = vRefresh
@@ -540,7 +547,7 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
 
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        MessageBox.Show(ListView1.SelectedItems(0).SubItems(7).Text.ToString)
-    End Sub
+    'Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+    '    MessageBox.Show(ListView1.SelectedItems(0).SubItems(7).Text.ToString)
+    'End Sub
 End Class
