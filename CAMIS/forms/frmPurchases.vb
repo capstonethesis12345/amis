@@ -375,16 +375,14 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
             tstatus.Text = 1
             Dim ddate As New TextBox
             ddate.Text = Date.Now.ToString("yyyy-MM-dd")
-
-
-
-
-            For i = 0 To ListView1.Items.Count - 1
-                If ListView1.Items(i).SubItems(7).Text.ToString = "Non-Ingredient" Then
-                    MessageBox.Show(ListView1.Items(i).Text.ToString)
-                    itemUpdate("items", {"salestatus"}, {tstatus}, "description", ListView1.Items(i).SubItems(2).Text.ToString)
-                End If
-            Next
+            If (CheckBox1.Checked = True) Then
+                For i = 0 To ListView1.Items.Count - 1
+                    If ListView1.Items(i).SubItems(7).Text.ToString = "Non-Ingredient" Then
+                        msgShow = False
+                        itemUpdate("items", {"salestatus"}, {tstatus}, "description", ListView1.Items(i).SubItems(2).Text.ToString)
+                    End If
+                Next
+            End If
             itemUpdate("po", {"Status", "podeliverydate"}, {tstatus, ddate}, "poid", lblPONum.Text)
             SqlRefresh = vRefresh
             '   SqlReFill("po", ListView1)

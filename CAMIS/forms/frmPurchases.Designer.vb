@@ -87,6 +87,8 @@ Partial Class frmPurchases
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.groupUnit.SuspendLayout()
@@ -96,6 +98,7 @@ Partial Class frmPurchases
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'ListView1
@@ -256,6 +259,7 @@ Partial Class frmPurchases
         Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.btnDelete)
+        Me.GroupBox1.Controls.Add(Me.GroupBox2)
         Me.GroupBox1.Controls.Add(Me.groupUnit)
         Me.GroupBox1.Controls.Add(Me.groupProductType)
         Me.GroupBox1.Controls.Add(Me.gItem)
@@ -728,6 +732,26 @@ Partial Class frmPurchases
         Me.Panel3.Size = New System.Drawing.Size(1234, 703)
         Me.Panel3.TabIndex = 37
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.CheckBox1)
+        Me.GroupBox2.Location = New System.Drawing.Point(18, 437)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(239, 53)
+        Me.GroupBox2.TabIndex = 6
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Options"
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(20, 19)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(153, 17)
+        Me.CheckBox1.TabIndex = 0
+        Me.CheckBox1.Text = "Directly add to item on sale"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
         'frmPurchases
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -758,6 +782,8 @@ Partial Class frmPurchases
         Me.Panel2.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -826,4 +852,6 @@ Partial Class frmPurchases
     Friend WithEvents g As RadioButton
     Friend WithEvents Label10 As Label
     Friend WithEvents txtcategory As TextBox
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents CheckBox1 As CheckBox
 End Class

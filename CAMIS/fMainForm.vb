@@ -68,13 +68,13 @@
         Select Case status
             Case Is = "Admin"
                 PictureBox2.Visible = False
-                Dim fmain As New frmMain(txtFunction.Text)
+                Dim fmain As New frmMain(status)
                 fmain.Show()
                 Me.Hide()
                 Exit Select
             Case Is = "Manager"
                 PictureBox2.Visible = False
-                Dim fmain As New frmMain(txtFunction.Text)
+                Dim fmain As New frmMain(status)
                 fmain.Show()
                 Me.Hide()
                 Exit Select
@@ -83,7 +83,14 @@
                 Dim pos As New frmSales()
                 pos.Show()
                 Me.Hide()
-
+            Case Is = "Cook"
+                PictureBox2.Visible = False
+                'Dim ingredients As New frmFood()
+                'ingredients.Show()
+                'Me.Hide()
+                Dim ingredients As New frmMain(status)
+                ingredients.ShowDialog()
+                Me.Hide()
                 Exit Select
             Case Else
 

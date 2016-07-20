@@ -38,7 +38,7 @@ Module SQLQuery
             DisconnDB()
         End Try
     End Sub
-    Public Sub SqlFill(ByVal sql As String, ByVal dsName As String, Optional ByVal lvObj As Object = Nothing, Optional autoComplete As Object = Nothing)
+    Public Sub SqlFill(ByVal sql As String, ByVal lvObj As ListView, Optional ByVal parameterValues() As String = Nothing)
         'para mas dali maquery no matter many rows or columns in a signle query this script will display
         Try
             ConnDB()
@@ -48,35 +48,24 @@ Module SQLQuery
             ds = New DataSet()
             cmd.Connection = conn
             cmd.CommandType = CommandType.Text
+            If Not parameterValues Is Nothing Then
+                Dim i As Integer = 0
+                For Each param In parameterValues
+                    cmd.Parameters.AddWithValue(i.ToString, param)
+                    i += 1
+                Next
+            End If
             cmd.CommandText = sql
             da.SelectCommand = cmd
-            da.Fill(ds, dsName)
-            'Dim lv As ListViewItem
-            'For Each dsRow In ds.Tables(dsName).Rows
-            ' lv = New ListViewItem(dsRow.Item(0).ToString)
-            ' For i As Integer = 1 To ds.Tables(dsName).Columns.Count - 1
-            ' lv.SubItems.Add(dsRow.Item(i).ToString)
-            ' Next
-            'lvObj.Items.Add(lv)   System.Windows.Forms.Label
-            'Dim ctrl As  = lvObj
-            If TypeOf (lvObj) Is System.Windows.Forms.ComboBox Then
-                For Each dsRow In ds.Tables(dsName).Rows
-                    lvObj.Items.Add(dsRow.Item(0).ToString)
+            da.Fill(ds, "fill")
+            Dim lv As ListViewItem
+            For Each dsRow In ds.Tables("fill").Rows
+                lv = New ListViewItem(dsRow.Item(0).ToString)
+                For j As Integer = 1 To ds.Tables("fill").Columns.Count - 1
+                    lv.SubItems.Add(dsRow.Item(j).ToString)
                 Next
-                'MessageBox.Show("Control")
-                ' ElseIf TypeOf (lvObj) Is System.Windows.Forms.Label Then
-                ' For Each dsrow In ds.Tables(dsName).Rows
-                ' lvObj.text = dsrow.text
-                ' Next
-                '    MessageBox.Show("Label")
-            ElseIf (TypeOf (lvObj) Is System.Windows.Forms.DataGridView) Then
-                MessageBox.Show("Inserting value on datagrid view")
-            End If
-            If autoComplete IsNot Nothing Then
-                For Each dsRow In ds.Tables(dsName).Rows
-                    autoComplete.AutoCompleteCustomSource.Add(dsRow.Item(0).ToString)
-                Next
-            End If
+                lvObj.Items.Add(lv)
+            Next
         Catch ex As Exception
             MessageBox.Show(ex.Message.ToString)
         Finally
