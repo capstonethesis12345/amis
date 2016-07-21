@@ -1,6 +1,6 @@
 ﻿Public Class fMainForm
     Public loading As Boolean = False
-    Dim status As String
+
     Public Sub New()
 
         ' This call is required by the designer.
@@ -25,53 +25,83 @@
     End Sub
 
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
+
+        tUsername.Focus()
+
         hideError(erTextboxUser)
         hideError(erTextboxPass)
         If tUsername.Text = vbNullString AndAlso tPassword.Text = vbNullString Then
             showError(erTextboxUser)
             showError(erTextboxPass)
             tUsername.Focus()
+            Exit Sub
         ElseIf (tUsername.Text = vbNullString AndAlso tPassword.Text IsNot vbNullString) Then
             showError(erTextboxUser)
             tUsername.Focus()
+            Exit Sub
         ElseIf (tUsername.Text IsNot vbNullString AndAlso tPassword.Text = vbNullString) Then
             showError(erTextboxPass)
             tPassword.Focus()
+            Exit Sub
         Else
             'Set user and password 
             'match inputed user and password
 
             PictureBox2.Visible = True
+
             status = logmein()
+
             'Dim thread1 As New System.Threading.Thread(AddressOf logulogmeinser)
 
             '            thread1.Start()
             '
             '           thread1.Join()
 
-            MessageBox.Show(vEmp)
-            If status = "Admin" Then
+            'MessageBox.Show(vEmp)
+            'If status = "Admin" Then
+
+            'ElseIf status = "Cashier" Then
+            ' PictureBox2.Visible = False
+            ' Else
+
+        End If
+        Select Case status
+            Case Is = "Admin"
                 PictureBox2.Visible = False
                 Dim fmain As New frmMain(txtFunction.Text)
                 fmain.Show()
                 Me.Hide()
-            ElseIf status = "Cashier" Then
+                Exit Select
+            Case Is = "Manager"
                 PictureBox2.Visible = False
-            Else
+                Dim fmain As New frmMain(txtFunction.Text)
+                fmain.Show()
+                Me.Hide()
+                Exit Select
+            Case Is = "Cashier"
+                PictureBox2.Visible = False
+                Dim pos As New frmSales()
+                pos.Show()
+                Me.Hide()
 
-            End If
+                Exit Select
+            Case Else
 
+                PictureBox2.Visible = False
+                MetroLabel1.Visible = True
+                Timer1.Start()
+        End Select
 
-            'PictureBox2.Visible = True
+        'PictureBox2.Visible = True
 
-            'If Not txtFunction.Text = vbNullString Then
-            '         PictureBox2.Visible = False
-            '     Dim fmain As New frmMain(txtFunction.Text)
-            '  fmain.Show()
-            '
-            '           Me.Hide()
-            '      End If
-        End If
+        'If Not txtFunction.Text = vbNullString Then
+        '         PictureBox2.Visible = False
+        '     Dim fmain As New frmMain(txtFunction.Text)
+        '  fmain.Show()
+        '
+        '           Me.Hide()
+        '      End If
+        '  End If
     End Sub
 
     Sub getLogUser()
@@ -80,15 +110,32 @@
     Private Function logmein()
         Dim fnc As New TextBox
         getData()
-        SqlRefresh = "SELECT Function,empid FROM `Users` WHERE Username LIKE @0 and Password LIKE @1"
+        SqlRefresh = "SELECT Function,empid,username,password,count(empid)countUser FROM `users` WHERE  Username like @0 and  Password like @1"
         ErrMessageText = "Incorrect username and password"
+        Timer1.Start()
         SqlReFill("Users", Nothing, "ShowValueInTextbox", {"0", "1"}, {tUsername, tPassword}, {fnc})
-        Try
-            vEmp = ds.Tables("Users").Rows(0).Item(1).ToString
-        Catch ex As Exception
-            MsgBox(ex.Message)
+        'If ds.Tables("Users").Rows(0).Item("countUser").ToString = 0 Then
 
+        'End If
+        Try
+            If ds.Tables("Users").Rows(0).Item("countUser").ToString = 1 Then
+                Dim usr As String = ds.Tables("Users").Rows(0).Item("username").ToString
+                Dim psd As String = ds.Tables("Users").Rows(0).Item("password").ToString
+                If usr = tUsername.Text And psd = tPassword.Text Then
+                    vEmp = ds.Tables("Users").Rows(0).Item("empid").ToString
+                    fnc.Text = ds.Tables("Users").Rows(0).Item("Function").ToString
+                    vUser = ds.Tables("Users").Rows(0).Item("username").ToString
+                Else
+                    fnc.Text = ""
+                End If
+
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Something went wrong between database connection.")
         End Try
+
+
+
         Return fnc.Text
     End Function
 
@@ -103,6 +150,10 @@
         'This will result for a shortcut keys implementation
         If e.Alt And e.KeyCode = Keys.F12 Then
             frmDatabase.ShowDialog()
+        ElseIf (e.Alt) And e.KeyCode = Keys.f11 Then
+            frmDTRsystem.ShowDialog()
+        ElseIf e.Alt And e.KeyCode = Keys.F4 Then
+            Application.Exit()
         End If
     End Sub
 
@@ -119,4 +170,8 @@
         End If
     End Sub
 
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        MetroLabel1.Visible = False
+        Timer1.Stop()
+    End Sub
 End Class

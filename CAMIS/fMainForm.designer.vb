@@ -22,15 +22,18 @@ Partial Class fMainForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.tUsername = New System.Windows.Forms.TextBox()
         Me.tPassword = New System.Windows.Forms.TextBox()
         Me.btnSubmit = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
         Me.txtFunction = New System.Windows.Forms.TextBox()
         Me.erTextboxUser = New System.Windows.Forms.PictureBox()
         Me.erTextboxPass = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.erTextboxUser, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -81,12 +84,14 @@ Partial Class fMainForm
         Me.btnSubmit.Name = "btnSubmit"
         Me.btnSubmit.Size = New System.Drawing.Size(336, 41)
         Me.btnSubmit.TabIndex = 2
+        Me.btnSubmit.TabStop = False
         Me.btnSubmit.Text = "SUBMIT"
         Me.btnSubmit.UseVisualStyleBackColor = True
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Transparent
+        Me.Panel1.Controls.Add(Me.MetroLabel1)
         Me.Panel1.Controls.Add(Me.txtFunction)
         Me.Panel1.Controls.Add(Me.btnSubmit)
         Me.Panel1.Controls.Add(Me.tUsername)
@@ -100,13 +105,25 @@ Partial Class fMainForm
         Me.Panel1.Size = New System.Drawing.Size(406, 292)
         Me.Panel1.TabIndex = 0
         '
+        'MetroLabel1
+        '
+        Me.MetroLabel1.AutoSize = True
+        Me.MetroLabel1.ForeColor = System.Drawing.Color.DarkRed
+        Me.MetroLabel1.Location = New System.Drawing.Point(134, 170)
+        Me.MetroLabel1.Name = "MetroLabel1"
+        Me.MetroLabel1.Size = New System.Drawing.Size(206, 19)
+        Me.MetroLabel1.TabIndex = 7
+        Me.MetroLabel1.Text = "Incorrect username and password"
+        Me.MetroLabel1.Visible = False
+        '
         'txtFunction
         '
         Me.txtFunction.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtFunction.Location = New System.Drawing.Point(149, 202)
+        Me.txtFunction.Location = New System.Drawing.Point(47, 175)
         Me.txtFunction.Name = "txtFunction"
         Me.txtFunction.Size = New System.Drawing.Size(100, 13)
         Me.txtFunction.TabIndex = 5
+        Me.txtFunction.Visible = False
         '
         'erTextboxUser
         '
@@ -136,6 +153,11 @@ Partial Class fMainForm
         Me.PictureBox2.TabIndex = 6
         Me.PictureBox2.TabStop = False
         Me.PictureBox2.Visible = False
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 1000
         '
         'fMainForm
         '
@@ -168,4 +190,6 @@ Partial Class fMainForm
     Friend WithEvents erTextboxPass As PictureBox
     Friend WithEvents txtFunction As TextBox
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents MetroLabel1 As MetroFramework.Controls.MetroLabel
+    Friend WithEvents Timer1 As Timer
 End Class

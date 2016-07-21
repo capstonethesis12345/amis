@@ -32,27 +32,38 @@ Partial Class frmMain
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RecordToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StaffToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CategoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProductToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ViewMenusToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SetupMenuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SuppliersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.JobsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.POSToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BillsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PayrollToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EncodeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RequestToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PurchasesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReturnsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AdjustmentToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DTRToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StocksInToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StocksOutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FinancialStatusToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SoldToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CalculatorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotepadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.tsslUser = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.tUser = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lblDate = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lblTimer = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
@@ -60,19 +71,12 @@ Partial Class frmMain
         Me.ToolStripButton7 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
-        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
-        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.tsslUser = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.lblDate = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.lblTimer = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.MenuStrip1.SuspendLayout()
-        Me.ToolStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -119,7 +123,7 @@ Partial Class frmMain
         '
         'RecordToolStripMenuItem
         '
-        Me.RecordToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StaffToolStripMenuItem, Me.CategoryToolStripMenuItem, Me.ProductToolStripMenuItem, Me.MenuToolStripMenuItem, Me.SuppliersToolStripMenuItem})
+        Me.RecordToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StaffToolStripMenuItem, Me.ProductToolStripMenuItem, Me.MenuToolStripMenuItem, Me.SuppliersToolStripMenuItem, Me.JobsToolStripMenuItem})
         Me.RecordToolStripMenuItem.Name = "RecordToolStripMenuItem"
         Me.RecordToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
         Me.RecordToolStripMenuItem.Text = "Records"
@@ -127,36 +131,49 @@ Partial Class frmMain
         'StaffToolStripMenuItem
         '
         Me.StaffToolStripMenuItem.Name = "StaffToolStripMenuItem"
-        Me.StaffToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.StaffToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
         Me.StaffToolStripMenuItem.Text = "Staff"
-        '
-        'CategoryToolStripMenuItem
-        '
-        Me.CategoryToolStripMenuItem.Name = "CategoryToolStripMenuItem"
-        Me.CategoryToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
-        Me.CategoryToolStripMenuItem.Text = "Categories"
         '
         'ProductToolStripMenuItem
         '
         Me.ProductToolStripMenuItem.Name = "ProductToolStripMenuItem"
-        Me.ProductToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.ProductToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
         Me.ProductToolStripMenuItem.Text = "Products"
         '
         'MenuToolStripMenuItem
         '
+        Me.MenuToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewMenusToolStripMenuItem, Me.SetupMenuToolStripMenuItem})
         Me.MenuToolStripMenuItem.Name = "MenuToolStripMenuItem"
-        Me.MenuToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
-        Me.MenuToolStripMenuItem.Text = "Food Menus"
+        Me.MenuToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.MenuToolStripMenuItem.Text = "Foods"
+        '
+        'ViewMenusToolStripMenuItem
+        '
+        Me.ViewMenusToolStripMenuItem.Name = "ViewMenusToolStripMenuItem"
+        Me.ViewMenusToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.ViewMenusToolStripMenuItem.Text = "Food Menu"
+        '
+        'SetupMenuToolStripMenuItem
+        '
+        Me.SetupMenuToolStripMenuItem.Name = "SetupMenuToolStripMenuItem"
+        Me.SetupMenuToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.SetupMenuToolStripMenuItem.Text = "Set-up Menu"
         '
         'SuppliersToolStripMenuItem
         '
         Me.SuppliersToolStripMenuItem.Name = "SuppliersToolStripMenuItem"
-        Me.SuppliersToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.SuppliersToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
         Me.SuppliersToolStripMenuItem.Text = "Suppliers"
+        '
+        'JobsToolStripMenuItem
+        '
+        Me.JobsToolStripMenuItem.Name = "JobsToolStripMenuItem"
+        Me.JobsToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.JobsToolStripMenuItem.Text = "Jobs"
         '
         'TransactionToolStripMenuItem
         '
-        Me.TransactionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.POSToolStripMenuItem, Me.BillsToolStripMenuItem, Me.PayrollToolStripMenuItem, Me.PurchasesToolStripMenuItem, Me.ReturnsToolStripMenuItem, Me.AdjustmentToolStripMenuItem})
+        Me.TransactionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.POSToolStripMenuItem, Me.PurchasesToolStripMenuItem, Me.ReturnsToolStripMenuItem, Me.AdjustmentToolStripMenuItem, Me.DTRToolStripMenuItem})
         Me.TransactionToolStripMenuItem.Name = "TransactionToolStripMenuItem"
         Me.TransactionToolStripMenuItem.Size = New System.Drawing.Size(81, 20)
         Me.TransactionToolStripMenuItem.Text = "Transaction"
@@ -164,55 +181,36 @@ Partial Class frmMain
         'POSToolStripMenuItem
         '
         Me.POSToolStripMenuItem.Name = "POSToolStripMenuItem"
-        Me.POSToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.POSToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.POSToolStripMenuItem.Text = "Sales"
-        '
-        'BillsToolStripMenuItem
-        '
-        Me.BillsToolStripMenuItem.Name = "BillsToolStripMenuItem"
-        Me.BillsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.BillsToolStripMenuItem.Text = "Payables"
-        '
-        'PayrollToolStripMenuItem
-        '
-        Me.PayrollToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EncodeToolStripMenuItem, Me.RequestToolStripMenuItem1})
-        Me.PayrollToolStripMenuItem.Name = "PayrollToolStripMenuItem"
-        Me.PayrollToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.PayrollToolStripMenuItem.Text = "Payroll"
-        '
-        'EncodeToolStripMenuItem
-        '
-        Me.EncodeToolStripMenuItem.Name = "EncodeToolStripMenuItem"
-        Me.EncodeToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
-        Me.EncodeToolStripMenuItem.Text = "Encode"
-        '
-        'RequestToolStripMenuItem1
-        '
-        Me.RequestToolStripMenuItem1.Name = "RequestToolStripMenuItem1"
-        Me.RequestToolStripMenuItem1.Size = New System.Drawing.Size(116, 22)
-        Me.RequestToolStripMenuItem1.Text = "Request"
         '
         'PurchasesToolStripMenuItem
         '
         Me.PurchasesToolStripMenuItem.Name = "PurchasesToolStripMenuItem"
-        Me.PurchasesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PurchasesToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.PurchasesToolStripMenuItem.Text = "Purchases"
         '
         'ReturnsToolStripMenuItem
         '
         Me.ReturnsToolStripMenuItem.Name = "ReturnsToolStripMenuItem"
-        Me.ReturnsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ReturnsToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.ReturnsToolStripMenuItem.Text = "Returns"
         '
         'AdjustmentToolStripMenuItem
         '
         Me.AdjustmentToolStripMenuItem.Name = "AdjustmentToolStripMenuItem"
-        Me.AdjustmentToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AdjustmentToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.AdjustmentToolStripMenuItem.Text = "Adjustment"
+        '
+        'DTRToolStripMenuItem
+        '
+        Me.DTRToolStripMenuItem.Name = "DTRToolStripMenuItem"
+        Me.DTRToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.DTRToolStripMenuItem.Text = "DTR"
         '
         'ReportToolStripMenuItem
         '
-        Me.ReportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StocksInToolStripMenuItem, Me.StocksOutToolStripMenuItem, Me.FinancialStatusToolStripMenuItem})
+        Me.ReportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StocksInToolStripMenuItem, Me.StocksOutToolStripMenuItem, Me.FinancialStatusToolStripMenuItem, Me.SoldToolStripMenuItem, Me.AccountToolStripMenuItem})
         Me.ReportToolStripMenuItem.Name = "ReportToolStripMenuItem"
         Me.ReportToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
         Me.ReportToolStripMenuItem.Text = "Report"
@@ -234,6 +232,18 @@ Partial Class frmMain
         Me.FinancialStatusToolStripMenuItem.Name = "FinancialStatusToolStripMenuItem"
         Me.FinancialStatusToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
         Me.FinancialStatusToolStripMenuItem.Text = "Cash Disburstment Reports"
+        '
+        'SoldToolStripMenuItem
+        '
+        Me.SoldToolStripMenuItem.Name = "SoldToolStripMenuItem"
+        Me.SoldToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
+        Me.SoldToolStripMenuItem.Text = "Sold"
+        '
+        'AccountToolStripMenuItem
+        '
+        Me.AccountToolStripMenuItem.Name = "AccountToolStripMenuItem"
+        Me.AccountToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
+        Me.AccountToolStripMenuItem.Text = "Account"
         '
         'ToolsToolStripMenuItem
         '
@@ -260,6 +270,90 @@ Partial Class frmMain
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
         Me.AboutToolStripMenuItem.Text = "About"
         '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.BackColor = System.Drawing.Color.DarkSlateBlue
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.tsslUser, Me.tUser, Me.ToolStripStatusLabel3, Me.lblDate, Me.ToolStripStatusLabel5, Me.lblTimer})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 487)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(804, 22)
+        Me.StatusStrip1.TabIndex = 13
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'ToolStripStatusLabel1
+        '
+        Me.ToolStripStatusLabel1.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripStatusLabel1.ForeColor = System.Drawing.Color.White
+        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(56, 17)
+        Me.ToolStripStatusLabel1.Text = "UserID :"
+        '
+        'tsslUser
+        '
+        Me.tsslUser.AutoSize = False
+        Me.tsslUser.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tsslUser.ForeColor = System.Drawing.Color.White
+        Me.tsslUser.Name = "tsslUser"
+        Me.tsslUser.Size = New System.Drawing.Size(50, 17)
+        Me.tsslUser.Text = " "
+        Me.tsslUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'tUser
+        '
+        Me.tUser.ForeColor = System.Drawing.Color.White
+        Me.tUser.Name = "tUser"
+        Me.tUser.Size = New System.Drawing.Size(16, 17)
+        Me.tUser.Text = "   "
+        '
+        'ToolStripStatusLabel3
+        '
+        Me.ToolStripStatusLabel3.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripStatusLabel3.ForeColor = System.Drawing.Color.White
+        Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(43, 17)
+        Me.ToolStripStatusLabel3.Text = "Date :"
+        '
+        'lblDate
+        '
+        Me.lblDate.AutoSize = False
+        Me.lblDate.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDate.ForeColor = System.Drawing.Color.White
+        Me.lblDate.Name = "lblDate"
+        Me.lblDate.Size = New System.Drawing.Size(121, 17)
+        Me.lblDate.Text = " mm/dd/yyyy"
+        Me.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'ToolStripStatusLabel5
+        '
+        Me.ToolStripStatusLabel5.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripStatusLabel5.ForeColor = System.Drawing.Color.White
+        Me.ToolStripStatusLabel5.Name = "ToolStripStatusLabel5"
+        Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(44, 17)
+        Me.ToolStripStatusLabel5.Text = "Time :"
+        '
+        'lblTimer
+        '
+        Me.lblTimer.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTimer.ForeColor = System.Drawing.Color.White
+        Me.lblTimer.Name = "lblTimer"
+        Me.lblTimer.Size = New System.Drawing.Size(71, 17)
+        Me.lblTimer.Text = "hh:mm:sss"
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.Transparent
+        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.ToolStrip1)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel1.Location = New System.Drawing.Point(0, 24)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(70, 463)
+        Me.Panel1.TabIndex = 15
+        '
         'ToolStrip1
         '
         Me.ToolStrip1.BackColor = System.Drawing.Color.SlateGray
@@ -268,7 +362,7 @@ Partial Class frmMain
         Me.ToolStrip1.Dock = System.Windows.Forms.DockStyle.Left
         Me.ToolStrip1.GripMargin = New System.Windows.Forms.Padding(10)
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton4, Me.ToolStripButton2, Me.ToolStripButton5, Me.ToolStripButton7, Me.ToolStripButton6, Me.ToolStripButton1})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton4, Me.ToolStripButton2, Me.ToolStripButton5, Me.ToolStripButton7, Me.ToolStripButton6, Me.ToolStripButton1, Me.ToolStripButton3})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Margin = New System.Windows.Forms.Padding(10)
         Me.ToolStrip1.Name = "ToolStrip1"
@@ -351,82 +445,28 @@ Partial Class frmMain
         Me.ToolStripButton1.Text = "Stocks Out"
         Me.ToolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
-        'StatusStrip1
+        'ToolStripButton3
         '
-        Me.StatusStrip1.BackColor = System.Drawing.Color.DarkSlateBlue
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.tsslUser, Me.ToolStripStatusLabel3, Me.lblDate, Me.ToolStripStatusLabel5, Me.lblTimer})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 487)
-        Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(804, 22)
-        Me.StatusStrip1.TabIndex = 13
-        Me.StatusStrip1.Text = "StatusStrip1"
+        Me.ToolStripButton3.Image = Global.AccountManagementIS.My.Resources.Resources._exit
+        Me.ToolStripButton3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton3.Name = "ToolStripButton3"
+        Me.ToolStripButton3.Size = New System.Drawing.Size(68, 55)
+        Me.ToolStripButton3.Text = "Log Out"
+        Me.ToolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
-        'ToolStripStatusLabel1
+        'Panel2
         '
-        Me.ToolStripStatusLabel1.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripStatusLabel1.ForeColor = System.Drawing.Color.White
-        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(81, 17)
-        Me.ToolStripStatusLabel1.Text = "Active User :"
-        '
-        'tsslUser
-        '
-        Me.tsslUser.AutoSize = False
-        Me.tsslUser.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tsslUser.ForeColor = System.Drawing.Color.White
-        Me.tsslUser.Name = "tsslUser"
-        Me.tsslUser.Size = New System.Drawing.Size(150, 17)
-        Me.tsslUser.Text = " "
-        Me.tsslUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'ToolStripStatusLabel3
-        '
-        Me.ToolStripStatusLabel3.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripStatusLabel3.ForeColor = System.Drawing.Color.White
-        Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(43, 17)
-        Me.ToolStripStatusLabel3.Text = "Date :"
-        '
-        'lblDate
-        '
-        Me.lblDate.AutoSize = False
-        Me.lblDate.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDate.ForeColor = System.Drawing.Color.White
-        Me.lblDate.Name = "lblDate"
-        Me.lblDate.Size = New System.Drawing.Size(121, 17)
-        Me.lblDate.Text = " mm/dd/yyyy"
-        Me.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'ToolStripStatusLabel5
-        '
-        Me.ToolStripStatusLabel5.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripStatusLabel5.ForeColor = System.Drawing.Color.White
-        Me.ToolStripStatusLabel5.Name = "ToolStripStatusLabel5"
-        Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(44, 17)
-        Me.ToolStripStatusLabel5.Text = "Time :"
-        '
-        'lblTimer
-        '
-        Me.lblTimer.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTimer.ForeColor = System.Drawing.Color.White
-        Me.lblTimer.Name = "lblTimer"
-        Me.lblTimer.Size = New System.Drawing.Size(71, 17)
-        Me.lblTimer.Text = "hh:mm:sss"
-        '
-        'Timer1
-        '
-        Me.Timer1.Enabled = True
-        '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.Transparent
-        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel1.Controls.Add(Me.ToolStrip1)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel1.Location = New System.Drawing.Point(0, 24)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(70, 463)
-        Me.Panel1.TabIndex = 15
+        Me.Panel2.AccessibleName = "Panel2"
+        Me.Panel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel2.BackColor = System.Drawing.Color.Transparent
+        Me.Panel2.Location = New System.Drawing.Point(76, 36)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(716, 437)
+        Me.Panel2.TabIndex = 16
+        Me.Panel2.Visible = False
         '
         'frmMain
         '
@@ -437,6 +477,7 @@ Partial Class frmMain
         Me.BackgroundImage = Global.AccountManagementIS.My.Resources.Resources.bgWallpaper
         Me.ClientSize = New System.Drawing.Size(804, 509)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.MenuStrip1)
@@ -453,12 +494,12 @@ Partial Class frmMain
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        Me.ToolStrip1.ResumeLayout(False)
-        Me.ToolStrip1.PerformLayout()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -469,18 +510,11 @@ Partial Class frmMain
     Friend WithEvents TransactionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ReportToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip
-    Friend WithEvents ToolStripButton4 As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripButton2 As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripButton5 As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripButton6 As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripButton
     Friend WithEvents ConfigurationToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents VatToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents VatToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents StaffToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents CategoryToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ProductToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents POSToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents StocksInToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -489,23 +523,34 @@ Partial Class frmMain
     Friend WithEvents NotepadToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents StatusStrip1 As System.Windows.Forms.StatusStrip
     Friend WithEvents ToolStripStatusLabel1 As System.Windows.Forms.ToolStripStatusLabel
-    Friend WithEvents tsslUser As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel3 As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents lblDate As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel5 As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents lblTimer As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
-    Friend WithEvents ToolStripButton7 As System.Windows.Forms.ToolStripButton
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents MenuToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents BillsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents PayrollToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FinancialStatusToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PurchasesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SuppliersToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents EncodeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents RequestToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ReturnsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AdjustmentToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStrip1 As ToolStrip
+    Friend WithEvents ToolStripButton4 As ToolStripButton
+    Friend WithEvents ToolStripButton2 As ToolStripButton
+    Friend WithEvents ToolStripButton5 As ToolStripButton
+    Friend WithEvents ToolStripButton7 As ToolStripButton
+    Friend WithEvents ToolStripButton6 As ToolStripButton
+    Friend WithEvents ToolStripButton1 As ToolStripButton
+    Friend WithEvents ToolStripButton3 As ToolStripButton
+    Friend WithEvents ViewMenusToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SetupMenuToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents JobsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tsslUser As ToolStripStatusLabel
+    Friend WithEvents tUser As ToolStripStatusLabel
+    Friend WithEvents SoldToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DTRToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AccountToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Panel2 As Panel
 End Class

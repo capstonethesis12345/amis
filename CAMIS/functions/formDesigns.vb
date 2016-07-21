@@ -14,6 +14,7 @@
             .Show()
         End With
     End Sub
+
     Public Sub ClearTextBoxes(ByRef objForm As Form, Optional ByVal ctlcol As Control.ControlCollection = Nothing)
         If ctlcol Is Nothing Then ctlcol = objForm.Controls
         For Each ctl As Control In ctlcol
@@ -44,5 +45,17 @@
         left = (width / 2) - (PanelHolder.Width / 2)
         PanelHolder.Top = top
         PanelHolder.Left = left
+    End Sub
+    Sub callforms(ByVal frmname As System.Windows.Forms.Form, ByVal pnlname As System.Windows.Forms.Panel)
+        frmname.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        frmname.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        frmname.ControlBox = False
+        frmname.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        frmname.TopLevel = False
+        frmname.ShowInTaskbar = False
+        frmname.Show()
+        frmname.Dock = DockStyle.Fill
+        pnlname.Controls.Clear()
+        pnlname.Controls.Add(frmname)
     End Sub
 End Module

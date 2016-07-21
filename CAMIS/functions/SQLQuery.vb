@@ -17,6 +17,9 @@ Module SQLQuery
     Public d As Date = Date.Today
     Public todate As String = d.ToString("yyyy-MM-dd")
     Public vEmp As String
+    Public vUser As String
+    Public hasError As Boolean = False
+
     Public Sub itemAutoComplete(ByVal DataSetName As String, ByVal objAutoCompleteTextBox As Object)
         Try
 
@@ -167,13 +170,14 @@ Module SQLQuery
                     Dim ctrl As Control = txt
                     If TypeOf (ctrl) Is PictureBox Then
                         arrImage = ds.Tables(sDSName).Rows(0).Item(i)
-                        If arrImage.Length = 0 Then
-                            If msgShow = True Then
-                                MessageBox.Show("Empty Image")
-                            End If
+                        'MessageBox.Show(arrImage.Count.ToString)
+                        If arrImage.Count = 0 Then
+
+                            txt.Image = My.Resources.empty_profile11
                             msgShow = True
                         Else
-                                Dim mstream As New System.IO.MemoryStream(arrImage)
+
+                            Dim mstream As New System.IO.MemoryStream(arrImage)
                             txt.Image = Image.FromStream(mstream)
                         End If
 
@@ -203,11 +207,113 @@ Module SQLQuery
 
         showTxtboxValue = Nothing
     End Sub
+    Function getStrData(ByVal sql As String, ByVal dsname As String, Optional ByVal parameterValue As String() = Nothing, Optional isSalesID As Boolean = Nothing)
 
+        Dim id As String = ""
+        Try
+            ConnDB()
+            cmd = New MySqlCommand(sql, conn)
+            da = New MySqlDataAdapter
+            ds = New DataSet()
+            cmd.CommandType = CommandType.Text
+
+            If parameterValue IsNot Nothing Then
+                Dim i As Integer = 0
+                For Each param In parameterValue
+                    cmd.Parameters.AddWithValue("@" & i.ToString, parameterValue(i))
+                    i += 1
+                Next
+            End If
+            da.SelectCommand = cmd
+            da.Fill(ds, dsname)
+            'count total columns'
+
+            id = ds.Tables(dsname).Rows(0).Item(0).ToString
+
+            ' MessageBox.Show(ds.Tables(0).Rows.Count.ToString)
+            ' End If
+            ' id = ds.Tables(dsname).Rows(0).Item(0).ToString
+        Catch ex As Exception
+            ' MessageBox.Show("Unable to retreve id")
+            If msgShow = True Then
+                MessageBox.Show("Error on getting ID :" & ex.Message.ToString, "Waring notice")
+            End If
+        Finally
+            DisconnDB()
+        End Try
+        Return id
+    End Function
+    Public Sub getDSData(ByVal sql As String, ByVal dsname As String, Optional ByVal parameterValue As String() = Nothing, Optional isSalesID As Boolean = Nothing)
+        ds = New DataSet()
+        Dim id As String = ""
+        Try
+            ConnDB()
+            cmd = New MySqlCommand(sql, conn)
+            da = New MySqlDataAdapter
+
+            cmd.CommandType = CommandType.Text
+
+            If parameterValue IsNot Nothing Then
+                Dim i As Integer = 0
+                For Each param In parameterValue
+                    cmd.Parameters.AddWithValue("@" & i.ToString, parameterValue(i))
+                    i += 1
+                Next
+            End If
+            da.SelectCommand = cmd
+            da.Fill(ds, dsname)
+            'count total columns'
+
+
+        Catch ex As Exception
+            ' MessageBox.Show("Unable to retreve id")
+            If msgShow = True Then
+                MessageBox.Show("Error on getting ID :" & ex.Message.ToString, "Waring notice")
+            End If
+            hasError = True
+        Finally
+            DisconnDB()
+        End Try
+
+    End Sub
 
     Function getIDFunction(ByVal sql As String, ByVal dsname As String, Optional ByVal parameterValue As String() = Nothing, Optional isSalesID As Boolean = Nothing)
 
-        Dim id As Integer
+        Dim id As Integer = 0
+        Try
+            ConnDB()
+            cmd = New MySqlCommand(sql, conn)
+            da = New MySqlDataAdapter
+            ds = New DataSet()
+            cmd.CommandType = CommandType.Text
+
+            If parameterValue IsNot Nothing Then
+                Dim i As Integer = 0
+                For Each param In parameterValue
+                    cmd.Parameters.AddWithValue("@" & i.ToString, parameterValue(i))
+                    i += 1
+                Next
+            End If
+            da.SelectCommand = cmd
+            da.Fill(ds, dsname)
+
+            id = ds.Tables(dsname).Rows(0).Item(0).ToString
+
+            ' MessageBox.Show(ds.Tables(0).Rows.Count.ToString)
+            ' End If
+            ' id = ds.Tables(dsname).Rows(0).Item(0).ToString
+        Catch ex As Exception
+            ' MessageBox.Show("Unable to retreve id")
+            If msgShow = True Then
+                MessageBox.Show("Error on getting ID :" & ex.Message.ToString & vbNullString & ErrMessageText, "Waring notice")
+            End If
+        Finally
+            DisconnDB()
+        End Try
+        Return id
+    End Function
+    Function getValue(ByVal sql As String, ByVal dsname As String, Optional ByVal parameterValue As String() = Nothing, Optional isSalesID As Boolean = Nothing)
+        Dim id As String = ""
         Try
             ConnDB()
             cmd = New MySqlCommand(sql, conn)
@@ -235,27 +341,6 @@ Module SQLQuery
             If msgShow = True Then
                 MessageBox.Show("Error on getting ID :" & ex.Message.ToString, "Waring notice")
             End If
-        Finally
-            DisconnDB()
-        End Try
-        Return id
-    End Function
-    Function getValue(ByVal sql As String)
-        Dim id As String = ""
-        Try
-            ConnDB()
-            da = New MySqlDataAdapter
-            ds = New DataSet()
-            cmd = New MySqlCommand(sql, conn)
-            da.SelectCommand = cmd
-            da.Fill(ds, "value")
-            'MessageBox.Show(ds.Tables(dsname).Rows.Count.ToString)
-            ' If ds.Tables(dsname).Rows.Count > 0 Then
-            ' MessageBox.Show(ds.Tables(0).Rows.Count.ToString)
-            ' End If
-            id = ds.Tables(0).Rows(0).Item(0).ToString
-        Catch ex As Exception
-            ' MessageBox.Show("Unable to retreve id")
         Finally
             DisconnDB()
         End Try
@@ -304,12 +389,17 @@ Module SQLQuery
             'SqlReFill(DataSetName, ObjListDisplay)
 
         Catch ex As Exception
-            If ex.GetType.ToString = "MySql.Data.MySqlClient.MySqlException" Then
-                err = True
-                MessageBox.Show("Duplicate id and name are already available.", "Excited ID,Name not allowed")
+            If msgShow = True Then
 
-            Else
-                MessageBox.Show(ex.GetType.ToString, "Error addting data")
+
+                If ex.GetType.ToString = "MySql.Data.MySqlClient.MySqlException" Then
+                    err = True
+                    MessageBox.Show("Duplicate id and name are already available." & ErrMessageText, "Excited ID,Name not allowed")
+
+                Else
+                    MessageBox.Show(ex.GetType.ToString, "Error addting data")
+                End If
+                ErrMessageText = ""
             End If
             'MessageBox.Show("Unable to add Values " & ex.Message.ToString & " --" & ex.GetType.ToString & "--", "Error")
         Finally
@@ -393,7 +483,7 @@ Module SQLQuery
         ' StatusSet = ""
     End Sub
 
-    Public Sub itemDelete(ByVal TableName As String, ByVal arrTableColumn As String(), ByVal arrTextBox As Object(), Optional ByRef ObjListDisplay As Object = Nothing)
+    Public Sub itemDelete(ByVal TableName As String, ByVal arrTableColumn As String(), ByVal arrTextBox As Object())
         Dim i As Integer = 0
         For Each arrCol In arrTableColumn
             sqL = "DELETE FROM " & TableName & " WHERE " &
@@ -403,6 +493,7 @@ Module SQLQuery
                 cmd = New MySqlCommand(sqL, conn)
                 cmd.Parameters.AddWithValue("@" & i.ToString, arrTextBox(i).Text)
                 cmd.ExecuteNonQuery()
+                MessageBox.Show("Success user deleted")
             Catch ex As Exception
                 MessageBox.Show("Error")
             Finally

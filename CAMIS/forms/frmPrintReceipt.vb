@@ -6,7 +6,7 @@ Public Class frmPrintReceipt
     Private Sub LoadItemstoDatagrid()
         Dim y As Integer
         Try
-            sqL = "Select SUM(Quantity) as TotalQuantity, Description, ItemPrice, (ItemPrice * SUM(Quantity)) as Amount FROM Product as P, TransactionDetails as TD WHERE TD.ProductNo = P.ProductNo AND InvoiceNo ='" & frmPOS.txtInvoiceNo.Text & "' GROUP BY TD.ProductNo"
+            sqL = "Select SUM(Quantity) as TotalQuantity, Description, ItemPrice, (ItemPrice * SUM(Quantity)) as Amount FROM Product as P, TransactionDetails as TD WHERE TD.ProductNo = P.ProductNo AND InvoiceNo ='" & frmSales.txtOrderNum.Text & "' GROUP BY TD.ProductNo"
             ConnDB()
             cmd = New MySqlCommand(sqL, conn)
             dr = cmd.ExecuteReader
@@ -29,7 +29,7 @@ Public Class frmPrintReceipt
     End Sub
     Private Sub LoadReceiptInfo()
         Try
-            sqL = "SELECT T.InvoiceNo, CONCAT(Lastname,', ', Firstname, ' ', MI, '.') as StaffName, Quantity, Description, ItemPrice, (ItemPRice * Quantity) as ItemAmount, VatAmount, NonVatTotal, TotalAmount, Cash, PChange FROM Product as P, TransactionDetails as TD, Transactions as T, Staff as S, Payment as Pay WHERE P.ProductNo = TD.ProductNo AND TD.InvoiceNo = T.InvoiceNo AND S.StaffID = T.StaffID AND Pay.InvoiceNo = T.InvoiceNO AND T.InvoiceNo = '" & frmPOS.txtInvoiceNo.Text & "'"
+            sqL = "SELECT T.InvoiceNo, CONCAT(Lastname,', ', Firstname, ' ', MI, '.') as StaffName, Quantity, Description, ItemPrice, (ItemPRice * Quantity) as ItemAmount, VatAmount, NonVatTotal, TotalAmount, Cash, PChange FROM Product as P, TransactionDetails as TD, Transactions as T, Staff as S, Payment as Pay WHERE P.ProductNo = TD.ProductNo AND TD.InvoiceNo = T.InvoiceNo AND S.StaffID = T.StaffID AND Pay.InvoiceNo = T.InvoiceNO AND T.InvoiceNo = '" & frmSales.txtOrderNum.Text & "'"
             ConnDB()
             cmd = New MySqlCommand(sqL, conn)
             dr = cmd.ExecuteReader

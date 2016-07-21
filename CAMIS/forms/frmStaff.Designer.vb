@@ -33,12 +33,15 @@ Partial Class frmStaff
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.txtJobs = New System.Windows.Forms.ComboBox()
         Me.txtMaritalStatus = New System.Windows.Forms.ComboBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.btnOpenImage = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.txtEmpStarted = New System.Windows.Forms.DateTimePicker()
         Me.txtBirthDate = New System.Windows.Forms.DateTimePicker()
         Me.txtGender = New System.Windows.Forms.ComboBox()
         Me.Label22 = New System.Windows.Forms.Label()
@@ -51,6 +54,7 @@ Partial Class frmStaff
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.txtConfirmPWD = New System.Windows.Forms.TextBox()
         Me.txtPassword = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtUsername = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -67,6 +71,8 @@ Partial Class frmStaff
         Me.txtEmployeeNo = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtContractNo = New System.Windows.Forms.TextBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.txtZip = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -164,12 +170,15 @@ Partial Class frmStaff
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.txtJobs)
         Me.GroupBox1.Controls.Add(Me.txtMaritalStatus)
         Me.GroupBox1.Controls.Add(Me.CheckBox1)
         Me.GroupBox1.Controls.Add(Me.btnClear)
         Me.GroupBox1.Controls.Add(Me.btnOpenImage)
         Me.GroupBox1.Controls.Add(Me.btnSave)
         Me.GroupBox1.Controls.Add(Me.PictureBox1)
+        Me.GroupBox1.Controls.Add(Me.txtEmpStarted)
         Me.GroupBox1.Controls.Add(Me.txtBirthDate)
         Me.GroupBox1.Controls.Add(Me.txtGender)
         Me.GroupBox1.Controls.Add(Me.Label22)
@@ -191,6 +200,8 @@ Partial Class frmStaff
         Me.GroupBox1.Controls.Add(Me.txtEmployeeNo)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.txtContractNo)
+        Me.GroupBox1.Controls.Add(Me.Label17)
+        Me.GroupBox1.Controls.Add(Me.Label18)
         Me.GroupBox1.Controls.Add(Me.Label25)
         Me.GroupBox1.Controls.Add(Me.txtZip)
         Me.GroupBox1.Controls.Add(Me.Label4)
@@ -212,9 +223,27 @@ Partial Class frmStaff
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Staff Information"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(224, 348)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(43, 23)
+        Me.Button1.TabIndex = 22
+        Me.Button1.Text = "Add"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'txtJobs
+        '
+        Me.txtJobs.FormattingEnabled = True
+        Me.txtJobs.Location = New System.Drawing.Point(131, 349)
+        Me.txtJobs.Name = "txtJobs"
+        Me.txtJobs.Size = New System.Drawing.Size(86, 23)
+        Me.txtJobs.TabIndex = 21
+        '
         'txtMaritalStatus
         '
-        Me.txtMaritalStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.txtMaritalStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.txtMaritalStatus.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.txtMaritalStatus.FormattingEnabled = True
         Me.txtMaritalStatus.Items.AddRange(New Object() {"Single", "Married", "Widow"})
         Me.txtMaritalStatus.Location = New System.Drawing.Point(104, 140)
@@ -286,6 +315,15 @@ Partial Class frmStaff
         Me.PictureBox1.TabIndex = 20
         Me.PictureBox1.TabStop = False
         '
+        'txtEmpStarted
+        '
+        Me.txtEmpStarted.CustomFormat = "yyyy-MM-dd"
+        Me.txtEmpStarted.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.txtEmpStarted.Location = New System.Drawing.Point(397, 316)
+        Me.txtEmpStarted.Name = "txtEmpStarted"
+        Me.txtEmpStarted.Size = New System.Drawing.Size(165, 23)
+        Me.txtEmpStarted.TabIndex = 7
+        '
         'txtBirthDate
         '
         Me.txtBirthDate.CustomFormat = "yyyy-MM-dd"
@@ -297,7 +335,8 @@ Partial Class frmStaff
         '
         'txtGender
         '
-        Me.txtGender.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.txtGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.txtGender.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.txtGender.FormattingEnabled = True
         Me.txtGender.Items.AddRange(New Object() {"M", "F"})
         Me.txtGender.Location = New System.Drawing.Point(361, 135)
@@ -366,7 +405,7 @@ Partial Class frmStaff
         Me.txtEmployStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.txtEmployStatus.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.txtEmployStatus.FormattingEnabled = True
-        Me.txtEmployStatus.Items.AddRange(New Object() {"Employed", "Not Employed"})
+        Me.txtEmployStatus.Items.AddRange(New Object() {"Regular", "Job Order", "Provisionary", "Contractual", "InActive"})
         Me.txtEmployStatus.Location = New System.Drawing.Point(131, 313)
         Me.txtEmployStatus.Name = "txtEmployStatus"
         Me.txtEmployStatus.Size = New System.Drawing.Size(136, 23)
@@ -376,6 +415,7 @@ Partial Class frmStaff
         '
         Me.GroupBox3.Controls.Add(Me.txtConfirmPWD)
         Me.GroupBox3.Controls.Add(Me.txtPassword)
+        Me.GroupBox3.Controls.Add(Me.Label9)
         Me.GroupBox3.Controls.Add(Me.Label8)
         Me.GroupBox3.Controls.Add(Me.txtUsername)
         Me.GroupBox3.Controls.Add(Me.Label5)
@@ -407,6 +447,15 @@ Partial Class frmStaff
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassword.Size = New System.Drawing.Size(362, 23)
         Me.txtPassword.TabIndex = 3
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(49, 122)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(54, 15)
+        Me.Label9.TabIndex = 9
+        Me.Label9.Text = "Confirm:"
         '
         'Label8
         '
@@ -558,6 +607,24 @@ Partial Class frmStaff
         Me.txtContractNo.Name = "txtContractNo"
         Me.txtContractNo.Size = New System.Drawing.Size(165, 23)
         Me.txtContractNo.TabIndex = 14
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(15, 349)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(54, 15)
+        Me.Label17.TabIndex = 4
+        Me.Label17.Text = "Job Type"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(276, 321)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(115, 15)
+        Me.Label18.TabIndex = 4
+        Me.Label18.Text = "Employment Started"
         '
         'Label25
         '
@@ -757,4 +824,10 @@ Partial Class frmStaff
     Friend WithEvents txtSearch As ToolStripTextBox
     Friend WithEvents CheckBox1 As CheckBox
     Friend WithEvents txtMaritalStatus As ComboBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Button1 As Button
+    Friend WithEvents txtJobs As ComboBox
+    Friend WithEvents Label17 As Label
+    Friend WithEvents txtEmpStarted As DateTimePicker
+    Friend WithEvents Label18 As Label
 End Class
