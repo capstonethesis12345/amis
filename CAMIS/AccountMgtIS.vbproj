@@ -421,6 +421,7 @@
     <None Include="Resources\Stock-Index-Up-icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MetroFramework.dll" />
     <Content Include="MetroStyle.dll" />
     <Content Include="MySql.Data.dll" />
     <Content Include="Resources\51882.png" />
