@@ -184,4 +184,5 @@ Partial Class frmSalesTransaction
     Friend WithEvents ColumnHeader1 As ColumnHeader
     Friend WithEvents ColumnHeader2 As ColumnHeader
     Friend WithEvents ColumnHeader3 As ColumnHeader
+    Friend WithEvents btn As Button
 End Class
