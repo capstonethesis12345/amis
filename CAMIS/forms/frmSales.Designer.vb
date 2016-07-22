@@ -39,22 +39,29 @@ Partial Class frmSales
         Me.txtPaid = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Button4 = New System.Windows.Forms.Button()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.btnLogout = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnOrderItem = New System.Windows.Forms.Button()
+        Me.cbCustomer = New System.Windows.Forms.ComboBox()
         Me.txtProductName = New System.Windows.Forms.ComboBox()
         Me.txtQuantity = New MetroFramework.Controls.MetroTextBox()
         Me.txtBarcode = New MetroFramework.Controls.MetroTextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.lblBuildID = New System.Windows.Forms.Label()
+        Me.lblItemid = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -95,7 +102,7 @@ Partial Class frmSales
         '
         'ColumnHeader2
         '
-        Me.ColumnHeader2.Text = "Quantity"
+        Me.ColumnHeader2.Text = "QUANTITY"
         Me.ColumnHeader2.Width = 83
         '
         'ColumnHeader3
@@ -112,9 +119,11 @@ Partial Class frmSales
         '
         'txtPrice
         '
+        Me.txtPrice.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtPrice.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtPrice.Font = New System.Drawing.Font("Courier New", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPrice.Location = New System.Drawing.Point(89, 99)
+        Me.txtPrice.Location = New System.Drawing.Point(89, 148)
         Me.txtPrice.Name = "txtPrice"
         Me.txtPrice.ReadOnly = True
         Me.txtPrice.Size = New System.Drawing.Size(124, 19)
@@ -123,8 +132,10 @@ Partial Class frmSales
         '
         'Label4
         '
+        Me.Label4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(19, 102)
+        Me.Label4.Location = New System.Drawing.Point(19, 151)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(48, 16)
         Me.Label4.TabIndex = 7
@@ -149,6 +160,7 @@ Partial Class frmSales
         '
         'Label7
         '
+        Me.Label7.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Courier New", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(231, 383)
@@ -159,6 +171,7 @@ Partial Class frmSales
         '
         'txtTotal
         '
+        Me.txtTotal.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtTotal.Font = New System.Drawing.Font("Courier New", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTotal.Location = New System.Drawing.Point(334, 375)
         Me.txtTotal.Name = "txtTotal"
@@ -176,20 +189,21 @@ Partial Class frmSales
         '
         'txtPaid
         '
-        Me.txtPaid.Location = New System.Drawing.Point(82, 229)
+        Me.txtPaid.Location = New System.Drawing.Point(380, 493)
         Me.txtPaid.Name = "txtPaid"
-        Me.txtPaid.Size = New System.Drawing.Size(124, 22)
+        Me.txtPaid.Size = New System.Drawing.Size(219, 22)
         Me.txtPaid.TabIndex = 19
         Me.txtPaid.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(19, 232)
+        Me.Label10.Font = New System.Drawing.Font("Courier New", 18.0!, System.Drawing.FontStyle.Bold)
+        Me.Label10.Location = New System.Drawing.Point(454, 463)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(40, 16)
+        Me.Label10.Size = New System.Drawing.Size(68, 27)
         Me.Label10.TabIndex = 18
-        Me.Label10.Text = "Paid"
+        Me.Label10.Text = "Cash"
         '
         'Label8
         '
@@ -199,21 +213,10 @@ Partial Class frmSales
         Me.Label8.TabIndex = 16
         Me.Label8.Text = "F1: Save Transaction" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "F3: Cancel Transcation Alt+F4: Close"
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PictureBox1.BackgroundImage = Global.AccountManagementIS.My.Resources.Resources.lineSalesbar
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.InitialImage = Nothing
-        Me.PictureBox1.Location = New System.Drawing.Point(-7, 93)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(926, 13)
-        Me.PictureBox1.TabIndex = 28
-        Me.PictureBox1.TabStop = False
-        '
         'Panel1
         '
+        Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.Controls.Add(Me.txtTotal)
         Me.Panel1.Controls.Add(Me.Label7)
         Me.Panel1.Controls.Add(Me.ListItems)
@@ -224,21 +227,24 @@ Partial Class frmSales
         '
         'Panel2
         '
-        Me.Panel2.Controls.Add(Me.Button4)
+        Me.Panel2.Controls.Add(Me.PictureBox2)
+        Me.Panel2.Controls.Add(Me.btnLogout)
         Me.Panel2.Controls.Add(Me.Button3)
         Me.Panel2.Controls.Add(Me.txtOrderNum)
-        Me.Panel2.Controls.Add(Me.Label6)
-        Me.Panel2.Controls.Add(Me.Button2)
-        Me.Panel2.Controls.Add(Me.Button1)
-        Me.Panel2.Controls.Add(Me.txtDate)
-        Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Controls.Add(Me.txtProductName)
-        Me.Panel2.Controls.Add(Me.txtQuantity)
         Me.Panel2.Controls.Add(Me.txtPaid)
         Me.Panel2.Controls.Add(Me.Label10)
+        Me.Panel2.Controls.Add(Me.Label6)
+        Me.Panel2.Controls.Add(Me.Button2)
+        Me.Panel2.Controls.Add(Me.btnOrderItem)
+        Me.Panel2.Controls.Add(Me.txtDate)
+        Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Controls.Add(Me.cbCustomer)
+        Me.Panel2.Controls.Add(Me.txtProductName)
+        Me.Panel2.Controls.Add(Me.txtQuantity)
         Me.Panel2.Controls.Add(Me.txtBarcode)
         Me.Panel2.Controls.Add(Me.Panel1)
         Me.Panel2.Controls.Add(Me.Label9)
+        Me.Panel2.Controls.Add(Me.Label5)
         Me.Panel2.Controls.Add(Me.Label8)
         Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Controls.Add(Me.Label3)
@@ -247,17 +253,27 @@ Partial Class frmSales
         Me.Panel2.Controls.Add(Me.txtPrice)
         Me.Panel2.Location = New System.Drawing.Point(93, 112)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(740, 476)
+        Me.Panel2.Size = New System.Drawing.Size(740, 534)
         Me.Panel2.TabIndex = 30
         '
-        'Button4
+        'PictureBox2
         '
-        Me.Button4.Location = New System.Drawing.Point(649, 7)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 23)
-        Me.Button4.TabIndex = 15
-        Me.Button4.Text = "Logout"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.PictureBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PictureBox2.BackColor = System.Drawing.Color.SteelBlue
+        Me.PictureBox2.Location = New System.Drawing.Point(605, 511)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(123, 5)
+        Me.PictureBox2.TabIndex = 15
+        Me.PictureBox2.TabStop = False
+        '
+        'btnLogout
+        '
+        Me.btnLogout.Location = New System.Drawing.Point(649, 7)
+        Me.btnLogout.Name = "btnLogout"
+        Me.btnLogout.Size = New System.Drawing.Size(75, 23)
+        Me.btnLogout.TabIndex = 15
+        Me.btnLogout.Text = "Logout"
+        Me.btnLogout.UseVisualStyleBackColor = True
         '
         'Button3
         '
@@ -270,34 +286,57 @@ Partial Class frmSales
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(131, 280)
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button2.BackColor = System.Drawing.Color.Silver
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Location = New System.Drawing.Point(605, 463)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.Size = New System.Drawing.Size(124, 52)
         Me.Button2.TabIndex = 33
         Me.Button2.Text = "Transact"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.Button2.UseVisualStyleBackColor = False
         '
-        'Button1
+        'btnOrderItem
         '
-        Me.Button1.Location = New System.Drawing.Point(114, 156)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(99, 23)
-        Me.Button1.TabIndex = 33
-        Me.Button1.Text = "Add"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnOrderItem.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnOrderItem.Location = New System.Drawing.Point(89, 205)
+        Me.btnOrderItem.Name = "btnOrderItem"
+        Me.btnOrderItem.Size = New System.Drawing.Size(124, 23)
+        Me.btnOrderItem.TabIndex = 33
+        Me.btnOrderItem.Text = "Add"
+        Me.btnOrderItem.UseVisualStyleBackColor = True
+        '
+        'cbCustomer
+        '
+        Me.cbCustomer.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbCustomer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.cbCustomer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.cbCustomer.FormattingEnabled = True
+        Me.cbCustomer.Location = New System.Drawing.Point(9, 39)
+        Me.cbCustomer.Name = "cbCustomer"
+        Me.cbCustomer.Size = New System.Drawing.Size(204, 24)
+        Me.cbCustomer.TabIndex = 32
+        Me.cbCustomer.Text = "Walk-IN"
         '
         'txtProductName
         '
+        Me.txtProductName.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtProductName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txtProductName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtProductName.FormattingEnabled = True
-        Me.txtProductName.Location = New System.Drawing.Point(9, 36)
+        Me.txtProductName.Location = New System.Drawing.Point(9, 85)
         Me.txtProductName.Name = "txtProductName"
         Me.txtProductName.Size = New System.Drawing.Size(204, 24)
         Me.txtProductName.TabIndex = 32
         '
         'txtQuantity
         '
+        Me.txtQuantity.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         '
         '
         '
@@ -311,7 +350,7 @@ Partial Class frmSales
         Me.txtQuantity.CustomButton.UseSelectable = True
         Me.txtQuantity.CustomButton.Visible = False
         Me.txtQuantity.Lines = New String(-1) {}
-        Me.txtQuantity.Location = New System.Drawing.Point(89, 127)
+        Me.txtQuantity.Location = New System.Drawing.Point(89, 176)
         Me.txtQuantity.MaxLength = 32767
         Me.txtQuantity.Name = "txtQuantity"
         Me.txtQuantity.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -328,6 +367,8 @@ Partial Class frmSales
         '
         'txtBarcode
         '
+        Me.txtBarcode.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         '
         '
         '
@@ -343,7 +384,7 @@ Partial Class frmSales
         Me.txtBarcode.FontWeight = MetroFramework.MetroTextBoxWeight.Light
         Me.txtBarcode.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.txtBarcode.Lines = New String(-1) {}
-        Me.txtBarcode.Location = New System.Drawing.Point(9, 70)
+        Me.txtBarcode.Location = New System.Drawing.Point(9, 119)
         Me.txtBarcode.MaxLength = 100
         Me.txtBarcode.Name = "txtBarcode"
         Me.txtBarcode.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -359,10 +400,23 @@ Partial Class frmSales
         Me.txtBarcode.WaterMarkColor = System.Drawing.Color.SlateGray
         Me.txtBarcode.WaterMarkFont = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         '
+        'Label5
+        '
+        Me.Label5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(11, 20)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(72, 16)
+        Me.Label5.TabIndex = 7
+        Me.Label5.Text = "Customer"
+        '
         'Label2
         '
+        Me.Label2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(11, 17)
+        Me.Label2.Location = New System.Drawing.Point(11, 66)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(104, 16)
         Me.Label2.TabIndex = 7
@@ -370,8 +424,10 @@ Partial Class frmSales
         '
         'Label3
         '
+        Me.Label3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(27, 194)
+        Me.Label3.Location = New System.Drawing.Point(34, 234)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(32, 16)
         Me.Label3.TabIndex = 7
@@ -379,24 +435,69 @@ Partial Class frmSales
         '
         'TextBox1
         '
+        Me.TextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox1.Font = New System.Drawing.Font("Courier New", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(82, 194)
+        Me.TextBox1.Location = New System.Drawing.Point(89, 234)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.ReadOnly = True
         Me.TextBox1.Size = New System.Drawing.Size(124, 19)
         Me.TextBox1.TabIndex = 8
         Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
+        'lblBuildID
+        '
+        Me.lblBuildID.AutoSize = True
+        Me.lblBuildID.Location = New System.Drawing.Point(31, 201)
+        Me.lblBuildID.Name = "lblBuildID"
+        Me.lblBuildID.Size = New System.Drawing.Size(64, 16)
+        Me.lblBuildID.TabIndex = 7
+        Me.lblBuildID.Text = "BUILDID"
+        '
+        'lblItemid
+        '
+        Me.lblItemid.AutoSize = True
+        Me.lblItemid.Location = New System.Drawing.Point(31, 217)
+        Me.lblItemid.Name = "lblItemid"
+        Me.lblItemid.Size = New System.Drawing.Size(56, 16)
+        Me.lblItemid.TabIndex = 7
+        Me.lblItemid.Text = "ITEMID"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(15, 178)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(72, 16)
+        Me.Label11.TabIndex = 7
+        Me.Label11.Text = "Customer"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PictureBox1.BackgroundImage = Global.AccountManagementIS.My.Resources.Resources.lineSalesbar
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox1.InitialImage = Nothing
+        Me.PictureBox1.Location = New System.Drawing.Point(-7, 93)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(1926, 13)
+        Me.PictureBox1.TabIndex = 28
+        Me.PictureBox1.TabStop = False
+        '
         'frmSales
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.FixedSingle
-        Me.ClientSize = New System.Drawing.Size(923, 630)
+        Me.ClientSize = New System.Drawing.Size(923, 669)
         Me.ControlBox = False
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.lblItemid)
+        Me.Controls.Add(Me.lblBuildID)
+        Me.Controls.Add(Me.Label11)
         Me.Font = New System.Drawing.Font("Courier New", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Movable = False
@@ -409,12 +510,14 @@ Partial Class frmSales
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Transaction"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
@@ -440,11 +543,17 @@ Partial Class frmSales
     Friend WithEvents txtQuantity As MetroFramework.Controls.MetroTextBox
     Friend WithEvents txtBarcode As MetroFramework.Controls.MetroTextBox
     Friend WithEvents txtProductName As ComboBox
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnOrderItem As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
+    Friend WithEvents btnLogout As Button
+    Friend WithEvents lblBuildID As Label
+    Friend WithEvents lblItemid As Label
+    Friend WithEvents cbCustomer As ComboBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents PictureBox2 As PictureBox
 End Class

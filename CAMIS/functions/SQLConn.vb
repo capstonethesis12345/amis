@@ -25,7 +25,7 @@ Module SQLConn
             UserNameMySQL = GetSetting(AppName, "DBSection", "DB_User", "temp")
             PwdMySQL = GetSetting(AppName, "DBSection", "DB_Password", "temp")
             Remember = GetSetting(AppName, "DBSection", "LogUser", "temp")
-            conn.ConnectionString = "server=" & ServerMySQL & ";port=" & PortMySQL & ";database=" & DBNameMySQL & ";uid=" & UserNameMySQL & ";pwd=" & PwdMySQL
+            conn.ConnectionString = "server=" & ServerMySQL & ";port=" & PortMySQL & ";database=" & DBNameMySQL & ";uid=" & UserNameMySQL & ";pwd=" & PwdMySQL & ";convert zero datetime=True"
         Catch ex As Exception
             MsgBox("Set first required server information by pressing save.", MsgBoxStyle.Information)
         End Try

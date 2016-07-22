@@ -83,11 +83,9 @@ Public Class frmStaff
                 Else
                     Exit Sub
                 End If
-
                 Exit Sub
             Else
                 insertStaff()
-
             End If
         Else
             If isEditStaff = False Then
@@ -107,9 +105,7 @@ Public Class frmStaff
                     haserror = False
                     Exit Sub
                 End If
-
             End If
-
         End If
         haserror = False
     End Sub
@@ -610,11 +606,11 @@ Public Class frmStaff
                     txtFunction.SelectedIndex = 1
                 Case Is = "Cashier"
                     txtFunction.SelectedIndex = 2
+                Case Is = "Cook"
+                    txtFunction.SelectedIndex = 3
                 Case Else
                     txtFunction.SelectedIndex = -1
             End Select
-
-
             If Not txtEmployeeNo.Text = vbNullString Then
                 lblStatus.Text = "Updating existed employee"
             End If

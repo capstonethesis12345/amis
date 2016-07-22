@@ -22,6 +22,7 @@ Partial Class fMainForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.tUsername = New System.Windows.Forms.TextBox()
         Me.tPassword = New System.Windows.Forms.TextBox()
@@ -32,6 +33,7 @@ Partial Class fMainForm
         Me.erTextboxUser = New System.Windows.Forms.PictureBox()
         Me.erTextboxPass = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.erTextboxUser, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -109,9 +111,9 @@ Partial Class fMainForm
         Me.MetroLabel1.ForeColor = System.Drawing.Color.DarkRed
         Me.MetroLabel1.Location = New System.Drawing.Point(134, 170)
         Me.MetroLabel1.Name = "MetroLabel1"
-        Me.MetroLabel1.Size = New System.Drawing.Size(219, 19)
+        Me.MetroLabel1.Size = New System.Drawing.Size(206, 19)
         Me.MetroLabel1.TabIndex = 7
-        Me.MetroLabel1.Text = "Username and Password is incorrect"
+        Me.MetroLabel1.Text = "Incorrect username and password"
         Me.MetroLabel1.Visible = False
         '
         'txtFunction
@@ -152,6 +154,11 @@ Partial Class fMainForm
         Me.PictureBox2.TabStop = False
         Me.PictureBox2.Visible = False
         '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 1000
+        '
         'fMainForm
         '
         Me.AcceptButton = Me.btnSubmit
@@ -184,4 +191,5 @@ Partial Class fMainForm
     Friend WithEvents txtFunction As TextBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents MetroLabel1 As MetroFramework.Controls.MetroLabel
+    Friend WithEvents Timer1 As Timer
 End Class

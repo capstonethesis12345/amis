@@ -1,11 +1,13 @@
 ﻿Imports MySql.Data
 
 Public Class frmFoodMenu
+    Dim vRefresh As String = "select itemid, ifnull(`Barcode`,'')Barcode,ifnull(`Description`,'')description,price,if(salestatus=1,'Available','Out of Stock')salestatus from `items` where `itemtype` like 2"
     Public Sub New()
         InitializeComponent()
+        itemID.Text = ""
         Try
             objForm = Me
-            SqlRefresh = "select itemid, ifnull(`Barcode`,'')Barcode,ifnull(`Description`,'')description,price from `items` where `itemtype` like 2"
+            SqlRefresh = vRefresh
             SqlReFill("itemsDetails", ListView1)
         Catch ex As Exception
             MessageBox.Show("Error in establishing connection in category form" & ex.Message.ToString, "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -18,6 +20,23 @@ Public Class frmFoodMenu
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If itemID.Text = vbNullString Then
+            subitemadd()
+        Else
+            subitemupdate()
+        End If
+    End Sub
+    Sub subitemupdate()
+        Dim salestatus As New TextBox
+        If available.Checked = True Then
+            salestatus.Text = "1"
+        Else
+            salestatus.Text = "0"
+        End If
+        SqlRefresh = vRefresh
+        itemUpdate("items", {"price", "salestatus"}, {txtPrice, salestatus}, "itemid", itemID.Text, ListView1)
+    End Sub
+    Sub subitemadd()
         If txtBcode.Text = vbNullString And txtName.Text = vbNullString Then
             MessageBox.Show("Food menu and barcode required.")
             Exit Sub
@@ -25,7 +44,7 @@ Public Class frmFoodMenu
         SqlRefresh = "select ifnull(`itemid`,'')itemid, ifnull(`barcode`,'')barcode,ifnull(`description`,'')description,ifnull(`price`,'')price from `items` where `itemtype` like 2"
         Dim status, itemtype As New TextBox
         itemtype.Text = "2"
-        If r1.Checked = True Then
+        If available.Checked = True Then
             status.Text = "1"
         Else
 
@@ -38,18 +57,25 @@ Public Class frmFoodMenu
             txtName.Text = ds.Tables("checkFoodExistence").Rows(0).Item("description").ToString
         Else
             itemNew("items", {"barcode", "description", "price", "salestatus", "itemtype"}, {txtBcode, txtName, txtPrice, status, itemtype}, ListView1)
-
         End If
-
-
-
-
-
     End Sub
 
     Private Sub ListView1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListView1.MouseDoubleClick
-        Dim mid As String = ListView1.SelectedItems(0).Text.ToString
-        SqlRefresh = "select itemid,barcode,description,price from `items` where itemtype=0"
-        SqlReFill("FMenu", Nothing, "ShowValueInTextbox", {"itemid"}, {itemID}, {itemID, txtBcode, txtName, txtPrice})
+        Dim menuid As String = ListView1.SelectedItems(0).Text.ToString
+        itemID.Text = menuid
+        'SqlRefresh = "select barcode,description,price from `items` where itemid like @itemid"
+        'SqlReFill("FoodMenu", Nothing, "ShowValueInTextbox", {"itemid"}, {itemID}, {txtBcode, txtName, txtPrice})
+        getDSData("select barcode,description,price,salestatus from items where itemid like @0", "foodmenu", {ListView1.SelectedItems(0).Text.ToString})
+        txtBcode.Text = ds.Tables("foodmenu").Rows(0).Item(0).ToString
+        txtName.Text = ds.Tables("foodmenu").Rows(0).Item(1).ToString
+        txtPrice.Text = ds.Tables("foodmenu").Rows(0).Item(2).ToString
+        Select Case ds.Tables("foodmenu").Rows(0).Item(3).ToString
+            Case Is = "0"
+                available.Checked = False
+                outofstock.Checked = True
+            Case Is = "1"
+                available.Checked = True
+                Exit Select
+        End Select
     End Sub
 End Class

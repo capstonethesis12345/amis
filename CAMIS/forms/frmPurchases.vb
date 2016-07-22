@@ -21,30 +21,34 @@ Public Class frmPurchases
         lblTotal.Text = String.Format(Globalization.CultureInfo.GetCultureInfo("en-PH"), computeSum())
 
     End Sub
-
+    Sub refreshlist()
+        SqlRefresh = vRefresh
+        SqlReFill("Purchases", ListView1)
+        lblTotal.Text = computeSum()
+    End Sub
     Private Sub frmPurchases_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ErrMessageText = "Error on poid getIDFunction lke 54"
+        ErrMessageText = "Error on poid getIDFunction lke 26"
+        msgShow = False
         poid = getIDFunction("select ifnull(max(poid),(select max(poid)+1 from po)) from po where status=0 and empid='" & vEmp & "'", "poid", Nothing, True).ToString
         lblPONum.Text = poid
 
-        vRefresh = "select polist.polistid,items.barcode,items.description,concat('1 ',items.unittype)unittype,polist.cost,polist.quantity,(polist.cost*polist.quantity)total,if(items.itemtype=0,'Non-Ingredient',if(items.itemtype=1,'Ingredient','Nonspecified'))itemtype,(supplier.company)company,supplier.supplierid,supplier.company from polist
+        vRefresh = "select polist.polistid,items.barcode,items.description,concat('1 ',items.unittype)unittype,polist.cost,polist.quantity,(polist.cost*polist.quantity)total,if(items.itemtype=0,'Non-Ingredient',if(items.itemtype=1,'Non-Ingredient','Ingredient'))itemtype,(supplier.company)company,supplier.supplierid,polist.postatus from polist
             left join po
             on po.poid=polist.poid
             left join items
             on items.itemid=polist.itemid
 inner join supplier
-on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid like '" & vEmp & "' "
+on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid like '" & vEmp & "'"
         msgShow = True
         ErrMessageText = "Error already available"
         Dim checkContent As Integer = Integer.Parse(getIDFunction("SELECT Count(poid) FROM `po` where poid=@0 and empid=@1", "CountPO", {poid, vEmp}), False)
         If checkContent > 0 Then
-            SqlRefresh = vRefresh
-            SqlReFill("Purchases", ListView1)
+            refreshlist()
             Try
                 lblSupplier.Text = ds.Tables("Purchases").Rows(0).Item("company").ToString
                 lblSupplierID.Text = ds.Tables("Purchases").Rows(0).Item("supplierid").ToString
                 txtSupplier.Text = lblSupplier.Text
-                txtSupplier.ReadOnly = True
+
             Catch ex As Exception
                 'txtSupplier.ReadOnly = False
                 If lblSupplierID.Text = vbNullString Then
@@ -58,14 +62,25 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
         ElseIf (checkContent = 0) Then
             Dim NewStatus As New TextBox
             NewStatus.Text = "0"
-            msgShow = True
+            msgShow = False
             ErrMessageText = "Error on itemnew"
             itemNew("po", {"poid", "status", "empid"}, {lblPONum, NewStatus, lblEmpID})
-
+            msgShow = False
+            lblPONum.Text = getStrData("select max(poid) from po where empid like @0", "ponum", {lblEmpID.Text})
+        End If
+        If lblSupplier.Text <> vbNullString Then
+            txtSupplier.ReadOnly = True
         End If
 
         lblTotal.Text = computeSum()
+        If lblSupplier.Text = "0" Or lblSupplier.Text = vbNullString Then
+            txtSupplier.ReadOnly = False
+        Else
 
+            Dim currDate As String = getStrData("select podate from po where poid=@0", "getPODate", {lblPONum.Text})
+            Me.podate.MinDate = currDate
+            Me.podate.MaxDate = currDate
+        End If
 
     End Sub
     Sub objAutoComplete()
@@ -96,93 +111,38 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
     Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
         Me.Close()
     End Sub
-    Sub importantFillup()
+    Function importantFillup()
+        Dim hasError As Boolean = False
         If txtProductName.Text = vbNullString Then
             insertProduct = False
             MessageBox.Show("Product description must be filled up")
             txtProductName.Focus()
-            Exit Sub
+            hasError = True
+
         End If
         If txtCost.Text = vbNullString Then
             insertProduct = False
             MessageBox.Show("Cost amount must be filled up")
             txtCost.Focus()
-            Exit Sub
+            hasError = True
         End If
         If txtQuantity.Text = vbNullString Then
             insertProduct = False
             MessageBox.Show("Quantity must be filled up")
             txtQuantity.Focus()
-            Exit Sub
+            hasError = True
         End If
         If insertProduct = False Then
             MessageBox.Show("All data must be filled up first")
         End If
 
-
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAddUpdate.Click
-        Dim tvsupplier As New TextBox
-        'txtSupplier_Leave(btnAddUpdate, e)
-        'importantFillup()
+        Return hasError
+    End Function
 
 
-        If Not txtSupplier.Text = vbNullString Then
-            'MessageBox.Show("txtsupplier are filled up")
-            'update suppler on PO table
-            itemUpdate("po", {"supplierid"}, {lblSupplierID}, "poid", lblPONum.Text)
-            '  MessageBox.Show("Line 128: Disabling Supplier input")
-            txtSupplier.ReadOnly = True
-        Else
-            MessageBox.Show("Supplier name must be filled up first")
-            insertProduct = False
-            Exit Sub
-        End If
-
-
-
-        'CHECK IF BARCODE AND DESCRIPTION ARE ALREADY ON THE ITEMLIST and update
-        If insertProduct = True Then
-            If checkItemDuplicate() = True Then
-                MessageBox.Show("Item already on the list, update table purchase list")
-            Else
-                'if item already exists in items table get itemid
-                Dim id As String
-                id = vInsertedItem()
-                Dim itemid As String = getStrData("select itemid from items where barcode like @0 and description like @1", "isExisted", {txtBarcode.Text, txtProductName.Text})
-                'Else add a new item product
-                insertedItemOrder(itemid)
-
-                ' If insertedItemOrder() = True Then
-                ' MessageBox.Show("Success")
-                ' End If
-
-
-            End If
-        End If
-        'get max poid' and compare to currect potext
-
-
-
-
-        'DO NOT UPDATE BELOW
-        '------------------------------------------
-        'COMPUTE SUM AMOUNT
-        lblTotal.Text = computeSum()
-        If insertProduct = True Then
-            'CLEAR TEXTBOXEX
-            Dim txtboxes As Object() = {lblItemID, txtBarcode, txtProductName, txtBrand, txtCost, txtQuantity}
-            clearField(txtboxes)
-            '----------------------------------------------
-        End If
-        'REFRESH INSERTION ITEM
-        insertProduct = True
-        SqlRefresh = vRefresh
-        SqlReFill("Purchases", ListView1)
-    End Sub
     Sub compareID()
-        Dim currentID As Integer = getIDFunction("select ifnull(max(poid),0) from po", "MaxID")
+        msgShow = False
+        Dim currentID As Integer = getIDFunction("select ifnull(max(poid),1) from po", "MaxID")
         If Not Integer.Parse(currentID) = lblPONum.Text Then
             MessageBox.Show("DB max poid is not equal to current poid")
         Else
@@ -191,30 +151,25 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
         End If
 
     End Sub
-    Function vInsertedItem() As String
-        Dim inItem As String = "0"
-        Dim runittype As New TextBox
-        Dim itemKind As New TextBox
+    Function getUnitTypeValue() As String
+        Dim runittype As String
         If (pcs.Checked = True) Then
-            runittype.Text = "pcs"
-        ElseIf (lbs.Checked = True) Then
-            runittype.Text = "lbs"
+            runittype = "pcs"
+        ElseIf (kgs.Checked = True) Then
+            runittype = "kg"
+        ElseIf (g.Checked = True) Then
+            runittype = "g"
+        ElseIf (mg.Checked = True) Then
+            runittype = "mg"
         Else
-            runittype.Text = "kgs"
+            runittype = "0"
         End If
-        If nonIngredient.Checked = True Then
-            itemKind.Text = "0"
-        Else
-            itemKind.Text = "2"
-        End If
-        importantFillup()
-        itemNew("items", {"Barcode", "Description", "Brand", "UnitType", "ItemType"}, {txtBarcode, txtProductName, txtBrand, runittype, itemKind})
-        inItem = getStrData("select itemid from items where barcode like @0 and description like @1", "items", {txtBarcode.Text, txtProductName.Text})
-        Return inItem
+        Return runittype
     End Function
     Function insertedItemOrder(ByVal id As String) As Boolean
         Dim inItem As Boolean = False
         If inItem = False Then
+            msgShow = False
             lblItemID.Text = id
             SqlRefresh = vRefresh
             itemNew("polist", {"POID", "ItemID", "Quantity", "Cost"}, {lblPONum, lblItemID, txtQuantity, txtCost}, ListView1)
@@ -227,6 +182,7 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
         'this method will be used for duplicated item that needs for an update'
         Dim isDupplicatated As Boolean = False
         SqlRefresh = "select poid,itemid from polist where poid like @0 and itemid like @1"
+        msgShow = False
         Dim polistid As String = getStrData(SqlRefresh, "itemExisted", {lblPONum.Text, lblItemID.Text})
         'MessageBox.Show("Existed in polistid =" & polistid)
         If polistid = vbNullString Then
@@ -236,33 +192,40 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
         End If
         Return isDupplicatated
     End Function
-    Private Sub txtSupplier_Leave(sender As Object, e As EventArgs) Handles txtSupplier.Leave
+    Sub getSuppierid(ByVal isRequired As Boolean)
         'LOST FOCUS WE WILL GET SUPPLIERID
         Try
             'MessageBox.Show(txtSupplier.Text)
-            sqL = "SELECT  `supplierid` FROM  `supplier` WHERE company LIKE  @0"
+            sqL = "SELECT  `supplierid`,`company` FROM  `supplier` WHERE company LIKE  @0"
             msgShow = False
             lblSupplierID.Text = getStrData(sqL, "supplierid", {txtSupplier.Text})
             If lblSupplierID.Text = "0" Or lblSupplierID.Text = vbNullString Then
-                openFull(frmSupplier)
-                If Not txtSupplier.Text = vbNullString Then
-                    frmSupplier.txtSupplier.Text = txtSupplier.Text
-                    lblSupplier.Text = txtSupplier.Text
+                If isRequired = True Then
+                    openFull(frmSupplier)
+
                 End If
-            End If
+                If Not txtSupplier.Text = vbNullString Then
+                        frmSupplier.txtSupplier.Text = txtSupplier.Text
+                    lblSupplier.Text = ds.Tables("supplierid").Rows(0).Item(1).text.ToString
+                End If
+                End If
         Catch ex As Exception
-            MessageBox.Show("error")
+            lblSupplierID.Text = 0
+            lblSupplier.Text = 0
         End Try
-
     End Sub
-
+    Sub isSupplierExists(ByVal SupplierName As String)
+        'sqL = "SELECT  `supplierid` FROM  `supplier` WHERE company LIKE  @0"
+        'lblSupplierID.Text = getStrData(sqL, "supplierid", {txtSupplier.Text})
+        getSuppierid(False)
+    End Sub
 
     Private Sub txtBarcode_Leave(sender As Object, e As EventArgs) Handles txtBarcode.Leave
         If Not txtBarcode.Text = vbNullString Then
             Dim getBarcode As String
             Try
                 msgShow = False
-                getBarcode = getStrData("select ifnull(itemid,0)itemid from items where barcode like @0 and itemtype = 0 or itemtype = 1", "Barcode", {txtBarcode.Text})
+                getBarcode = getStrData("select ifnull(itemid,0)itemid from items where barcode like @0 and itemtype <> 2", "Barcode", {txtBarcode.Text})
                 If getBarcode = 0 Then
                     insertProduct = True
                     Exit Sub
@@ -296,8 +259,8 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
                     Case Is = "pcs"
                         pcs.Checked = True
                         Exit Select
-                    Case Is = "lbs"
-                        lbs.Checked = True
+                    Case Is = "g"
+                        g.Checked = True
                         Exit Select
                     Case Is = "kgs"
                         kgs.Checked = True
@@ -314,7 +277,7 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
                         ingredient.Checked = True
                         Exit Select
                 End Select
-                MessageBox.Show("Ingredient type =" & ds.Tables("items").Rows(0).Item("itemtype").ToString)
+                ' MessageBox.Show("Ingredient type =" & ds.Tables("items").Rows(0).Item("itemtype").ToString)
                 ' MessageBox.Show("Enable readonly to txtproduct and txtbrand")
                 txtProductName.ReadOnly = True
                 txtBrand.ReadOnly = True
@@ -335,30 +298,29 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
         For Each row In ListView1.Items
             total += Double.Parse(row.subitems(4).text) * Double.Parse(row.subitems(5).text)
         Next
-
         Return total.ToString("C", Globalization.CultureInfo.GetCultureInfo("en-PH"))
     End Function
 
     Private Sub ListView1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListView1.MouseDoubleClick
 
 
-        Dim ref As New TextBox
-        ref.Text = ListView1.SelectedItems(0).Text.ToString
-        SqlRefresh =
-            "select polist.itemid,
-           (supplier.company)supplierName,
-           items.barcode
-           from                polist 
-           left join            items
-           ON polist.itemid=items.itemid
-            left join           supplier
-            on supplier.supplierid=items.supplierid
-           WHERE polist.polistid like  @itemid"
-        SqlReFill("updateitem", Nothing, "ShowValueInTextbox", {"itemid"}, {ref}, {lblItemID, txtSupplier, txtBarcode})
-        'DISABLE SUPPLIER
-        txtSupplier.ReadOnly = True
-        txtBarcode.ReadOnly = True
-        btnDelete.Visible = True
+        '   Dim ref As New TextBox
+        '  ref.Text = ListView1.SelectedItems(0).Text.ToString
+        'SqlRefresh =
+        '    "select polist.itemid,
+        '   (supplier.company)supplierName,
+        '   items.barcode
+        '   from                polist 
+        '   left join            items
+        '   ON polist.itemid=items.itemid
+        '    left join           supplier
+        '    on supplier.supplierid=items.supplierid
+        '   WHERE polist.polistid like  @itemid"
+        'SqlReFill("updateitem", Nothing, "ShowValueInTextbox", {"itemid"}, {ref}, {lblItemID, txtSupplier, txtBarcode})
+        ''DISABLE SUPPLIER
+        '' txtSupplier.ReadOnly = True
+        ''txtBarcode.ReadOnly = True
+        'btnDelete.Visible = True
     End Sub
 
     Private Sub txtProductName_Leave(sender As Object, e As EventArgs) Handles txtProductName.Leave
@@ -411,15 +373,179 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
         Dim tstatus As New TextBox
         If MessageBox.Show("Are you sure this transaction is complete?", "Notice", MessageBoxButtons.YesNo) = DialogResult.Yes Then
             tstatus.Text = 1
-            itemUpdate("po", {"Status"}, {tstatus}, "poid", lblPONum.Text)
+            Dim ddate As New TextBox
+            ddate.Text = Date.Now.ToString("yyyy-MM-dd")
+            If (CheckBox1.Checked = True) Then
+                For i = 0 To ListView1.Items.Count - 1
+                    If ListView1.Items(i).SubItems(7).Text.ToString = "Non-Ingredient" Then
+                        msgShow = False
+                        itemUpdate("items", {"salestatus"}, {tstatus}, "description", ListView1.Items(i).SubItems(2).Text.ToString)
+                    End If
+                Next
+            End If
+            itemUpdate("po", {"Status", "podeliverydate"}, {tstatus, ddate}, "poid", lblPONum.Text)
             SqlRefresh = vRefresh
-            SqlReFill("po", ListView1)
+            '   SqlReFill("po", ListView1)
+            SqlRefresh = vRefresh
+            SqlReFill("Purchases", ListView1)
+
         End If
         SqlRefresh = vRefresh
         SqlReFill("Purchases", ListView1)
     End Sub
 
     Private Sub txtSupplier_TextChanged(sender As Object, e As EventArgs) Handles txtSupplier.TextChanged
+        getSuppierid(False)
+    End Sub
+
+    Private Sub btnAddUpdate_Click(sender As Object, e As EventArgs) Handles btnAddUpdate.Click
+
+        ' isSupplierExists(txtSupplier.Text)
+        getSuppierid(True)
+        If lblSupplierID.Text = vbNullString Then
+            MessageBox.Show("Add supplier first.")
+            openFull(frmSupplier)
+            Exit Sub
+        End If
+        If txtSupplier.Text = vbNullString Then
+            MessageBox.Show("Supplier must be filled up first")
+            Exit Sub
+
+        ElseIf txtSupplier.Text = vbNullString Then
+            MessageBox.Show("Barcode must be filled up first")
+            Exit Sub
+        ElseIf txtProductName.Text = vbNullString Then
+            MessageBox.Show("Description must be filled up first")
+            Exit Sub
+        ElseIf txtBrand.Text = vbNullString Then
+            MessageBox.Show("Brand must be filled up first")
+            Exit Sub
+
+        ElseIf txtCost.Text = vbNullString Then
+            MessageBox.Show("Cost must be filled up first")
+        ElseIf txtQuantity.Text = vbNullString Then
+            MessageBox.Show("Quantity must be filled up first")
+        Else
+
+            Dim sid As New TextBox
+            sid.Text = getStrData("select supplierid from supplier where company like @0", "supplier", {txtSupplier.Text})
+            itemUpdate("po", {"supplierid", "podate"}, {sid, podate}, "poid", lblPONum.Text)
+
+            If lblItemID.Text = vbNullString Or lblItemID.Text = "0" Then
+                Dim unittype As New TextBox
+                unittype.Text = getUnitTypeValue()
+                Dim producttype As New TextBox
+                producttype.Text = getProductType()
+                itemNew("items", {"barcode", "description", "brand", "price", "unittype", "category", "itemtype"}, {txtBarcode, txtProductName, txtBrand, txtCost, unittype, txtcategory, producttype})
+            End If
+
+
+            'add to polist
+            'getpoid
+            Dim itmId As New TextBox
+            msgShow = False
+            Dim tid As String = getStrData("select ifnull(itemid,max(itemid)) from items where barcode like @0 and description like @1", "itemsName", {txtBarcode.Text, txtProductName.Text})
+            itmId.Text = tid
+
+            itemNew("polist", {"poid", "itemid", "quantity", "cost"}, {lblPONum, itmId, txtQuantity, txtCost})
+            'clear textboxes expt supplier
+
+            txtProductName.Text = ""
+            txtBarcode.Text = ""
+            txtBrand.Text = ""
+            txtCost.Text = ""
+            txtQuantity.Text = ""
+            groupProductType.Enabled = True
+            txtcategory.Text = ""
+        End If
+        refreshlist()
+
+
+        'If lblSupplierID.Text = vbNullString Then
+
+        'update podate
+        '1.get podate string if 0000-00-00 then enable update
+        'Dim SDate As String = getStrData("select ifnull(podate,'') from po where poid like @0", "getPODate", {lblPONum.Text}).text.ToString
+        'MessageBox.Show(SDate)
+
+        'End If
+    End Sub
+    Function getProductType()
+        Dim type As String = ""
+        If nonIngredient.Checked = True Then
+            type = "0"
+        Else
+            type = "1"
+        End If
+        Return type
+    End Function
+    Function isItemExisted(ByVal itemid As String) As Boolean
+        Dim isErrOccured As Boolean = False
+        Dim id As String = getStrData("select ifnull(itemid,max(itemid)) from items where barcode like @0 and description like @1", "itemsName", {txtBarcode.Text, txtProductName.Text})
+        If id = vbNullString Then
+            If importantFillup() = True Then
+                isErrOccured = True
+                Exit Function
+            Else
+                'insert to product
+
+
+                'transfer txtsuppliername to lblsuppliername
+                Return isErrOccured
+            End If
+
+        End If
+        Return isErrOccured
+
+    End Function
+
+    Private Sub txtBarcode_KeyUp(sender As Object, e As KeyEventArgs) Handles txtBarcode.KeyUp
+        If txtBarcode.Text = vbNullString Then
+            groupProductType.Enabled = True
+            groupUnit.Enabled = True
+            With txtProductName
+                .ReadOnly = False
+                .Text = ""
+            End With
+            With txtBrand
+                .ReadOnly = False
+                .Text = ""
+            End With
+
+        End If
+    End Sub
+
+    Private Sub podate_ValueChanged(sender As Object, e As EventArgs) Handles podate.ValueChanged
 
     End Sub
+    Dim lv2 As New ListView()
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        ListView2.Visible = True
+        ListView2.BringToFront()
+        SqlRefresh = "select itemid,description from items where description like @description"
+        SqlReFill("searchItem", ListView1, Nothing, {"description"}, {txtProductName})
+
+
+    End Sub
+
+    Private Sub txtQuantity_KeyUp(sender As Object, e As KeyEventArgs) Handles txtQuantity.KeyUp
+        If e.KeyCode = Keys.Enter Then
+            btnAddUpdate.Focus()
+        End If
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs)
+        Dim status As New TextBox
+        status.Text = "1"
+        itemUpdate("polist", {"postatus"}, {status}, "poid", lblPONum.Text)
+
+    End Sub
+
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    'Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+    '    MessageBox.Show(ListView1.SelectedItems(0).SubItems(7).Text.ToString)
+    'End Sub
 End Class

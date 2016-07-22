@@ -43,11 +43,14 @@ Partial Class frmMain
         Me.PurchasesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReturnsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AdjustmentToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DTRToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeliveriesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StocksInToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StocksOutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FinancialStatusToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SoldToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CalculatorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotepadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -70,7 +73,7 @@ Partial Class frmMain
         Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
-        Me.DTRToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -171,7 +174,7 @@ Partial Class frmMain
         '
         'TransactionToolStripMenuItem
         '
-        Me.TransactionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.POSToolStripMenuItem, Me.PurchasesToolStripMenuItem, Me.ReturnsToolStripMenuItem, Me.AdjustmentToolStripMenuItem, Me.DTRToolStripMenuItem})
+        Me.TransactionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.POSToolStripMenuItem, Me.PurchasesToolStripMenuItem, Me.ReturnsToolStripMenuItem, Me.AdjustmentToolStripMenuItem, Me.DTRToolStripMenuItem, Me.DeliveriesToolStripMenuItem})
         Me.TransactionToolStripMenuItem.Name = "TransactionToolStripMenuItem"
         Me.TransactionToolStripMenuItem.Size = New System.Drawing.Size(81, 20)
         Me.TransactionToolStripMenuItem.Text = "Transaction"
@@ -200,9 +203,21 @@ Partial Class frmMain
         Me.AdjustmentToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AdjustmentToolStripMenuItem.Text = "Adjustment"
         '
+        'DTRToolStripMenuItem
+        '
+        Me.DTRToolStripMenuItem.Name = "DTRToolStripMenuItem"
+        Me.DTRToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DTRToolStripMenuItem.Text = "DTR"
+        '
+        'DeliveriesToolStripMenuItem
+        '
+        Me.DeliveriesToolStripMenuItem.Name = "DeliveriesToolStripMenuItem"
+        Me.DeliveriesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DeliveriesToolStripMenuItem.Text = "Deliveries"
+        '
         'ReportToolStripMenuItem
         '
-        Me.ReportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StocksInToolStripMenuItem, Me.StocksOutToolStripMenuItem, Me.FinancialStatusToolStripMenuItem, Me.SoldToolStripMenuItem})
+        Me.ReportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StocksInToolStripMenuItem, Me.StocksOutToolStripMenuItem, Me.FinancialStatusToolStripMenuItem, Me.SoldToolStripMenuItem, Me.AccountToolStripMenuItem})
         Me.ReportToolStripMenuItem.Name = "ReportToolStripMenuItem"
         Me.ReportToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
         Me.ReportToolStripMenuItem.Text = "Report"
@@ -230,6 +245,12 @@ Partial Class frmMain
         Me.SoldToolStripMenuItem.Name = "SoldToolStripMenuItem"
         Me.SoldToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
         Me.SoldToolStripMenuItem.Text = "Sold"
+        '
+        'AccountToolStripMenuItem
+        '
+        Me.AccountToolStripMenuItem.Name = "AccountToolStripMenuItem"
+        Me.AccountToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
+        Me.AccountToolStripMenuItem.Text = "Account"
         '
         'ToolsToolStripMenuItem
         '
@@ -271,8 +292,8 @@ Partial Class frmMain
         Me.ToolStripStatusLabel1.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripStatusLabel1.ForeColor = System.Drawing.Color.White
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(81, 17)
-        Me.ToolStripStatusLabel1.Text = "Active User :"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(56, 17)
+        Me.ToolStripStatusLabel1.Text = "UserID :"
         '
         'tsslUser
         '
@@ -441,11 +462,18 @@ Partial Class frmMain
         Me.ToolStripButton3.Text = "Log Out"
         Me.ToolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
-        'DTRToolStripMenuItem
+        'Panel2
         '
-        Me.DTRToolStripMenuItem.Name = "DTRToolStripMenuItem"
-        Me.DTRToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.DTRToolStripMenuItem.Text = "DTR"
+        Me.Panel2.AccessibleName = "Panel2"
+        Me.Panel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel2.BackColor = System.Drawing.Color.Transparent
+        Me.Panel2.Location = New System.Drawing.Point(76, 36)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(716, 437)
+        Me.Panel2.TabIndex = 16
+        Me.Panel2.Visible = False
         '
         'frmMain
         '
@@ -456,6 +484,7 @@ Partial Class frmMain
         Me.BackgroundImage = Global.AccountManagementIS.My.Resources.Resources.bgWallpaper
         Me.ClientSize = New System.Drawing.Size(804, 509)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.MenuStrip1)
@@ -529,4 +558,7 @@ Partial Class frmMain
     Friend WithEvents tUser As ToolStripStatusLabel
     Friend WithEvents SoldToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DTRToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AccountToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents DeliveriesToolStripMenuItem As ToolStripMenuItem
 End Class
