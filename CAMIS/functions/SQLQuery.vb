@@ -19,7 +19,7 @@ Module SQLQuery
     Public vEmp As String
     Public vUser As String
     Public hasError As Boolean = False
-
+    Public sqlMessage As String = ""
     Public Sub itemAutoComplete(ByVal DataSetName As String, ByVal objAutoCompleteTextBox As Object)
         Try
 
@@ -372,6 +372,7 @@ Module SQLQuery
 
             If msgShow = True Then
                 MessageBox.Show("Success")
+                sqlMessage = "Success"
             End If
             msgShow = True
 

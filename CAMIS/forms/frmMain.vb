@@ -126,8 +126,8 @@ Public Class frmMain
 
     Private Sub POSToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles POSToolStripMenuItem.Click
 
-        Dim sales As New frmSales()
-        sales.Show()
+        Dim sales As New frmSalesTransaction()
+        openFull(sales)
 
 
     End Sub
