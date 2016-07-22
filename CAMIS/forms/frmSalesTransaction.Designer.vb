@@ -32,14 +32,13 @@ Partial Class frmSalesTransaction
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.txtCash = New MetroFramework.Controls.MetroTextBox()
         Me.lTotal = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnTransact = New System.Windows.Forms.Button()
         Me.txtSearch = New MetroFramework.Controls.MetroTextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.lOrderNum = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lTableNum = New System.Windows.Forms.Label()
         Me.tTableNum = New System.Windows.Forms.TextBox()
@@ -47,7 +46,6 @@ Partial Class frmSalesTransaction
         Me.btnDeliveies = New System.Windows.Forms.Button()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.MetroButton1 = New MetroFramework.Controls.MetroButton()
-        Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lEmpNum = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
@@ -137,6 +135,11 @@ Partial Class frmSalesTransaction
         '
         Me.ColumnHeader3.Text = "PRICE"
         Me.ColumnHeader3.Width = 71
+        '
+        'ColumnHeader4
+        '
+        Me.ColumnHeader4.Text = "BuildID"
+        Me.ColumnHeader4.Width = 79
         '
         'Panel5
         '
@@ -238,7 +241,7 @@ Partial Class frmSalesTransaction
         Me.txtSearch.CustomButton.BackColor = System.Drawing.Color.Firebrick
         Me.txtSearch.CustomButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.txtSearch.CustomButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        ' Me.txtSearch.CustomButton.Image = Global.AccountManagementIS.My.Resources.Resources.search_icon
+        Me.txtSearch.CustomButton.Image = Nothing
         Me.txtSearch.CustomButton.Location = New System.Drawing.Point(579, 2)
         Me.txtSearch.CustomButton.Margin = New System.Windows.Forms.Padding(0)
         Me.txtSearch.CustomButton.Name = ""
@@ -267,30 +270,6 @@ Partial Class frmSalesTransaction
         Me.txtSearch.WaterMark = "Search"
         Me.txtSearch.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
         Me.txtSearch.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        '
-        'Label2
-        '
-        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.DarkRed
-        Me.Label2.Location = New System.Drawing.Point(739, 48)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(74, 21)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "ORDER #"
-        '
-        'lOrderNum
-        '
-        Me.lOrderNum.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lOrderNum.AutoSize = True
-        Me.lOrderNum.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lOrderNum.ForeColor = System.Drawing.Color.DarkRed
-        Me.lOrderNum.Location = New System.Drawing.Point(810, 48)
-        Me.lOrderNum.Name = "lOrderNum"
-        Me.lOrderNum.Size = New System.Drawing.Size(19, 21)
-        Me.lOrderNum.TabIndex = 3
-        Me.lOrderNum.Text = "0"
         '
         'Label4
         '
@@ -370,11 +349,6 @@ Partial Class frmSalesTransaction
         Me.MetroButton1.UseCustomForeColor = True
         Me.MetroButton1.UseSelectable = True
         '
-        'ColumnHeader4
-        '
-        Me.ColumnHeader4.Text = "BuildID"
-        Me.ColumnHeader4.Width = 79
-        '
         'Label3
         '
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -409,11 +383,9 @@ Partial Class frmSalesTransaction
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.lTableNum)
         Me.Controls.Add(Me.lEmpNum)
-        Me.Controls.Add(Me.lOrderNum)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.btnDeliveies)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.tTableNum)
@@ -446,8 +418,6 @@ Partial Class frmSalesTransaction
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Label1 As Label
     Friend WithEvents lTotal As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents lOrderNum As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents lTableNum As Label
     Friend WithEvents tTableNum As TextBox
