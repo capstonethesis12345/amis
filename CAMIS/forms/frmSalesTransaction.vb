@@ -2,30 +2,24 @@
     Sub New()
         InitializeComponent()
         getData()
-        SqlRefresh = "select description,itemid,price from items where salestatus=1"
+        SqlRefresh = "select description,itemid from items where salestatus=1"
         Dim lv As New ListView
         SqlReFill("saledata", lv)
         For i = 0 To ds.Tables("saledata").Rows.Count - 1
-            Dim btn As New Button()
+            Dim btn As New Button
             btn.Width = 109
             btn.Height = 73
-            btn.Name = itemcount
+            btn.Name = ds.Tables("saledata").Rows(i).Item(1).ToString
             btn.Text = ds.Tables("saledata").Rows(i).Item(0).ToString
             itemcount += 1
             FlowLayoutPanel1.Controls.Add(btn)
-            AddHandler btn.Click, AddressOf Me.orders_click
+            Dim arrData(5) As String
+            arrData()
+            AddHandler btn.Click, AddressOf Me.Button_Click
         Next
     End Sub
-    Sub orders_click(sender As Object, e As EventArgs)
-        Dim button As Button = sender
-        Dim indexMenu As Integer = 0
-        indexMenu = button.Name
-        Dim foodMenu As String = button.Text
-        '        MessageBox.Show(ds.Tables("saledata").Rows(indexMenu).Item(2).ToString)
-        Dim lv As New ListViewItem(ds.Tables("saledata").Rows(indexMenu).Item(0).ToString)
-        lv.SubItems.Add(1)
-        lv.SubItems.Add(ds.Tables("saledata").Rows(indexMenu).Item(2).ToString)
-        ListView1.Items.Add(lv)
+    Sub Button_Click(sender As Object, e As EventArgs)
+
     End Sub
     Dim itemcount As String = 0
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
