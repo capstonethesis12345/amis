@@ -5,7 +5,6 @@
         getData()
         lOrderNum.Text = getIDFunction("call getorderid()", "orderid")
         SqlRefresh = "call getitems();"
-
         SqlReFill("fill", lv)
         itemcount = 0
         generateButton()

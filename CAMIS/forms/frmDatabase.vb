@@ -96,7 +96,28 @@ Public Class frmDatabase
         txtDatabase.Text = DBNameMySQL
         Call SaveData()
         'RESET LOGIN DATA TO SECONDARY USER FUNCTION.
+        Try
+            ConnDB()
+            cmd.ExecuteNonQuery()
+            cmd.CommandText = "CREATE DEFINER=`root`@`localhost` PROCEDURE `getItems`()" _
+                        & "    NO SQL" _
+                        & " SELECT description, itemid, price, ifnull(( SELECT buildid FROM foodingredient WHERE foodingredient.foodid = items.itemid ORDER BY buildid DESC  LIMIT 0 , 1 ),0)buildid FROM items WHERE salestatus =1 LIMIT 0 , 30"
+            cmd.ExecuteNonQuery()
+            cmd.CommandText = "CREATE DEFINER=`root`@`localhost` PROCEDURE `getOrderID`()" _
+                        & " NO SQL" _
+                        & " select if(orderstatus=1,max(orderid)+1,(select orderid from orders)) from orders order by orderid desc limit 0,1"
+            cmd.ExecuteNonQuery()
+            cmd.CommandText = "CREATE DEFINER=`root`@`localhost` PROCEDURE `getOrders`()" _
+                        & " BEGIN select orderid,customerid,ifnull(tablenum,0)tablenum,orderdate,ifnull(discount,0)discount,ifnull(paymentAmt,0),empid,orderstatus from orders; END"
+            cmd.ExecuteNonQuery()
+            cmd.CommandText = "CREATE DEFINER=`root`@`localhost` PROCEDURE `getSearchItem`(IN `itemname` VARCHAR(200))" _
+                            & " NO SQL " _
+                        & " SELECT description, itemid, price, ifnull(( SELECT buildid FROM foodingredient WHERE foodingredient.foodid = items.itemid ORDER BY buildid DESC  LIMIT 0 , 1 ),0)buildid FROM items WHERE salestatus =1 and items.description like itemname LIMIT 0 , 30"
+            cmd.ExecuteNonQuery()
 
+        Catch ex As Exception
+            MessageBox.Show(ex.Message.ToString)
+        End Try
     End Sub
 
 End Class
