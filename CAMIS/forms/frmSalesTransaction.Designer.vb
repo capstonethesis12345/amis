@@ -37,7 +37,6 @@ Partial Class frmSalesTransaction
         Me.txtCash = New MetroFramework.Controls.MetroTextBox()
         Me.lTotal = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnTransact = New System.Windows.Forms.Button()
         Me.txtSearch = New MetroFramework.Controls.MetroTextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lTableNum = New System.Windows.Forms.Label()
@@ -48,6 +47,7 @@ Partial Class frmSalesTransaction
         Me.MetroButton1 = New MetroFramework.Controls.MetroButton()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lEmpNum = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -82,9 +82,9 @@ Partial Class frmSalesTransaction
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel2.BackColor = System.Drawing.Color.Firebrick
         Me.Panel2.Controls.Add(Me.Panel3)
-        Me.Panel2.Location = New System.Drawing.Point(740, 82)
+        Me.Panel2.Location = New System.Drawing.Point(740, 75)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(501, 392)
+        Me.Panel2.Size = New System.Drawing.Size(501, 399)
         Me.Panel2.TabIndex = 1
         '
         'Panel3
@@ -94,7 +94,7 @@ Partial Class frmSalesTransaction
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(501, 392)
+        Me.Panel3.Size = New System.Drawing.Size(501, 399)
         Me.Panel3.TabIndex = 3
         '
         'Panel4
@@ -103,7 +103,7 @@ Partial Class frmSalesTransaction
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(501, 336)
+        Me.Panel4.Size = New System.Drawing.Size(501, 343)
         Me.Panel4.TabIndex = 3
         '
         'ListView1
@@ -116,7 +116,7 @@ Partial Class frmSalesTransaction
         Me.ListView1.GridLines = True
         Me.ListView1.Location = New System.Drawing.Point(0, 0)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(501, 336)
+        Me.ListView1.Size = New System.Drawing.Size(501, 343)
         Me.ListView1.TabIndex = 0
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
@@ -146,9 +146,8 @@ Partial Class frmSalesTransaction
         Me.Panel5.Controls.Add(Me.txtCash)
         Me.Panel5.Controls.Add(Me.lTotal)
         Me.Panel5.Controls.Add(Me.Label1)
-        Me.Panel5.Controls.Add(Me.btnTransact)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel5.Location = New System.Drawing.Point(0, 336)
+        Me.Panel5.Location = New System.Drawing.Point(0, 343)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(501, 56)
         Me.Panel5.TabIndex = 2
@@ -160,7 +159,7 @@ Partial Class frmSalesTransaction
         '
         '
         Me.txtCash.CustomButton.Image = Nothing
-        Me.txtCash.CustomButton.Location = New System.Drawing.Point(99, 2)
+        Me.txtCash.CustomButton.Location = New System.Drawing.Point(141, 2)
         Me.txtCash.CustomButton.Name = ""
         Me.txtCash.CustomButton.Size = New System.Drawing.Size(35, 35)
         Me.txtCash.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
@@ -172,7 +171,7 @@ Partial Class frmSalesTransaction
         Me.txtCash.FontSize = MetroFramework.MetroTextBoxSize.Medium
         Me.txtCash.ForeColor = System.Drawing.Color.Maroon
         Me.txtCash.Lines = New String(-1) {}
-        Me.txtCash.Location = New System.Drawing.Point(219, 7)
+        Me.txtCash.Location = New System.Drawing.Point(319, 9)
         Me.txtCash.MaxLength = 10000
         Me.txtCash.Name = "txtCash"
         Me.txtCash.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -181,7 +180,7 @@ Partial Class frmSalesTransaction
         Me.txtCash.SelectionLength = 0
         Me.txtCash.SelectionStart = 0
         Me.txtCash.ShowClearButton = True
-        Me.txtCash.Size = New System.Drawing.Size(137, 40)
+        Me.txtCash.Size = New System.Drawing.Size(179, 40)
         Me.txtCash.TabIndex = 4
         Me.txtCash.TabStop = False
         Me.txtCash.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -215,23 +214,6 @@ Partial Class frmSalesTransaction
         Me.Label1.Size = New System.Drawing.Size(130, 21)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "TOTAL AMOUNT"
-        '
-        'btnTransact
-        '
-        Me.btnTransact.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnTransact.BackColor = System.Drawing.Color.Tomato
-        Me.btnTransact.FlatAppearance.BorderSize = 0
-        Me.btnTransact.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Salmon
-        Me.btnTransact.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSalmon
-        Me.btnTransact.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnTransact.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnTransact.ForeColor = System.Drawing.Color.Transparent
-        Me.btnTransact.Location = New System.Drawing.Point(361, 6)
-        Me.btnTransact.Name = "btnTransact"
-        Me.btnTransact.Size = New System.Drawing.Size(137, 43)
-        Me.btnTransact.TabIndex = 0
-        Me.btnTransact.Text = "TRANSACT"
-        Me.btnTransact.UseVisualStyleBackColor = False
         '
         'txtSearch
         '
@@ -373,12 +355,30 @@ Partial Class frmSalesTransaction
         Me.lEmpNum.TabIndex = 3
         Me.lEmpNum.Text = "0"
         '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.BackColor = System.Drawing.Color.Tomato
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Salmon
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSalmon
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.Transparent
+        Me.Button1.Location = New System.Drawing.Point(738, 33)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(102, 40)
+        Me.Button1.TabIndex = 5
+        Me.Button1.Text = "Clear"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'frmSalesTransaction
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSalmon
         Me.ClientSize = New System.Drawing.Size(1253, 486)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel6)
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.lTableNum)
@@ -408,7 +408,6 @@ Partial Class frmSalesTransaction
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
-    Friend WithEvents btnTransact As Button
     Friend WithEvents txtSearch As MetroFramework.Controls.MetroTextBox
     Friend WithEvents ListView1 As ListView
     Friend WithEvents ColumnHeader1 As ColumnHeader
@@ -432,6 +431,6 @@ Partial Class frmSalesTransaction
     Friend WithEvents ColumnHeader4 As ColumnHeader
     Friend WithEvents Label3 As Label
     Friend WithEvents lEmpNum As Label
-
+    Friend WithEvents Button1 As Button
 
 End Class

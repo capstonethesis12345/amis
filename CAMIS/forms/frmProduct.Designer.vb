@@ -213,7 +213,7 @@ Partial Class frmProduct
         Me.txtbarcode.Location = New System.Drawing.Point(81, 103)
         Me.txtbarcode.Name = "txtbarcode"
         Me.txtbarcode.Size = New System.Drawing.Size(223, 20)
-        Me.txtbarcode.TabIndex = 8
+        Me.txtbarcode.TabIndex = 3
         '
         'Label8
         '
@@ -268,7 +268,7 @@ Partial Class frmProduct
         Me.txtCategory.Location = New System.Drawing.Point(81, 230)
         Me.txtCategory.Name = "txtCategory"
         Me.txtCategory.Size = New System.Drawing.Size(223, 20)
-        Me.txtCategory.TabIndex = 4
+        Me.txtCategory.TabIndex = 8
         '
         'txtUnitValue
         '
@@ -277,16 +277,16 @@ Partial Class frmProduct
         Me.txtUnitValue.Location = New System.Drawing.Point(81, 180)
         Me.txtUnitValue.Name = "txtUnitValue"
         Me.txtUnitValue.Size = New System.Drawing.Size(223, 20)
-        Me.txtUnitValue.TabIndex = 4
+        Me.txtUnitValue.TabIndex = 6
         '
         'txtUnitType
         '
         Me.txtUnitType.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtUnitType.Location = New System.Drawing.Point(81, 202)
+        Me.txtUnitType.Location = New System.Drawing.Point(81, 206)
         Me.txtUnitType.Name = "txtUnitType"
         Me.txtUnitType.Size = New System.Drawing.Size(223, 20)
-        Me.txtUnitType.TabIndex = 4
+        Me.txtUnitType.TabIndex = 7
         '
         'txtBrand
         '
@@ -295,7 +295,7 @@ Partial Class frmProduct
         Me.txtBrand.Location = New System.Drawing.Point(81, 154)
         Me.txtBrand.Name = "txtBrand"
         Me.txtBrand.Size = New System.Drawing.Size(223, 20)
-        Me.txtBrand.TabIndex = 4
+        Me.txtBrand.TabIndex = 5
         '
         'txtDescription
         '
@@ -364,7 +364,7 @@ Partial Class frmProduct
         Me.txtPrice.Location = New System.Drawing.Point(81, 28)
         Me.txtPrice.Name = "txtPrice"
         Me.txtPrice.Size = New System.Drawing.Size(223, 20)
-        Me.txtPrice.TabIndex = 12
+        Me.txtPrice.TabIndex = 9
         '
         'GroupBox2
         '
@@ -399,7 +399,7 @@ Partial Class frmProduct
         Me.txtInitialStock.Location = New System.Drawing.Point(112, 19)
         Me.txtInitialStock.Name = "txtInitialStock"
         Me.txtInitialStock.Size = New System.Drawing.Size(192, 20)
-        Me.txtInitialStock.TabIndex = 12
+        Me.txtInitialStock.TabIndex = 10
         '
         'Label6
         '
@@ -416,7 +416,7 @@ Partial Class frmProduct
         Me.Button1.Location = New System.Drawing.Point(249, 475)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 40)
-        Me.Button1.TabIndex = 33
+        Me.Button1.TabIndex = 12
         Me.Button1.Text = "Save"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -441,7 +441,7 @@ Partial Class frmProduct
         Me.Button2.Location = New System.Drawing.Point(21, 477)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 40)
-        Me.Button2.TabIndex = 35
+        Me.Button2.TabIndex = 13
         Me.Button2.Text = "Clear"
         Me.Button2.UseVisualStyleBackColor = True
         '
@@ -474,7 +474,7 @@ Partial Class frmProduct
         Me.CheckBox1.Location = New System.Drawing.Point(27, 19)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(154, 17)
-        Me.CheckBox1.TabIndex = 0
+        Me.CheckBox1.TabIndex = 11
         Me.CheckBox1.Text = "Make item available to sale"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '

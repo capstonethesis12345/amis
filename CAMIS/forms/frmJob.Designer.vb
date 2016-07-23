@@ -83,7 +83,7 @@ Partial Class frmJob
         Me.txtDescription.SelectionLength = 0
         Me.txtDescription.SelectionStart = 0
         Me.txtDescription.Size = New System.Drawing.Size(151, 23)
-        Me.txtDescription.TabIndex = 2
+        Me.txtDescription.TabIndex = 0
         Me.txtDescription.UseSelectable = True
         Me.txtDescription.WaterMark = "Job description"
         Me.txtDescription.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
@@ -113,7 +113,7 @@ Partial Class frmJob
         Me.txtSalary.SelectionLength = 0
         Me.txtSalary.SelectionStart = 0
         Me.txtSalary.Size = New System.Drawing.Size(151, 23)
-        Me.txtSalary.TabIndex = 2
+        Me.txtSalary.TabIndex = 1
         Me.txtSalary.UseSelectable = True
         Me.txtSalary.WaterMark = "Salary"
         Me.txtSalary.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
@@ -148,7 +148,7 @@ Partial Class frmJob
         Me.Button1.Location = New System.Drawing.Point(403, 192)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(121, 44)
-        Me.Button1.TabIndex = 4
+        Me.Button1.TabIndex = 2
         Me.Button1.Text = "Save"
         Me.Button1.UseVisualStyleBackColor = False
         '
@@ -163,7 +163,7 @@ Partial Class frmJob
         Me.btnClose.Location = New System.Drawing.Point(403, 242)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(121, 44)
-        Me.btnClose.TabIndex = 4
+        Me.btnClose.TabIndex = 3
         Me.btnClose.Text = "Close"
         Me.btnClose.UseVisualStyleBackColor = False
         '

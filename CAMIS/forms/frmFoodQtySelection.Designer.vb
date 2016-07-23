@@ -56,7 +56,7 @@ Partial Class frmFoodQtySelection
         Me.txtQuantity.SelectionLength = 0
         Me.txtQuantity.SelectionStart = 0
         Me.txtQuantity.Size = New System.Drawing.Size(301, 23)
-        Me.txtQuantity.TabIndex = 0
+        Me.txtQuantity.TabIndex = 1
         Me.txtQuantity.UseSelectable = True
         Me.txtQuantity.WaterMark = "Quantity"
         Me.txtQuantity.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
@@ -104,7 +104,7 @@ Partial Class frmFoodQtySelection
         Me.cbtype.Location = New System.Drawing.Point(71, 101)
         Me.cbtype.Name = "cbtype"
         Me.cbtype.Size = New System.Drawing.Size(288, 21)
-        Me.cbtype.TabIndex = 5
+        Me.cbtype.TabIndex = 0
         '
         'lblType
         '

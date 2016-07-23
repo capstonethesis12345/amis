@@ -143,7 +143,7 @@ Partial Class frmFoodMenu
         Me.txtBcode.Location = New System.Drawing.Point(105, 87)
         Me.txtBcode.Name = "txtBcode"
         Me.txtBcode.Size = New System.Drawing.Size(274, 20)
-        Me.txtBcode.TabIndex = 33
+        Me.txtBcode.TabIndex = 0
         '
         'Label2
         '
@@ -159,7 +159,7 @@ Partial Class frmFoodMenu
         Me.txtName.Location = New System.Drawing.Point(105, 122)
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(274, 20)
-        Me.txtName.TabIndex = 33
+        Me.txtName.TabIndex = 1
         '
         'Panel1
         '
@@ -257,7 +257,7 @@ Partial Class frmFoodMenu
         Me.txtPrice.Location = New System.Drawing.Point(105, 160)
         Me.txtPrice.Name = "txtPrice"
         Me.txtPrice.Size = New System.Drawing.Size(274, 20)
-        Me.txtPrice.TabIndex = 33
+        Me.txtPrice.TabIndex = 2
         '
         'Label5
         '
