@@ -122,7 +122,7 @@ Partial Class frmDatabase
         Me.Button1.Location = New System.Drawing.Point(203, 164)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(80, 35)
-        Me.Button1.TabIndex = 23
+        Me.Button1.TabIndex = 7
         Me.Button1.Text = "CreateDB"
         Me.Button1.UseVisualStyleBackColor = False
         '
@@ -134,7 +134,7 @@ Partial Class frmDatabase
         Me.cmdSave.Location = New System.Drawing.Point(118, 164)
         Me.cmdSave.Name = "cmdSave"
         Me.cmdSave.Size = New System.Drawing.Size(80, 35)
-        Me.cmdSave.TabIndex = 22
+        Me.cmdSave.TabIndex = 6
         Me.cmdSave.Text = "&Save"
         Me.cmdSave.UseVisualStyleBackColor = False
         '
@@ -154,7 +154,7 @@ Partial Class frmDatabase
         Me.cmdTest.Location = New System.Drawing.Point(33, 164)
         Me.cmdTest.Name = "cmdTest"
         Me.cmdTest.Size = New System.Drawing.Size(80, 35)
-        Me.cmdTest.TabIndex = 21
+        Me.cmdTest.TabIndex = 5
         Me.cmdTest.Text = "&Test"
         Me.cmdTest.UseVisualStyleBackColor = False
         '
