@@ -184,6 +184,7 @@
                     Else
                         msgShow = True
                     End If
+                    msgShow = False
                     itemNew("orderline", {"orderid", "itemid", "buildid", "quantity", "price"},
                            {orderid, itemid, buildid, quantity, price})
                     If i = ListView1.Items.Count - 1 Then
@@ -191,6 +192,7 @@
                             ListView1.Items.Clear()
                             Dim cmplete As New TextBox
                             cmplete.Text = 1
+
                             itemUpdate("orders", {"orderstatus"}, {cmplete}, "orderid", orderid.Text)
                         End If
                         sqlMessage = ""
@@ -232,5 +234,7 @@
         ListView1.Items.Clear()
     End Sub
 
-
+    Private Sub txtCash_TextChanged(sender As Object, e As EventArgs) Handles txtCash.TextChanged
+        txtCash = metrocasenumbers(txtCash)
+    End Sub
 End Class
