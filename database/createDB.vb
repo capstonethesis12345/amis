@@ -236,10 +236,15 @@ Public Class createDB
               KEY `EmpID` (`EmpID`)
             )")
         sqlList.Add("CREATE TABLE IF NOT EXISTS `foodingredient` (
-              `foodid` int(30) NOT NULL,
-              `itemid` int(20) NOT NULL,
-              `quantity` int(20) NOT NULL
-            )")
+  `ingredientid` int(30) NOT NULL AUTO_INCREMENT,
+  `foodid` int(30) NOT NULL,
+  `itemid` int(20) NOT NULL,
+  `buildID` int(255) DEFAULT NULL,
+  `unit` varchar(7) DEFAULT NULL,
+  `quantity` double(12,3) DEFAULT NULL,
+  PRIMARY KEY (`ingredientid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+")
         sqlList.Add("DROP TABLE IF EXISTS `vstockin`;")
         sqlList.Add("CREATE ALGORITHM = UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vstockin` As (Select `po`.`POID` As `POID`,`polist`.`ItemID` AS `itemid`,`items`.`Barcode` AS `barcode`,`items`.`Description` AS `description`,`items`.`Price` AS `price`,`items`.`Category` AS `category`,`po`.`SupplierID` AS `supllierid`,`po`.`EmpID` AS `empid`,`po`.`PODate` AS `podate`,`po`.`Status` AS `status`,`po`.`PODeliveryDate` AS `podeliverydate`,`polist`.`POListID` AS `polistid`,`items`.`UnitType` AS `unittype`,`polist`.`Quantity` AS `quantity`,`polist`.`Cost` AS `cost` from ((`po` join `polist` on((`po`.`POID` = `polist`.`POID`))) left join `items` on((`items`.`ItemID` = `polist`.`ItemID`))));")
 
