@@ -257,7 +257,7 @@ Partial Class frmStaff
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Location = New System.Drawing.Point(88, 393)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(210, 19)
+        Me.CheckBox1.Size = New System.Drawing.Size(208, 19)
         Me.CheckBox1.TabIndex = 15
         Me.CheckBox1.Text = "ENABLE ACCESS TO APPLICATION"
         Me.CheckBox1.UseVisualStyleBackColor = True
@@ -613,7 +613,7 @@ Partial Class frmStaff
         Me.Label17.AutoSize = True
         Me.Label17.Location = New System.Drawing.Point(15, 349)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(54, 15)
+        Me.Label17.Size = New System.Drawing.Size(53, 15)
         Me.Label17.TabIndex = 4
         Me.Label17.Text = "Job Type"
         '
@@ -665,6 +665,7 @@ Partial Class frmStaff
         '
         Me.txtMI.BackColor = System.Drawing.Color.White
         Me.txtMI.Location = New System.Drawing.Point(443, 106)
+        Me.txtMI.MaxLength = 1
         Me.txtMI.Name = "txtMI"
         Me.txtMI.Size = New System.Drawing.Size(39, 23)
         Me.txtMI.TabIndex = 3

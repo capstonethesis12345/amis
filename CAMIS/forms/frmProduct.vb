@@ -43,6 +43,16 @@ Public Class frmProduct
                 itemNew("items", {"barcode", "description", "brand", "price", "unitvalue", "unittype", "category", "itemtype", "initialquantity", "salestatus"},
                    txtboxes, ListView1)
                 lblSaveStatus.Text = "SUCCESS"
+                txtbarcode.Text = ""
+                txtDescription.Text = ""
+                txtBrand.Text = ""
+                txtPrice.Text = ""
+                txtUnitValue.Text = ""
+                txtUnitType.Text = ""
+                txtCategory.Text = ""
+                ing.Text = ""
+                txtInitialStock.Text = ""
+                avaiablility.Text = ""
                 Timer1.Start()
                 For Each t In txtboxes
                     t.text = ""
@@ -148,5 +158,33 @@ Public Class frmProduct
             txtPrice.Enabled = False
             txtInitialStock.Enabled = False
         End If
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        txtbarcode.Text = ""
+        txtDescription.Text = ""
+        txtBrand.Text = ""
+        txtPrice.Text = ""
+        txtUnitValue.Text = ""
+        txtUnitType.Text = ""
+        txtCategory.Text = ""
+        txtInitialStock.Text = ""
+
+    End Sub
+
+    Private Sub txtCategory_TextChanged(sender As Object, e As EventArgs) Handles txtCategory.KeyUp
+        itemAutoComplete("categories", txtCategory)
+    End Sub
+
+    Private Sub txtUnitValue_TextChanged(sender As Object, e As EventArgs) Handles txtUnitValue.TextChanged
+        txtUnitValue = casenumbers(txtUnitValue)
+    End Sub
+
+    Private Sub txtPrice_TextChanged(sender As Object, e As EventArgs) Handles txtPrice.TextChanged
+        txtPrice = casenumbers(txtPrice)
+    End Sub
+
+    Private Sub txtInitialStock_TextChanged(sender As Object, e As EventArgs) Handles txtInitialStock.TextChanged
+        txtInitialStock = casenumbers(txtInitialStock)
     End Sub
 End Class

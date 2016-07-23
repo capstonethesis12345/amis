@@ -62,10 +62,11 @@ Partial Class frmProduct
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.lblSaveStatus = New System.Windows.Forms.Label()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ToolStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -263,6 +264,7 @@ Partial Class frmProduct
         '
         Me.txtCategory.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtCategory.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtCategory.Location = New System.Drawing.Point(81, 230)
         Me.txtCategory.Name = "txtCategory"
         Me.txtCategory.Size = New System.Drawing.Size(223, 20)
@@ -420,6 +422,7 @@ Partial Class frmProduct
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.Button2)
         Me.Panel1.Controls.Add(Me.lblSaveStatus)
         Me.Panel1.Controls.Add(Me.GroupBox1)
         Me.Panel1.Controls.Add(Me.Button1)
@@ -432,6 +435,16 @@ Partial Class frmProduct
         Me.Panel1.Size = New System.Drawing.Size(333, 552)
         Me.Panel1.TabIndex = 34
         '
+        'Button2
+        '
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button2.Location = New System.Drawing.Point(21, 477)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 40)
+        Me.Button2.TabIndex = 35
+        Me.Button2.Text = "Clear"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'lblSaveStatus
         '
         Me.lblSaveStatus.AutoSize = True
@@ -442,11 +455,6 @@ Partial Class frmProduct
         Me.lblSaveStatus.Size = New System.Drawing.Size(65, 16)
         Me.lblSaveStatus.TabIndex = 34
         Me.lblSaveStatus.Text = "Label10"
-        '
-        'Timer1
-        '
-        Me.Timer1.Enabled = True
-        Me.Timer1.Interval = 1500
         '
         'GroupBox4
         '
@@ -469,6 +477,11 @@ Partial Class frmProduct
         Me.CheckBox1.TabIndex = 0
         Me.CheckBox1.Text = "Make item available to sale"
         Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 1500
         '
         'frmProduct
         '
@@ -540,4 +553,5 @@ Partial Class frmProduct
     Friend WithEvents lblSaveStatus As Label
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents Button2 As Button
 End Class

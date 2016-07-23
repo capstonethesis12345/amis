@@ -34,6 +34,7 @@ Partial Class fMainForm
         Me.erTextboxPass = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.MaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.erTextboxUser, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -91,6 +92,7 @@ Partial Class fMainForm
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Transparent
+        Me.Panel1.Controls.Add(Me.MaskedTextBox1)
         Me.Panel1.Controls.Add(Me.MetroLabel1)
         Me.Panel1.Controls.Add(Me.txtFunction)
         Me.Panel1.Controls.Add(Me.btnSubmit)
@@ -159,6 +161,13 @@ Partial Class fMainForm
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
+        'MaskedTextBox1
+        '
+        Me.MaskedTextBox1.Location = New System.Drawing.Point(79, 67)
+        Me.MaskedTextBox1.Name = "MaskedTextBox1"
+        Me.MaskedTextBox1.Size = New System.Drawing.Size(8, 20)
+        Me.MaskedTextBox1.TabIndex = 8
+        '
         'fMainForm
         '
         Me.AcceptButton = Me.btnSubmit
@@ -192,4 +201,5 @@ Partial Class fMainForm
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents MetroLabel1 As MetroFramework.Controls.MetroLabel
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents MaskedTextBox1 As MaskedTextBox
 End Class

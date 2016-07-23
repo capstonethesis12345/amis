@@ -8,6 +8,7 @@ Public Class frmStaff
     Dim usrPass, usrName As New TextBox
     Private haserror As Boolean = False
     Dim sStaff As String = "select e.empid,concat(e.namelast,', ',e.namefirst,' ',e.namemiddle) from employees e left join users u on u.empid=e.empid order by e.empid asc"
+    Dim charactersAllowed As String = " abcdefghijklmnopqrstuvwxyz1234567890"
     Public Sub New()
         InitializeComponent()
         Try
@@ -653,6 +654,24 @@ Public Class frmStaff
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         frmJob.ShowDialog()
+    End Sub
+
+    Private Sub txtLastname_TextChanged(sender As Object, e As EventArgs) Handles txtLastname.TextChanged
+
+        txtLastname = caseletters(txtLastname)
+
+    End Sub
+
+    Private Sub txtFirstname_TextChanged(sender As Object, e As EventArgs) Handles txtFirstname.TextChanged
+        txtFirstname = caseletters(txtFirstname)
+    End Sub
+
+    Private Sub txtMI_TextChanged(sender As Object, e As EventArgs) Handles txtMI.TextChanged
+        txtMI = caseletters(txtMI)
+    End Sub
+
+    Private Sub txtContractNo_TextChanged(sender As Object, e As EventArgs) Handles txtContractNo.TextChanged
+        txtContractNo = casenumbers(txtContractNo)
     End Sub
 
     Private Sub txtPassword_TextChanged(sender As Object, e As EventArgs) Handles txtConfirmPWD.KeyUp
