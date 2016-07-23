@@ -22,7 +22,6 @@ Module SQLQuery
     Public sqlMessage As String = ""
     Public Sub itemAutoComplete(ByVal DataSetName As String, ByVal objAutoCompleteTextBox As Object)
         Try
-
             ConnDB()
             da = New MySqlDataAdapter
             ds = New DataSet()

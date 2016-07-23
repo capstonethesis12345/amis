@@ -95,12 +95,18 @@ Module SQLConn
             Finally
                 DisconnDB()
             End Try
+
             stepProgress += progress
-            If stepProgress < 100 Then
-                frmDatabase.ProgressBar1.Value += progress
-            Else
-                frmDatabase.ProgressBar1.Value = 100
-            End If
+            Try
+                If stepProgress < 100 Then
+                    frmDatabase.ProgressBar1.Value += progress
+                Else
+                    frmDatabase.ProgressBar1.Value = 100
+                End If
+            Catch ex As Exception
+
+            End Try
+
 
             i += 1
         Next
