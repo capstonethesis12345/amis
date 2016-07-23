@@ -32,29 +32,29 @@ Public Class createDB
         'sqlList.Add("GRANT ALL PRIVILEGES ON `" & dbname & "\_%`.* TO '" & dbUser & "'@'localhost'")
         'EMPLOYEE TABLE
         '2
-        sqlList.Add("CREATE TABLE IF NOT EXISTS `employees` (
-              `EmpID` int(30) NOT NULL AUTO_INCREMENT,
-              `NameFirst` varchar(45) NOT NULL,
-              `NameMiddle` varchar(45) NOT NULL,
-              `NameLast` varchar(45) NOT NULL,
-              `Gender` char(1) DEFAULT NULL,
-              `BirthDate` date DEFAULT NULL,
-              `BirthAddress` varchar(100) DEFAULT NULL,
-              `MaritalStatus` tinyint(1) DEFAULT NULL,
-              `AddressStreet` varchar(45) DEFAULT NULL,
-              `AddressBarangay` varchar(45) DEFAULT NULL,
-              `AddressMunCity` varchar(45) DEFAULT NULL,
-              `AddressProvince` varchar(45) DEFAULT NULL,
-              `AddressZip` varchar(5) DEFAULT NULL,
-              `Contact` varchar(15) DEFAULT NULL,
-              `EmploymentStatus` tinyint(4) NOT NULL,
-              `EmpImage` longblob,
-              `deleted` tinyint(1) NOT NULL DEFAULT '0',
-              `EmploymentStarted` date NOT NULL,
-              PRIMARY KEY (`EmpID`)
-            )")
+        sqlList.Add("CREATE TABLE IF NOT EXISTS `employees` ( " _
+  & " `EmpID` int(30) Not NULL AUTO_INCREMENT, " _
+  & " `NameFirst` varchar(45) NOT NULL, " _
+ & "  `NameMiddle` varchar(45) Not NULL, " _
+  & " `NameLast` varchar(45) NOT NULL, " _
+  & " `Gender` Char(1) Default NULL, " _
+  & " `BirthDate` date DEFAULT NULL, " _
+  & " `BirthAddress` varchar(100) Default NULL, " _
+  & " `MaritalStatus` tinyint(1) DEFAULT NULL, " _
+  & " `AddressStreet` varchar(45) Default NULL, " _
+  & " `AddressBarangay` varchar(45) DEFAULT NULL, " _
+  & " `AddressMunCity` varchar(45) Default NULL, " _
+  & " `AddressProvince` varchar(45) DEFAULT NULL, " _
+ & "  `AddressZip` varchar(5) Default NULL, " _
+ & "  `Contact` varchar(15) DEFAULT NULL, " _
+ & "  `EmploymentStatus` tinyint(4) Not NULL, " _
+& "   `EmpImage` longblob, " _
+& "   `deleted` tinyint(1) Not NULL Default '0', " _
+& "   `EmploymentStarted` date Not NULL, " _
+& "   PRIMARY KEY (`EmpID`) " _
+& " ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ; ")
         '3
-        sqlList.Add("CREATE TABLE IF NOT EXISTS `users` (
+        sqlList.Add("CREATE TABLE IF Not EXISTS `users` (
               `UserID` int(30) NOT NULL AUTO_INCREMENT,
               `EmpID` int(30) NOT NULL,
               `Username` varchar(20) NOT NULL,
@@ -76,7 +76,13 @@ Public Class createDB
         'SELECT DATE_FORMAT( NOW( ) ,  '%Y-%m-%d' ) DATE
         'THIS WILL CREAE PO TABLE FOR SUMMARY OF PURCHASE ORDER LISTS
         '6
-        sqlList.Add("CREATE TABLE IF NOT EXISTS `po` (
+
+        sqlList.Add("CREATE TABLE IF NOT EXISTS `customers` (" _
+  & " `CustomerID` int(11) NOT NULL AUTO_INCREMENT," _
+  & " `CustomerName` varchar(100) NOT NULL," _
+ & "  PRIMARY KEY (`CustomerID`) " _
+& " ) ENGINE=InnoDB  Default CHARSET=latin1 AUTO_INCREMENT=2 ;")
+        sqlList.Add("CREATE TABLE If Not EXISTS `po` (
   `POID` int(11) NOT NULL AUTO_INCREMENT,
   `SupplierID` int(11) NOT NULL,
   `EmpID` int(11) NOT NULL,
