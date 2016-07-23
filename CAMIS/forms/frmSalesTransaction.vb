@@ -195,7 +195,7 @@
                             itemUpdate("orders", {"orderstatus"}, {cmplete}, "orderid", orderid.Text)
                             SqlRefresh = "call getitems();"
                             SqlReFill("fill", lv)
-                            generateButton()
+                            generateButton() 'comment
                         End If
                         sqlMessage = ""
                     End If
