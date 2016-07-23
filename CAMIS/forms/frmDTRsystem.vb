@@ -9,6 +9,8 @@
         lblStatus.Text = ""
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim nowDate As New TextBox
+        nowDate.Text = Date.Now.ToString("yyyy-MM-dd H:mm:ss")
         If txtEmpid.Text = vbNullString Then
             lblStatus.Text = "*Employee ID required"
             Timer2.Start()
@@ -20,7 +22,7 @@
 
             msgShow = False
             If MessageBox.Show("You are about to time-in?", "Time-in", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = DialogResult.Yes Then
-                itemNew("jobdtr", {"datetimein", "empid"}, {lblTImer, txtEmpid})
+                itemNew("jobdtr", {"datetimein", "empid"}, {nowDate, txtEmpid})
 
                 Me.Dispose()
             End If
@@ -32,7 +34,7 @@
                 Dim dtrid As New TextBox
                 dtrid.Text = ds.Tables("checkTime").Rows(0).Item(0).ToString
                 If MessageBox.Show("You are about to time-out?", "Time-out", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = DialogResult.Yes Then
-                    itemUpdate("jobdtr", {"datetimeout"}, {lblTImer}, "dtrid", dtrid.Text)
+                    itemUpdate("jobdtr", {"datetimeout"}, {nowDate}, "dtrid", dtrid.Text)
 
                     Me.Dispose()
                 End If
@@ -40,7 +42,7 @@
             Else
                 '       MessageBox.Show("Time-In")
                 If MessageBox.Show("You are about to time-in?", "Time-in", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = DialogResult.Yes Then
-                    itemNew("jobdtr", {"datetimein", "empid"}, {lblTImer, txtEmpid})
+                    itemNew("jobdtr", {"datetimein", "empid"}, {nowDate, txtEmpid})
 
                     Me.Dispose()
                 End If

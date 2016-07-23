@@ -44,6 +44,7 @@ Partial Class frmMain
         Me.ReturnsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AdjustmentToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DTRToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeliveriesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StocksInToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StocksOutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -73,12 +74,10 @@ Partial Class frmMain
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -133,20 +132,20 @@ Partial Class frmMain
         'StaffToolStripMenuItem
         '
         Me.StaffToolStripMenuItem.Name = "StaffToolStripMenuItem"
-        Me.StaffToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.StaffToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.StaffToolStripMenuItem.Text = "Staff"
         '
         'ProductToolStripMenuItem
         '
         Me.ProductToolStripMenuItem.Name = "ProductToolStripMenuItem"
-        Me.ProductToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.ProductToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ProductToolStripMenuItem.Text = "Products"
         '
         'MenuToolStripMenuItem
         '
         Me.MenuToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewMenusToolStripMenuItem, Me.SetupMenuToolStripMenuItem})
         Me.MenuToolStripMenuItem.Name = "MenuToolStripMenuItem"
-        Me.MenuToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.MenuToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.MenuToolStripMenuItem.Text = "Foods"
         '
         'ViewMenusToolStripMenuItem
@@ -164,18 +163,18 @@ Partial Class frmMain
         'SuppliersToolStripMenuItem
         '
         Me.SuppliersToolStripMenuItem.Name = "SuppliersToolStripMenuItem"
-        Me.SuppliersToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.SuppliersToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SuppliersToolStripMenuItem.Text = "Suppliers"
         '
         'JobsToolStripMenuItem
         '
         Me.JobsToolStripMenuItem.Name = "JobsToolStripMenuItem"
-        Me.JobsToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.JobsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.JobsToolStripMenuItem.Text = "Jobs"
         '
         'TransactionToolStripMenuItem
         '
-        Me.TransactionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.POSToolStripMenuItem, Me.PurchasesToolStripMenuItem, Me.ReturnsToolStripMenuItem, Me.AdjustmentToolStripMenuItem, Me.DTRToolStripMenuItem})
+        Me.TransactionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.POSToolStripMenuItem, Me.PurchasesToolStripMenuItem, Me.ReturnsToolStripMenuItem, Me.AdjustmentToolStripMenuItem, Me.DTRToolStripMenuItem, Me.DeliveriesToolStripMenuItem})
         Me.TransactionToolStripMenuItem.Name = "TransactionToolStripMenuItem"
         Me.TransactionToolStripMenuItem.Size = New System.Drawing.Size(81, 20)
         Me.TransactionToolStripMenuItem.Text = "Transaction"
@@ -209,6 +208,12 @@ Partial Class frmMain
         Me.DTRToolStripMenuItem.Name = "DTRToolStripMenuItem"
         Me.DTRToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.DTRToolStripMenuItem.Text = "DTR"
+        '
+        'DeliveriesToolStripMenuItem
+        '
+        Me.DeliveriesToolStripMenuItem.Name = "DeliveriesToolStripMenuItem"
+        Me.DeliveriesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DeliveriesToolStripMenuItem.Text = "Deliveries"
         '
         'ReportToolStripMenuItem
         '
@@ -464,20 +469,11 @@ Partial Class frmMain
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel2.BackColor = System.Drawing.Color.Transparent
-        Me.Panel2.Controls.Add(Me.Panel3)
         Me.Panel2.Location = New System.Drawing.Point(76, 36)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(716, 437)
         Me.Panel2.TabIndex = 16
         Me.Panel2.Visible = False
-        '
-        'Panel3
-        '
-        Me.Panel3.BackgroundImage = CType(resources.GetObject("Panel3.BackgroundImage"), System.Drawing.Image)
-        Me.Panel3.Location = New System.Drawing.Point(4, 4)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(695, 413)
-        Me.Panel3.TabIndex = 0
         '
         'frmMain
         '
@@ -511,7 +507,6 @@ Partial Class frmMain
         Me.Panel1.PerformLayout()
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -565,5 +560,5 @@ Partial Class frmMain
     Friend WithEvents DTRToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AccountToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents Panel3 As Panel
+    Friend WithEvents DeliveriesToolStripMenuItem As ToolStripMenuItem
 End Class

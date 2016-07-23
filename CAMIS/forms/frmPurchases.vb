@@ -32,7 +32,7 @@ Public Class frmPurchases
         poid = getIDFunction("select ifnull(max(poid),(select max(poid)+1 from po)) from po where status=0 and empid='" & vEmp & "'", "poid", Nothing, True).ToString
         lblPONum.Text = poid
 
-        vRefresh = "select polist.polistid,items.barcode,items.description,concat('1 ',items.unittype)unittype,polist.cost,polist.quantity,(polist.cost*polist.quantity)total,if(items.itemtype=0,'Non-Ingredient',if(items.itemtype=1,'Ingredient','Nonspecified'))itemtype,(supplier.company)company,supplier.supplierid,polist.postatus from polist
+        vRefresh = "select polist.polistid,items.barcode,items.description,concat('1 ',items.unittype)unittype,polist.cost,polist.quantity,(polist.cost*polist.quantity)total,if(items.itemtype=0,'Non-Ingredient',if(items.itemtype=1,'Non-Ingredient','Ingredient'))itemtype,(supplier.company)company,supplier.supplierid,polist.postatus from polist
             left join po
             on po.poid=polist.poid
             left join items
@@ -225,7 +225,7 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
             Dim getBarcode As String
             Try
                 msgShow = False
-                getBarcode = getStrData("select ifnull(itemid,0)itemid from items where barcode like @0 and itemtype = 0 or itemtype = 1", "Barcode", {txtBarcode.Text})
+                getBarcode = getStrData("select ifnull(itemid,0)itemid from items where barcode like @0 and itemtype <> 2", "Barcode", {txtBarcode.Text})
                 If getBarcode = 0 Then
                     insertProduct = True
                     Exit Sub
@@ -375,6 +375,14 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
             tstatus.Text = 1
             Dim ddate As New TextBox
             ddate.Text = Date.Now.ToString("yyyy-MM-dd")
+            If (CheckBox1.Checked = True) Then
+                For i = 0 To ListView1.Items.Count - 1
+                    If ListView1.Items(i).SubItems(7).Text.ToString = "Non-Ingredient" Then
+                        msgShow = False
+                        itemUpdate("items", {"salestatus"}, {tstatus}, "description", ListView1.Items(i).SubItems(2).Text.ToString)
+                    End If
+                Next
+            End If
             itemUpdate("po", {"Status", "podeliverydate"}, {tstatus, ddate}, "poid", lblPONum.Text)
             SqlRefresh = vRefresh
             '   SqlReFill("po", ListView1)
@@ -423,7 +431,7 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
             sid.Text = getStrData("select supplierid from supplier where company like @0", "supplier", {txtSupplier.Text})
             itemUpdate("po", {"supplierid", "podate"}, {sid, podate}, "poid", lblPONum.Text)
 
-            If lblItemID.Text = vbNullString Then
+            If lblItemID.Text = vbNullString Or lblItemID.Text = "0" Then
                 Dim unittype As New TextBox
                 unittype.Text = getUnitTypeValue()
                 Dim producttype As New TextBox
@@ -465,9 +473,9 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
     Function getProductType()
         Dim type As String = ""
         If nonIngredient.Checked = True Then
-            type = "1"
-        Else
             type = "0"
+        Else
+            type = "1"
         End If
         Return type
     End Function
@@ -496,11 +504,11 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
             groupProductType.Enabled = True
             groupUnit.Enabled = True
             With txtProductName
-                .Enabled = True
+                .ReadOnly = False
                 .Text = ""
             End With
             With txtBrand
-                .Enabled = True
+                .ReadOnly = False
                 .Text = ""
             End With
 
@@ -536,4 +544,8 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
     Private Sub btnPrint_Click(sender As Object, e As EventArgs)
 
     End Sub
+
+    'Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+    '    MessageBox.Show(ListView1.SelectedItems(0).SubItems(7).Text.ToString)
+    'End Sub
 End Class

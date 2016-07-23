@@ -488,7 +488,7 @@ Partial Class frmStaff
         Me.txtFunction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.txtFunction.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.txtFunction.FormattingEnabled = True
-        Me.txtFunction.Items.AddRange(New Object() {"Admin", "Manager", "Cashier"})
+        Me.txtFunction.Items.AddRange(New Object() {"Admin", "Manager", "Cashier", "Cook"})
         Me.txtFunction.Location = New System.Drawing.Point(130, 19)
         Me.txtFunction.Name = "txtFunction"
         Me.txtFunction.Size = New System.Drawing.Size(165, 23)

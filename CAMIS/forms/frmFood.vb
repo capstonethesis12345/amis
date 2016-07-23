@@ -200,10 +200,6 @@
 
     End Sub
 
-    Private Sub Panel5_Paint(sender As Object, e As PaintEventArgs) Handles Panel5.Paint
-
-    End Sub
-
     Private Sub ListView2_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListView2.MouseDoubleClick
         Dim unit As String = ListView2.SelectedItems(0).SubItems(3).Text.ToString
         MessageBox.Show(unit)

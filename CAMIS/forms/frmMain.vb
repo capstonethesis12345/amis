@@ -27,6 +27,25 @@ Public Class frmMain
         lblDate.Text = Date.Now.ToString("MM/dd/yyyy")
         formMain(Me)
         'MessageBox.Show("Greetings " & vfunction, "Welcome")
+        If vfunction = "Cook" Then
+            ConfigurationToolStripMenuItem.Enabled = False
+            StaffToolStripMenuItem.Enabled = False
+            SuppliersToolStripMenuItem.Enabled = False
+            JobsToolStripMenuItem.Enabled = False
+            TransactionToolStripMenuItem.Enabled = False
+            ReportToolStripMenuItem.Enabled = False
+            AboutToolStripMenuItem.Enabled = False
+            ToolStripButton1.Enabled = False
+            ToolStripButton2.Enabled = False
+            ToolStripButton4.Enabled = False
+            ToolStripButton5.Enabled = False
+            ToolStripButton6.Enabled = False
+            ToolStripButton7.Enabled = False
+            frmProduct.txtPrice.Enabled = False
+            frmProduct.txtInitialStock.Enabled = False
+
+
+        End If
     End Sub
 
     Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton2.Click
@@ -37,7 +56,7 @@ Public Class frmMain
     End Sub
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
-        lblTimer.Text = Date.Now.ToString("hh:mm:ss")
+        lblTimer.Text = Date.Now.ToString("H:mm:ss")
     End Sub
 
     Private Sub VatToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles VatToolStripMenuItem.Click
@@ -107,8 +126,8 @@ Public Class frmMain
 
     Private Sub POSToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles POSToolStripMenuItem.Click
 
-        Dim sales As New frmSales()
-        sales.Show()
+        Dim sales As New frmSalesTransaction()
+        openFull(sales)
 
 
     End Sub
@@ -118,13 +137,14 @@ Public Class frmMain
     End Sub
 
     Private Sub ToolStripButton3_Click(sender As Object, e As EventArgs) Handles ToolStripButton3.Click
-        Me.Hide()
+        Dim log As New fMainForm()
+        log.Show()
         fMainForm.tUsername.Text = ""
         fMainForm.tPassword.Text = ""
         fMainForm.tUsername.Focus()
-        fMainForm.Show()
         vEmp = ""
-
+        status = ""
+        vfunction = ""
 
     End Sub
 
@@ -157,7 +177,16 @@ Public Class frmMain
         openFull(frmAccounts)
     End Sub
 
-    Private Sub ToolStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles ToolStrip1.ItemClicked
+    Private Sub ToolStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs)
+
+    End Sub
+
+    Private Sub DeliveriesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeliveriesToolStripMenuItem.Click
+        'callform(frmDeliveries, Panel2)
+        openFull(frmDeliveries)
+    End Sub
+
+    Private Sub FinancialStatusToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FinancialStatusToolStripMenuItem.Click
 
     End Sub
 End Class

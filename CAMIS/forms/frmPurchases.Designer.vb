@@ -87,6 +87,8 @@ Partial Class frmPurchases
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.groupUnit.SuspendLayout()
@@ -96,6 +98,7 @@ Partial Class frmPurchases
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'ListView1
@@ -188,18 +191,19 @@ Partial Class frmPurchases
         Me.lblSupplier.AutoSize = True
         Me.lblSupplier.Font = New System.Drawing.Font("Segoe UI Semilight", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSupplier.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.lblSupplier.Location = New System.Drawing.Point(611, 16)
+        Me.lblSupplier.Location = New System.Drawing.Point(628, 16)
         Me.lblSupplier.Name = "lblSupplier"
         Me.lblSupplier.Size = New System.Drawing.Size(17, 20)
         Me.lblSupplier.TabIndex = 29
         Me.lblSupplier.Text = "0"
+        Me.lblSupplier.Visible = False
         '
         'lblEmpID
         '
         Me.lblEmpID.AutoSize = True
         Me.lblEmpID.Font = New System.Drawing.Font("Segoe UI Semilight", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEmpID.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.lblEmpID.Location = New System.Drawing.Point(383, 16)
+        Me.lblEmpID.Location = New System.Drawing.Point(329, 16)
         Me.lblEmpID.Name = "lblEmpID"
         Me.lblEmpID.Size = New System.Drawing.Size(17, 20)
         Me.lblEmpID.TabIndex = 29
@@ -221,18 +225,19 @@ Partial Class frmPurchases
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Segoe UI Semilight", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label9.Location = New System.Drawing.Point(504, 16)
+        Me.Label9.Location = New System.Drawing.Point(521, 16)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(101, 20)
         Me.Label9.TabIndex = 29
         Me.Label9.Text = "Supplier Name"
+        Me.Label9.Visible = False
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI Semilight", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label7.Location = New System.Drawing.Point(290, 16)
+        Me.Label7.Location = New System.Drawing.Point(236, 16)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(87, 20)
         Me.Label7.TabIndex = 29
@@ -254,6 +259,7 @@ Partial Class frmPurchases
         Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.btnDelete)
+        Me.GroupBox1.Controls.Add(Me.GroupBox2)
         Me.GroupBox1.Controls.Add(Me.groupUnit)
         Me.GroupBox1.Controls.Add(Me.groupProductType)
         Me.GroupBox1.Controls.Add(Me.gItem)
@@ -262,7 +268,7 @@ Partial Class frmPurchases
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.btnAddUpdate)
         Me.GroupBox1.Controls.Add(Me.txtSupplier)
-        Me.GroupBox1.Location = New System.Drawing.Point(20, 140)
+        Me.GroupBox1.Location = New System.Drawing.Point(15, 140)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(390, 520)
         Me.GroupBox1.TabIndex = 1
@@ -357,23 +363,23 @@ Partial Class frmPurchases
         'ingredient
         '
         Me.ingredient.AutoSize = True
+        Me.ingredient.Checked = True
         Me.ingredient.Location = New System.Drawing.Point(136, 28)
         Me.ingredient.Name = "ingredient"
-        Me.ingredient.Size = New System.Drawing.Size(72, 17)
+        Me.ingredient.Size = New System.Drawing.Size(95, 17)
         Me.ingredient.TabIndex = 0
-        Me.ingredient.Text = "Ingredient"
+        Me.ingredient.TabStop = True
+        Me.ingredient.Text = "Non-Ingredient"
         Me.ingredient.UseVisualStyleBackColor = True
         '
         'nonIngredient
         '
         Me.nonIngredient.AutoSize = True
-        Me.nonIngredient.Checked = True
         Me.nonIngredient.Location = New System.Drawing.Point(37, 28)
         Me.nonIngredient.Name = "nonIngredient"
-        Me.nonIngredient.Size = New System.Drawing.Size(95, 17)
+        Me.nonIngredient.Size = New System.Drawing.Size(72, 17)
         Me.nonIngredient.TabIndex = 0
-        Me.nonIngredient.TabStop = True
-        Me.nonIngredient.Text = "Non-Ingredient"
+        Me.nonIngredient.Text = "Ingredient"
         Me.nonIngredient.UseVisualStyleBackColor = True
         '
         'gItem
@@ -606,7 +612,7 @@ Partial Class frmPurchases
         'Button1
         '
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Location = New System.Drawing.Point(292, 105)
+        Me.Button1.Location = New System.Drawing.Point(287, 105)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(100, 29)
         Me.Button1.TabIndex = 2
@@ -618,7 +624,7 @@ Partial Class frmPurchases
         Me.Label12.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("MS Reference Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(26, 29)
+        Me.Label12.Location = New System.Drawing.Point(21, 29)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(39, 16)
         Me.Label12.TabIndex = 35
@@ -630,7 +636,7 @@ Partial Class frmPurchases
         Me.podate.CustomFormat = "yyyy-MM-dd"
         Me.podate.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.podate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.podate.Location = New System.Drawing.Point(71, 24)
+        Me.podate.Location = New System.Drawing.Point(66, 24)
         Me.podate.Name = "podate"
         Me.podate.Size = New System.Drawing.Size(105, 23)
         Me.podate.TabIndex = 0
@@ -640,7 +646,7 @@ Partial Class frmPurchases
         Me.Label13.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("MS Reference Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(26, 61)
+        Me.Label13.Location = New System.Drawing.Point(21, 61)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(52, 16)
         Me.Label13.TabIndex = 35
@@ -651,7 +657,7 @@ Partial Class frmPurchases
         Me.lblTotal.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblTotal.AutoSize = True
         Me.lblTotal.Font = New System.Drawing.Font("MS Reference Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotal.Location = New System.Drawing.Point(90, 61)
+        Me.lblTotal.Location = New System.Drawing.Point(85, 61)
         Me.lblTotal.Name = "lblTotal"
         Me.lblTotal.Size = New System.Drawing.Size(16, 16)
         Me.lblTotal.TabIndex = 35
@@ -703,15 +709,15 @@ Partial Class frmPurchases
         Me.Panel2.Controls.Add(Me.GroupBox1)
         Me.Panel2.Controls.Add(Me.Button1)
         Me.Panel2.Controls.Add(Me.Label12)
-        Me.Panel2.Location = New System.Drawing.Point(801, 40)
+        Me.Panel2.Location = New System.Drawing.Point(806, 40)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(433, 663)
+        Me.Panel2.Size = New System.Drawing.Size(428, 663)
         Me.Panel2.TabIndex = 36
         '
         'PictureBox1
         '
         Me.PictureBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PictureBox1.Location = New System.Drawing.Point(292, 10)
+        Me.PictureBox1.Location = New System.Drawing.Point(287, 10)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(100, 88)
         Me.PictureBox1.TabIndex = 4
@@ -725,6 +731,26 @@ Partial Class frmPurchases
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1234, 703)
         Me.Panel3.TabIndex = 37
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.CheckBox1)
+        Me.GroupBox2.Location = New System.Drawing.Point(18, 437)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(239, 53)
+        Me.GroupBox2.TabIndex = 6
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Options"
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(20, 19)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(153, 17)
+        Me.CheckBox1.TabIndex = 0
+        Me.CheckBox1.Text = "Directly add to item on sale"
+        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'frmPurchases
         '
@@ -756,6 +782,8 @@ Partial Class frmPurchases
         Me.Panel2.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -824,4 +852,6 @@ Partial Class frmPurchases
     Friend WithEvents g As RadioButton
     Friend WithEvents Label10 As Label
     Friend WithEvents txtcategory As TextBox
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents CheckBox1 As CheckBox
 End Class

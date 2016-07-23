@@ -37,41 +37,41 @@ Public Class frmReportStockOut
     End Sub
 
     Private Sub LoadStocksOutReport()
-        MonthInNumber()
+        'MonthInNumber()
 
-        Dim totStockOut As Double
-        Dim totSales As Double
-        Try
-            If frmFilterStockOut.chkMonthly.Checked = True Then
-                sqL = "SELECT ProductCode, P.Description, TDate, SUM(TD.Quantity) as totalQuantity, TD.ItemPrice FROM Product as P, Transactions as T, TransactionDetails as TD WHERE P.ProductNo = TD.ProductNo AND TD.InvoiceNo = T.InvoiceNo AND TDate LIKE '" & strMonthNo & "%' AND TDate LIKE '%" & frmFilterStockOut.cmbYear.Text & "' GROUP BY P.ProductNo, TDate ORDER By TDate"
-            Else
-                sqL = "SELECT ProductCode, P.Description, TDate, SUM(TD.Quantity) as totalQuantity, TD.ItemPrice FROM Product as P, Transactions as T, TransactionDetails as TD WHERE P.ProductNo = TD.ProductNo AND TD.InvoiceNo = T.InvoiceNo AND  TDate LIKE '%" & frmFilterStockOut.cmbYear.Text & "' GROUP BY P.ProductNo, TDate ORDER By TDate"
-            End If
+        'Dim totStockOut As Double
+        'Dim totSales As Double
+        'Try
+        '    If frmFilterStockOut.chkMonthly.Checked = True Then
+        '        sqL = "SELECT ProductCode, P.Description, TDate, SUM(TD.Quantity) as totalQuantity, TD.ItemPrice FROM Product as P, Transactions as T, TransactionDetails as TD WHERE P.ProductNo = TD.ProductNo AND TD.InvoiceNo = T.InvoiceNo AND TDate LIKE '" & strMonthNo & "%' AND TDate LIKE '%" & frmFilterStockOut.cmbYear.Text & "' GROUP BY P.ProductNo, TDate ORDER By TDate"
+        '    Else
+        '        sqL = "SELECT ProductCode, P.Description, TDate, SUM(TD.Quantity) as totalQuantity, TD.ItemPrice FROM Product as P, Transactions as T, TransactionDetails as TD WHERE P.ProductNo = TD.ProductNo AND TD.InvoiceNo = T.InvoiceNo AND  TDate LIKE '%" & frmFilterStockOut.cmbYear.Text & "' GROUP BY P.ProductNo, TDate ORDER By TDate"
+        '    End If
 
-            ConnDB()
-            cmd = New MySqlCommand(sqL, conn)
-            dr = cmd.ExecuteReader
+        '    ConnDB()
+        '    cmd = New MySqlCommand(sqL, conn)
+        '    dr = cmd.ExecuteReader
 
-            dgw.Rows.Clear()
-            totStockOut = 0.0
-            totSales = 0.0
-            y = 0
-            Do While dr.Read = True
-                dgw.Rows.Add(dr("ProductCode"), dr("Description"), dr("TDate"), dr("totalQuantity"), Format(dr("ItemPrice"), "#,##0.00"), Format((dr("ItemPrice") * dr("TotalQuantity")), "#,##0.00"))
-                y += 17
-                totStockOut += dr("totalQuantity")
-                totSales += (dr("ItemPrice") * dr("TotalQuantity"))
-            Loop
-            dgw.Height += y
-            lblTotalStocksIn.Text = totStockOut
-            lblSales.Text = Format(totSales, "#,##0.00")
-            Panel3.Location = New Point(Me.Panel3.Location.X, Me.Panel3.Location.Y + y)
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-        Finally
-            cmd.Dispose()
-            conn.Close()
-        End Try
+        '    dgw.Rows.Clear()
+        '    totStockOut = 0.0
+        '    totSales = 0.0
+        '    y = 0
+        '    Do While dr.Read = True
+        '        dgw.Rows.Add(dr("ProductCode"), dr("Description"), dr("TDate"), dr("totalQuantity"), Format(dr("ItemPrice"), "#,##0.00"), Format((dr("ItemPrice") * dr("TotalQuantity")), "#,##0.00"))
+        '        y += 17
+        '        totStockOut += dr("totalQuantity")
+        '        totSales += (dr("ItemPrice") * dr("TotalQuantity"))
+        '    Loop
+        '    dgw.Height += y
+        '    lblTotalStocksIn.Text = totStockOut
+        '    lblSales.Text = Format(totSales, "#,##0.00")
+        '    Panel3.Location = New Point(Me.Panel3.Location.X, Me.Panel3.Location.Y + y)
+        'Catch ex As Exception
+        '    MsgBox(ex.ToString)
+        'Finally
+        '    cmd.Dispose()
+        '    conn.Close()
+        'End Try
     End Sub
 
     Private Sub frmReportStockOut_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load

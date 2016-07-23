@@ -30,8 +30,8 @@ Partial Class frmProduct
         Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
@@ -62,20 +62,23 @@ Partial Class frmProduct
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.lblSaveStatus = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.ToolStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
         Me.SuspendLayout()
         '
         'ListView1
         '
         Me.ListView1.BackColor = System.Drawing.Color.White
         Me.ListView1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader8, Me.ColumnHeader9, Me.ColumnHeader10, Me.ColumnHeader11})
+        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader8, Me.ColumnHeader9, Me.ColumnHeader11, Me.ColumnHeader10})
         Me.ListView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ListView1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListView1.FullRowSelect = True
@@ -112,15 +115,15 @@ Partial Class frmProduct
         Me.ColumnHeader9.Text = "Unit Price"
         Me.ColumnHeader9.Width = 98
         '
+        'ColumnHeader11
+        '
+        Me.ColumnHeader11.Text = "Units"
+        Me.ColumnHeader11.Width = 104
+        '
         'ColumnHeader10
         '
         Me.ColumnHeader10.Text = "Stocks on Hand"
         Me.ColumnHeader10.Width = 95
-        '
-        'ColumnHeader11
-        '
-        Me.ColumnHeader11.Text = "Reorder Level"
-        Me.ColumnHeader11.Width = 104
         '
         'ToolStripButton1
         '
@@ -382,16 +385,16 @@ Partial Class frmProduct
         Me.GroupBox3.Controls.Add(Me.Label6)
         Me.GroupBox3.Location = New System.Drawing.Point(3, 351)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(321, 68)
+        Me.GroupBox3.Size = New System.Drawing.Size(321, 48)
         Me.GroupBox3.TabIndex = 32
         Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "GroupBox2"
+        Me.GroupBox3.Text = "Stocks"
         '
         'txtInitialStock
         '
         Me.txtInitialStock.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtInitialStock.Location = New System.Drawing.Point(112, 32)
+        Me.txtInitialStock.Location = New System.Drawing.Point(112, 19)
         Me.txtInitialStock.Name = "txtInitialStock"
         Me.txtInitialStock.Size = New System.Drawing.Size(192, 20)
         Me.txtInitialStock.TabIndex = 12
@@ -399,7 +402,7 @@ Partial Class frmProduct
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(24, 35)
+        Me.Label6.Location = New System.Drawing.Point(24, 22)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(62, 13)
         Me.Label6.TabIndex = 13
@@ -408,7 +411,7 @@ Partial Class frmProduct
         'Button1
         '
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Location = New System.Drawing.Point(249, 448)
+        Me.Button1.Location = New System.Drawing.Point(249, 475)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 40)
         Me.Button1.TabIndex = 33
@@ -421,6 +424,7 @@ Partial Class frmProduct
         Me.Panel1.Controls.Add(Me.GroupBox1)
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.GroupBox2)
+        Me.Panel1.Controls.Add(Me.GroupBox4)
         Me.Panel1.Controls.Add(Me.GroupBox3)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel1.Location = New System.Drawing.Point(909, 40)
@@ -428,21 +432,43 @@ Partial Class frmProduct
         Me.Panel1.Size = New System.Drawing.Size(333, 552)
         Me.Panel1.TabIndex = 34
         '
-        'Timer1
-        '
-        Me.Timer1.Enabled = True
-        Me.Timer1.Interval = 1500
-        '
         'lblSaveStatus
         '
         Me.lblSaveStatus.AutoSize = True
         Me.lblSaveStatus.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSaveStatus.ForeColor = System.Drawing.Color.OrangeRed
-        Me.lblSaveStatus.Location = New System.Drawing.Point(176, 462)
+        Me.lblSaveStatus.Location = New System.Drawing.Point(176, 489)
         Me.lblSaveStatus.Name = "lblSaveStatus"
         Me.lblSaveStatus.Size = New System.Drawing.Size(65, 16)
         Me.lblSaveStatus.TabIndex = 34
         Me.lblSaveStatus.Text = "Label10"
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 1500
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox4.Controls.Add(Me.CheckBox1)
+        Me.GroupBox4.Location = New System.Drawing.Point(3, 404)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(321, 48)
+        Me.GroupBox4.TabIndex = 32
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Sales"
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(27, 19)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(154, 17)
+        Me.CheckBox1.TabIndex = 0
+        Me.CheckBox1.Text = "Make item available to sale"
+        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'frmProduct
         '
@@ -467,6 +493,8 @@ Partial Class frmProduct
         Me.GroupBox3.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -510,4 +538,6 @@ Partial Class frmProduct
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Timer1 As Timer
     Friend WithEvents lblSaveStatus As Label
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents CheckBox1 As CheckBox
 End Class

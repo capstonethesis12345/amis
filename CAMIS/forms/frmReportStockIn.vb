@@ -40,26 +40,30 @@ Public Class frmReportStockIn
 
     Private Sub LoadStocksInReport()
         MonthInNumber()
+        getData()
+
         Dim y As Integer
         Dim totStocksIn As Double
         Try
             If frmFilterStockIn.chkMonthly.Checked = True Then
-                sqL = "SELECT ProductCode, Description, SUM(Quantity) as totalQuantity, DateIN FROM Product as P, StockIn as S WHERE S.ProductNo = P.ProductNo AND DATEIN LIKE '" & strMonthNo & "%' AND DATEIN LIKE '%" & frmFilterStockIn.cmbYear.Text & "' GROUP BY P.ProductNo, DateIN ORDER BY DateIn"
+                'sqL = "SELECT ProductCode, Description, SUM(Quantity) as totalQuantity, DateIN FROM Product as P, StockIn as S WHERE S.ProductNo = P.ProductNo AND DATEIN LIKE '" & strMonthNo & "%' AND DATEIN LIKE '%" & frmFilterStockIn.cmbYear.Text & "' GROUP BY P.ProductNo, DateIN ORDER BY DateIn"
+                sqL = "select itemid,barcode,description,unittype,quantity,cost,podeliverydate from vstockin where podeliverydate like '" & frmFilterStockIn.cmbYear.Text & "-" & strMonthNo & "%' and podeliverydate like '" & frmFilterStockIn.cmbYear.Text & "%' group by polistid,podeliverydate"
             Else
-                sqL = "SELECT ProductCode, Description, SUM(Quantity) as totalQuantity, DateIN FROM Product as P, StockIn as S WHERE S.ProductNo = P.ProductNo AND DATEIN LIKE '%" & frmFilterStockIn.cmbYear.Text & "' GROUP BY P.ProductNo, DateIN ORDER BY DateIn"
+                'sqL = "SELECT ProductCode, Description, SUM(Quantity) as totalQuantity, DateIN FROM Product as P, StockIn as S WHERE S.ProductNo = P.ProductNo AND DATEIN LIKE '%" & frmFilterStockIn.cmbYear.Text & "' GROUP BY P.ProductNo, DateIN ORDER BY DateIn"
+                sqL = "select itemid,barcode,description,unittype,quantity,cost,podeliverydate from vstockin where podeliverydate like '" & frmFilterStockIn.cmbYear.Text & "%' group by polistid,podeliverydate"
             End If
-
+            MessageBox.Show(sqL)
             ConnDB()
             cmd = New MySqlCommand(sqL, conn)
             dr = cmd.ExecuteReader
-
+            'MessageBox.Show(dr.HasRows.ToString)
             dgw.Rows.Clear()
             y = 0
             totStocksIn = 0
             Do While dr.Read = True
-                dgw.Rows.Add(dr("ProductCode"), dr("Description"), dr("DateIn"), dr("totalQuantity"))
+                dgw.Rows.Add(dr("itemid"), dr("barcode"), dr("description"), dr("unittype"), dr("quantity"), dr("cost"), dr("podeliverydate").ToShortDateString())
                 y += 17
-                totStocksIn += dr("totalQuantity")
+                totStocksIn += dr("quantity")
             Loop
             dgw.Height += y
             lblTotalStocksIn.Text = totStocksIn
