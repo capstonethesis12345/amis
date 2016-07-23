@@ -120,24 +120,42 @@ Public Class createDB
                   & " ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ; ")
         '8
         'THIS WILL CREATE ITEMS FOR SUMMARY OF ITEMS BEING PURCHASED
-        sqlList.Add("
-            CREATE TABLE IF NOT EXISTS `items` (
-              `ItemID` int(11) NOT NULL AUTO_INCREMENT,
-              `Barcode` varchar(50) DEFAULT NULL,
-              `Description` varchar(45) NOT NULL,
-              `Brand` varchar(45) DEFAULT NULL,
-              `Price` double(12,4) DEFAULT NULL,
-              `UnitValue` varchar(20) NOT NULL,
-              `UnitType` varchar(10) NOT NULL,
-              `Category` varchar(45) NOT NULL,
-              `ItemType` tinyint(1) NOT NULL,
-              `InitialQuantity` double(5,2) NOT NULL,
-              `SaleStatus` tinyint(4) NOT NULL,
-              PRIMARY KEY (`ItemID`),
-              UNIQUE KEY `Description` (`Description`)
-            )")
-        '9
-        sqlList.Add("CREATE TABLE IF NOT EXISTS `job` (
+        'sqlList.Add("
+        '    CREATE TABLE IF NOT EXISTS `items` (
+        '      `ItemID` int(11) NOT NULL AUTO_INCREMENT,
+        '      `Barcode` varchar(50) DEFAULT NULL,
+        '      `Description` varchar(45) NOT NULL,
+        '      `Brand` varchar(45) DEFAULT NULL,
+        '      `Price` double(12,4) DEFAULT NULL,
+        '      `UnitValue` varchar(20) NOT NULL,
+        '      `UnitType` varchar(10) NOT NULL,
+        '      `Category` varchar(45) NOT NULL,
+        '      `ItemType` tinyint(1) NOT NULL,
+        '      `InitialQuantity` double(5,2) NOT NULL,
+        '      `SaleStatus` tinyint(4) NOT NULL,
+        '      PRIMARY KEY (`ItemID`),
+        '      UNIQUE KEY `Description` (`Description`)
+        '    )")
+
+        sqlList.Add("        CREATE TABLE IF Not EXISTS `items` ( " _
+                & "   `ItemID` int(11) Not NULL AUTO_INCREMENT, " _
+                & "   `Barcode` varchar(50) DEFAULT NULL, " _
+                & "   `Description` varchar(45) Not NULL, " _
+                & "   `Brand` varchar(45) DEFAULT NULL, " _
+                & "   `Price` Double(12,4) Default NULL, " _
+                & "   `UnitValue` varchar(20) Not NULL, " _
+                 & "  `UnitType` varchar(10) Not NULL, " _
+                  & " `Category` varchar(45) Not NULL, " _
+                  & " `ItemType` tinyint(1) Not NULL," _
+                  & " `InitialQuantity` double(5,2) Not NULL, " _
+                  & " `SaleStatus` tinyint(1) Not NULL, " _
+                  & " `image` blob, " _
+                  & " PRIMARY KEY(`ItemID`), " _
+                  & " UNIQUE KEY `Description` (`Description`) " _
+                & " ) ENGINE= InnoDB  Default CHARSET=latin1 AUTO_INCREMENT=35 ; ")
+
+        ''9
+        sqlList.Add("CREATE TABLE If Not EXISTS `job` (
               `JobGradeID` int(10) NOT NULL AUTO_INCREMENT,
               `JobDescription` varchar(30) NOT NULL,
               `Salary` double(10,2) NOT NULL DEFAULT '0.00',
