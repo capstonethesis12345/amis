@@ -43,6 +43,8 @@ Partial Class frmPurchases
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.groupUnit = New System.Windows.Forms.GroupBox()
         Me.g = New System.Windows.Forms.RadioButton()
         Me.mg = New System.Windows.Forms.RadioButton()
@@ -87,10 +89,9 @@ Partial Class frmPurchases
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.groupUnit.SuspendLayout()
         Me.groupProductType.SuspendLayout()
         Me.gItem.SuspendLayout()
@@ -98,7 +99,6 @@ Partial Class frmPurchases
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'ListView1
@@ -293,6 +293,26 @@ Partial Class frmPurchases
         Me.btnDelete.Text = "Delete"
         Me.btnDelete.UseVisualStyleBackColor = True
         Me.btnDelete.Visible = False
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.CheckBox1)
+        Me.GroupBox2.Location = New System.Drawing.Point(18, 437)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(239, 53)
+        Me.GroupBox2.TabIndex = 6
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Options"
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(20, 19)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(153, 17)
+        Me.CheckBox1.TabIndex = 0
+        Me.CheckBox1.Text = "Directly add to item on sale"
+        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'groupUnit
         '
@@ -732,26 +752,6 @@ Partial Class frmPurchases
         Me.Panel3.Size = New System.Drawing.Size(1234, 703)
         Me.Panel3.TabIndex = 37
         '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.CheckBox1)
-        Me.GroupBox2.Location = New System.Drawing.Point(18, 437)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(239, 53)
-        Me.GroupBox2.TabIndex = 6
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Options"
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(20, 19)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(153, 17)
-        Me.CheckBox1.TabIndex = 0
-        Me.CheckBox1.Text = "Directly add to item on sale"
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
         'frmPurchases
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -770,6 +770,8 @@ Partial Class frmPurchases
         Me.Panel1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.groupUnit.ResumeLayout(False)
         Me.groupUnit.PerformLayout()
         Me.groupProductType.ResumeLayout(False)
@@ -782,8 +784,6 @@ Partial Class frmPurchases
         Me.Panel2.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

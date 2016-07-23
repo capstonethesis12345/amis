@@ -31,6 +31,8 @@ Partial Class frmFoodMenu
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtBcode = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -46,8 +48,6 @@ Partial Class frmFoodMenu
         Me.txtPrice = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -110,6 +110,24 @@ Partial Class frmFoodMenu
         Me.ToolStripLabel1.Name = "ToolStripLabel1"
         Me.ToolStripLabel1.Size = New System.Drawing.Size(16, 37)
         Me.ToolStripLabel1.Text = "   "
+        '
+        'ToolStripButton2
+        '
+        Me.ToolStripButton2.AutoSize = False
+        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
+        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton2.Name = "ToolStripButton2"
+        Me.ToolStripButton2.Size = New System.Drawing.Size(65, 40)
+        Me.ToolStripButton2.Text = "&Search"
+        '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.AutoSize = False
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(65, 40)
+        Me.ToolStripButton1.Text = "Clos&e"
         '
         'Label1
         '
@@ -258,24 +276,6 @@ Partial Class frmFoodMenu
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(678, 446)
         Me.Panel2.TabIndex = 38
-        '
-        'ToolStripButton2
-        '
-        Me.ToolStripButton2.AutoSize = False
-        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
-        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(65, 40)
-        Me.ToolStripButton2.Text = "&Search"
-        '
-        'ToolStripButton1
-        '
-        Me.ToolStripButton1.AutoSize = False
-        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(65, 40)
-        Me.ToolStripButton1.Text = "Clos&e"
         '
         'frmFoodMenu
         '

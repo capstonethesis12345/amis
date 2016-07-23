@@ -78,4 +78,8 @@ Public Class frmFoodMenu
                 Exit Select
         End Select
     End Sub
+
+    Private Sub txtPrice_TextChanged(sender As Object, e As EventArgs) Handles txtPrice.TextChanged
+        txtPrice = casenumbers(txtPrice)
+    End Sub
 End Class
