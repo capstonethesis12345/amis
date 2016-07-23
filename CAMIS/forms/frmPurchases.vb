@@ -543,6 +543,14 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
 
     End Sub
 
+    Private Sub txtCost_TextChanged(sender As Object, e As EventArgs) Handles txtCost.TextChanged
+        txtCost = casenumbers(txtCost)
+    End Sub
+
+    Private Sub txtQuantity_TextChanged(sender As Object, e As EventArgs) Handles txtQuantity.TextChanged
+        txtQuantity = casenumbers(txtQuantity)
+    End Sub
+
     'Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
     '    MessageBox.Show(ListView1.SelectedItems(0).SubItems(7).Text.ToString)
     'End Sub
