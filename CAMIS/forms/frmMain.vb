@@ -52,7 +52,7 @@ Public Class frmMain
         openFull(frmProduct)
     End Sub
     Private Sub ToolStripButton5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton5.Click
-        frmSales.ShowDialog()
+        ' frmSales.ShowDialog()
     End Sub
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
