@@ -87,6 +87,16 @@ Public Class createDB
   PRIMARY KEY (`POID`),
   KEY `SupplierID` (`SupplierID`)
 )")
+        sqlList.Add("CREATE TABLE IF Not EXISTS `po` ( " _
+  & " `POID` int(11) Not NULL AUTO_INCREMENT," _
+ & "  `SupplierID` int(11) Not NULL," _
+  & " `EmpID` int(11) Not NULL," _
+  & " `PODate` date Not NULL," _
+  & " `Status` tinyint(4) Not NULL," _
+  & " `PODeliveryDate` date DEFAULT NULL," _
+  & " PRIMARY KEY(`POID`)," _
+  & " KEY `SupplierID` (`SupplierID`)" _
+& " ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;")
         '7
         'sqlList.Add("CREATE TABLE IF NOT EXISTS `polist` (
         '      `POListID` int(11) NOT NULL AUTO_INCREMENT,
@@ -107,7 +117,7 @@ Public Class createDB
                   & " `QuantityDelivery` int(11) DEFAULT NULL, " _
                   & " `DeliveryDate` date DEFAULT NULL, " _
                   & " PRIMARY KEY(`POListID`) " _
-                  & " ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ; " _
+                  & " ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ; ")
         '8
         'THIS WILL CREATE ITEMS FOR SUMMARY OF ITEMS BEING PURCHASED
         sqlList.Add("
