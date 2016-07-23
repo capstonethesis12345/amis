@@ -134,16 +134,25 @@ Public Class createDB
               PRIMARY KEY (`JobGradeID`)
             )")
         '10
-        sqlList.Add("CREATE TABLE IF NOT EXISTS `jobdtr` (
-              `DTRID` bigint(20) NOT NULL AUTO_INCREMENT,
-              `dateTimeIn` datetime NOT NULL,
-              `dateTimeOut` datetime NOT NULL,
-              `EmpID` int(11) NOT NULL,
-              PRIMARY KEY (`DTRID`),
-              KEY `EmpID` (`EmpID`)
-            )")
+        'sqlList.Add("CREATE TABLE IF NOT EXISTS `jobdtr` (
+        '      `DTRID` bigint(20) NOT NULL AUTO_INCREMENT,
+        '      `dateTimeIn` datetime NOT NULL,
+        '      `dateTimeOut` datetime NOT NULL,
+        '      `EmpID` int(11) NOT NULL,
+        '      PRIMARY KEY (`DTRID`),
+        '      KEY `EmpID` (`EmpID`)
+        '    )")
+        sqlList.Add("   CREATE TABLE IF Not EXISTS `jobdtr` ( " _
+ & "  `DTRID` bigint(20) Not NULL AUTO_INCREMENT, " _
+ & " `EmpID` int(11) Not NULL, " _
+ & "  `dateTimeIn` datetime Default NULL, " _
+ & "  `dateTimeOut` datetime DEFAULT NULL, " _
+ & "  `DTRStatus` int(1) Not NULL Default '0' COMMENT '0=Pending;1=Accepted;2=Deny', " _
+ & "  PRIMARY KEY(`DTRID`), " _
+ & "  KEY `EmpID` (`EmpID`) " _
+& " ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;")
         '11
-        'sqlList.Add("CREATE TABLE IF NOT EXISTS `orders` (
+        'sqlList.Add("CREATE TABLE If Not EXISTS `orders` (
         '      `OrderID` int(30) NOT NULL AUTO_INCREMENT,
         '      `ItemID` int(30) NOT NULL,
         '      `CustomerID` int(30) NOT NULL,
