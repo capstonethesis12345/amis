@@ -496,9 +496,7 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
 
         End If
         Return isErrOccured
-
     End Function
-
     Private Sub txtBarcode_KeyUp(sender As Object, e As KeyEventArgs) Handles txtBarcode.KeyUp
         If txtBarcode.Text = vbNullString Then
             groupProductType.Enabled = True
