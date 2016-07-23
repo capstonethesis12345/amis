@@ -274,3 +274,11 @@ H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.exe
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.xml
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.SaleTransactionTables.resources
+H:\github\CAMIS\obj\x86\Debug\AccountManagementIS.frmDeliveries.resources
+H:\github\CAMIS\obj\x86\Debug\AccountManagementIS.frmSalesTransaction.resources
+H:\github\CAMIS\obj\x86\Debug\AccountManagementIS.frmSaleTransaction.resources
+H:\github\CAMIS\obj\x86\Debug\AccountManagementIS.frmAccounts.resources
+H:\github\CAMIS\obj\x86\Debug\AccountManagementIS.frmDTRsystem.resources
+H:\github\CAMIS\obj\x86\Debug\AccountManagementIS.frmFoodQtySelection.resources
+H:\github\CAMIS\obj\x86\Debug\AccountManagementIS.SaleTransactionTables.resources
+H:\github\CAMIS\obj\x86\Debug\AccountManagementIS.frmPrintPO.resources
