@@ -88,14 +88,26 @@ Public Class createDB
   KEY `SupplierID` (`SupplierID`)
 )")
         '7
-        sqlList.Add("CREATE TABLE IF NOT EXISTS `polist` (
-              `POListID` int(11) NOT NULL AUTO_INCREMENT,
-              `POID` int(11) NOT NULL,
-              `ItemID` int(11) NOT NULL,
-              `Quantity` double(10,2) NOT NULL,
-              `Cost` double NOT NULL DEFAULT '0',
-              PRIMARY KEY (`POListID`)
-            )")
+        'sqlList.Add("CREATE TABLE IF NOT EXISTS `polist` (
+        '      `POListID` int(11) NOT NULL AUTO_INCREMENT,
+        '      `POID` int(11) NOT NULL,
+        '      `ItemID` int(11) NOT NULL,
+        '      `Quantity` double(10,2) NOT NULL,
+        '      `Cost` double NOT NULL DEFAULT '0',
+        '      PRIMARY KEY (`POListID`)
+        '    )")
+
+        sqlList.Add(" CREATE TABLE IF Not EXISTS `polist` ( " _
+                  & " `POListID` int(11) Not NULL AUTO_INCREMENT, " _
+                  & " `POID` int(11) Not NULL, " _
+                  & " `ItemID` int(11) Not NULL, " _
+                  & " `Quantity` double(10,2) Not NULL, " _
+                  & " `Cost` Double Not NULL Default '0', " _
+                  & " `postatus` int(11) Not NULL, " _
+                  & " `QuantityDelivery` int(11) DEFAULT NULL, " _
+                  & " `DeliveryDate` date DEFAULT NULL, " _
+                  & " PRIMARY KEY(`POListID`) " _
+                  & " ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ; " _
         '8
         'THIS WILL CREATE ITEMS FOR SUMMARY OF ITEMS BEING PURCHASED
         sqlList.Add("
@@ -131,23 +143,44 @@ Public Class createDB
               KEY `EmpID` (`EmpID`)
             )")
         '11
-        sqlList.Add("CREATE TABLE IF NOT EXISTS `orders` (
-              `OrderID` int(30) NOT NULL AUTO_INCREMENT,
-              `ItemID` int(30) NOT NULL,
-              `CustomerID` int(30) NOT NULL,
-              `Total` double(12,2) NOT NULL,
-              `OrderDate` date NOT NULL,
-              `EmpID` int(30) NOT NULL,
-              `OrderStatus` tinyint(4) NOT NULL COMMENT '0=pending;1=completed',
-              PRIMARY KEY (`OrderID`)
-            )")
+        'sqlList.Add("CREATE TABLE IF NOT EXISTS `orders` (
+        '      `OrderID` int(30) NOT NULL AUTO_INCREMENT,
+        '      `ItemID` int(30) NOT NULL,
+        '      `CustomerID` int(30) NOT NULL,
+        '      `Total` double(12,2) NOT NULL,
+        '      `OrderDate` date NOT NULL,
+        '      `EmpID` int(30) NOT NULL,
+        '      `OrderStatus` tinyint(4) NOT NULL COMMENT '0=pending;1=completed',
+        '      PRIMARY KEY (`OrderID`)
+        '    )")
+        sqlList.Add("   CREATE TABLE IF Not EXISTS `orders` ( " _
+                  & " `OrderID` int(30) Not NULL AUTO_INCREMENT, " _
+                  & " `CustomerID` int(30) DEFAULT NULL, " _
+                  & " `tableNum` int(30) Not NULL Default '0', " _
+                  & " `OrderDate` datetime DEFAULT NULL, " _
+                  & " `Discount` float DEFAULT '0', " _
+                  & " `PaymentAmt` double(11,2) Not NULL DEFAULT '0.00', " _
+                  & " `EmpID` int(30) DEFAULT NULL, " _
+                  & " `OrderStatus` tinyint(4) Not NULL DEFAULT '0' COMMENT '0=pending;1=completed', " _
+                  & " PRIMARY KEY(`OrderID`) " _
+                & " ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;   ")
         '12
-        sqlList.Add("CREATE TABLE IF NOT EXISTS `orderline` (
-              `orderlineID` int(30) NOT NULL,
-              `orderid` int(30) NOT NULL,
-              `ItemID` int(30) NOT NULL,
-              `quantity` double(12,2) NOT NULL
-            )")
+        'sqlList.Add("CREATE TABLE IF NOT EXISTS `orderline` (
+        '      `orderlineID` int(30) NOT NULL,
+        '      `orderid` int(30) NOT NULL,
+        '      `ItemID` int(30) NOT NULL,
+        '      `quantity` double(12,2) NOT NULL
+        '    )")
+        sqlList.Add("CREATE TABLE IF Not EXISTS `orderline` ( " _
+& "  `orderlineID` int(30) Not NULL AUTO_INCREMENT, " _
+& "  `orderid` int(30) DEFAULT NULL, " _
+& "  `ItemID` int(30) DEFAULT NULL, " _
+& "  `buildid` int(11) DEFAULT NULL, " _
+& "  `quantity` double(12,2) DEFAULT NULL, " _
+& "  `price` int(11) Not NULL, " _
+& "  `status` tinyint(4) DEFAULT '0' COMMENT '0=Pending 1=Given', " _
+& "  PRIMARY KEY (`orderlineID`) " _
+& ") ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;")
         '13
         sqlList.Add("CREATE TABLE IF NOT EXISTS `supplier` (
               `SupplierID` int(11) NOT NULL AUTO_INCREMENT,
@@ -170,6 +203,10 @@ Public Class createDB
               `itemid` int(20) NOT NULL,
               `quantity` int(20) NOT NULL
             )")
+        sqlList.Add("DROP TABLE IF EXISTS `vstockin`;")
+        sqlList.Add("CREATE ALGORITHM = UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vstockin` As (Select `po`.`POID` As `POID`,`polist`.`ItemID` AS `itemid`,`items`.`Barcode` AS `barcode`,`items`.`Description` AS `description`,`items`.`Price` AS `price`,`items`.`Category` AS `category`,`po`.`SupplierID` AS `supllierid`,`po`.`EmpID` AS `empid`,`po`.`PODate` AS `podate`,`po`.`Status` AS `status`,`po`.`PODeliveryDate` AS `podeliverydate`,`polist`.`POListID` AS `polistid`,`items`.`UnitType` AS `unittype`,`polist`.`Quantity` AS `quantity`,`polist`.`Cost` AS `cost` from ((`po` join `polist` on((`po`.`POID` = `polist`.`POID`))) left join `items` on((`items`.`ItemID` = `polist`.`ItemID`))));")
+
+
 
         '15
 
