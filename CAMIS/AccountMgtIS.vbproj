@@ -120,10 +120,10 @@
     <Compile Include="forms\frmSalesTransaction.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\frmSaleTransaction.Designer.vb">
-      <DependentUpon>frmSaleTransaction.vb</DependentUpon>
+    <Compile Include="forms\frmSalesTransactionTendered.Designer.vb">
+      <DependentUpon>frmSalesTransactionTendered.vb</DependentUpon>
     </Compile>
-    <Compile Include="forms\frmSaleTransaction.vb">
+    <Compile Include="forms\frmSalesTransactionTendered.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\frmAccounts.Designer.vb">
@@ -353,8 +353,8 @@
     <EmbeddedResource Include="forms\frmSalesTransaction.resx">
       <DependentUpon>frmSalesTransaction.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\frmSaleTransaction.resx">
-      <DependentUpon>frmSaleTransaction.vb</DependentUpon>
+    <EmbeddedResource Include="forms\frmSalesTransactionTendered.resx">
+      <DependentUpon>frmSalesTransactionTendered.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmAccounts.resx">
       <DependentUpon>frmAccounts.vb</DependentUpon>

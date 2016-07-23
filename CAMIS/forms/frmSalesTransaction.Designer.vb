@@ -48,6 +48,7 @@ Partial Class frmSalesTransaction
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lEmpNum = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -188,7 +189,7 @@ Partial Class frmSalesTransaction
         Me.txtCash.UseCustomForeColor = True
         Me.txtCash.UseSelectable = True
         Me.txtCash.UseStyleColors = True
-        Me.txtCash.WaterMark = "CASH"
+        Me.txtCash.WaterMark = "TENDERED"
         Me.txtCash.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.txtCash.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         '
@@ -372,6 +373,15 @@ Partial Class frmSalesTransaction
         Me.Button1.Text = "Clear"
         Me.Button1.UseVisualStyleBackColor = False
         '
+        'Panel7
+        '
+        Me.Panel7.BackColor = System.Drawing.Color.DarkRed
+        Me.Panel7.Location = New System.Drawing.Point(12, 75)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(722, 399)
+        Me.Panel7.TabIndex = 6
+        Me.Panel7.Visible = False
+        '
         'frmSalesTransaction
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -389,6 +399,7 @@ Partial Class frmSalesTransaction
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.tTableNum)
+        Me.Controls.Add(Me.Panel7)
         Me.Name = "frmSalesTransaction"
         Me.Text = "frmSalesTransaction"
         Me.Panel1.ResumeLayout(False)
@@ -432,5 +443,5 @@ Partial Class frmSalesTransaction
     Friend WithEvents Label3 As Label
     Friend WithEvents lEmpNum As Label
     Friend WithEvents Button1 As Button
-
+    Friend WithEvents Panel7 As Panel
 End Class

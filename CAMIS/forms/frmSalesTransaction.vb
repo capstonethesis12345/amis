@@ -164,6 +164,10 @@
         Try
             ' Dim cash As Double = Double.Parse(Of Double)
             If total < txtCash.Text Then
+
+                FlowLayoutPanel1.Visible = False
+                Panel1.Visible = True
+
                 Dim regDate As DateTime = DateTime.Now
                 Dim strDate As String = regDate.ToString("yyyy-MM-dd HH:mm:ss")
                 Dim orderid, empid, tdatetime, payment As New TextBox
@@ -179,12 +183,6 @@
                     buildid.Text = ListView1.Items(i).SubItems(3).Text
                     quantity.Text = ListView1.Items(i).SubItems(1).Text
                     price.Text = ListView1.Items(i).SubItems(2).Text
-                    If i <> ListView1.Items.Count - 1 Then
-                        msgShow = False
-                    Else
-                        msgShow = True
-                    End If
-                    msgShow = False
                     itemNew("orderline", {"orderid", "itemid", "buildid", "quantity", "price"},
                            {orderid, itemid, buildid, quantity, price})
                     If i = ListView1.Items.Count - 1 Then
@@ -192,13 +190,21 @@
                             ListView1.Items.Clear()
                             Dim cmplete As New TextBox
                             cmplete.Text = 1
+                            If i <> ListView1.Items.Count - 1 Then
+                                msgShow = False
+                            Else
+                                msgShow = True
+                            End If
                             itemUpdate("orders", {"orderstatus"}, {cmplete}, "orderid", orderid.Text)
-                            SqlRefresh = "call getitems();"
-                            SqlReFill("fill", lv)
-                            generateButton() 'comment
                         End If
-                        sqlMessage = ""
                     End If
+                    If sqlMessage = "Success" Then
+                        ListView1.Controls.Clear()
+                        SqlRefresh = "call getitems();"
+                        SqlReFill("fill", lv)
+                        generateButton() 'comment
+                    End If
+                    sqlMessage = ""
                 Next
             Else
                 MessageBox.Show("Cash is below the actual price")
@@ -240,6 +246,7 @@
         txtCash = metrocasenumbers(txtCash)
     End Sub
 
+    Private Sub txtCash_Click(sender As Object, e As EventArgs) Handles txtCash.Click
 
-
+    End Sub
 End Class
