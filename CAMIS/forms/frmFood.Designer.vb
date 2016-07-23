@@ -236,7 +236,7 @@ Partial Class frmFood
         Me.txtBarcode.SelectionLength = 0
         Me.txtBarcode.SelectionStart = 0
         Me.txtBarcode.Size = New System.Drawing.Size(303, 23)
-        Me.txtBarcode.TabIndex = 17
+        Me.txtBarcode.TabIndex = 0
         Me.txtBarcode.UseSelectable = True
         Me.txtBarcode.WaterMark = "Barcode"
         Me.txtBarcode.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
@@ -268,7 +268,7 @@ Partial Class frmFood
         Me.txtMenuName.SelectionLength = 0
         Me.txtMenuName.SelectionStart = 0
         Me.txtMenuName.Size = New System.Drawing.Size(303, 23)
-        Me.txtMenuName.TabIndex = 17
+        Me.txtMenuName.TabIndex = 1
         Me.txtMenuName.UseSelectable = True
         Me.txtMenuName.WaterMark = "Menu Name"
         Me.txtMenuName.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
@@ -301,7 +301,7 @@ Partial Class frmFood
         Me.txtPrice.SelectionStart = 0
         Me.txtPrice.ShowClearButton = True
         Me.txtPrice.Size = New System.Drawing.Size(303, 23)
-        Me.txtPrice.TabIndex = 17
+        Me.txtPrice.TabIndex = 2
         Me.txtPrice.UseSelectable = True
         Me.txtPrice.WaterMark = "Price"
         Me.txtPrice.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))

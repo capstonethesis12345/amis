@@ -238,7 +238,7 @@ Partial Class frmStaff
         Me.txtJobs.Location = New System.Drawing.Point(131, 349)
         Me.txtJobs.Name = "txtJobs"
         Me.txtJobs.Size = New System.Drawing.Size(86, 23)
-        Me.txtJobs.TabIndex = 21
+        Me.txtJobs.TabIndex = 16
         '
         'txtMaritalStatus
         '
@@ -250,7 +250,7 @@ Partial Class frmStaff
         Me.txtMaritalStatus.MaxLength = 8
         Me.txtMaritalStatus.Name = "txtMaritalStatus"
         Me.txtMaritalStatus.Size = New System.Drawing.Size(161, 23)
-        Me.txtMaritalStatus.TabIndex = 5
+        Me.txtMaritalStatus.TabIndex = 4
         '
         'CheckBox1
         '
@@ -298,7 +298,7 @@ Partial Class frmStaff
         Me.btnSave.Location = New System.Drawing.Point(527, 479)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(99, 33)
-        Me.btnSave.TabIndex = 17
+        Me.btnSave.TabIndex = 24
         Me.btnSave.Text = "&Save"
         Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnSave.UseVisualStyleBackColor = False
@@ -319,10 +319,10 @@ Partial Class frmStaff
         '
         Me.txtEmpStarted.CustomFormat = "yyyy-MM-dd"
         Me.txtEmpStarted.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.txtEmpStarted.Location = New System.Drawing.Point(397, 316)
+        Me.txtEmpStarted.Location = New System.Drawing.Point(397, 310)
         Me.txtEmpStarted.Name = "txtEmpStarted"
         Me.txtEmpStarted.Size = New System.Drawing.Size(165, 23)
-        Me.txtEmpStarted.TabIndex = 7
+        Me.txtEmpStarted.TabIndex = 15
         '
         'txtBirthDate
         '
@@ -331,7 +331,7 @@ Partial Class frmStaff
         Me.txtBirthDate.Location = New System.Drawing.Point(100, 166)
         Me.txtBirthDate.Name = "txtBirthDate"
         Me.txtBirthDate.Size = New System.Drawing.Size(165, 23)
-        Me.txtBirthDate.TabIndex = 7
+        Me.txtBirthDate.TabIndex = 6
         '
         'txtGender
         '
@@ -343,7 +343,7 @@ Partial Class frmStaff
         Me.txtGender.MaxLength = 1
         Me.txtGender.Name = "txtGender"
         Me.txtGender.Size = New System.Drawing.Size(108, 23)
-        Me.txtGender.TabIndex = 6
+        Me.txtGender.TabIndex = 5
         '
         'Label22
         '
@@ -360,7 +360,7 @@ Partial Class frmStaff
         Me.txtBirthAddress.Location = New System.Drawing.Point(361, 166)
         Me.txtBirthAddress.Name = "txtBirthAddress"
         Me.txtBirthAddress.Size = New System.Drawing.Size(248, 23)
-        Me.txtBirthAddress.TabIndex = 8
+        Me.txtBirthAddress.TabIndex = 7
         '
         'Label24
         '
@@ -409,7 +409,7 @@ Partial Class frmStaff
         Me.txtEmployStatus.Location = New System.Drawing.Point(131, 313)
         Me.txtEmployStatus.Name = "txtEmployStatus"
         Me.txtEmployStatus.Size = New System.Drawing.Size(136, 23)
-        Me.txtEmployStatus.TabIndex = 15
+        Me.txtEmployStatus.TabIndex = 14
         '
         'GroupBox3
         '
@@ -437,7 +437,7 @@ Partial Class frmStaff
         Me.txtConfirmPWD.Name = "txtConfirmPWD"
         Me.txtConfirmPWD.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtConfirmPWD.Size = New System.Drawing.Size(362, 23)
-        Me.txtConfirmPWD.TabIndex = 4
+        Me.txtConfirmPWD.TabIndex = 23
         '
         'txtPassword
         '
@@ -446,7 +446,7 @@ Partial Class frmStaff
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassword.Size = New System.Drawing.Size(362, 23)
-        Me.txtPassword.TabIndex = 3
+        Me.txtPassword.TabIndex = 22
         '
         'Label9
         '
@@ -472,7 +472,7 @@ Partial Class frmStaff
         Me.txtUsername.Location = New System.Drawing.Point(130, 48)
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.Size = New System.Drawing.Size(362, 23)
-        Me.txtUsername.TabIndex = 1
+        Me.txtUsername.TabIndex = 21
         '
         'Label5
         '
@@ -492,7 +492,7 @@ Partial Class frmStaff
         Me.txtFunction.Location = New System.Drawing.Point(130, 19)
         Me.txtFunction.Name = "txtFunction"
         Me.txtFunction.Size = New System.Drawing.Size(165, 23)
-        Me.txtFunction.TabIndex = 0
+        Me.txtFunction.TabIndex = 20
         '
         'Label7
         '
@@ -606,7 +606,7 @@ Partial Class frmStaff
         Me.txtContractNo.Location = New System.Drawing.Point(102, 275)
         Me.txtContractNo.Name = "txtContractNo"
         Me.txtContractNo.Size = New System.Drawing.Size(165, 23)
-        Me.txtContractNo.TabIndex = 14
+        Me.txtContractNo.TabIndex = 13
         '
         'Label17
         '
@@ -620,7 +620,7 @@ Partial Class frmStaff
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(276, 321)
+        Me.Label18.Location = New System.Drawing.Point(276, 315)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(115, 15)
         Me.Label18.TabIndex = 4
@@ -642,7 +642,7 @@ Partial Class frmStaff
         Me.txtZip.MaxLength = 5
         Me.txtZip.Name = "txtZip"
         Me.txtZip.Size = New System.Drawing.Size(166, 23)
-        Me.txtZip.TabIndex = 13
+        Me.txtZip.TabIndex = 12
         '
         'Label4
         '
@@ -659,7 +659,7 @@ Partial Class frmStaff
         Me.txtCity.Location = New System.Drawing.Point(443, 207)
         Me.txtCity.Name = "txtCity"
         Me.txtCity.Size = New System.Drawing.Size(166, 23)
-        Me.txtCity.TabIndex = 11
+        Me.txtCity.TabIndex = 10
         '
         'txtMI
         '
@@ -676,7 +676,7 @@ Partial Class frmStaff
         Me.txtBarangay.Location = New System.Drawing.Point(272, 207)
         Me.txtBarangay.Name = "txtBarangay"
         Me.txtBarangay.Size = New System.Drawing.Size(165, 23)
-        Me.txtBarangay.TabIndex = 10
+        Me.txtBarangay.TabIndex = 9
         '
         'txtProvince
         '
@@ -684,7 +684,7 @@ Partial Class frmStaff
         Me.txtProvince.Location = New System.Drawing.Point(101, 246)
         Me.txtProvince.Name = "txtProvince"
         Me.txtProvince.Size = New System.Drawing.Size(336, 23)
-        Me.txtProvince.TabIndex = 12
+        Me.txtProvince.TabIndex = 11
         '
         'txtStreet
         '
@@ -692,7 +692,7 @@ Partial Class frmStaff
         Me.txtStreet.Location = New System.Drawing.Point(101, 207)
         Me.txtStreet.Name = "txtStreet"
         Me.txtStreet.Size = New System.Drawing.Size(165, 23)
-        Me.txtStreet.TabIndex = 9
+        Me.txtStreet.TabIndex = 8
         '
         'txtFirstname
         '

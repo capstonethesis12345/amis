@@ -156,18 +156,8 @@
 
     End Sub
     Dim tableNum As String
-    Private Sub btnTransact_Click_1(sender As Object, e As EventArgs) Handles btnTransact.Click
-        If lTableNum.Text = vbNullString Or lTableNum.Text = "0" Then
+    Private Sub btnTransact_Click_1(sender As Object, e As EventArgs)
 
-            lTableNum.Text = InputBox("Table number:")
-            If lTableNum.Text = vbNullString Or lTableNum.Text = "0" Then
-                btnTransact_Click_1(sender, e)
-            Else
-                processData()
-            End If
-        Else
-            processData()
-        End If
 
     End Sub
     Sub processData()
@@ -194,6 +184,7 @@
                     Else
                         msgShow = True
                     End If
+                    msgShow = False
                     itemNew("orderline", {"orderid", "itemid", "buildid", "quantity", "price"},
                            {orderid, itemid, buildid, quantity, price})
                     If i = ListView1.Items.Count - 1 Then
@@ -201,6 +192,7 @@
                             ListView1.Items.Clear()
                             Dim cmplete As New TextBox
                             cmplete.Text = 1
+
                             itemUpdate("orders", {"orderstatus"}, {cmplete}, "orderid", orderid.Text)
                         End If
                         sqlMessage = ""
@@ -220,5 +212,29 @@
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
 
+    End Sub
+
+    Private Sub txtCash_KeyUp(sender As Object, e As KeyEventArgs) Handles txtCash.KeyUp
+        If e.KeyCode = Keys.Enter Then
+            If lTableNum.Text = vbNullString Or lTableNum.Text = "0" Then
+
+                lTableNum.Text = InputBox("Table number:")
+                If lTableNum.Text = vbNullString Or lTableNum.Text = "0" Then
+                    btnTransact_Click_1(sender, e)
+                Else
+                    processData()
+                End If
+            Else
+                processData()
+            End If
+        End If
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        ListView1.Items.Clear()
+    End Sub
+
+    Private Sub txtCash_TextChanged(sender As Object, e As EventArgs) Handles txtCash.TextChanged
+        txtCash = metrocasenumbers(txtCash)
     End Sub
 End Class
