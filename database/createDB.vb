@@ -131,7 +131,7 @@ Public Class createDB
               KEY `EmpID` (`EmpID`)
             )")
         '11
-        sqlList.Add("CREATE TABLE IF NOT EXISTS `order` (
+        sqlList.Add("CREATE TABLE IF NOT EXISTS `orders` (
               `OrderID` int(30) NOT NULL AUTO_INCREMENT,
               `ItemID` int(30) NOT NULL,
               `CustomerID` int(30) NOT NULL,

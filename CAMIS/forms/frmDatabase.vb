@@ -98,22 +98,47 @@ Public Class frmDatabase
         'RESET LOGIN DATA TO SECONDARY USER FUNCTION.
         Try
             ConnDB()
-            cmd.ExecuteNonQuery()
-            cmd.CommandText = "CREATE DEFINER=`root`@`localhost` PROCEDURE `getItems`()" _
-                        & "    NO SQL" _
-                        & " SELECT description, itemid, price, ifnull(( SELECT buildid FROM foodingredient WHERE foodingredient.foodid = items.itemid ORDER BY buildid DESC  LIMIT 0 , 1 ),0)buildid FROM items WHERE salestatus =1 LIMIT 0 , 30"
-            cmd.ExecuteNonQuery()
-            cmd.CommandText = "CREATE DEFINER=`root`@`localhost` PROCEDURE `getOrderID`()" _
-                        & " NO SQL" _
-                        & " select if(orderstatus=1,max(orderid)+1,(select orderid from orders)) from orders order by orderid desc limit 0,1"
-            cmd.ExecuteNonQuery()
-            cmd.CommandText = "CREATE DEFINER=`root`@`localhost` PROCEDURE `getOrders`()" _
-                        & " BEGIN select orderid,customerid,ifnull(tablenum,0)tablenum,orderdate,ifnull(discount,0)discount,ifnull(paymentAmt,0),empid,orderstatus from orders; END"
-            cmd.ExecuteNonQuery()
-            cmd.CommandText = "CREATE DEFINER=`root`@`localhost` PROCEDURE `getSearchItem`(IN `itemname` VARCHAR(200))" _
-                            & " NO SQL " _
-                        & " SELECT description, itemid, price, ifnull(( SELECT buildid FROM foodingredient WHERE foodingredient.foodid = items.itemid ORDER BY buildid DESC  LIMIT 0 , 1 ),0)buildid FROM items WHERE salestatus =1 and items.description like itemname LIMIT 0 , 30"
-            cmd.ExecuteNonQuery()
+            '  cmd.ExecuteNonQuery()
+            Try
+                cmd.CommandText = "CREATE DEFINER=`root`@`localhost` PROCEDURE `getItems`()" _
+                       & "    NO SQL" _
+                       & " SELECT description, itemid, price, ifnull(( SELECT buildid FROM foodingredient WHERE foodingredient.foodid = items.itemid ORDER BY buildid DESC  LIMIT 0 , 1 ),0)buildid FROM items WHERE salestatus =1 LIMIT 0 , 30"
+                cmd.ExecuteNonQuery()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message.ToString)
+            End Try
+            Try
+                cmd.CommandText = "CREATE DEFINER=`root`@`localhost` PROCEDURE `getOrderID`()" _
+            & " NO SQL" _
+            & " select if(orderstatus=1,max(orderid)+1,(select orderid from orders)) from orders order by orderid desc limit 0,1"
+                cmd.ExecuteNonQuery()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message.ToString)
+            End Try
+            Try
+                cmd.CommandText = "CREATE DEFINER=`root`@`localhost` PROCEDURE `getOrders`()" _
+                            & " BEGIN select orderid,customerid,ifnull(tablenum,0)tablenum,orderdate,ifnull(discount,0)discount,ifnull(paymentAmt,0),empid,orderstatus from orders; END"
+                cmd.ExecuteNonQuery()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message.ToString)
+            End Try
+            Try
+                cmd.CommandText = "CREATE DEFINER=`root`@`localhost` PROCEDURE `getSearchItem`(IN `itemname` VARCHAR(200))" _
+                & " NO SQL " _
+            & " SELECT description, itemid, price, ifnull(( SELECT buildid FROM foodingredient WHERE foodingredient.foodid = items.itemid ORDER BY buildid DESC  LIMIT 0 , 1 ),0)buildid FROM items WHERE salestatus =1 and items.description like itemname LIMIT 0 , 30"
+                cmd.ExecuteNonQuery()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message.ToString)
+            End Try
+            Try
+                cmd.CommandText = "CREATE DEFINER=`root`@`localhost` PROCEDURE `printOrderList`(IN `customerOrder` INT(30)) " _
+                     & " SELECT *  FROM  `orders` , orderline,items" _
+                     & " WHERE orders.orderid = orderline.orderid and orderline.itemid=items.itemid And orders.orderid =customerOrder ORDER BY orders.orderid, orderline.orderlineid"
+                cmd.ExecuteNonQuery()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message.ToString)
+            End Try
+
 
         Catch ex As Exception
             MessageBox.Show(ex.Message.ToString)

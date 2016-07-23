@@ -3,7 +3,7 @@
     Sub New()
         InitializeComponent()
         getData()
-        lOrderNum.Text = getIDFunction("call getorderid()", "orderid")
+        'lOrderNum.Text = getIDFunction("call getorderid()", "orderid")
         SqlRefresh = "call getitems();"
         SqlReFill("fill", lv)
         itemcount = 0
@@ -174,17 +174,36 @@
         Try
             ' Dim cash As Double = Double.Parse(Of Double)
             If total < txtCash.Text Then
+                Dim regDate As DateTime = DateTime.Now
+                Dim strDate As String = regDate.ToString("yyyy-MM-dd HH:mm:ss")
+                Dim orderid, empid, tdatetime, payment As New TextBox
+                orderid.Text = getIDFunction("call getorderid()", "getorderid")
+                empid.Text = vEmp
+                tdatetime.Text = strDate
+                payment.Text = total
+                msgShow = False
+                itemNew("orders", {"orderid", "empid", "tablenum", "orderdate", "paymentamt"}, {orderid, empid, lTableNum, tdatetime, payment})
                 For i = 0 To ListView1.Items.Count - 1
                     Dim itemid, buildid, quantity, price As New TextBox
                     itemid.Text = ListView1.Items(i).SubItems(4).Text
                     buildid.Text = ListView1.Items(i).SubItems(3).Text
                     quantity.Text = ListView1.Items(i).SubItems(1).Text
                     price.Text = ListView1.Items(i).SubItems(2).Text
-                    'itemNew("orderline", {"orderid", "itemid", "buildid", "quantity", "price"},
-                    '       {lOrderNum, itemid, buildid, quantity, price})
-
-                    If sqlMessage = "Success" Then
-                        ListView1.Items.Clear()
+                    If i <> ListView1.Items.Count - 1 Then
+                        msgShow = False
+                    Else
+                        msgShow = True
+                    End If
+                    itemNew("orderline", {"orderid", "itemid", "buildid", "quantity", "price"},
+                           {orderid, itemid, buildid, quantity, price})
+                    If i = ListView1.Items.Count - 1 Then
+                        If sqlMessage = "Success" Then
+                            ListView1.Items.Clear()
+                            Dim cmplete As New TextBox
+                            cmplete.Text = 1
+                            itemUpdate("orders", {"orderstatus"}, {cmplete}, "orderid", orderid.Text)
+                        End If
+                        sqlMessage = ""
                     End If
                 Next
             Else
