@@ -21,32 +21,6 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `dbamis` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `dbamis`;
-
-DELIMITER $$
---
--- Procedures
---
-CREATE DEFINER=`root`@`localhost` PROCEDURE `getItems`()
-    NO SQL
-SELECT description, itemid, price, ifnull(( SELECT buildid FROM foodingredient WHERE foodingredient.foodid = items.itemid ORDER BY buildid DESC  LIMIT 0 , 1 ),0)buildid FROM items WHERE salestatus =1 LIMIT 0 , 30$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `getOrderID`()
-    NO SQL
-select ifnull(if(orderstatus=1,max(orderid)+1,(select orderid from orders)),1)orderid from orders order by orderid desc limit 0,1$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `getOrders`()
-BEGIN select orderid,customerid,ifnull(tablenum,0)tablenum,orderdate,ifnull(discount,0)discount,ifnull(paymentAmt,0),empid,orderstatus from orders; END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `getSearchItem`(IN `itemname` VARCHAR(200))
-    NO SQL
-SELECT description, itemid, price, ifnull(( SELECT buildid FROM foodingredient WHERE foodingredient.foodid = items.itemid ORDER BY buildid DESC  LIMIT 0 , 1 ),0)buildid FROM items WHERE salestatus =1 and items.description like itemname LIMIT 0 , 30$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `printOrderList`(IN `customerOrder` INT(30))
-SELECT *  FROM  `orders` , orderline,items
-WHERE orders.orderid = orderline.orderid and orderline.itemid=items.itemid And orders.orderid =customerOrder ORDER BY orders.orderid, orderline.orderlineid$$
-
-DELIMITER ;
-
 -- --------------------------------------------------------
 
 --
