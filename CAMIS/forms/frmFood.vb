@@ -204,4 +204,8 @@
         Dim unit As String = ListView2.SelectedItems(0).SubItems(3).Text.ToString
         MessageBox.Show(unit)
     End Sub
+
+    Private Sub txtPrice_TextChanged(sender As Object, e As EventArgs) Handles txtPrice.TextChanged
+        txtPrice = metrocasenumbers(txtPrice)
+    End Sub
 End Class

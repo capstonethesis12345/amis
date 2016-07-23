@@ -65,4 +65,8 @@
         Me.Close()
 
     End Sub
+
+    Private Sub txtQuantity_TextChanged(sender As Object, e As EventArgs) Handles txtQuantity.TextChanged
+        txtQuantity = metrocasenumbers(txtQuantity)
+    End Sub
 End Class
