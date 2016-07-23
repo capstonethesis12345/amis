@@ -192,8 +192,10 @@
                             ListView1.Items.Clear()
                             Dim cmplete As New TextBox
                             cmplete.Text = 1
-
                             itemUpdate("orders", {"orderstatus"}, {cmplete}, "orderid", orderid.Text)
+                            SqlRefresh = "call getitems();"
+                            SqlReFill("fill", lv)
+                            generateButton() 'comment
                         End If
                         sqlMessage = ""
                     End If
@@ -237,4 +239,7 @@
     Private Sub txtCash_TextChanged(sender As Object, e As EventArgs) Handles txtCash.TextChanged
         txtCash = metrocasenumbers(txtCash)
     End Sub
+
+
+
 End Class
