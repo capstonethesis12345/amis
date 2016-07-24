@@ -16,6 +16,19 @@
         FlowLayoutPanel1.WrapContents = True
         lEmpNum.Text = vEmp
     End Sub
+    Sub refreshData()
+
+        FlowLayoutPanel1.Controls.Clear()
+        SqlRefresh = "call getitems();"
+        SqlReFill("fill", lv)
+        itemcount = 0
+        generateButton()
+        FlowLayoutPanel1.AutoScroll = True
+        FlowLayoutPanel1.HorizontalScroll.Enabled = False
+        FlowLayoutPanel1.HorizontalScroll.Visible = False
+        FlowLayoutPanel1.WrapContents = True
+        lEmpNum.Text = vEmp
+    End Sub
 
     Public Sub generateButton()
         Panel1.Visible = True
@@ -161,7 +174,7 @@
     End Sub
     Dim tableNum As String
     Private Sub btnTransact_Click_1(sender As Object, e As EventArgs)
-
+        lTableNum.Text = InputBox("Enter table number.")
 
     End Sub
     Sub processData()
@@ -183,6 +196,9 @@
                 End Try
                 Dim change As Double = (tendered - total)
                 lChange.Text = change.ToString("C", Globalization.CultureInfo.GetCultureInfo("en-PH"))
+
+
+
                 'FlowLayoutPanel1.Visible = False
                 'ToString("C", Globalization.CultureInfo.GetCultureInfo("en-PH"))
 
@@ -296,7 +312,6 @@
             status.Text = "1"
             msgShow = False
             'orderid.Text = getStrData("call insertOrder(@p0,@p1,@p2,@p3,@p4)", "CustomerOrderID", {lTableNum.Text, strDate, lDiscount.Text, lTendered.Text, vEmp})
-
             itemNew("orders", {"orderid", "tablenum", "orderdate", "discount", "paymentamt", "empid"}, {orderid, lTableNum, orderDate, lDiscount, lTendered, empid})
             orderid.Text = getStrData("SELECT max(LAST_INSERT_ID(orderid))orderid from orders where empid like @0", "LastOrderID", {vEmp})
             For i = 0 To ListView1.Items.Count - 1
@@ -313,12 +328,25 @@
                 itemNew("orderline", {"orderid", "itemid", "buildid", "quantity", "price"},
                            {orderid, itemid, buildid, quantity, price})
                 If sqlMessage = "Success" Then
-                    'refresh ehere
-                    MessageBox.Show("Refresh")
+
+                    refreshData()
+                    Panel1.Enabled = True
+                    TenderedPanel.Visible = False
+                    Button1_Click_1(sender, e)
+                    lTableNum.Text = 0
+                    txtCash.Text = ""
                 End If
+                sqlMessage = ""
             Next
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Private Sub frmSalesTransaction_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.Control And e.KeyCode = Keys.S Then
+            btnSave_Click(sender, e)
+            MessageBox.Show("")
+        End If
     End Sub
 End Class

@@ -472,7 +472,7 @@ Partial Class frmSalesTransaction
         Me.btnSave.Size = New System.Drawing.Size(276, 87)
         Me.btnSave.TabIndex = 1
         Me.btnSave.TabStop = False
-        Me.btnSave.Text = "NEXT"
+        Me.btnSave.Text = "&SAVE"
         Me.btnSave.UseVisualStyleBackColor = False
         '
         'GroupBox1
