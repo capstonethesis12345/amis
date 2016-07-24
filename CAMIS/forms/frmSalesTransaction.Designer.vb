@@ -53,13 +53,15 @@ Partial Class frmSalesTransaction
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.btnBack = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnSave = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.lDuePrice = New System.Windows.Forms.Label()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.lTendered = New System.Windows.Forms.Label()
-        Me.btnSave = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.lChange = New System.Windows.Forms.Label()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.lTendered = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lDiscount = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -71,8 +73,8 @@ Partial Class frmSalesTransaction
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -163,7 +165,9 @@ Partial Class frmSalesTransaction
         'Panel5
         '
         Me.Panel5.Controls.Add(Me.txtCash)
+        Me.Panel5.Controls.Add(Me.lDiscount)
         Me.Panel5.Controls.Add(Me.lTotal)
+        Me.Panel5.Controls.Add(Me.Label2)
         Me.Panel5.Controls.Add(Me.Label1)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel5.Location = New System.Drawing.Point(0, 471)
@@ -454,6 +458,23 @@ Partial Class frmSalesTransaction
         Me.PictureBox1.TabIndex = 3
         Me.PictureBox1.TabStop = False
         '
+        'btnSave
+        '
+        Me.btnSave.BackColor = System.Drawing.Color.DarkRed
+        Me.btnSave.FlatAppearance.BorderSize = 0
+        Me.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed
+        Me.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSave.Font = New System.Drawing.Font("Segoe UI", 16.25!)
+        Me.btnSave.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnSave.Location = New System.Drawing.Point(3, 3)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(276, 87)
+        Me.btnSave.TabIndex = 1
+        Me.btnSave.TabStop = False
+        Me.btnSave.Text = "NEXT"
+        Me.btnSave.UseVisualStyleBackColor = False
+        '
         'GroupBox1
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -478,6 +499,31 @@ Partial Class frmSalesTransaction
         Me.lDuePrice.Size = New System.Drawing.Size(83, 59)
         Me.lDuePrice.TabIndex = 0
         Me.lDuePrice.Text = "0.0"
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox3.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox3.Controls.Add(Me.lChange)
+        Me.GroupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GroupBox3.Font = New System.Drawing.Font("Segoe UI Semibold", 32.0!, System.Drawing.FontStyle.Bold)
+        Me.GroupBox3.ForeColor = System.Drawing.Color.LavenderBlush
+        Me.GroupBox3.Location = New System.Drawing.Point(18, 290)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(689, 131)
+        Me.GroupBox3.TabIndex = 6
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "CHANGE"
+        '
+        'lChange
+        '
+        Me.lChange.AutoSize = True
+        Me.lChange.Location = New System.Drawing.Point(75, 69)
+        Me.lChange.Name = "lChange"
+        Me.lChange.Size = New System.Drawing.Size(83, 59)
+        Me.lChange.TabIndex = 0
+        Me.lChange.Text = "0.0"
         '
         'GroupBox2
         '
@@ -504,47 +550,28 @@ Partial Class frmSalesTransaction
         Me.lTendered.TabIndex = 0
         Me.lTendered.Text = "0.0"
         '
-        'btnSave
+        'Label2
         '
-        Me.btnSave.BackColor = System.Drawing.Color.DarkRed
-        Me.btnSave.FlatAppearance.BorderSize = 0
-        Me.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed
-        Me.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.Font = New System.Drawing.Font("Segoe UI", 16.25!)
-        Me.btnSave.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnSave.Location = New System.Drawing.Point(3, 3)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(276, 87)
-        Me.btnSave.TabIndex = 1
-        Me.btnSave.TabStop = False
-        Me.btnSave.Text = "NEXT"
-        Me.btnSave.UseVisualStyleBackColor = False
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Transparent
+        Me.Label2.Location = New System.Drawing.Point(162, 3)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(89, 21)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "DISCOUNT"
         '
-        'GroupBox3
+        'lDiscount
         '
-        Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox3.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox3.Controls.Add(Me.lChange)
-        Me.GroupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.GroupBox3.Font = New System.Drawing.Font("Segoe UI Semibold", 32.0!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox3.ForeColor = System.Drawing.Color.LavenderBlush
-        Me.GroupBox3.Location = New System.Drawing.Point(18, 290)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(689, 131)
-        Me.GroupBox3.TabIndex = 6
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "CHANGE"
-        '
-        'lChange
-        '
-        Me.lChange.AutoSize = True
-        Me.lChange.Location = New System.Drawing.Point(75, 69)
-        Me.lChange.Name = "lChange"
-        Me.lChange.Size = New System.Drawing.Size(83, 59)
-        Me.lChange.TabIndex = 0
-        Me.lChange.Text = "0.0"
+        Me.lDiscount.AutoSize = True
+        Me.lDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.lDiscount.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lDiscount.ForeColor = System.Drawing.Color.Transparent
+        Me.lDiscount.Location = New System.Drawing.Point(191, 24)
+        Me.lDiscount.Name = "lDiscount"
+        Me.lDiscount.Size = New System.Drawing.Size(46, 25)
+        Me.lDiscount.TabIndex = 3
+        Me.lDiscount.Text = "0.0"
         '
         'frmSalesTransaction
         '
@@ -579,10 +606,10 @@ Partial Class frmSalesTransaction
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -629,4 +656,6 @@ Partial Class frmSalesTransaction
     Friend WithEvents lTendered As Label
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents lChange As Label
+    Friend WithEvents lDiscount As Label
+    Friend WithEvents Label2 As Label
 End Class

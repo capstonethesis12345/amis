@@ -172,9 +172,19 @@
                 'Panel1.Visible = False
                 TenderedPanel.Visible = True
                 Panel1.Enabled = False
-
+                Dim due As Double = total
+                lDuePrice.Text = due.ToString("C", Globalization.CultureInfo.GetCultureInfo("en-PH"))
+                Dim tendered As Double
+                Try
+                    tendered = Double.Parse(txtCash.Text)
+                    lTendered.Text = tendered.ToString("C", Globalization.CultureInfo.GetCultureInfo("en-PH"))
+                Catch ex As Exception
+                    MessageBox.Show("Numeric values only alllowed.")
+                End Try
+                Dim change As Double = (tendered - total)
+                lChange.Text = change.ToString("C", Globalization.CultureInfo.GetCultureInfo("en-PH"))
                 'FlowLayoutPanel1.Visible = False
-
+                'ToString("C", Globalization.CultureInfo.GetCultureInfo("en-PH"))
 
                 'FlowLayoutPanel1.Visible = False
                 'Dim regDate As DateTime = DateTime.Now
@@ -263,5 +273,52 @@
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         TenderedPanel.Visible = False
         Panel1.Enabled = True
+    End Sub
+
+    Private Sub lTotal_TextChanged(sender As Object, e As EventArgs) Handles lTotal.TextChanged, lDiscount.TextChanged
+        Dim dueprice As Double
+        Try
+            dueprice = lTotal.Text
+            lDuePrice.Text = dueprice.ToString("C", Globalization.CultureInfo.GetCultureInfo("en-PH"))
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        Try
+            Dim empid, orderid, tablenum, orderDate, status As New TextBox
+            'orderid.Text = getStrData("call getorderid();", "Orderid")
+            Dim regDate As DateTime = DateTime.Now
+            Dim strDate As String = regDate.ToString("yyyy-MM-dd HH:mm:ss")
+            orderDate.Text = strDate
+            empid.Text = vEmp
+            status.Text = "1"
+            msgShow = False
+            'orderid.Text = getStrData("call insertOrder(@p0,@p1,@p2,@p3,@p4)", "CustomerOrderID", {lTableNum.Text, strDate, lDiscount.Text, lTendered.Text, vEmp})
+
+            itemNew("orders", {"orderid", "tablenum", "orderdate", "discount", "paymentamt", "empid"}, {orderid, lTableNum, orderDate, lDiscount, lTendered, empid})
+            orderid.Text = getStrData("SELECT max(LAST_INSERT_ID(orderid))orderid from orders where empid like @0", "LastOrderID", {vEmp})
+            For i = 0 To ListView1.Items.Count - 1
+                Dim itemid, buildid, quantity, price As New TextBox
+                itemid.Text = ListView1.Items(i).SubItems(4).Text
+                buildid.Text = ListView1.Items(i).SubItems(3).Text
+                quantity.Text = ListView1.Items(i).SubItems(1).Text
+                price.Text = ListView1.Items(i).SubItems(2).Text
+                If i = ListView1.Items.Count - 1 Then
+                    msgShow = True
+                Else
+                    msgShow = False
+                End If
+                itemNew("orderline", {"orderid", "itemid", "buildid", "quantity", "price"},
+                           {orderid, itemid, buildid, quantity, price})
+                If sqlMessage = "Success" Then
+                    'refresh ehere
+                    MessageBox.Show("Refresh")
+                End If
+            Next
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class
