@@ -48,7 +48,7 @@ Partial Class frmSalesTransaction
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lEmpNum = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -63,7 +63,7 @@ Partial Class frmSalesTransaction
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.Controls.Add(Me.FlowLayoutPanel1)
-        Me.Panel1.Location = New System.Drawing.Point(12, 75)
+        Me.Panel1.Location = New System.Drawing.Point(13, 76)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(722, 399)
         Me.Panel1.TabIndex = 0
@@ -373,14 +373,14 @@ Partial Class frmSalesTransaction
         Me.Button1.Text = "Clear"
         Me.Button1.UseVisualStyleBackColor = False
         '
-        'Panel7
+        'Button3
         '
-        Me.Panel7.BackColor = System.Drawing.Color.DarkRed
-        Me.Panel7.Location = New System.Drawing.Point(12, 75)
-        Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(722, 399)
-        Me.Panel7.TabIndex = 6
-        Me.Panel7.Visible = False
+        Me.Button3.Location = New System.Drawing.Point(631, 33)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 7
+        Me.Button3.Text = "Button3"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'frmSalesTransaction
         '
@@ -388,6 +388,7 @@ Partial Class frmSalesTransaction
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSalmon
         Me.ClientSize = New System.Drawing.Size(1253, 486)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel6)
         Me.Controls.Add(Me.txtSearch)
@@ -397,9 +398,8 @@ Partial Class frmSalesTransaction
         Me.Controls.Add(Me.btnDeliveies)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.tTableNum)
-        Me.Controls.Add(Me.Panel7)
+        Me.Controls.Add(Me.Panel1)
         Me.Name = "frmSalesTransaction"
         Me.Text = "frmSalesTransaction"
         Me.Panel1.ResumeLayout(False)
@@ -443,5 +443,5 @@ Partial Class frmSalesTransaction
     Friend WithEvents Label3 As Label
     Friend WithEvents lEmpNum As Label
     Friend WithEvents Button1 As Button
-    Friend WithEvents Panel7 As Panel
+    Friend WithEvents Button3 As Button
 End Class

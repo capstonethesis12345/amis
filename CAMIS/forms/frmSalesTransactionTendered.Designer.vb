@@ -23,7 +23,6 @@ Partial Class frmSalesTransactionTendered
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -47,19 +46,6 @@ Partial Class frmSalesTransactionTendered
         Me.Panel1.Size = New System.Drawing.Size(909, 5)
         Me.Panel1.TabIndex = 0
         '
-        'Button1
-        '
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(432, 6)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(32, 23)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "x"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'Button2
         '
         Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(80, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
@@ -69,7 +55,7 @@ Partial Class frmSalesTransactionTendered
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 16.25!)
         Me.Button2.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button2.Location = New System.Drawing.Point(188, 422)
+        Me.Button2.Location = New System.Drawing.Point(15, 371)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(276, 87)
         Me.Button2.TabIndex = 1
@@ -125,7 +111,7 @@ Partial Class frmSalesTransactionTendered
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Brown
-        Me.PictureBox1.Location = New System.Drawing.Point(188, 499)
+        Me.PictureBox1.Location = New System.Drawing.Point(15, 448)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(276, 5)
         Me.PictureBox1.TabIndex = 3
@@ -140,7 +126,7 @@ Partial Class frmSalesTransactionTendered
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Font = New System.Drawing.Font("Segoe UI", 16.25!)
         Me.Button3.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button3.Location = New System.Drawing.Point(470, 422)
+        Me.Button3.Location = New System.Drawing.Point(297, 371)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(276, 87)
         Me.Button3.TabIndex = 1
@@ -150,7 +136,7 @@ Partial Class frmSalesTransactionTendered
         'PictureBox2
         '
         Me.PictureBox2.BackColor = System.Drawing.Color.Brown
-        Me.PictureBox2.Location = New System.Drawing.Point(470, 499)
+        Me.PictureBox2.Location = New System.Drawing.Point(297, 448)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(276, 5)
         Me.PictureBox2.TabIndex = 3
@@ -169,7 +155,6 @@ Partial Class frmSalesTransactionTendered
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel1)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -189,7 +174,6 @@ Partial Class frmSalesTransactionTendered
     End Sub
 
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label1 As Label
