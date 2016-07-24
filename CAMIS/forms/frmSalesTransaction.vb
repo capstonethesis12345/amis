@@ -1,5 +1,7 @@
 ﻿Public Class frmSalesTransaction
-    Dim lv As New ListView
+    Public itemcount As String = 0
+    Public lv As New ListView
+
     Sub New()
         InitializeComponent()
         getData()
@@ -14,7 +16,10 @@
         FlowLayoutPanel1.WrapContents = True
         lEmpNum.Text = vEmp
     End Sub
+
     Public Sub generateButton()
+        Panel1.Visible = True
+        FlowLayoutPanel1.Visible = True
         For i = 0 To ds.Tables("fill").Rows.Count - 1
             Dim btn As New Button()
             btn.Width = 140
@@ -87,7 +92,7 @@
         Next
         lTotal.Text = total.ToString("C", Globalization.CultureInfo.GetCultureInfo("en-PH"))
     End Sub
-    Dim itemcount As String = 0
+
 
 
     Private Sub Panel5_Paint(sender As Object, e As PaintEventArgs) Handles Panel5.Paint
@@ -163,12 +168,12 @@
         Try
             ' Dim cash As Double = Double.Parse(Of Double)
             If total < txtCash.Text Then
-                Dim tendered As New frmSalesTransactionTendered()
-                tendered.BackColor = Color.Red
+                'Panel1.Enabled = False
+                'Panel1.Visible = False
+                TenderedPanel.Visible = True
+                Panel1.Enabled = False
 
-                callforms(tendered, Panel1)
-
-                FlowLayoutPanel1.Visible = False
+                'FlowLayoutPanel1.Visible = False
 
 
                 'FlowLayoutPanel1.Visible = False
@@ -234,7 +239,6 @@
     Private Sub txtCash_KeyUp(sender As Object, e As KeyEventArgs) Handles txtCash.KeyUp
         If e.KeyCode = Keys.Enter Then
             If lTableNum.Text = vbNullString Or lTableNum.Text = "0" Then
-
                 lTableNum.Text = InputBox("Table number:")
                 If lTableNum.Text = vbNullString Or lTableNum.Text = "0" Then
                     btnTransact_Click_1(sender, e)
@@ -256,7 +260,8 @@
         txtCash = metrocasenumbers(txtCash)
     End Sub
 
-    Private Sub txtCash_Click(sender As Object, e As EventArgs) Handles txtCash.Click
-
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        TenderedPanel.Visible = False
+        Panel1.Enabled = True
     End Sub
 End Class

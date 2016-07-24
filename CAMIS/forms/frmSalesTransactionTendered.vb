@@ -1,16 +1,19 @@
 ﻿Public Class frmSalesTransactionTendered
+    Sub New()
 
-
-    Private Sub MetroButton1_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click, Button3.Click
-        frmSales.transact = True
-    End Sub
-
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        ' This call is required by the designer.
+        InitializeComponent()
+        'Panel3.Left = ((Me.Width / 2) - (Panel3.Width / 2))
+        ' Add any initialization after the InitializeComponent() call.
 
     End Sub
 
+    Private Sub Button3_Click(sender As Object, e As EventArgs) 
+        frmSalesTransaction.TenderedPanel.Visible = False
+        Me.Close()
+    End Sub
+
+    Private Sub frmSalesTransactionTendered_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        frmSalesTransaction.TenderedPanel.Visible = False
+    End Sub
 End Class

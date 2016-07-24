@@ -21,7 +21,7 @@ Partial Class frmSalesTransaction
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
-    Private Sub InitializeComponent()
+    Public Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
@@ -48,13 +48,31 @@ Partial Class frmSalesTransaction
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lEmpNum = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.TenderedPanel = New System.Windows.Forms.Panel()
+        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.btnBack = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.lDuePrice = New System.Windows.Forms.Label()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.lTendered = New System.Windows.Forms.Label()
+        Me.btnSave = New System.Windows.Forms.Button()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.lChange = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel6.SuspendLayout()
+        Me.TenderedPanel.SuspendLayout()
+        Me.Panel7.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -63,9 +81,9 @@ Partial Class frmSalesTransaction
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.Controls.Add(Me.FlowLayoutPanel1)
-        Me.Panel1.Location = New System.Drawing.Point(13, 76)
+        Me.Panel1.Location = New System.Drawing.Point(12, 75)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(722, 399)
+        Me.Panel1.Size = New System.Drawing.Size(722, 527)
         Me.Panel1.TabIndex = 0
         '
         'FlowLayoutPanel1
@@ -74,7 +92,7 @@ Partial Class frmSalesTransaction
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(722, 399)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(722, 527)
         Me.FlowLayoutPanel1.TabIndex = 0
         '
         'Panel2
@@ -85,7 +103,7 @@ Partial Class frmSalesTransaction
         Me.Panel2.Controls.Add(Me.Panel3)
         Me.Panel2.Location = New System.Drawing.Point(740, 75)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(501, 399)
+        Me.Panel2.Size = New System.Drawing.Size(501, 527)
         Me.Panel2.TabIndex = 1
         '
         'Panel3
@@ -95,7 +113,7 @@ Partial Class frmSalesTransaction
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(501, 399)
+        Me.Panel3.Size = New System.Drawing.Size(501, 527)
         Me.Panel3.TabIndex = 3
         '
         'Panel4
@@ -104,7 +122,7 @@ Partial Class frmSalesTransaction
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(501, 343)
+        Me.Panel4.Size = New System.Drawing.Size(501, 471)
         Me.Panel4.TabIndex = 3
         '
         'ListView1
@@ -117,7 +135,7 @@ Partial Class frmSalesTransaction
         Me.ListView1.GridLines = True
         Me.ListView1.Location = New System.Drawing.Point(0, 0)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(501, 343)
+        Me.ListView1.Size = New System.Drawing.Size(501, 471)
         Me.ListView1.TabIndex = 0
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
@@ -148,7 +166,7 @@ Partial Class frmSalesTransaction
         Me.Panel5.Controls.Add(Me.lTotal)
         Me.Panel5.Controls.Add(Me.Label1)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel5.Location = New System.Drawing.Point(0, 343)
+        Me.Panel5.Location = New System.Drawing.Point(0, 471)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(501, 56)
         Me.Panel5.TabIndex = 2
@@ -373,22 +391,169 @@ Partial Class frmSalesTransaction
         Me.Button1.Text = "Clear"
         Me.Button1.UseVisualStyleBackColor = False
         '
-        'Button3
+        'TenderedPanel
         '
-        Me.Button3.Location = New System.Drawing.Point(631, 33)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 7
-        Me.Button3.Text = "Button3"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.TenderedPanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TenderedPanel.BackColor = System.Drawing.Color.Brown
+        Me.TenderedPanel.Controls.Add(Me.Panel7)
+        Me.TenderedPanel.Controls.Add(Me.GroupBox1)
+        Me.TenderedPanel.Controls.Add(Me.GroupBox3)
+        Me.TenderedPanel.Controls.Add(Me.GroupBox2)
+        Me.TenderedPanel.Location = New System.Drawing.Point(12, 75)
+        Me.TenderedPanel.Name = "TenderedPanel"
+        Me.TenderedPanel.Size = New System.Drawing.Size(722, 527)
+        Me.TenderedPanel.TabIndex = 8
+        Me.TenderedPanel.Visible = False
+        '
+        'Panel7
+        '
+        Me.Panel7.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.Panel7.Controls.Add(Me.PictureBox2)
+        Me.Panel7.Controls.Add(Me.btnBack)
+        Me.Panel7.Controls.Add(Me.PictureBox1)
+        Me.Panel7.Controls.Add(Me.btnSave)
+        Me.Panel7.Location = New System.Drawing.Point(82, 434)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(576, 93)
+        Me.Panel7.TabIndex = 7
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.DarkTurquoise
+        Me.PictureBox2.Location = New System.Drawing.Point(297, 81)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(276, 5)
+        Me.PictureBox2.TabIndex = 3
+        Me.PictureBox2.TabStop = False
+        '
+        'btnBack
+        '
+        Me.btnBack.BackColor = System.Drawing.Color.DarkRed
+        Me.btnBack.FlatAppearance.BorderSize = 0
+        Me.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed
+        Me.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBack.Font = New System.Drawing.Font("Segoe UI", 16.25!)
+        Me.btnBack.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnBack.Location = New System.Drawing.Point(297, 3)
+        Me.btnBack.Name = "btnBack"
+        Me.btnBack.Size = New System.Drawing.Size(276, 87)
+        Me.btnBack.TabIndex = 1
+        Me.btnBack.TabStop = False
+        Me.btnBack.Text = "BACK"
+        Me.btnBack.UseVisualStyleBackColor = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.DarkTurquoise
+        Me.PictureBox1.Location = New System.Drawing.Point(3, 81)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(276, 5)
+        Me.PictureBox1.TabIndex = 3
+        Me.PictureBox1.TabStop = False
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox1.Controls.Add(Me.lDuePrice)
+        Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI Semibold", 32.0!, System.Drawing.FontStyle.Bold)
+        Me.GroupBox1.ForeColor = System.Drawing.Color.LavenderBlush
+        Me.GroupBox1.Location = New System.Drawing.Point(18, 6)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(686, 131)
+        Me.GroupBox1.TabIndex = 5
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "DUE PRICE"
+        '
+        'lDuePrice
+        '
+        Me.lDuePrice.AutoSize = True
+        Me.lDuePrice.Location = New System.Drawing.Point(75, 69)
+        Me.lDuePrice.Name = "lDuePrice"
+        Me.lDuePrice.Size = New System.Drawing.Size(83, 59)
+        Me.lDuePrice.TabIndex = 0
+        Me.lDuePrice.Text = "0.0"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox2.Controls.Add(Me.lTendered)
+        Me.GroupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI Semibold", 32.0!, System.Drawing.FontStyle.Bold)
+        Me.GroupBox2.ForeColor = System.Drawing.Color.LavenderBlush
+        Me.GroupBox2.Location = New System.Drawing.Point(18, 153)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(689, 131)
+        Me.GroupBox2.TabIndex = 6
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "TENDERED"
+        '
+        'lTendered
+        '
+        Me.lTendered.AutoSize = True
+        Me.lTendered.Location = New System.Drawing.Point(75, 69)
+        Me.lTendered.Name = "lTendered"
+        Me.lTendered.Size = New System.Drawing.Size(83, 59)
+        Me.lTendered.TabIndex = 0
+        Me.lTendered.Text = "0.0"
+        '
+        'btnSave
+        '
+        Me.btnSave.BackColor = System.Drawing.Color.DarkRed
+        Me.btnSave.FlatAppearance.BorderSize = 0
+        Me.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed
+        Me.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSave.Font = New System.Drawing.Font("Segoe UI", 16.25!)
+        Me.btnSave.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnSave.Location = New System.Drawing.Point(3, 3)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(276, 87)
+        Me.btnSave.TabIndex = 1
+        Me.btnSave.TabStop = False
+        Me.btnSave.Text = "NEXT"
+        Me.btnSave.UseVisualStyleBackColor = False
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox3.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox3.Controls.Add(Me.lChange)
+        Me.GroupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GroupBox3.Font = New System.Drawing.Font("Segoe UI Semibold", 32.0!, System.Drawing.FontStyle.Bold)
+        Me.GroupBox3.ForeColor = System.Drawing.Color.LavenderBlush
+        Me.GroupBox3.Location = New System.Drawing.Point(18, 290)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(689, 131)
+        Me.GroupBox3.TabIndex = 6
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "CHANGE"
+        '
+        'lChange
+        '
+        Me.lChange.AutoSize = True
+        Me.lChange.Location = New System.Drawing.Point(75, 69)
+        Me.lChange.Name = "lChange"
+        Me.lChange.Size = New System.Drawing.Size(83, 59)
+        Me.lChange.TabIndex = 0
+        Me.lChange.Text = "0.0"
         '
         'frmSalesTransaction
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSalmon
-        Me.ClientSize = New System.Drawing.Size(1253, 486)
-        Me.Controls.Add(Me.Button3)
+        Me.ClientSize = New System.Drawing.Size(1253, 614)
+        Me.Controls.Add(Me.TenderedPanel)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel6)
         Me.Controls.Add(Me.txtSearch)
@@ -399,7 +564,6 @@ Partial Class frmSalesTransaction
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.tTableNum)
-        Me.Controls.Add(Me.Panel1)
         Me.Name = "frmSalesTransaction"
         Me.Text = "frmSalesTransaction"
         Me.Panel1.ResumeLayout(False)
@@ -409,6 +573,16 @@ Partial Class frmSalesTransaction
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         Me.Panel6.ResumeLayout(False)
+        Me.TenderedPanel.ResumeLayout(False)
+        Me.Panel7.ResumeLayout(False)
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -443,5 +617,16 @@ Partial Class frmSalesTransaction
     Friend WithEvents Label3 As Label
     Friend WithEvents lEmpNum As Label
     Friend WithEvents Button1 As Button
-    Friend WithEvents Button3 As Button
+    Friend WithEvents TenderedPanel As Panel
+    Friend WithEvents Panel7 As Panel
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents btnBack As Button
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents btnSave As Button
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents lDuePrice As Label
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents lTendered As Label
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents lChange As Label
 End Class
