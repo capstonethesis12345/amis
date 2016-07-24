@@ -74,6 +74,7 @@ Partial Class frmMain
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.AccountTitlesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -124,7 +125,7 @@ Partial Class frmMain
         '
         'RecordToolStripMenuItem
         '
-        Me.RecordToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StaffToolStripMenuItem, Me.ProductToolStripMenuItem, Me.MenuToolStripMenuItem, Me.SuppliersToolStripMenuItem, Me.JobsToolStripMenuItem})
+        Me.RecordToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StaffToolStripMenuItem, Me.ProductToolStripMenuItem, Me.MenuToolStripMenuItem, Me.SuppliersToolStripMenuItem, Me.JobsToolStripMenuItem, Me.AccountTitlesToolStripMenuItem})
         Me.RecordToolStripMenuItem.Name = "RecordToolStripMenuItem"
         Me.RecordToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
         Me.RecordToolStripMenuItem.Text = "Records"
@@ -132,20 +133,20 @@ Partial Class frmMain
         'StaffToolStripMenuItem
         '
         Me.StaffToolStripMenuItem.Name = "StaffToolStripMenuItem"
-        Me.StaffToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.StaffToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.StaffToolStripMenuItem.Text = "Staff"
         '
         'ProductToolStripMenuItem
         '
         Me.ProductToolStripMenuItem.Name = "ProductToolStripMenuItem"
-        Me.ProductToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.ProductToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ProductToolStripMenuItem.Text = "Products"
         '
         'MenuToolStripMenuItem
         '
         Me.MenuToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewMenusToolStripMenuItem, Me.SetupMenuToolStripMenuItem})
         Me.MenuToolStripMenuItem.Name = "MenuToolStripMenuItem"
-        Me.MenuToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.MenuToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.MenuToolStripMenuItem.Text = "Foods"
         '
         'ViewMenusToolStripMenuItem
@@ -163,13 +164,13 @@ Partial Class frmMain
         'SuppliersToolStripMenuItem
         '
         Me.SuppliersToolStripMenuItem.Name = "SuppliersToolStripMenuItem"
-        Me.SuppliersToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.SuppliersToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SuppliersToolStripMenuItem.Text = "Suppliers"
         '
         'JobsToolStripMenuItem
         '
         Me.JobsToolStripMenuItem.Name = "JobsToolStripMenuItem"
-        Me.JobsToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.JobsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.JobsToolStripMenuItem.Text = "Jobs"
         '
         'TransactionToolStripMenuItem
@@ -262,13 +263,13 @@ Partial Class frmMain
         'CalculatorToolStripMenuItem
         '
         Me.CalculatorToolStripMenuItem.Name = "CalculatorToolStripMenuItem"
-        Me.CalculatorToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
+        Me.CalculatorToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.CalculatorToolStripMenuItem.Text = "Calculator"
         '
         'NotepadToolStripMenuItem
         '
         Me.NotepadToolStripMenuItem.Name = "NotepadToolStripMenuItem"
-        Me.NotepadToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
+        Me.NotepadToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.NotepadToolStripMenuItem.Text = "Notepad"
         '
         'AboutToolStripMenuItem
@@ -475,6 +476,12 @@ Partial Class frmMain
         Me.Panel2.TabIndex = 16
         Me.Panel2.Visible = False
         '
+        'AccountTitlesToolStripMenuItem
+        '
+        Me.AccountTitlesToolStripMenuItem.Name = "AccountTitlesToolStripMenuItem"
+        Me.AccountTitlesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AccountTitlesToolStripMenuItem.Text = "AccountTitles"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -561,4 +568,5 @@ Partial Class frmMain
     Friend WithEvents AccountToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Panel2 As Panel
     Friend WithEvents DeliveriesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AccountTitlesToolStripMenuItem As ToolStripMenuItem
 End Class

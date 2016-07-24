@@ -84,7 +84,7 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
 
     End Sub
     Sub objAutoComplete()
-        SqlRefresh = "SELECT company FROM  `supplier` "
+        SqlRefresh = "call getsuppliers();"
         itemAutoComplete("Supplier", txtSupplier)
         SqlRefresh = "SELECT `barcode` FROM `items` where itemtype like 0 or itemtype like 1"
         itemAutoComplete("AutoDescription", txtBarcode)
@@ -205,8 +205,13 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
 
                 End If
                 If Not txtSupplier.Text = vbNullString Then
-                        frmSupplier.txtSupplier.Text = txtSupplier.Text
-                    lblSupplier.Text = ds.Tables("supplierid").Rows(0).Item(1).text.ToString
+                    frmSupplier.txtSupplier.Text = txtSupplier.Text
+                    Try
+                        lblSupplier.Text = ds.Tables("supplierid").Rows(0).Item(1).text.ToString
+                    Catch ex As Exception
+
+                    End Try
+
                 End If
                 End If
         Catch ex As Exception
@@ -393,11 +398,6 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
         SqlRefresh = vRefresh
         SqlReFill("Purchases", ListView1)
     End Sub
-
-    Private Sub txtSupplier_TextChanged(sender As Object, e As EventArgs) Handles txtSupplier.TextChanged
-        getSuppierid(False)
-    End Sub
-
     Private Sub btnAddUpdate_Click(sender As Object, e As EventArgs) Handles btnAddUpdate.Click
 
         ' isSupplierExists(txtSupplier.Text)
@@ -436,7 +436,7 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
                 unittype.Text = getUnitTypeValue()
                 Dim producttype As New TextBox
                 producttype.Text = getProductType()
-                itemNew("items", {"barcode", "description", "brand", "price", "unittype", "category", "itemtype"}, {txtBarcode, txtProductName, txtBrand, txtCost, unittype, txtcategory, producttype})
+                itemNew("items", {"barcode", "description", "brand", "price", "unittype", "category", "itemtype", "price"}, {txtBarcode, txtProductName, txtBrand, txtCost, unittype, txtcategory, producttype, txtMarkupPrice})
             End If
 
 
@@ -551,6 +551,29 @@ on supplier.supplierid=po.supplierid where po.poid like '" & poid & "' and empid
         txtQuantity = casenumbers(txtQuantity)
     End Sub
 
+    Private Sub txtSupplier_KeyUp(sender As Object, e As KeyEventArgs) Handles txtSupplier.KeyUp
+        If txtSupplier.Text = vbNullString Then
+            lblSupplierID.Text = ""
+        Else
+            lblSupplierID.Text = getStrData(" Call `getSupplierName` (@0);", "showSupplierID", {txtSupplier.Text & "%"})
+        End If
+
+    End Sub
+
+    Private Sub txtSupplier_LostFocus(sender As Object, e As EventArgs) Handles txtSupplier.LostFocus
+        If txtSupplier.Text = vbNullString Then
+            lblSupplierID.Text = ""
+        Else
+            lblSupplierID.Text = getStrData(" Call `getSupplierName` (@0);", "showSupplierID", {txtSupplier.Text})
+        End If
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click, Button4.Click
+
+    End Sub
+    '    Call `getSupplierName` (
+    '@p0
+    ');
     'Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
     '    MessageBox.Show(ListView1.SelectedItems(0).SubItems(7).Text.ToString)
     'End Sub

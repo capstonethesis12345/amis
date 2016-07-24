@@ -42,6 +42,7 @@ Partial Class frmPurchases
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
@@ -54,6 +55,8 @@ Partial Class frmPurchases
         Me.ingredient = New System.Windows.Forms.RadioButton()
         Me.nonIngredient = New System.Windows.Forms.RadioButton()
         Me.gItem = New System.Windows.Forms.GroupBox()
+        Me.txtMarkupPrice = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.txtQuantity = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -258,6 +261,7 @@ Partial Class frmPurchases
         '
         Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.Button2)
+        Me.GroupBox1.Controls.Add(Me.Button4)
         Me.GroupBox1.Controls.Add(Me.btnDelete)
         Me.GroupBox1.Controls.Add(Me.GroupBox2)
         Me.GroupBox1.Controls.Add(Me.groupUnit)
@@ -279,16 +283,26 @@ Partial Class frmPurchases
         '
         Me.Button2.Location = New System.Drawing.Point(272, 437)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(100, 53)
+        Me.Button2.Size = New System.Drawing.Size(100, 42)
         Me.Button2.TabIndex = 36
         Me.Button2.Text = "Complete"
         Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(272, 393)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(100, 42)
+        Me.Button4.TabIndex = 1
+        Me.Button4.Text = "Request"
+        Me.Button4.UseVisualStyleBackColor = True
+        Me.Button4.Visible = False
         '
         'btnDelete
         '
         Me.btnDelete.Location = New System.Drawing.Point(272, 313)
         Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(100, 59)
+        Me.btnDelete.Size = New System.Drawing.Size(100, 26)
         Me.btnDelete.TabIndex = 1
         Me.btnDelete.Text = "Delete"
         Me.btnDelete.UseVisualStyleBackColor = True
@@ -404,6 +418,8 @@ Partial Class frmPurchases
         '
         'gItem
         '
+        Me.gItem.Controls.Add(Me.txtMarkupPrice)
+        Me.gItem.Controls.Add(Me.Label14)
         Me.gItem.Controls.Add(Me.Button3)
         Me.gItem.Controls.Add(Me.txtQuantity)
         Me.gItem.Controls.Add(Me.Label11)
@@ -427,6 +443,24 @@ Partial Class frmPurchases
         Me.gItem.TabStop = False
         Me.gItem.Text = "Item"
         '
+        'txtMarkupPrice
+        '
+        Me.txtMarkupPrice.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txtMarkupPrice.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txtMarkupPrice.Location = New System.Drawing.Point(83, 168)
+        Me.txtMarkupPrice.Name = "txtMarkupPrice"
+        Me.txtMarkupPrice.Size = New System.Drawing.Size(257, 20)
+        Me.txtMarkupPrice.TabIndex = 8
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(3, 169)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(67, 13)
+        Me.Label14.TabIndex = 7
+        Me.Label14.Text = "MarkupPrice"
+        '
         'Button3
         '
         Me.Button3.Location = New System.Drawing.Point(308, 61)
@@ -440,7 +474,7 @@ Partial Class frmPurchases
         '
         Me.txtQuantity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txtQuantity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txtQuantity.Location = New System.Drawing.Point(84, 167)
+        Me.txtQuantity.Location = New System.Drawing.Point(84, 192)
         Me.txtQuantity.Name = "txtQuantity"
         Me.txtQuantity.Size = New System.Drawing.Size(257, 20)
         Me.txtQuantity.TabIndex = 4
@@ -448,7 +482,7 @@ Partial Class frmPurchases
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(24, 167)
+        Me.Label11.Location = New System.Drawing.Point(24, 192)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(46, 13)
         Me.Label11.TabIndex = 1
@@ -613,11 +647,11 @@ Partial Class frmPurchases
         'btnAddUpdate
         '
         Me.btnAddUpdate.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAddUpdate.Location = New System.Drawing.Point(272, 378)
+        Me.btnAddUpdate.Location = New System.Drawing.Point(272, 341)
         Me.btnAddUpdate.Name = "btnAddUpdate"
-        Me.btnAddUpdate.Size = New System.Drawing.Size(100, 53)
+        Me.btnAddUpdate.Size = New System.Drawing.Size(100, 26)
         Me.btnAddUpdate.TabIndex = 2
-        Me.btnAddUpdate.Text = "ADD"
+        Me.btnAddUpdate.Text = "Add"
         Me.btnAddUpdate.UseVisualStyleBackColor = True
         '
         'txtSupplier
@@ -854,4 +888,7 @@ Partial Class frmPurchases
     Friend WithEvents txtcategory As TextBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents txtMarkupPrice As TextBox
+    Friend WithEvents Label14 As Label
+    Friend WithEvents Button4 As Button
 End Class

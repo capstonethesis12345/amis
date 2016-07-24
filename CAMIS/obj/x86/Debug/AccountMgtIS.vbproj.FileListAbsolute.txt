@@ -282,3 +282,4 @@ H:\github\amis\CAMIS\obj\x86\Debug\AccountMgtIS.vbproj.GenerateResource.Cache
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.exe
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.xml
 H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.pdb
+H:\github\amis\CAMIS\obj\x86\Debug\AccountManagementIS.frmAccountTitles.resources
