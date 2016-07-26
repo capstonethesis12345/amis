@@ -100,8 +100,12 @@ Public Class frmReportDailySales
 
     Private Sub PrintDocument1_PrintPage(ByVal sender As System.Object, ByVal e As System.Drawing.Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
         Dim bm As New Bitmap(Me.Panel1.Width, Me.Panel1.Height)
+
         Panel1.DrawToBitmap(bm, New Rectangle(0, 0, Me.Panel1.Width, Me.Panel1.Height))
+
         e.Graphics.DrawImage(bm, 0, 40)
+        Dim aPS As New PageSetupDialog
+        aPS.Document = PrintDocument1
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPrint.Click
@@ -115,6 +119,7 @@ Public Class frmReportDailySales
             PrintDocument1.Print()
             Me.Close()
         End If
+
     End Sub
 
 
