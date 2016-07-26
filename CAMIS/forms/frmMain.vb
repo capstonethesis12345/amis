@@ -189,4 +189,8 @@ Public Class frmMain
     Private Sub FinancialStatusToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FinancialStatusToolStripMenuItem.Click
 
     End Sub
+
+    Private Sub SoldToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SoldToolStripMenuItem.Click
+        frmFilterDailySales.ShowDialog()
+    End Sub
 End Class

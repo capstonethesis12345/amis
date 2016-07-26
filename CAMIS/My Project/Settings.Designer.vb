@@ -53,6 +53,27 @@ Namespace My
                 Return defaultInstance
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Dsn=localhost;uid=root")>  _
+        Public ReadOnly Property sold() As String
+            Get
+                Return CType(Me("sold"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Dsn=localserver;description=localserver;server=localhost;uid=root;pwd=admin456;da"& _ 
+            "tabase=dbamis;port=3306")>  _
+        Public ReadOnly Property dbamisConnectionString() As String
+            Get
+                Return CType(Me("dbamisConnectionString"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 
