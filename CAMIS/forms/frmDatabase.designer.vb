@@ -59,20 +59,22 @@ Partial Class frmDatabase
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.LightSlateGray
+        Me.Panel1.BackgroundImage = Global.AccountManagementIS.My.Resources.Resources.toolbar_background2
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.Label6)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(344, 56)
+        Me.Panel1.Size = New System.Drawing.Size(344, 42)
         Me.Panel1.TabIndex = 28
         '
         'Label6
         '
         Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(44, 17)
+        Me.Label6.Location = New System.Drawing.Point(44, 9)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(266, 23)
         Me.Label6.TabIndex = 0

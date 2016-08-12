@@ -45,7 +45,7 @@ Partial Class frmMain
         Me.ReturnsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AdjustmentToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DTRToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DeliveriesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsExpenses = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StocksInToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StocksOutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -125,7 +125,7 @@ Partial Class frmMain
         '
         'RecordToolStripMenuItem
         '
-        Me.RecordToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StaffToolStripMenuItem, Me.ProductToolStripMenuItem, Me.MenuToolStripMenuItem, Me.SuppliersToolStripMenuItem, Me.JobsToolStripMenuItem, Me.AccountTitlesToolStripMenuItem})
+        Me.RecordToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.JobsToolStripMenuItem, Me.StaffToolStripMenuItem, Me.ProductToolStripMenuItem, Me.MenuToolStripMenuItem, Me.SuppliersToolStripMenuItem, Me.AccountTitlesToolStripMenuItem})
         Me.RecordToolStripMenuItem.Name = "RecordToolStripMenuItem"
         Me.RecordToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
         Me.RecordToolStripMenuItem.Text = "Records"
@@ -181,7 +181,7 @@ Partial Class frmMain
         '
         'TransactionToolStripMenuItem
         '
-        Me.TransactionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.POSToolStripMenuItem, Me.PurchasesToolStripMenuItem, Me.ReturnsToolStripMenuItem, Me.AdjustmentToolStripMenuItem, Me.DTRToolStripMenuItem, Me.DeliveriesToolStripMenuItem})
+        Me.TransactionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.POSToolStripMenuItem, Me.PurchasesToolStripMenuItem, Me.ReturnsToolStripMenuItem, Me.AdjustmentToolStripMenuItem, Me.DTRToolStripMenuItem, Me.tsExpenses})
         Me.TransactionToolStripMenuItem.Name = "TransactionToolStripMenuItem"
         Me.TransactionToolStripMenuItem.Size = New System.Drawing.Size(81, 20)
         Me.TransactionToolStripMenuItem.Text = "Transaction"
@@ -189,38 +189,38 @@ Partial Class frmMain
         'POSToolStripMenuItem
         '
         Me.POSToolStripMenuItem.Name = "POSToolStripMenuItem"
-        Me.POSToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.POSToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.POSToolStripMenuItem.Text = "Sales"
         '
         'PurchasesToolStripMenuItem
         '
         Me.PurchasesToolStripMenuItem.Name = "PurchasesToolStripMenuItem"
-        Me.PurchasesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PurchasesToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.PurchasesToolStripMenuItem.Text = "Purchases"
         '
         'ReturnsToolStripMenuItem
         '
         Me.ReturnsToolStripMenuItem.Name = "ReturnsToolStripMenuItem"
-        Me.ReturnsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ReturnsToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.ReturnsToolStripMenuItem.Text = "Returns"
         '
         'AdjustmentToolStripMenuItem
         '
         Me.AdjustmentToolStripMenuItem.Name = "AdjustmentToolStripMenuItem"
-        Me.AdjustmentToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AdjustmentToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.AdjustmentToolStripMenuItem.Text = "Adjustment"
         '
         'DTRToolStripMenuItem
         '
         Me.DTRToolStripMenuItem.Name = "DTRToolStripMenuItem"
-        Me.DTRToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DTRToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.DTRToolStripMenuItem.Text = "DTR"
         '
-        'DeliveriesToolStripMenuItem
+        'tsExpenses
         '
-        Me.DeliveriesToolStripMenuItem.Name = "DeliveriesToolStripMenuItem"
-        Me.DeliveriesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.DeliveriesToolStripMenuItem.Text = "Deliveries"
+        Me.tsExpenses.Name = "tsExpenses"
+        Me.tsExpenses.Size = New System.Drawing.Size(136, 22)
+        Me.tsExpenses.Text = "Expenses"
         '
         'ReportToolStripMenuItem
         '
@@ -567,6 +567,6 @@ Partial Class frmMain
     Friend WithEvents DTRToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AccountToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents DeliveriesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tsExpenses As ToolStripMenuItem
     Friend WithEvents AccountTitlesToolStripMenuItem As ToolStripMenuItem
 End Class

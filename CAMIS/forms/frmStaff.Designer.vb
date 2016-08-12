@@ -23,17 +23,14 @@ Partial Class frmStaff
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmStaff))
-        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.txtSearch = New System.Windows.Forms.ToolStripTextBox()
-        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
-        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.txtLastname = New MetroFramework.Controls.MetroTextBox()
+        Me.txtMI = New MetroFramework.Controls.MetroTextBox()
+        Me.txtFirstname = New MetroFramework.Controls.MetroTextBox()
         Me.txtJobs = New System.Windows.Forms.ComboBox()
         Me.txtMaritalStatus = New System.Windows.Forms.ComboBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
@@ -77,65 +74,27 @@ Partial Class frmStaff
         Me.txtZip = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtCity = New System.Windows.Forms.TextBox()
-        Me.txtMI = New System.Windows.Forms.TextBox()
         Me.txtBarangay = New System.Windows.Forms.TextBox()
         Me.txtProvince = New System.Windows.Forms.TextBox()
         Me.txtStreet = New System.Windows.Forms.TextBox()
-        Me.txtFirstname = New System.Windows.Forms.TextBox()
-        Me.txtLastname = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.pbEmployeeStatus = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.ToolStrip1.SuspendLayout()
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.txtSearch = New System.Windows.Forms.ToolStripTextBox()
+        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
+        CType(Me.pbEmployeeStatus, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
+        Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'ToolStrip1
-        '
-        Me.ToolStrip1.AutoSize = False
-        Me.ToolStrip1.BackColor = System.Drawing.Color.SkyBlue
-        Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.txtSearch, Me.ToolStripLabel1, Me.ToolStripButton2, Me.ToolStripButton1})
-        Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(980, 40)
-        Me.ToolStrip1.TabIndex = 28
-        Me.ToolStrip1.Text = "ToolStrip1"
-        '
-        'txtSearch
-        '
-        Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(300, 40)
-        Me.txtSearch.Visible = False
-        '
-        'ToolStripLabel1
-        '
-        Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(16, 37)
-        Me.ToolStripLabel1.Text = "   "
-        '
-        'ToolStripButton2
-        '
-        Me.ToolStripButton2.AutoSize = False
-        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
-        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(65, 40)
-        Me.ToolStripButton2.Text = "&Search"
-        '
-        'ToolStripButton1
-        '
-        Me.ToolStripButton1.AutoSize = False
-        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(65, 40)
-        Me.ToolStripButton1.Text = "Clos&e"
         '
         'ListView1
         '
@@ -144,7 +103,7 @@ Partial Class frmStaff
         Me.ListView1.FullRowSelect = True
         Me.ListView1.Location = New System.Drawing.Point(0, 0)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(252, 578)
+        Me.ListView1.Size = New System.Drawing.Size(252, 581)
         Me.ListView1.TabIndex = 29
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
@@ -163,14 +122,16 @@ Partial Class frmStaff
         '
         Me.Panel1.Controls.Add(Me.GroupBox1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel1.Location = New System.Drawing.Point(252, 40)
+        Me.Panel1.Location = New System.Drawing.Point(252, 37)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(728, 578)
+        Me.Panel1.Size = New System.Drawing.Size(728, 581)
         Me.Panel1.TabIndex = 30
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.txtLastname)
+        Me.GroupBox1.Controls.Add(Me.txtMI)
+        Me.GroupBox1.Controls.Add(Me.txtFirstname)
         Me.GroupBox1.Controls.Add(Me.txtJobs)
         Me.GroupBox1.Controls.Add(Me.txtMaritalStatus)
         Me.GroupBox1.Controls.Add(Me.CheckBox1)
@@ -206,31 +167,110 @@ Partial Class frmStaff
         Me.GroupBox1.Controls.Add(Me.txtZip)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.txtCity)
-        Me.GroupBox1.Controls.Add(Me.txtMI)
         Me.GroupBox1.Controls.Add(Me.txtBarangay)
         Me.GroupBox1.Controls.Add(Me.txtProvince)
         Me.GroupBox1.Controls.Add(Me.txtStreet)
-        Me.GroupBox1.Controls.Add(Me.txtFirstname)
-        Me.GroupBox1.Controls.Add(Me.txtLastname)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label6)
+        Me.GroupBox1.Controls.Add(Me.pbEmployeeStatus)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(728, 578)
+        Me.GroupBox1.Size = New System.Drawing.Size(728, 581)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Staff Information"
         '
-        'Button1
+        'txtLastname
         '
-        Me.Button1.Location = New System.Drawing.Point(224, 348)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(43, 23)
-        Me.Button1.TabIndex = 22
-        Me.Button1.Text = "Add"
-        Me.Button1.UseVisualStyleBackColor = True
+        '
+        '
+        '
+        Me.txtLastname.CustomButton.Image = Nothing
+        Me.txtLastname.CustomButton.Location = New System.Drawing.Point(144, 1)
+        Me.txtLastname.CustomButton.Name = ""
+        Me.txtLastname.CustomButton.Size = New System.Drawing.Size(21, 21)
+        Me.txtLastname.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
+        Me.txtLastname.CustomButton.TabIndex = 1
+        Me.txtLastname.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
+        Me.txtLastname.CustomButton.UseSelectable = True
+        Me.txtLastname.CustomButton.Visible = False
+        Me.txtLastname.Lines = New String(-1) {}
+        Me.txtLastname.Location = New System.Drawing.Point(100, 106)
+        Me.txtLastname.MaxLength = 32767
+        Me.txtLastname.Name = "txtLastname"
+        Me.txtLastname.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtLastname.ScrollBars = System.Windows.Forms.ScrollBars.None
+        Me.txtLastname.SelectedText = ""
+        Me.txtLastname.SelectionLength = 0
+        Me.txtLastname.SelectionStart = 0
+        Me.txtLastname.Size = New System.Drawing.Size(166, 23)
+        Me.txtLastname.TabIndex = 29
+        Me.txtLastname.UseSelectable = True
+        Me.txtLastname.WaterMark = "Lastname"
+        Me.txtLastname.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
+        Me.txtLastname.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
+        '
+        'txtMI
+        '
+        '
+        '
+        '
+        Me.txtMI.CustomButton.Image = Nothing
+        Me.txtMI.CustomButton.Location = New System.Drawing.Point(20, 1)
+        Me.txtMI.CustomButton.Name = ""
+        Me.txtMI.CustomButton.Size = New System.Drawing.Size(21, 21)
+        Me.txtMI.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
+        Me.txtMI.CustomButton.TabIndex = 1
+        Me.txtMI.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
+        Me.txtMI.CustomButton.UseSelectable = True
+        Me.txtMI.CustomButton.Visible = False
+        Me.txtMI.Lines = New String(-1) {}
+        Me.txtMI.Location = New System.Drawing.Point(442, 105)
+        Me.txtMI.MaxLength = 1
+        Me.txtMI.Name = "txtMI"
+        Me.txtMI.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtMI.ScrollBars = System.Windows.Forms.ScrollBars.None
+        Me.txtMI.SelectedText = ""
+        Me.txtMI.SelectionLength = 0
+        Me.txtMI.SelectionStart = 0
+        Me.txtMI.Size = New System.Drawing.Size(42, 23)
+        Me.txtMI.TabIndex = 27
+        Me.txtMI.UseSelectable = True
+        Me.txtMI.WaterMark = "MI"
+        Me.txtMI.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
+        Me.txtMI.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
+        '
+        'txtFirstname
+        '
+        '
+        '
+        '
+        Me.txtFirstname.CustomButton.Image = Nothing
+        Me.txtFirstname.CustomButton.Location = New System.Drawing.Point(144, 1)
+        Me.txtFirstname.CustomButton.Name = ""
+        Me.txtFirstname.CustomButton.Size = New System.Drawing.Size(21, 21)
+        Me.txtFirstname.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
+        Me.txtFirstname.CustomButton.TabIndex = 1
+        Me.txtFirstname.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
+        Me.txtFirstname.CustomButton.UseSelectable = True
+        Me.txtFirstname.CustomButton.Visible = False
+        Me.txtFirstname.Lines = New String(-1) {}
+        Me.txtFirstname.Location = New System.Drawing.Point(271, 105)
+        Me.txtFirstname.MaxLength = 32767
+        Me.txtFirstname.Name = "txtFirstname"
+        Me.txtFirstname.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtFirstname.ScrollBars = System.Windows.Forms.ScrollBars.None
+        Me.txtFirstname.SelectedText = ""
+        Me.txtFirstname.SelectionLength = 0
+        Me.txtFirstname.SelectionStart = 0
+        Me.txtFirstname.Size = New System.Drawing.Size(166, 23)
+        Me.txtFirstname.TabIndex = 26
+        Me.txtFirstname.UseSelectable = True
+        Me.txtFirstname.WaterMark = "FirstName"
+        Me.txtFirstname.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
+        Me.txtFirstname.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
         '
         'txtJobs
         '
@@ -257,7 +297,7 @@ Partial Class frmStaff
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Location = New System.Drawing.Point(88, 393)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(208, 19)
+        Me.CheckBox1.Size = New System.Drawing.Size(210, 19)
         Me.CheckBox1.TabIndex = 15
         Me.CheckBox1.Text = "ENABLE ACCESS TO APPLICATION"
         Me.CheckBox1.UseVisualStyleBackColor = True
@@ -613,7 +653,7 @@ Partial Class frmStaff
         Me.Label17.AutoSize = True
         Me.Label17.Location = New System.Drawing.Point(15, 349)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(53, 15)
+        Me.Label17.Size = New System.Drawing.Size(54, 15)
         Me.Label17.TabIndex = 4
         Me.Label17.Text = "Job Type"
         '
@@ -661,15 +701,6 @@ Partial Class frmStaff
         Me.txtCity.Size = New System.Drawing.Size(166, 23)
         Me.txtCity.TabIndex = 10
         '
-        'txtMI
-        '
-        Me.txtMI.BackColor = System.Drawing.Color.White
-        Me.txtMI.Location = New System.Drawing.Point(443, 106)
-        Me.txtMI.MaxLength = 1
-        Me.txtMI.Name = "txtMI"
-        Me.txtMI.Size = New System.Drawing.Size(39, 23)
-        Me.txtMI.TabIndex = 3
-        '
         'txtBarangay
         '
         Me.txtBarangay.BackColor = System.Drawing.Color.White
@@ -694,22 +725,6 @@ Partial Class frmStaff
         Me.txtStreet.Size = New System.Drawing.Size(165, 23)
         Me.txtStreet.TabIndex = 8
         '
-        'txtFirstname
-        '
-        Me.txtFirstname.BackColor = System.Drawing.Color.White
-        Me.txtFirstname.Location = New System.Drawing.Point(272, 106)
-        Me.txtFirstname.Name = "txtFirstname"
-        Me.txtFirstname.Size = New System.Drawing.Size(165, 23)
-        Me.txtFirstname.TabIndex = 2
-        '
-        'txtLastname
-        '
-        Me.txtLastname.BackColor = System.Drawing.Color.White
-        Me.txtLastname.Location = New System.Drawing.Point(101, 106)
-        Me.txtLastname.Name = "txtLastname"
-        Me.txtLastname.Size = New System.Drawing.Size(165, 23)
-        Me.txtLastname.TabIndex = 1
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -728,18 +743,73 @@ Partial Class frmStaff
         Me.Label6.TabIndex = 3
         Me.Label6.Text = "Employee No"
         '
+        'pbEmployeeStatus
+        '
+        Me.pbEmployeeStatus.BackColor = System.Drawing.Color.Red
+        Me.pbEmployeeStatus.Location = New System.Drawing.Point(131, 313)
+        Me.pbEmployeeStatus.Name = "pbEmployeeStatus"
+        Me.pbEmployeeStatus.Size = New System.Drawing.Size(134, 21)
+        Me.pbEmployeeStatus.TabIndex = 28
+        Me.pbEmployeeStatus.TabStop = False
+        '
         'Panel2
         '
         Me.Panel2.Controls.Add(Me.ListView1)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel2.Location = New System.Drawing.Point(0, 40)
+        Me.Panel2.Location = New System.Drawing.Point(0, 37)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(252, 578)
+        Me.Panel2.Size = New System.Drawing.Size(252, 581)
         Me.Panel2.TabIndex = 31
         '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.AutoSize = False
+        Me.ToolStrip1.BackColor = System.Drawing.Color.SkyBlue
+        Me.ToolStrip1.BackgroundImage = Global.AccountManagementIS.My.Resources.Resources.toolbar_background2
+        Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.txtSearch, Me.ToolStripLabel1, Me.ToolStripButton2, Me.ToolStripButton1})
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(980, 37)
+        Me.ToolStrip1.TabIndex = 28
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'txtSearch
+        '
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(300, 37)
+        Me.txtSearch.Visible = False
+        '
+        'ToolStripLabel1
+        '
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(16, 34)
+        Me.ToolStripLabel1.Text = "   "
+        '
+        'ToolStripButton2
+        '
+        Me.ToolStripButton2.AutoSize = False
+        Me.ToolStripButton2.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripButton2.ForeColor = System.Drawing.SystemColors.Control
+        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
+        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton2.Name = "ToolStripButton2"
+        Me.ToolStripButton2.Size = New System.Drawing.Size(65, 40)
+        Me.ToolStripButton2.Text = "&Search"
+        '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.AutoSize = False
+        Me.ToolStripButton1.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(65, 40)
+        Me.ToolStripButton1.Text = "Clos&e"
         '
         'frmStaff
         '
@@ -755,15 +825,16 @@ Partial Class frmStaff
         Me.Name = "frmStaff"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Staff"
-        Me.ToolStrip1.ResumeLayout(False)
-        Me.ToolStrip1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        CType(Me.pbEmployeeStatus, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -801,12 +872,9 @@ Partial Class frmStaff
     Friend WithEvents txtZip As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents txtCity As TextBox
-    Friend WithEvents txtMI As TextBox
     Friend WithEvents txtBarangay As TextBox
     Friend WithEvents txtProvince As TextBox
     Friend WithEvents txtStreet As TextBox
-    Friend WithEvents txtFirstname As TextBox
-    Friend WithEvents txtLastname As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents lblStatus As Label
@@ -826,9 +894,12 @@ Partial Class frmStaff
     Friend WithEvents CheckBox1 As CheckBox
     Friend WithEvents txtMaritalStatus As ComboBox
     Friend WithEvents Label9 As Label
-    Friend WithEvents Button1 As Button
     Friend WithEvents txtJobs As ComboBox
     Friend WithEvents Label17 As Label
     Friend WithEvents txtEmpStarted As DateTimePicker
     Friend WithEvents Label18 As Label
+    Friend WithEvents txtFirstname As MetroFramework.Controls.MetroTextBox
+    Friend WithEvents txtMI As MetroFramework.Controls.MetroTextBox
+    Friend WithEvents pbEmployeeStatus As PictureBox
+    Friend WithEvents txtLastname As MetroFramework.Controls.MetroTextBox
 End Class

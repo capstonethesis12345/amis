@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class frmJob
-    Inherits MetroFramework.Forms.MetroForm
+    Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()> _
@@ -37,9 +37,9 @@ Partial Class frmJob
         'ListView1
         '
         Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.jobid, Me.ColumnHeader1, Me.ColumnHeader2})
-        Me.ListView1.Location = New System.Drawing.Point(2, 63)
+        Me.ListView1.Location = New System.Drawing.Point(3, 12)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(378, 212)
+        Me.ListView1.Size = New System.Drawing.Size(378, 278)
         Me.ListView1.TabIndex = 0
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
@@ -74,7 +74,7 @@ Partial Class frmJob
         Me.txtDescription.CustomButton.UseSelectable = True
         Me.txtDescription.CustomButton.Visible = False
         Me.txtDescription.Lines = New String(-1) {}
-        Me.txtDescription.Location = New System.Drawing.Point(387, 117)
+        Me.txtDescription.Location = New System.Drawing.Point(389, 55)
         Me.txtDescription.MaxLength = 32767
         Me.txtDescription.Name = "txtDescription"
         Me.txtDescription.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -104,7 +104,7 @@ Partial Class frmJob
         Me.txtSalary.CustomButton.UseSelectable = True
         Me.txtSalary.CustomButton.Visible = False
         Me.txtSalary.Lines = New String(-1) {}
-        Me.txtSalary.Location = New System.Drawing.Point(387, 146)
+        Me.txtSalary.Location = New System.Drawing.Point(389, 84)
         Me.txtSalary.MaxLength = 32767
         Me.txtSalary.Name = "txtSalary"
         Me.txtSalary.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -122,7 +122,7 @@ Partial Class frmJob
         'MetroLabel1
         '
         Me.MetroLabel1.AutoSize = True
-        Me.MetroLabel1.Location = New System.Drawing.Point(387, 85)
+        Me.MetroLabel1.Location = New System.Drawing.Point(389, 23)
         Me.MetroLabel1.Name = "MetroLabel1"
         Me.MetroLabel1.Size = New System.Drawing.Size(46, 19)
         Me.MetroLabel1.TabIndex = 3
@@ -131,7 +131,7 @@ Partial Class frmJob
         'txtID
         '
         Me.txtID.AutoSize = True
-        Me.txtID.Location = New System.Drawing.Point(439, 85)
+        Me.txtID.Location = New System.Drawing.Point(441, 23)
         Me.txtID.Name = "txtID"
         Me.txtID.Size = New System.Drawing.Size(46, 19)
         Me.txtID.TabIndex = 3
@@ -145,7 +145,7 @@ Partial Class frmJob
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Consolas", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Button1.Location = New System.Drawing.Point(403, 192)
+        Me.Button1.Location = New System.Drawing.Point(405, 130)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(121, 44)
         Me.Button1.TabIndex = 2
@@ -160,7 +160,7 @@ Partial Class frmJob
         Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClose.Font = New System.Drawing.Font("Consolas", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnClose.Location = New System.Drawing.Point(403, 242)
+        Me.btnClose.Location = New System.Drawing.Point(405, 180)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(121, 44)
         Me.btnClose.TabIndex = 3
@@ -179,11 +179,12 @@ Partial Class frmJob
         Me.Controls.Add(Me.txtSalary)
         Me.Controls.Add(Me.txtDescription)
         Me.Controls.Add(Me.ListView1)
-        Me.Movable = False
+        Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmJob"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Job"
-        Me.TransparencyKey = System.Drawing.Color.Empty
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

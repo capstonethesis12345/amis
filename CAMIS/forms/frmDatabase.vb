@@ -108,9 +108,8 @@ Public Class frmDatabase
                 MessageBox.Show(ex.Message.ToString)
             End Try
             Try
-                cmd.CommandText = "CREATE DEFINER=`root`@`localhost` PROCEDURE `getOrderID`()" _
-            & " NO SQL" _
-            & " select if(orderstatus=1,max(orderid)+1,(select orderid from orders)) from orders order by orderid desc limit 0,1"
+                cmd.CommandText = "CREATE DEFINER=`root`@`localhost` PROCEDURE `getOrderID`() " _
+                        & " select if(count(orderid)=0,1,max(orderid))from orders;"
                 cmd.ExecuteNonQuery()
             Catch ex As Exception
                 MessageBox.Show(ex.Message.ToString)
@@ -138,11 +137,55 @@ Public Class frmDatabase
             Catch ex As Exception
                 MessageBox.Show(ex.Message.ToString)
             End Try
+            Try
+                cmd.CommandText = "CREATE DEFINER=`root`@`localhost` PROCEDURE `getEmployeeInfo`(IN `employeeINID` INT(30)) " _
+                     & "    SELECT  e.Empid, e.NameFirst, e.NameMiddle,e.NameLast, IFNULL( IF( e.gender =  'M', 0, IF( e.gender =  'F', 1 , -1 ) ) , -1 ) gender,ifnull(e.BirthDate,'')BirthDate,ifnull(e.BirthAddress,'')BirthAddress,ifnull(e.AddressStreet,'')AddressStreet,ifnull(e.AddressBarangay,'')AddressBarangay,ifnull(e.AddressMunCity,'')AddressMunCity,ifnull(e.AddressProvince,'')AddressProvince,ifnull(e.AddressZip,'')AddressZip,ifnull(e.Contact,'')Contact,ifnull(e.EmpImage,'')EmpImage,if(employmentstarted='0000-00-00',curdate(),employmentstarted)employmentstarted,ifnull(e.employmentstatus,-1)employmentstatus,ifnull(e.maritalstatus,0)maritalstatus,ifnull(u.Username,''),ifnull(`u`.`Function`,'')role,ifnull(`u`.`Password`,'')Ucode,ifnull(`u`.`Username`,'')Uname,empImage from `employees` e  LEFT JOIN `users` u ON u.EmpID=e.Empid where e.empid=employeeINID;"
+                cmd.ExecuteNonQuery()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message.ToString)
+            End Try
+            Try
+                cmd.CommandText = "CREATE DEFINER=`root`@`localhost` PROCEDURE `getsuppliers`() " _
+                     & "select company from supplier group by company;"
+                cmd.ExecuteNonQuery()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message.ToString)
+            End Try
+            Try
+                cmd.CommandText = "create procedure getProductList() " _
+                    & " Select itemid,barcode,description,category,price,unittype,initialquantity from items where itemtype <> 2;"
+                cmd.ExecuteNonQuery()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message.ToString)
+            End Try
+            Try
+                cmd.CommandText = " create procedure getdtrlist() " _
+& " Select d.dtrid,d.empid,concat(e.namelast,', ',e.namefirst)empName,d.datetimein,d.datetimeout,If(d.dtrstatus=0,'Pending','Accepted')dtrstatus from jobdtr d,employees e " _
+& " where e.empid = d.empid order by d.empid;"
+                cmd.ExecuteNonQuery()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message.ToString)
+            End Try
+            Try
+                cmd.CommandText = "create procedure getitemid(in prdBarcode varchar(100),in prdDescption varchar(100))
+select itemid from items where description=prdDescption and barcode=prdBarcode;"
+                cmd.ExecuteNonQuery()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message.ToString)
+            End Try
+            Try
+                cmd.CommandText = " create procedure getPurchaseList(In inPrdID Integer,in inEmpID integer) " _
+                    & " Select p.polistid,i.barcode,i.description,i.unittype,p.cost,p.quantity,(p.cost*p.quantity)total from polist p, po, items i Where po.poid = p.poid And  po.empid = inEmpID And po.poid = inPrdID;"
+                cmd.ExecuteNonQuery()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message.ToString)
+            End Try
 
 
         Catch ex As Exception
             MessageBox.Show(ex.Message.ToString)
         End Try
+        DisconnDB()
     End Sub
 
 End Class

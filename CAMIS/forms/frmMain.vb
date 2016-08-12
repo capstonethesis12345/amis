@@ -137,8 +137,8 @@ Public Class frmMain
     End Sub
 
     Private Sub ToolStripButton3_Click(sender As Object, e As EventArgs) Handles ToolStripButton3.Click
-        Dim log As New fMainForm()
-        log.Show()
+        fMainForm.Show()
+        Me.Hide()
         fMainForm.tUsername.Text = ""
         fMainForm.tPassword.Text = ""
         fMainForm.tUsername.Focus()
@@ -157,11 +157,7 @@ Public Class frmMain
     End Sub
 
     Private Sub JobsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles JobsToolStripMenuItem.Click
-        Try
-            frmJob.ShowDialog()
-        Catch ex As Exception
-
-        End Try
+        frmJob.ShowDialog()
 
     End Sub
 
@@ -174,23 +170,22 @@ Public Class frmMain
     End Sub
 
     Private Sub AccountToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AccountToolStripMenuItem.Click
-        openFull(frmAccounts)
+        openFull(frmExpenses)
     End Sub
 
     Private Sub ToolStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs)
 
     End Sub
 
-    Private Sub DeliveriesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeliveriesToolStripMenuItem.Click
+    Private Sub DeliveriesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles tsExpenses.Click
         'callform(frmDeliveries, Panel2)
-        openFull(frmDeliveries)
+        'callforms(frmExpenses, Panel2)
+        openFull(frmExpenses)
     End Sub
 
-    Private Sub FinancialStatusToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FinancialStatusToolStripMenuItem.Click
-
-    End Sub
 
     Private Sub SoldToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SoldToolStripMenuItem.Click
         frmFilterDailySales.ShowDialog()
     End Sub
+
 End Class

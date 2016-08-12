@@ -32,7 +32,7 @@ Module SQLQuery
                 objAutoCompleteTextBox.AutoCompleteCustomSource.Add(dsRow.Item(0).ToString)
             Next
         Catch ex As Exception
-            MessageBox.Show("Unable to set autocomplete")
+            MessageBox.Show("Unable to set autocomplete " & ex.Message.ToString)
         Finally
             DisconnDB()
         End Try
@@ -215,8 +215,10 @@ Module SQLQuery
             da.SelectCommand = cmd
             da.Fill(ds, dsname)
             'count total columns'
+            If ds.Tables(dsname).Rows.Count > 0 Then
+                id = ds.Tables(dsname).Rows(0).Item(0).ToString
+            End If
 
-            id = ds.Tables(dsname).Rows(0).Item(0).ToString
 
             ' MessageBox.Show(ds.Tables(0).Rows.Count.ToString)
             ' End If
@@ -380,10 +382,10 @@ Module SQLQuery
         Catch ex As Exception
             If msgShow = True Then
 
-
+                ErrMessageText = ex.Message.ToString
                 If ex.GetType.ToString = "MySql.Data.MySqlClient.MySqlException" Then
                     err = True
-                    MessageBox.Show("Duplicate id and name are already available." & ErrMessageText, "Excited ID,Name not allowed")
+                    MessageBox.Show("Duplicate id and name are already available. " & ErrMessageText, "Excited ID,Name not allowed")
 
                 Else
                     MessageBox.Show(ex.GetType.ToString, "Error addting data")

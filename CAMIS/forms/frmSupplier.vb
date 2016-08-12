@@ -8,7 +8,8 @@ Public Class frmSupplier
         SqlRefresh = vrefresh
         SqlReFill("supplier", ListView1)
         ' Add any initialization after the InitializeComponent() call.
-
+        lStatus.Text = ""
+        lStatus.Visible = False
     End Sub
 
 
@@ -17,25 +18,6 @@ Public Class frmSupplier
 
     End Sub
 
-    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        ' itemNew("Supplier", {"Company", "Address", "Contact"}, {txtSupplier, txtAddress, txtContact})
-        Try
-            ConnDB()
-            cmd = New MySql.Data.MySqlClient.MySqlCommand()
-            cmd.Connection = conn
-            cmd.CommandText = "insert into supplier values(@0,@1,@2,@3) on duplicate key update company=@1,address=@2,contact=@3"
-            cmd.Parameters.AddWithValue("@0", txtSupplierID.Text)
-            cmd.Parameters.AddWithValue("@1", txtSupplier.Text)
-            cmd.Parameters.AddWithValue("@2", txtAddress.Text)
-            cmd.Parameters.AddWithValue("@3", txtContact.Text)
-            cmd.ExecuteNonQuery()
-            MessageBox.Show("Success")
-        Catch ex As Exception
-            MessageBox.Show("Error" & ex.Message.ToString)
-        Finally
-            DisconnDB()
-        End Try
-    End Sub
 
     Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
         Me.Dispose()
@@ -44,5 +26,30 @@ Public Class frmSupplier
     Private Sub ListView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListView1.MouseDoubleClick
         SqlRefresh = "select supplierid,company,address,contact from supplier where supplierid=@0"
         SqlReFill("supplier", Nothing, "ShowValueInTextbox", {"0"}, {ListView1.SelectedItems(0)}, {txtSupplierID, txtSupplier, txtAddress, txtContact})
+    End Sub
+
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click, btnSave.Click
+        SqlRefresh = "select * from supplier"
+        Dim suppliername As Integer = getIDFunction("select count(company) from supplier where company like @0", "supplier", {txtSupplier.Text})
+        If suppliername = 0 Then
+            itemNew("supplier", {"company", "address", "contact"}, {txtSupplier, txtAddress, txtContact}, ListView1)
+        Else
+            Timer1.Start()
+            lStatus.Visible = True
+            txtSupplier.Focus()
+            lStatus.Text = "Supplier existed already."
+
+
+        End If
+
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        lStatus.Visible = False
+        Timer1.Stop()
+    End Sub
+
+    Private Sub txtSupplier_KeyUp(sender As Object, e As KeyEventArgs) Handles txtSupplier.KeyUp
+        Me.AcceptButton = btnSave
     End Sub
 End Class

@@ -22,6 +22,7 @@ Partial Class frmDTR
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -34,22 +35,25 @@ Partial Class frmDTR
         Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.lTime = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.btnTimeout = New System.Windows.Forms.Button()
         Me.txtTimeOut = New System.Windows.Forms.Label()
         Me.txtEmpId = New System.Windows.Forms.Label()
         Me.txtTimein = New System.Windows.Forms.Label()
         Me.lblId = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.r1 = New System.Windows.Forms.RadioButton()
-        Me.r3 = New System.Windows.Forms.RadioButton()
+        Me.r0 = New System.Windows.Forms.RadioButton()
         Me.r2 = New System.Windows.Forms.RadioButton()
+        Me.r1 = New System.Windows.Forms.RadioButton()
         Me.MetroTextButton2 = New MetroFramework.Controls.MetroTextBox.MetroTextButton()
-        Me.MetroTextButton1 = New MetroFramework.Controls.MetroTextBox.MetroTextButton()
+        Me.btnSave = New MetroFramework.Controls.MetroTextBox.MetroTextButton()
         Me.MetroLabel4 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel5 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel2 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.btnTimeout = New System.Windows.Forms.Button()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -62,7 +66,7 @@ Partial Class frmDTR
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(962, 5)
+        Me.Panel1.Size = New System.Drawing.Size(1163, 5)
         Me.Panel1.TabIndex = 0
         '
         'Label1
@@ -83,7 +87,7 @@ Partial Class frmDTR
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(938, 380)
+        Me.Panel2.Size = New System.Drawing.Size(1139, 403)
         Me.Panel2.TabIndex = 2
         '
         'ListView1
@@ -93,7 +97,7 @@ Partial Class frmDTR
         Me.ListView1.FullRowSelect = True
         Me.ListView1.Location = New System.Drawing.Point(0, 5)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(938, 375)
+        Me.ListView1.Size = New System.Drawing.Size(1139, 398)
         Me.ListView1.TabIndex = 1
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
@@ -111,7 +115,7 @@ Partial Class frmDTR
         'ColumnHeader3
         '
         Me.ColumnHeader3.Text = "Name"
-        Me.ColumnHeader3.Width = 203
+        Me.ColumnHeader3.Width = 161
         '
         'ColumnHeader4
         '
@@ -133,11 +137,13 @@ Partial Class frmDTR
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(938, 5)
+        Me.Panel4.Size = New System.Drawing.Size(1139, 5)
         Me.Panel4.TabIndex = 0
         '
         'Panel3
         '
+        Me.Panel3.Controls.Add(Me.lTime)
+        Me.Panel3.Controls.Add(Me.Label2)
         Me.Panel3.Controls.Add(Me.btnTimeout)
         Me.Panel3.Controls.Add(Me.txtTimeOut)
         Me.Panel3.Controls.Add(Me.txtEmpId)
@@ -145,16 +151,49 @@ Partial Class frmDTR
         Me.Panel3.Controls.Add(Me.lblId)
         Me.Panel3.Controls.Add(Me.GroupBox1)
         Me.Panel3.Controls.Add(Me.MetroTextButton2)
-        Me.Panel3.Controls.Add(Me.MetroTextButton1)
+        Me.Panel3.Controls.Add(Me.btnSave)
         Me.Panel3.Controls.Add(Me.MetroLabel4)
         Me.Panel3.Controls.Add(Me.MetroLabel5)
         Me.Panel3.Controls.Add(Me.MetroLabel2)
         Me.Panel3.Controls.Add(Me.MetroLabel1)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel3.Location = New System.Drawing.Point(694, 0)
+        Me.Panel3.Location = New System.Drawing.Point(895, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(244, 380)
+        Me.Panel3.Size = New System.Drawing.Size(244, 403)
         Me.Panel3.TabIndex = 3
+        '
+        'lTime
+        '
+        Me.lTime.AutoSize = True
+        Me.lTime.Location = New System.Drawing.Point(65, 114)
+        Me.lTime.Name = "lTime"
+        Me.lTime.Size = New System.Drawing.Size(30, 13)
+        Me.lTime.TabIndex = 5
+        Me.lTime.Text = "Time"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(22, 114)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(30, 13)
+        Me.Label2.TabIndex = 5
+        Me.Label2.Text = "Time"
+        '
+        'btnTimeout
+        '
+        Me.btnTimeout.BackColor = System.Drawing.Color.DarkCyan
+        Me.btnTimeout.FlatAppearance.BorderSize = 0
+        Me.btnTimeout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnTimeout.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTimeout.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnTimeout.Location = New System.Drawing.Point(87, 179)
+        Me.btnTimeout.Name = "btnTimeout"
+        Me.btnTimeout.Size = New System.Drawing.Size(75, 23)
+        Me.btnTimeout.TabIndex = 12
+        Me.btnTimeout.Text = "Time Out"
+        Me.btnTimeout.UseVisualStyleBackColor = False
+        Me.btnTimeout.Visible = False
         '
         'txtTimeOut
         '
@@ -191,47 +230,47 @@ Partial Class frmDTR
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.r1)
-        Me.GroupBox1.Controls.Add(Me.r3)
+        Me.GroupBox1.Controls.Add(Me.r0)
         Me.GroupBox1.Controls.Add(Me.r2)
+        Me.GroupBox1.Controls.Add(Me.r1)
         Me.GroupBox1.Location = New System.Drawing.Point(21, 208)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(212, 54)
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "GroupBox1"
+        Me.GroupBox1.Text = "Status"
         '
-        'r1
+        'r0
         '
-        Me.r1.AutoSize = True
-        Me.r1.Checked = True
-        Me.r1.Location = New System.Drawing.Point(6, 19)
-        Me.r1.Name = "r1"
-        Me.r1.Size = New System.Drawing.Size(64, 17)
-        Me.r1.TabIndex = 8
-        Me.r1.TabStop = True
-        Me.r1.Text = "Pending"
-        Me.r1.UseVisualStyleBackColor = True
-        '
-        'r3
-        '
-        Me.r3.AutoSize = True
-        Me.r3.Location = New System.Drawing.Point(152, 19)
-        Me.r3.Name = "r3"
-        Me.r3.Size = New System.Drawing.Size(50, 17)
-        Me.r3.TabIndex = 7
-        Me.r3.Text = "Deny"
-        Me.r3.UseVisualStyleBackColor = True
+        Me.r0.AutoSize = True
+        Me.r0.Checked = True
+        Me.r0.Location = New System.Drawing.Point(6, 19)
+        Me.r0.Name = "r0"
+        Me.r0.Size = New System.Drawing.Size(64, 17)
+        Me.r0.TabIndex = 8
+        Me.r0.TabStop = True
+        Me.r0.Text = "Pending"
+        Me.r0.UseVisualStyleBackColor = True
         '
         'r2
         '
         Me.r2.AutoSize = True
-        Me.r2.Location = New System.Drawing.Point(81, 19)
+        Me.r2.Location = New System.Drawing.Point(152, 19)
         Me.r2.Name = "r2"
-        Me.r2.Size = New System.Drawing.Size(60, 17)
-        Me.r2.TabIndex = 8
-        Me.r2.Text = "Confirm"
+        Me.r2.Size = New System.Drawing.Size(50, 17)
+        Me.r2.TabIndex = 7
+        Me.r2.Text = "Deny"
         Me.r2.UseVisualStyleBackColor = True
+        '
+        'r1
+        '
+        Me.r1.AutoSize = True
+        Me.r1.Location = New System.Drawing.Point(81, 19)
+        Me.r1.Name = "r1"
+        Me.r1.Size = New System.Drawing.Size(60, 17)
+        Me.r1.TabIndex = 8
+        Me.r1.Text = "Confirm"
+        Me.r1.UseVisualStyleBackColor = True
         '
         'MetroTextButton2
         '
@@ -245,17 +284,17 @@ Partial Class frmDTR
         Me.MetroTextButton2.UseSelectable = True
         Me.MetroTextButton2.UseVisualStyleBackColor = True
         '
-        'MetroTextButton1
+        'btnSave
         '
-        Me.MetroTextButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.MetroTextButton1.Image = Nothing
-        Me.MetroTextButton1.Location = New System.Drawing.Point(152, 280)
-        Me.MetroTextButton1.Name = "MetroTextButton1"
-        Me.MetroTextButton1.Size = New System.Drawing.Size(81, 30)
-        Me.MetroTextButton1.TabIndex = 3
-        Me.MetroTextButton1.Text = "Save"
-        Me.MetroTextButton1.UseSelectable = True
-        Me.MetroTextButton1.UseVisualStyleBackColor = True
+        Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSave.Image = Nothing
+        Me.btnSave.Location = New System.Drawing.Point(152, 280)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(81, 30)
+        Me.btnSave.TabIndex = 3
+        Me.btnSave.Text = "Save"
+        Me.btnSave.UseSelectable = True
+        Me.btnSave.UseVisualStyleBackColor = True
         '
         'MetroLabel4
         '
@@ -306,28 +345,19 @@ Partial Class frmDTR
         Me.Panel5.Controls.Add(Me.Panel2)
         Me.Panel5.Location = New System.Drawing.Point(12, 64)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(938, 380)
+        Me.Panel5.Size = New System.Drawing.Size(1139, 403)
         Me.Panel5.TabIndex = 4
         '
-        'btnTimeout
+        'Timer1
         '
-        Me.btnTimeout.BackColor = System.Drawing.Color.DarkCyan
-        Me.btnTimeout.FlatAppearance.BorderSize = 0
-        Me.btnTimeout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnTimeout.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnTimeout.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnTimeout.Location = New System.Drawing.Point(87, 179)
-        Me.btnTimeout.Name = "btnTimeout"
-        Me.btnTimeout.Size = New System.Drawing.Size(75, 23)
-        Me.btnTimeout.TabIndex = 12
-        Me.btnTimeout.Text = "Time Out"
-        Me.btnTimeout.UseVisualStyleBackColor = False
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 1000
         '
         'frmDTR
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(962, 472)
+        Me.ClientSize = New System.Drawing.Size(1163, 495)
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel1)
@@ -358,15 +388,15 @@ Partial Class frmDTR
     Friend WithEvents ColumnHeader3 As ColumnHeader
     Friend WithEvents ColumnHeader4 As ColumnHeader
     Friend WithEvents ColumnHeader5 As ColumnHeader
-    Friend WithEvents MetroTextButton1 As MetroFramework.Controls.MetroTextBox.MetroTextButton
+    Friend WithEvents btnSave As MetroFramework.Controls.MetroTextBox.MetroTextButton
     Friend WithEvents MetroLabel1 As MetroFramework.Controls.MetroLabel
     Friend WithEvents Panel5 As Panel
     Friend WithEvents MetroLabel2 As MetroFramework.Controls.MetroLabel
     Friend WithEvents MetroTextButton2 As MetroFramework.Controls.MetroTextBox.MetroTextButton
     Friend WithEvents ColumnHeader6 As ColumnHeader
-    Friend WithEvents r3 As RadioButton
     Friend WithEvents r2 As RadioButton
     Friend WithEvents r1 As RadioButton
+    Friend WithEvents r0 As RadioButton
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents lblId As Label
     Friend WithEvents MetroLabel4 As MetroFramework.Controls.MetroLabel
@@ -375,4 +405,7 @@ Partial Class frmDTR
     Friend WithEvents MetroLabel5 As MetroFramework.Controls.MetroLabel
     Friend WithEvents txtEmpId As Label
     Friend WithEvents btnTimeout As Button
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents lTime As Label
+    Friend WithEvents Label2 As Label
 End Class

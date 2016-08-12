@@ -5,11 +5,22 @@ Public Class frmProduct
         ' This call is required by the designer.
         InitializeComponent()
         'SqlRefresh = "SELECT i.itemid, i.barcode, i.description, i.category, i.price, (select sum(quantity) from polist where polist.itemid=i.itemid and polist.postatus=1)FROM ITEMS i LEFT JOIN POLIST l ON i.itemid = l.itemid where i.itemtype<>2 GROUP BY i.description LIMIT 0 , 30"
-        SqlRefresh = "select i.itemid,i.barcode,i.description,i.category, i.price,i.unittype,sum(i.quantity+items.initialquantity) as onhand from vstockin i left join items on items.itemid=i.itemid group by i.itemid"
-        SqlReFill("items", ListView1)
+        'SqlRefresh = "select i.itemid,i.barcode,i.description,i.category, i.price,i.unittype,sum(i.quantity+items.initialquantity) as onhand from vstockin i left join items on items.itemid=i.itemid group by i.itemid"
+        'verify if data existed
+        Dim countitem As Integer = Integer.Parse(getStrData("select count(itemid) from items", "countItems"))
+        If countitem > 0 Then
+            SqlRefresh = "call getproductlist()"
+            SqlReFill("products", ListView1)
+        End If
         ' Add any initialization after the InitializeComponent() call.
         txtItemid.Text = ""
         lblSaveStatus.Text = ""
+
+        Dim count As Integer = getStrData("select count(category) from items", "categories")
+        If count > 0 Then
+            SqlRefresh = "select category from items group by category"
+            itemAutoComplete("categories", txtCategory)
+        End If
     End Sub
     Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
         Me.Dispose()
@@ -39,7 +50,7 @@ Public Class frmProduct
         If txtItemid.Text = "0" Or txtItemid.Text = vbNullString Then
             If bcode = 0 Then
                 msgShow = True
-                SqlRefresh = "select itemid,barcode,description,category,price from items where itemtype <> 2"
+                SqlRefresh = "call getproductlist();"
                 itemNew("items", {"barcode", "description", "brand", "price", "unitvalue", "unittype", "category", "itemtype", "initialquantity", "salestatus"},
                    txtboxes, ListView1)
                 lblSaveStatus.Text = "SUCCESS"
@@ -173,7 +184,8 @@ Public Class frmProduct
     End Sub
 
     Private Sub txtCategory_TextChanged(sender As Object, e As EventArgs) Handles txtCategory.KeyUp
-        itemAutoComplete("categories", txtCategory)
+
+
     End Sub
 
     Private Sub txtUnitValue_TextChanged(sender As Object, e As EventArgs) Handles txtUnitValue.TextChanged

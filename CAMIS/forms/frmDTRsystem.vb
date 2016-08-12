@@ -16,39 +16,61 @@
             Timer2.Start()
             Exit Sub
         End If
-        Dim isempExist As Integer = getIDFunction("select count(empid)from jobdtr where empid like @0", "isExisted", {txtEmpid.Text})
-        If isempExist = 0 Then
-            'MessageBox.Show("1")
 
-            msgShow = False
-            If MessageBox.Show("You are about to time-in?", "Time-in", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = DialogResult.Yes Then
-                itemNew("jobdtr", {"datetimein", "empid"}, {nowDate, txtEmpid})
+        'check if loged in
+        'if not insert new 
+        'if already logged in logout
 
-                Me.Dispose()
-            End If
-        Else
+        Dim isempExist As Integer = getIDFunction("SELECT last_insert_id(dtrid),datetimein,datetimeout FROM jobdtr j where empid like @0 order by dtrid desc limit 0,1", "dtrLoging", {txtEmpid.Text})
+        If ds.Tables.Count > 0 Then
+            If ds.Tables("dtrLoging").Rows(0).Item(2).ToString = vbNullString Then
 
-            msgShow = False
-            getDSData("select dtrid,datetimein,ifnull(datetimeout,0),empid from jobdtr where empid like @0 order by dtrid desc limit 0,1", "checkTime", {txtEmpid.Text})
-            If (ds.Tables("checkTime").Rows(0).Item(2).ToString = "0") Then
-                Dim dtrid As New TextBox
-                dtrid.Text = ds.Tables("checkTime").Rows(0).Item(0).ToString
                 If MessageBox.Show("You are about to time-out?", "Time-out", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = DialogResult.Yes Then
-                    itemUpdate("jobdtr", {"datetimeout"}, {nowDate}, "dtrid", dtrid.Text)
+                    itemUpdate("jobdtr", {"datetimeout"}, {nowDate}, "dtrid", isempExist.ToString)
 
                     Me.Dispose()
                 End If
-                'MessageBox.Show("Time-out")
             Else
-                '       MessageBox.Show("Time-In")
                 If MessageBox.Show("You are about to time-in?", "Time-in", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = DialogResult.Yes Then
                     itemNew("jobdtr", {"datetimein", "empid"}, {nowDate, txtEmpid})
 
                     Me.Dispose()
                 End If
+                'insert to timein
             End If
-            'MessageBox.Show(hasTimeId.ToString)
         End If
+        'If isempExist = 0 Then
+        '    'MessageBox.Show("1")
+
+        '    msgShow = False
+        '    If MessageBox.Show("You are about to time-in?", "Time-in", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = DialogResult.Yes Then
+        '        itemNew("jobdtr", {"datetimein", "empid"}, {nowDate, txtEmpid})
+
+        '        Me.Dispose()
+        '    End If
+        'Else
+
+        '    msgShow = False
+        '    getDSData("select dtrid,datetimein,ifnull(datetimeout,0),empid from jobdtr where empid like @0 order by dtrid desc limit 0,1", "checkTime", {txtEmpid.Text})
+        '    If (ds.Tables("checkTime").Rows(0).Item(2).ToString = "0") Then
+        '        Dim dtrid As New TextBox
+        '        dtrid.Text = ds.Tables("checkTime").Rows(0).Item(0).ToString
+        '        If MessageBox.Show("You are about to time-out?", "Time-out", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = DialogResult.Yes Then
+        '            itemUpdate("jobdtr", {"datetimeout"}, {nowDate}, "dtrid", dtrid.Text)
+
+        '            Me.Dispose()
+        '        End If
+        '        'MessageBox.Show("Time-out")
+        '    Else
+        '        '       MessageBox.Show("Time-In")
+        '        If MessageBox.Show("You are about to time-in?", "Time-in", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = DialogResult.Yes Then
+        '            itemNew("jobdtr", {"datetimein", "empid"}, {nowDate, txtEmpid})
+
+        '            Me.Dispose()
+        '        End If
+        '    End If
+        '    'MessageBox.Show(hasTimeId.ToString)
+        'End If
     End Sub
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         lblTImer.Text = Date.Now.ToString("yyyy-MM-dd hh:mm:ss")

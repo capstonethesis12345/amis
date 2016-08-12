@@ -20,8 +20,11 @@ Public Class frmStaff
         Catch ex As Exception
             MessageBox.Show("Error in establishing connection " & ex.Message.ToString, "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-
-
+        pbEmployeeStatus.Left = txtEmployStatus.Left - 1
+        pbEmployeeStatus.Top = txtEmployStatus.Top - 1
+        pbEmployeeStatus.Width = txtEmployStatus.Width + 2
+        pbEmployeeStatus.Height = txtEmployStatus.Height + 2
+        pbEmployeeStatus.Visible = False
 
     End Sub
     Dim textboxes As Object()
@@ -72,42 +75,51 @@ Public Class frmStaff
             haserror = True
             Exit Sub
         End If
+
     End Sub
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         txtEmployeeNo.Text = fillFirstLastMiName(txtFirstname.Text, txtLastname.Text, txtMI.Text)
-        If txtEmployeeNo.Text = vbNullString Then
-            isEditStaff = False
-            If CheckBox1.Checked = True Then
-                checkHasError()
-                If haserror = False Then
-                    insertStaffUser()
-                Else
-                    Exit Sub
-                End If
-                Exit Sub
-            Else
-                insertStaff()
+        If ifempty(txtLastname) = True Or ifempty(txtFirstname) Or ifempty(txtMI) Or ifcomboempty(txtEmployStatus) = True Or txtEmployStatus.Text = vbNullString Then
+            If txtEmployStatus.Text = vbNullString Then
+                pbEmployeeStatus.Visible = True
             End If
-        Else
-            If isEditStaff = False Then
-                MessageBox.Show("Editable on 93 =" & isEditStaff)
-                If (MessageBox.Show("Staff details already existed, do you want to load information?", "Stop", MessageBoxButtons.YesNo) = DialogResult.No) Then
-                    txtEmployeeNo.Text = ""
-                    Exit Sub
-                Else
-                    reloadinfo()
-                End If
-            Else
-                checkHasError()
-                If haserror = False Then
-                    usersUpdateDelete()
-                Else
-                    MessageBox.Show("Error occured on 104")
-                    haserror = False
-                    Exit Sub
-                End If
-            End If
+            Exit Sub
         End If
+
+
+        If txtEmployeeNo.Text = vbNullString Then
+                isEditStaff = False
+                If CheckBox1.Checked = True Then
+                    checkHasError()
+                    If haserror = False Then
+                        insertStaffUser()
+                    Else
+                        Exit Sub
+                    End If
+                    Exit Sub
+                Else
+                    insertStaff()
+                End If
+            Else
+                If isEditStaff = False Then
+                    MessageBox.Show("Editable on 93 =" & isEditStaff)
+                    If (MessageBox.Show("Staff details already existed, do you want to load information?", "Stop", MessageBoxButtons.YesNo) = DialogResult.No) Then
+                        txtEmployeeNo.Text = ""
+                        Exit Sub
+                    Else
+                        reloadinfo()
+                    End If
+                Else
+                    checkHasError()
+                    If haserror = False Then
+                        usersUpdateDelete()
+                    Else
+                        MessageBox.Show("Error occured on 104")
+                        haserror = False
+                        Exit Sub
+                    End If
+                End If
+            End If
         haserror = False
     End Sub
     Private Sub usersUpdateDelete()
@@ -214,9 +226,19 @@ Public Class frmStaff
         SqlRefresh = "Select e.empid,concat(e.namelast,', ',e.namefirst,' ',e.namemiddle) from `employees` e left join `users` u on u.empid=e.empid order by e.empid asc"
         msgShow = True
         ErrMessageText = "Unable to insert employees on line 93"
+        'set marital status to integer
+
+        Dim maritalIndex As New TextBox
+        If txtMaritalStatus.Text = "Single" Then
+            maritalIndex.Text = 0
+        ElseIf (txtMaritalStatus.SelectedIndex = 1) Then
+            maritalIndex.Text = 1
+        ElseIf (txtMaritalStatus.SelectedIndex = 2) Then
+            maritalIndex.Text = 2
+        End If
         itemNew("employees",
                    {"NameFirst", "NameMiddle", "NameLast", "BirthDate", "Gender", "MaritalStatus", "EmpImage", "BirthAddress", "AddressStreet", "AddressBarangay", "AddressMunCity", "AddressProvince", "AddressZip", "Contact", "EmploymentStatus", "EmploymentStarted"},
-                   {txtFirstname, txtMI, txtLastname, txtBirthDate, txtGender, txtMaritalStatus, PictureBox1, txtBirthAddress, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, empStatus, txtEmpStarted},
+                   {txtFirstname, txtMI, txtLastname, txtBirthDate, txtGender, maritalIndex, PictureBox1, txtBirthAddress, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, empStatus, txtEmpStarted},
                                     ListView1)
     End Sub
     Private Sub updateStaffUser()
@@ -548,17 +570,30 @@ Public Class frmStaff
             'StatusSet = ""
             'ErrMessageText = ""
 
-            SqlRefresh = "SELECT  e.Empid, e.NameFirst, e.NameMiddle,e.NameLast, IFNULL( IF( e.gender =  'M', 0, IF( e.gender =  'F', 1 , -1 ) ) , -1 ) gender,ifnull(e.BirthDate,'')BirthDate,ifnull(e.BirthAddress,'')BirthAddress,ifnull(e.AddressStreet,'')AddressStreet,ifnull(e.AddressBarangay,'')AddressBarangay,ifnull(e.AddressMunCity,'')AddressMunCity,ifnull(e.AddressProvince,'')AddressProvince,ifnull(e.AddressZip,'')AddressZip,ifnull(e.Contact,'')Contact,ifnull(e.EmpImage,'')EmpImage,if(employmentstarted='0000-00-00',curdate(),employmentstarted)employmentstarted,ifnull(e.employmentstatus,-1)employmentstatus,ifnull(e.maritalstatus,0)maritalstatus,ifnull(u.Username,''),ifnull(`u`.`Function`,'')role,ifnull(`u`.`Password`,'')Ucode,ifnull(`u`.`Username`,'')Uname from `employees` e
-                            LEFT JOIN `users` u
-                            ON u.EmpID=e.Empid
-                        where e.empid=@empid"
+            SqlRefresh = "SELECT  e.Empid, e.NameFirst, e.NameMiddle,e.NameLast, IFNULL( IF( e.gender =  'M', 0, IF( e.gender =  'F', 1 , -1 ) ) , -1 ) gender,ifnull(e.BirthDate,'')BirthDate,ifnull(e.BirthAddress,'')BirthAddress,ifnull(e.AddressStreet,'')AddressStreet,ifnull(e.AddressBarangay,'')AddressBarangay,ifnull(e.AddressMunCity,'')AddressMunCity,ifnull(e.AddressProvince,'')AddressProvince,ifnull(e.AddressZip,'')AddressZip,ifnull(e.Contact,'')Contact,ifnull(e.EmpImage,'')EmpImage,if(employmentstarted='0000-00-00',curdate(),employmentstarted)employmentstarted,ifnull(e.employmentstatus,-1)employmentstatus,ifnull(e.maritalstatus,0)maritalstatus,ifnull(u.Username,''),ifnull(`u`.`Function`,'')role,ifnull(`u`.`Password`,'')Ucode,ifnull(`u`.`Username`,'')Uname from `employees` e  LEFT JOIN `users` u ON u.EmpID=e.Empid where e.empid=@empid"
             msgShow = False 'PREVENT OCCURANCE OF MESSAGEBOX SHOW
             SqlReFill("Employees", Nothing, "ShowValueInTextbox", {"empid"}, {txtEmployeeNo}, {txtEmployeeNo, txtFirstname, txtMI, txtLastname, txtGender, txtBirthDate, txtBirthAddress, txtStreet, txtBarangay, txtCity, txtProvince, txtZip, txtContractNo, PictureBox1, txtEmpStarted})
 
             'COMMENTED CODED IS TO ACCESS MANUAL INFORMATION F DATASET TABLE.
             ' Dim mstatus As String = ds.Tables("employees").Rows(0).Item("maritalstatus").ToString
             txtGender.SelectedIndex = ds.Tables("Employees").Rows(0).Item("gender")
-            txtMaritalStatus.SelectedIndex = ds.Tables("Employees").Rows(0).Item("maritalstatus")
+            'Single
+            'Married
+            'Widow
+            Select Case ds.Tables("Employees").Rows(0).Item("maritalstatus")
+                Case Is = "Single"
+                    txtMaritalStatus.SelectedIndex = 0
+                    Exit Select
+                Case Is = "Married"
+                    txtMaritalStatus.SelectedIndex = 1
+                    Exit Select
+                Case Is = "Widow"
+                    txtMaritalStatus.SelectedIndex = 2
+                    Exit Select
+            End Select
+
+
+
             Dim empStatus As String = ds.Tables("Employees").Rows(0).Item("EmploymentStatus").ToString
             Dim empAccess As String = ds.Tables("Employees").Rows(0).Item("role").ToString
             ' MessageBox.Show(empAccess)
@@ -652,33 +687,46 @@ Public Class frmStaff
         ischanged = True
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        frmJob.ShowDialog()
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
+        Try
+            frmJob.ShowDialog()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message.ToString)
+        End Try
+
     End Sub
 
-    Private Sub txtLastname_TextChanged(sender As Object, e As EventArgs) Handles txtLastname.TextChanged
+    Private Sub txtLastname_TextChanged(sender As Object, e As EventArgs)
 
-        txtLastname = caseletters(txtLastname)
+        txtLastname = metrocasenumbers(txtLastname)
 
     End Sub
 
-    Private Sub txtFirstname_TextChanged(sender As Object, e As EventArgs) Handles txtFirstname.TextChanged
-        txtFirstname = caseletters(txtFirstname)
+    Private Sub txtFirstname_TextChanged(sender As Object, e As EventArgs)
+        txtFirstname = metrocaseletters(txtFirstname)
     End Sub
 
-    Private Sub txtMI_TextChanged(sender As Object, e As EventArgs) Handles txtMI.TextChanged
-        txtMI = caseletters(txtMI)
+    Private Sub txtMI_TextChanged(sender As Object, e As EventArgs)
+        txtMI = metrocaseletters(txtMI)
     End Sub
 
     Private Sub txtContractNo_TextChanged(sender As Object, e As EventArgs) Handles txtContractNo.TextChanged
         txtContractNo = casenumbers(txtContractNo)
     End Sub
 
+
     Private Sub txtPassword_TextChanged(sender As Object, e As EventArgs) Handles txtConfirmPWD.KeyUp
         If txtConfirmPWD IsNot vbNullString Then
             If txtConfirmPWD.Text = txtPassword.Text Then
                 usrPass.Text = txtPassword.Text
             End If
+
+        End If
+    End Sub
+
+    Private Sub txtEmployStatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles txtEmployStatus.SelectedIndexChanged
+        If Not txtEmployStatus.Text = vbNullString Then
+            pbEmployeeStatus.Visible = False
         End If
     End Sub
 

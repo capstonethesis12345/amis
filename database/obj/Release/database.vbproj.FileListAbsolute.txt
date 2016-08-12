@@ -5,3 +5,9 @@ F:\ThesisA\Camis v2\database\obj\Release\database.dll
 F:\ThesisA\Camis v2\database\obj\Release\database.xml
 F:\ThesisA\Camis v2\database\obj\Release\database.pdb
 F:\ThesisA\Camis v2\database\obj\Release\database.vbprojResolveAssemblyReference.cache
+H:\github\amis\database\bin\Release\database.dll
+H:\github\amis\database\bin\Release\database.pdb
+H:\github\amis\database\bin\Release\database.xml
+H:\github\amis\database\obj\Release\database.dll
+H:\github\amis\database\obj\Release\database.xml
+H:\github\amis\database\obj\Release\database.pdb

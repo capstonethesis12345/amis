@@ -80,7 +80,7 @@
                 Exit Select
             Case Is = "Cashier"
                 PictureBox2.Visible = False
-                Dim pos As New frmSales()
+                Dim pos As New frmSalesTransaction()
                 pos.Show()
                 Me.Hide()
             Case Is = "Cook"
@@ -117,28 +117,33 @@
     Private Function logmein()
         Dim fnc As New TextBox
         getData()
-        SqlRefresh = "SELECT Function,empid,username,password,count(empid)countUser FROM `users` WHERE  Username like @0 and  Password like @1"
+        SqlRefresh = "SELECT Function,empid,username,password,count(empid)countUser FROM `users` WHERE  Username like @0 and  Password like @1 group by empid"
         ErrMessageText = "Incorrect username and password"
         Timer1.Start()
-        SqlReFill("Users", Nothing, "ShowValueInTextbox", {"0", "1"}, {tUsername, tPassword}, {fnc})
+
         'If ds.Tables("Users").Rows(0).Item("countUser").ToString = 0 Then
 
         'End If
         Try
-            If ds.Tables("Users").Rows(0).Item("countUser").ToString = 1 Then
-                Dim usr As String = ds.Tables("Users").Rows(0).Item("username").ToString
-                Dim psd As String = ds.Tables("Users").Rows(0).Item("password").ToString
-                If usr = tUsername.Text And psd = tPassword.Text Then
-                    vEmp = ds.Tables("Users").Rows(0).Item("empid").ToString
-                    fnc.Text = ds.Tables("Users").Rows(0).Item("Function").ToString
-                    vUser = ds.Tables("Users").Rows(0).Item("username").ToString
-                Else
-                    fnc.Text = ""
+            SqlReFill("Users", Nothing, "ShowValueInTextbox", {"0", "1"}, {tUsername, tPassword}, {fnc})
+            If ds.Tables.Count > 0 Then
+                If ds.Tables("Users").Rows(0).Item("countUser").ToString = 1 Then
+                    Dim usr As String = ds.Tables("Users").Rows(0).Item("username").ToString
+                    Dim psd As String = ds.Tables("Users").Rows(0).Item("password").ToString
+                    If usr = tUsername.Text And psd = tPassword.Text Then
+                        vEmp = ds.Tables("Users").Rows(0).Item("empid").ToString
+                        fnc.Text = ds.Tables("Users").Rows(0).Item("Function").ToString
+                        vUser = ds.Tables("Users").Rows(0).Item("username").ToString
+                    Else
+                        fnc.Text = ""
+                    End If
                 End If
-
             End If
+
         Catch ex As Exception
-            MessageBox.Show("Something went wrong between database connection.")
+            If Not ex.Message.ToString = "There is no row at position 0." Then
+                MessageBox.Show(ex.Message.ToString)
+            End If
         End Try
 
 

@@ -37,6 +37,7 @@ Public Class frmFoodMenu
         itemUpdate("items", {"price", "salestatus"}, {txtPrice, salestatus}, "itemid", itemID.Text, ListView1)
     End Sub
     Sub subitemadd()
+        MessageBox.Show("Additem")
         If txtBcode.Text = vbNullString And txtName.Text = vbNullString Then
             MessageBox.Show("Food menu and barcode required.")
             Exit Sub
@@ -56,7 +57,9 @@ Public Class frmFoodMenu
             txtBcode.Text = ds.Tables("checkFoodExistence").Rows(0).Item("barcode").ToString
             txtName.Text = ds.Tables("checkFoodExistence").Rows(0).Item("description").ToString
         Else
-            itemNew("items", {"barcode", "description", "price", "salestatus", "itemtype"}, {txtBcode, txtName, txtPrice, status, itemtype}, ListView1)
+            itemNew("items", {"barcode", "description", "price", "salestatus", "itemtype"}, {txtBcode, txtName, txtPrice, status, itemtype})
+            SqlRefresh = vRefresh
+            SqlReFill("itemsDetails", ListView1)
         End If
     End Sub
 

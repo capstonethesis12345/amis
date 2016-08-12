@@ -13,14 +13,31 @@
 
 
 
-    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Try
+            txtSalary.Text = Double.Parse(txtSalary.Text)
+            SqlRefresh = "select * from `job`"
+            itemNew("`job`", {"`JobDescription`", "`Salary`"}, {txtDescription, txtSalary}, ListView1)
+        Catch ex As Exception
+            If txtSalary.Text = vbNullString Then
+                txtSalary.WaterMark = "!"
+                txtSalary.WaterMarkColor = Color.Red
+            End If
+            If txtDescription.Text = vbNullString Then
+                txtDescription.WaterMark = "!Description"
+                txtDescription.WaterMarkColor = Color.Red
+            End If
+        End Try
+
+    End Sub
+
+    Private Sub btnClose_Click_1(sender As Object, e As EventArgs) Handles btnClose.Click
         Me.Close()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim n As New TextBox
-        n.Text = vbNullString
-        SqlRefresh = "select * from `job`"
-        itemNew("`job`", {"`JobGradeID`", "`JobDescription`", "`Salary`"}, {n, txtDescription, txtSalary}, ListView1)
+    Private Sub frmJob_Leave(sender As Object, e As EventArgs) Handles Me.Leave
+        Me.Close()
     End Sub
+
 End Class

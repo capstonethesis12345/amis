@@ -22,6 +22,7 @@ Partial Class frmSupplier
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSupplier))
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -29,7 +30,6 @@ Partial Class frmSupplier
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.btnSave = New System.Windows.Forms.Button()
         Me.txtAddress = New System.Windows.Forms.TextBox()
         Me.txtSupplier = New System.Windows.Forms.TextBox()
         Me.txtContact = New System.Windows.Forms.TextBox()
@@ -43,6 +43,10 @@ Partial Class frmSupplier
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtSupplierID = New System.Windows.Forms.Label()
+        Me.btnClear = New System.Windows.Forms.Button()
+        Me.btnSave = New System.Windows.Forms.Button()
+        Me.lStatus = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
@@ -92,19 +96,6 @@ Partial Class frmSupplier
         Me.Panel1.Size = New System.Drawing.Size(828, 482)
         Me.Panel1.TabIndex = 1
         '
-        'btnSave
-        '
-        Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSave.BackColor = System.Drawing.Color.PowderBlue
-        Me.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue
-        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.Location = New System.Drawing.Point(1046, 253)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(75, 48)
-        Me.btnSave.TabIndex = 3
-        Me.btnSave.Text = "Save"
-        Me.btnSave.UseVisualStyleBackColor = False
-        '
         'txtAddress
         '
         Me.txtAddress.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -113,7 +104,7 @@ Partial Class frmSupplier
         Me.txtAddress.Multiline = True
         Me.txtAddress.Name = "txtAddress"
         Me.txtAddress.Size = New System.Drawing.Size(170, 66)
-        Me.txtAddress.TabIndex = 2
+        Me.txtAddress.TabIndex = 1
         '
         'txtSupplier
         '
@@ -122,7 +113,7 @@ Partial Class frmSupplier
         Me.txtSupplier.MaxLength = 45
         Me.txtSupplier.Name = "txtSupplier"
         Me.txtSupplier.Size = New System.Drawing.Size(122, 23)
-        Me.txtSupplier.TabIndex = 2
+        Me.txtSupplier.TabIndex = 0
         '
         'txtContact
         '
@@ -229,15 +220,59 @@ Partial Class frmSupplier
         Me.txtSupplierID.Size = New System.Drawing.Size(0, 15)
         Me.txtSupplierID.TabIndex = 1
         '
+        'btnClear
+        '
+        Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnClear.BackColor = System.Drawing.Color.PowderBlue
+        Me.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue
+        Me.btnClear.FlatAppearance.BorderSize = 0
+        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClear.Location = New System.Drawing.Point(951, 281)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(75, 48)
+        Me.btnClear.TabIndex = 4
+        Me.btnClear.Text = "Clear"
+        Me.btnClear.UseVisualStyleBackColor = False
+        '
+        'btnSave
+        '
+        Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSave.BackColor = System.Drawing.Color.PowderBlue
+        Me.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue
+        Me.btnSave.FlatAppearance.BorderSize = 0
+        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSave.Location = New System.Drawing.Point(1056, 281)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(75, 48)
+        Me.btnSave.TabIndex = 4
+        Me.btnSave.Text = "Save"
+        Me.btnSave.UseVisualStyleBackColor = False
+        '
+        'lStatus
+        '
+        Me.lStatus.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lStatus.AutoSize = True
+        Me.lStatus.ForeColor = System.Drawing.Color.DarkRed
+        Me.lStatus.Location = New System.Drawing.Point(948, 253)
+        Me.lStatus.Name = "lStatus"
+        Me.lStatus.Size = New System.Drawing.Size(41, 15)
+        Me.lStatus.TabIndex = 5
+        Me.lStatus.Text = "Label5"
+        '
+        'Timer1
+        '
+        Me.Timer1.Interval = 1500
+        '
         'frmSupplier
         '
-        Me.AcceptButton = Me.btnSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLight
         Me.ClientSize = New System.Drawing.Size(1181, 542)
         Me.ControlBox = False
+        Me.Controls.Add(Me.lStatus)
         Me.Controls.Add(Me.btnSave)
+        Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.txtAddress)
         Me.Controls.Add(Me.Panel1)
@@ -280,7 +315,6 @@ Partial Class frmSupplier
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents btnSave As Button
     Friend WithEvents txtSupplier As TextBox
     Friend WithEvents ToolStrip1 As ToolStrip
     Friend WithEvents ToolStripLabel1 As ToolStripLabel
@@ -288,4 +322,8 @@ Partial Class frmSupplier
     Friend WithEvents ToolStripButton1 As ToolStripButton
     Friend WithEvents Label1 As Label
     Friend WithEvents txtSupplierID As Label
+    Friend WithEvents btnClear As Button
+    Friend WithEvents btnSave As Button
+    Friend WithEvents lStatus As Label
+    Friend WithEvents Timer1 As Timer
 End Class

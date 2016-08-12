@@ -27,7 +27,7 @@ Module SQLConn
             Remember = GetSetting(AppName, "DBSection", "LogUser", "temp")
             conn.ConnectionString = "server=" & ServerMySQL & ";port=" & PortMySQL & ";database=" & DBNameMySQL & ";uid=" & UserNameMySQL & ";pwd=" & PwdMySQL & ";convert zero datetime=True"
         Catch ex As Exception
-            MsgBox("Set first required server information by pressing save.", MsgBoxStyle.Information)
+            MsgBox("Set first required server information by pressing save." & ex.Message.ToString, MsgBoxStyle.Information)
         End Try
     End Sub
     Public Sub ConnDB()
@@ -43,6 +43,8 @@ Module SQLConn
             conn.Dispose()
         Catch ex As Exception
             MessageBox.Show("Unable to retrieve database please contact system administrator")
+        Finally
+            conn.Dispose()
         End Try
     End Sub
     Public Sub DisconnDB()

@@ -105,7 +105,13 @@
         Next
         lTotal.Text = total.ToString("C", Globalization.CultureInfo.GetCultureInfo("en-PH"))
     End Sub
-
+    Function subcompute() As Double
+        Dim d As Double = 0.0
+        For i = 0 To ListView1.Items.Count - 1
+            d += ListView1.Items(i).SubItems(1).Text * ListView1.Items(i).SubItems(2).Text
+        Next
+        Return d
+    End Function
 
 
     Private Sub Panel5_Paint(sender As Object, e As PaintEventArgs) Handles Panel5.Paint
@@ -144,9 +150,6 @@
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnDeliveies.Click
-        ' openFull(frmViewDeliveries)
-    End Sub
 
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs)
@@ -303,7 +306,7 @@
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Try
-            Dim empid, orderid, tablenum, orderDate, status As New TextBox
+            Dim empid, orderid, tablenum, orderDate, status, t As New TextBox
             'orderid.Text = getStrData("call getorderid();", "Orderid")
             Dim regDate As DateTime = DateTime.Now
             Dim strDate As String = regDate.ToString("yyyy-MM-dd HH:mm:ss")
@@ -311,9 +314,13 @@
             empid.Text = vEmp
             status.Text = "1"
             msgShow = False
+            Dim id As String = getStrData("call getorderid()", "orderids")
+            orderid.Text = ds.Tables("orderids").Rows(0).Item(0).ToString
             'orderid.Text = getStrData("call insertOrder(@p0,@p1,@p2,@p3,@p4)", "CustomerOrderID", {lTableNum.Text, strDate, lDiscount.Text, lTendered.Text, vEmp})
-            itemNew("orders", {"orderid", "tablenum", "orderdate", "discount", "paymentamt", "empid"}, {orderid, lTableNum, orderDate, lDiscount, lTendered, empid})
-            orderid.Text = getStrData("SELECT max(LAST_INSERT_ID(orderid))orderid from orders where empid like @0", "LastOrderID", {vEmp})
+            msgShow = True
+            t.Text = subcompute()
+            itemNew("orders", {"orderid", "tablenum", "orderdate", "discount", "paymentamt", "empid"}, {orderid, lTableNum, orderDate, lDiscount, t, empid})
+            'orderid.Text = getStrData("SELECT max(LAST_INSERT_ID(orderid))orderid from orders where empid like @0", "LastOrderID", {vEmp})
             For i = 0 To ListView1.Items.Count - 1
                 Dim itemid, buildid, quantity, price As New TextBox
                 itemid.Text = ListView1.Items(i).SubItems(4).Text
@@ -339,7 +346,7 @@
                 sqlMessage = ""
             Next
         Catch ex As Exception
-
+            MessageBox.Show(ex.Message.ToString)
         End Try
     End Sub
 
@@ -349,4 +356,14 @@
             MessageBox.Show("")
         End If
     End Sub
+
+    Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
+        If status = "Cashier" Then
+            Application.Exit()
+        Else
+            Me.Close()
+        End If
+
+    End Sub
+
 End Class

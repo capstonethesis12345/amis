@@ -22,15 +22,16 @@ Partial Class frmReportDailySales
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle28 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle29 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle35 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle36 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle30 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle31 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle32 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle33 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle34 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmReportDailySales))
         Me.Button2 = New System.Windows.Forms.Button()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
@@ -62,8 +63,8 @@ Partial Class frmReportDailySales
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.btnPrint = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.PrintPreviewControl1 = New System.Windows.Forms.PrintPreviewControl()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         CType(Me.dgw, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -160,21 +161,21 @@ Partial Class frmReportDailySales
         '
         Me.dgw.AllowUserToAddRows = False
         Me.dgw.AllowUserToDeleteRows = False
-        DataGridViewCellStyle28.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.White
-        Me.dgw.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle28
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White
+        Me.dgw.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgw.BackgroundColor = System.Drawing.Color.White
         Me.dgw.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgw.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken
         Me.dgw.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle29.BackColor = System.Drawing.Color.DarkCyan
-        DataGridViewCellStyle29.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle29.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.DeepSkyBlue
-        DataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgw.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle29
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkCyan
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DeepSkyBlue
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgw.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgw.ColumnHeadersHeight = 24
         Me.dgw.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ORNo, Me.DueDate, Me.qty, Me.ContractNo, Me.Price})
         Me.dgw.Cursor = System.Windows.Forms.Cursors.Arrow
@@ -185,32 +186,32 @@ Partial Class frmReportDailySales
         Me.dgw.Name = "dgw"
         Me.dgw.ReadOnly = True
         Me.dgw.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle35.BackColor = System.Drawing.Color.SkyBlue
-        DataGridViewCellStyle35.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle35.SelectionBackColor = System.Drawing.Color.Transparent
-        DataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgw.RowHeadersDefaultCellStyle = DataGridViewCellStyle35
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.SkyBlue
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Transparent
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgw.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.dgw.RowHeadersVisible = False
         Me.dgw.RowHeadersWidth = 25
         Me.dgw.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle36.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle36.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.White
-        DataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.Black
-        Me.dgw.RowsDefaultCellStyle = DataGridViewCellStyle36
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black
+        Me.dgw.RowsDefaultCellStyle = DataGridViewCellStyle9
         Me.dgw.RowTemplate.Height = 18
         Me.dgw.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgw.Size = New System.Drawing.Size(755, 95)
+        Me.dgw.Size = New System.Drawing.Size(755, 139)
         Me.dgw.TabIndex = 48
         '
         'ORNo
         '
-        DataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        Me.ORNo.DefaultCellStyle = DataGridViewCellStyle30
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.ORNo.DefaultCellStyle = DataGridViewCellStyle3
         Me.ORNo.Frozen = True
         Me.ORNo.HeaderText = "Product Code"
         Me.ORNo.Name = "ORNo"
@@ -219,8 +220,8 @@ Partial Class frmReportDailySales
         '
         'DueDate
         '
-        DataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        Me.DueDate.DefaultCellStyle = DataGridViewCellStyle31
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.DueDate.DefaultCellStyle = DataGridViewCellStyle4
         Me.DueDate.Frozen = True
         Me.DueDate.HeaderText = "Product"
         Me.DueDate.Name = "DueDate"
@@ -229,9 +230,9 @@ Partial Class frmReportDailySales
         '
         'qty
         '
-        DataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle32.NullValue = Nothing
-        Me.qty.DefaultCellStyle = DataGridViewCellStyle32
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.NullValue = Nothing
+        Me.qty.DefaultCellStyle = DataGridViewCellStyle5
         Me.qty.HeaderText = "Qty"
         Me.qty.Name = "qty"
         Me.qty.ReadOnly = True
@@ -239,8 +240,8 @@ Partial Class frmReportDailySales
         '
         'ContractNo
         '
-        DataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.ContractNo.DefaultCellStyle = DataGridViewCellStyle33
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.ContractNo.DefaultCellStyle = DataGridViewCellStyle6
         Me.ContractNo.HeaderText = "Price"
         Me.ContractNo.Name = "ContractNo"
         Me.ContractNo.ReadOnly = True
@@ -248,9 +249,9 @@ Partial Class frmReportDailySales
         '
         'Price
         '
-        DataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Price.DefaultCellStyle = DataGridViewCellStyle34
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Price.DefaultCellStyle = DataGridViewCellStyle7
         Me.Price.HeaderText = "Total"
         Me.Price.Name = "Price"
         Me.Price.ReadOnly = True
@@ -351,7 +352,7 @@ Partial Class frmReportDailySales
         Me.Panel3.Controls.Add(Me.Label12)
         Me.Panel3.Controls.Add(Me.Label11)
         Me.Panel3.Controls.Add(Me.Label9)
-        Me.Panel3.Location = New System.Drawing.Point(147, 296)
+        Me.Panel3.Location = New System.Drawing.Point(149, 323)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(493, 101)
         Me.Panel3.TabIndex = 49
@@ -418,13 +419,6 @@ Partial Class frmReportDailySales
         Me.Panel2.Size = New System.Drawing.Size(802, 66)
         Me.Panel2.TabIndex = 66
         '
-        'PrintPreviewControl1
-        '
-        Me.PrintPreviewControl1.Location = New System.Drawing.Point(0, 0)
-        Me.PrintPreviewControl1.Name = "PrintPreviewControl1"
-        Me.PrintPreviewControl1.Size = New System.Drawing.Size(780, 529)
-        Me.PrintPreviewControl1.TabIndex = 69
-        '
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(527, 65)
@@ -434,19 +428,28 @@ Partial Class frmReportDailySales
         Me.Button1.Text = "Button1"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'PrintPreviewDialog1
+        '
+        Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.ClientSize = New System.Drawing.Size(400, 300)
+        Me.PrintPreviewDialog1.Enabled = True
+        Me.PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), System.Drawing.Icon)
+        Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
+        Me.PrintPreviewDialog1.Visible = False
+        '
         'frmReportDailySales
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(792, 530)
+        Me.ClientSize = New System.Drawing.Size(797, 530)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnPrint)
         Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.PrintPreviewControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "frmReportDailySales"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -491,6 +494,6 @@ Partial Class frmReportDailySales
     Friend WithEvents qty As DataGridViewTextBoxColumn
     Friend WithEvents ContractNo As DataGridViewTextBoxColumn
     Friend WithEvents Price As DataGridViewTextBoxColumn
-    Friend WithEvents PrintPreviewControl1 As PrintPreviewControl
     Friend WithEvents Button1 As Button
+    Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
 End Class

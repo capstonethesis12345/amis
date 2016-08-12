@@ -67,26 +67,30 @@ Partial Class frmProduct
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ToolStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'ListView1
         '
         Me.ListView1.BackColor = System.Drawing.Color.White
         Me.ListView1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader8, Me.ColumnHeader9, Me.ColumnHeader11, Me.ColumnHeader10})
+        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader8, Me.ColumnHeader9, Me.ColumnHeader11, Me.ColumnHeader10, Me.ColumnHeader1, Me.ColumnHeader2})
         Me.ListView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ListView1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListView1.FullRowSelect = True
         Me.ListView1.GridLines = True
-        Me.ListView1.Location = New System.Drawing.Point(0, 40)
+        Me.ListView1.Location = New System.Drawing.Point(0, 0)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(1242, 552)
+        Me.ListView1.Size = New System.Drawing.Size(909, 552)
         Me.ListView1.TabIndex = 29
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
@@ -94,7 +98,7 @@ Partial Class frmProduct
         'ColumnHeader4
         '
         Me.ColumnHeader4.Text = "Item ID"
-        Me.ColumnHeader4.Width = 78
+        Me.ColumnHeader4.Width = 77
         '
         'ColumnHeader5
         '
@@ -104,7 +108,7 @@ Partial Class frmProduct
         'ColumnHeader6
         '
         Me.ColumnHeader6.Text = "Product Description"
-        Me.ColumnHeader6.Width = 230
+        Me.ColumnHeader6.Width = 161
         '
         'ColumnHeader8
         '
@@ -123,8 +127,8 @@ Partial Class frmProduct
         '
         'ColumnHeader10
         '
-        Me.ColumnHeader10.Text = "Stocks on Hand"
-        Me.ColumnHeader10.Width = 95
+        Me.ColumnHeader10.Text = "Initial"
+        Me.ColumnHeader10.Width = 108
         '
         'ToolStripButton1
         '
@@ -483,13 +487,30 @@ Partial Class frmProduct
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1500
         '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.ListView1)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel2.Location = New System.Drawing.Point(0, 40)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(909, 552)
+        Me.Panel2.TabIndex = 35
+        '
+        'ColumnHeader1
+        '
+        Me.ColumnHeader1.Text = "Purchased"
+        '
+        'ColumnHeader2
+        '
+        Me.ColumnHeader2.Text = "Sold"
+        '
         'frmProduct
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1242, 592)
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.ListView1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -508,6 +529,7 @@ Partial Class frmProduct
         Me.Panel1.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -554,4 +576,7 @@ Partial Class frmProduct
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents CheckBox1 As CheckBox
     Friend WithEvents Button2 As Button
+    Friend WithEvents ColumnHeader1 As ColumnHeader
+    Friend WithEvents ColumnHeader2 As ColumnHeader
+    Friend WithEvents Panel2 As Panel
 End Class

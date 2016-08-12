@@ -44,14 +44,17 @@ Partial Class frmDeliveries
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 9)
+        Me.Label1.Location = New System.Drawing.Point(30, 50)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(95, 13)
         Me.Label1.TabIndex = 0
@@ -59,7 +62,7 @@ Partial Class frmDeliveries
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(208, 3)
+        Me.Button1.Location = New System.Drawing.Point(226, 44)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 1
@@ -68,7 +71,7 @@ Partial Class frmDeliveries
         '
         'txtPOID
         '
-        Me.txtPOID.Location = New System.Drawing.Point(113, 6)
+        Me.txtPOID.Location = New System.Drawing.Point(131, 47)
         Me.txtPOID.Name = "txtPOID"
         Me.txtPOID.Size = New System.Drawing.Size(89, 20)
         Me.txtPOID.TabIndex = 2
@@ -79,12 +82,11 @@ Partial Class frmDeliveries
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.ListView1)
-        Me.GroupBox1.Location = New System.Drawing.Point(31, 48)
+        Me.GroupBox1.Location = New System.Drawing.Point(31, 79)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(682, 423)
+        Me.GroupBox1.Size = New System.Drawing.Size(682, 392)
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "GroupBox1"
         '
         'ListView1
         '
@@ -92,7 +94,7 @@ Partial Class frmDeliveries
         Me.ListView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ListView1.Location = New System.Drawing.Point(3, 16)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(676, 404)
+        Me.ListView1.Size = New System.Drawing.Size(676, 373)
         Me.ListView1.TabIndex = 0
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
@@ -124,6 +126,7 @@ Partial Class frmDeliveries
         '
         'GroupBox2
         '
+        Me.GroupBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.Button2)
         Me.GroupBox2.Controls.Add(Me.TextBox5)
         Me.GroupBox2.Controls.Add(Me.TextBox4)
@@ -135,17 +138,16 @@ Partial Class frmDeliveries
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.Label2)
-        Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.GroupBox2.Location = New System.Drawing.Point(744, 0)
+        Me.GroupBox2.Location = New System.Drawing.Point(744, 79)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(319, 493)
+        Me.GroupBox2.Size = New System.Drawing.Size(319, 392)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Payments"
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(215, 183)
+        Me.Button2.Location = New System.Drawing.Point(214, 12)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 47)
         Me.Button2.TabIndex = 5
@@ -154,35 +156,35 @@ Partial Class frmDeliveries
         '
         'TextBox5
         '
-        Me.TextBox5.Location = New System.Drawing.Point(87, 146)
+        Me.TextBox5.Location = New System.Drawing.Point(86, 181)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(203, 20)
         Me.TextBox5.TabIndex = 4
         '
         'TextBox4
         '
-        Me.TextBox4.Location = New System.Drawing.Point(87, 116)
+        Me.TextBox4.Location = New System.Drawing.Point(86, 151)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(203, 20)
         Me.TextBox4.TabIndex = 3
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(87, 86)
+        Me.TextBox3.Location = New System.Drawing.Point(86, 121)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(203, 20)
         Me.TextBox3.TabIndex = 2
         '
         'TextBox6
         '
-        Me.TextBox6.Location = New System.Drawing.Point(87, 30)
+        Me.TextBox6.Location = New System.Drawing.Point(86, 65)
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.Size = New System.Drawing.Size(203, 20)
         Me.TextBox6.TabIndex = 0
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(87, 56)
+        Me.TextBox2.Location = New System.Drawing.Point(86, 91)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(203, 20)
         Me.TextBox2.TabIndex = 1
@@ -190,7 +192,7 @@ Partial Class frmDeliveries
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(21, 154)
+        Me.Label6.Location = New System.Drawing.Point(20, 189)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(53, 13)
         Me.Label6.TabIndex = 0
@@ -199,7 +201,7 @@ Partial Class frmDeliveries
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(21, 121)
+        Me.Label5.Location = New System.Drawing.Point(20, 156)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(46, 13)
         Me.Label5.TabIndex = 0
@@ -208,7 +210,7 @@ Partial Class frmDeliveries
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(21, 87)
+        Me.Label4.Location = New System.Drawing.Point(20, 122)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(26, 13)
         Me.Label4.TabIndex = 0
@@ -217,7 +219,7 @@ Partial Class frmDeliveries
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(21, 59)
+        Me.Label3.Location = New System.Drawing.Point(20, 94)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(60, 13)
         Me.Label3.TabIndex = 0
@@ -226,17 +228,44 @@ Partial Class frmDeliveries
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(21, 30)
+        Me.Label2.Location = New System.Drawing.Point(20, 65)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(15, 13)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "id"
+        '
+        'Panel1
+        '
+        Me.Panel1.BackgroundImage = Global.AccountManagementIS.My.Resources.Resources.horizontalMenuBG
+        Me.Panel1.Controls.Add(Me.Button3)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1063, 38)
+        Me.Panel1.TabIndex = 4
+        '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.Color.Transparent
+        Me.Button3.FlatAppearance.BorderSize = 0
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button3.Image = Global.AccountManagementIS.My.Resources.Resources.Button21
+        Me.Button3.Location = New System.Drawing.Point(22, 0)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(78, 38)
+        Me.Button3.TabIndex = 0
+        Me.Button3.Text = "Close"
+        Me.Button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Button3.UseVisualStyleBackColor = False
         '
         'frmDeliveries
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1063, 493)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.txtPOID)
@@ -247,6 +276,7 @@ Partial Class frmDeliveries
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -274,4 +304,6 @@ Partial Class frmDeliveries
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents TextBox6 As TextBox
     Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Button3 As Button
 End Class

@@ -23,6 +23,7 @@ Partial Class frmSalesTransaction
     <System.Diagnostics.DebuggerStepThrough()>
     Public Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSalesTransaction))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -35,19 +36,23 @@ Partial Class frmSalesTransaction
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.txtCash = New MetroFramework.Controls.MetroTextBox()
+        Me.lDiscount = New System.Windows.Forms.Label()
         Me.lTotal = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtSearch = New MetroFramework.Controls.MetroTextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lTableNum = New System.Windows.Forms.Label()
         Me.tTableNum = New System.Windows.Forms.TextBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.btnDeliveies = New System.Windows.Forms.Button()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.MetroButton1 = New MetroFramework.Controls.MetroButton()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lEmpNum = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.TenderedPanel = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
@@ -60,14 +65,13 @@ Partial Class frmSalesTransaction
         Me.lChange = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.lTendered = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.lDiscount = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel6.SuspendLayout()
+        Me.ToolStrip1.SuspendLayout()
         Me.TenderedPanel.SuspendLayout()
         Me.Panel7.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -133,6 +137,7 @@ Partial Class frmSalesTransaction
         Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4})
         Me.ListView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ListView1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListView1.ForeColor = System.Drawing.Color.DarkSlateGray
         Me.ListView1.FullRowSelect = True
         Me.ListView1.GridLines = True
         Me.ListView1.Location = New System.Drawing.Point(0, 0)
@@ -215,6 +220,18 @@ Partial Class frmSalesTransaction
         Me.txtCash.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.txtCash.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         '
+        'lDiscount
+        '
+        Me.lDiscount.AutoSize = True
+        Me.lDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.lDiscount.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lDiscount.ForeColor = System.Drawing.Color.Transparent
+        Me.lDiscount.Location = New System.Drawing.Point(191, 24)
+        Me.lDiscount.Name = "lDiscount"
+        Me.lDiscount.Size = New System.Drawing.Size(46, 25)
+        Me.lDiscount.TabIndex = 3
+        Me.lDiscount.Text = "0.0"
+        '
         'lTotal
         '
         Me.lTotal.AutoSize = True
@@ -226,6 +243,17 @@ Partial Class frmSalesTransaction
         Me.lTotal.Size = New System.Drawing.Size(46, 25)
         Me.lTotal.TabIndex = 3
         Me.lTotal.Text = "0.0"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Transparent
+        Me.Label2.Location = New System.Drawing.Point(162, 3)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(89, 21)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "DISCOUNT"
         '
         'Label1
         '
@@ -259,7 +287,7 @@ Partial Class frmSalesTransaction
         Me.txtSearch.CustomButton.UseVisualStyleBackColor = True
         Me.txtSearch.FontSize = MetroFramework.MetroTextBoxSize.Tall
         Me.txtSearch.Lines = New String(-1) {}
-        Me.txtSearch.Location = New System.Drawing.Point(12, 33)
+        Me.txtSearch.Location = New System.Drawing.Point(212, 3)
         Me.txtSearch.MaxLength = 32767
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -313,43 +341,78 @@ Partial Class frmSalesTransaction
         '
         Me.Timer1.Interval = 1000
         '
-        'btnDeliveies
-        '
-        Me.btnDeliveies.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnDeliveies.BackColor = System.Drawing.Color.Tomato
-        Me.btnDeliveies.FlatAppearance.BorderSize = 0
-        Me.btnDeliveies.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Salmon
-        Me.btnDeliveies.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSalmon
-        Me.btnDeliveies.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDeliveies.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDeliveies.ForeColor = System.Drawing.Color.Transparent
-        Me.btnDeliveies.Location = New System.Drawing.Point(1101, 25)
-        Me.btnDeliveies.Name = "btnDeliveies"
-        Me.btnDeliveies.Size = New System.Drawing.Size(140, 48)
-        Me.btnDeliveies.TabIndex = 0
-        Me.btnDeliveies.Text = "DELIVERIES"
-        Me.btnDeliveies.UseVisualStyleBackColor = False
-        '
         'Panel6
         '
-        Me.Panel6.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.Panel6.BackColor = System.Drawing.Color.LightGray
+        Me.Panel6.Controls.Add(Me.Button1)
+        Me.Panel6.Controls.Add(Me.txtSearch)
+        Me.Panel6.Controls.Add(Me.ToolStrip1)
         Me.Panel6.Controls.Add(Me.MetroButton1)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel6.Location = New System.Drawing.Point(0, 0)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(1253, 27)
+        Me.Panel6.Size = New System.Drawing.Size(1253, 42)
         Me.Panel6.TabIndex = 5
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.BackColor = System.Drawing.Color.Tomato
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Salmon
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSalmon
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.Transparent
+        Me.Button1.Location = New System.Drawing.Point(1148, -1)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(102, 40)
+        Me.Button1.TabIndex = 5
+        Me.Button1.Text = "Clear"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.AutoSize = False
+        Me.ToolStrip1.BackColor = System.Drawing.Color.LightGray
+        Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.ToolStripButton1})
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(1253, 42)
+        Me.ToolStrip1.TabIndex = 29
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'ToolStripLabel1
+        '
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(16, 39)
+        Me.ToolStripLabel1.Text = "   "
+        '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.AutoSize = False
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(65, 40)
+        Me.ToolStripButton1.Text = "Clos&e"
         '
         'MetroButton1
         '
         Me.MetroButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MetroButton1.BackColor = System.Drawing.Color.Teal
+        Me.MetroButton1.BackgroundImage = Global.AccountManagementIS.My.Resources.Resources.Button21
+        Me.MetroButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.MetroButton1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.MetroButton1.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.MetroButton1.Location = New System.Drawing.Point(1227, 2)
+        Me.MetroButton1.Location = New System.Drawing.Point(1159, 0)
         Me.MetroButton1.Name = "MetroButton1"
-        Me.MetroButton1.Size = New System.Drawing.Size(25, 23)
+        Me.MetroButton1.Size = New System.Drawing.Size(94, 27)
         Me.MetroButton1.TabIndex = 6
-        Me.MetroButton1.Text = "X"
+        Me.MetroButton1.TabStop = False
+        Me.MetroButton1.Text = "Close"
+        Me.MetroButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.MetroButton1.UseCustomBackColor = True
         Me.MetroButton1.UseCustomForeColor = True
         Me.MetroButton1.UseSelectable = True
@@ -378,36 +441,19 @@ Partial Class frmSalesTransaction
         Me.lEmpNum.TabIndex = 3
         Me.lEmpNum.Text = "0"
         '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.BackColor = System.Drawing.Color.Tomato
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Salmon
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSalmon
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.Transparent
-        Me.Button1.Location = New System.Drawing.Point(738, 33)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(102, 40)
-        Me.Button1.TabIndex = 5
-        Me.Button1.Text = "Clear"
-        Me.Button1.UseVisualStyleBackColor = False
-        '
         'TenderedPanel
         '
         Me.TenderedPanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TenderedPanel.BackColor = System.Drawing.Color.Brown
+        Me.TenderedPanel.BackColor = System.Drawing.Color.Snow
         Me.TenderedPanel.Controls.Add(Me.Panel7)
         Me.TenderedPanel.Controls.Add(Me.GroupBox1)
         Me.TenderedPanel.Controls.Add(Me.GroupBox3)
         Me.TenderedPanel.Controls.Add(Me.GroupBox2)
-        Me.TenderedPanel.Location = New System.Drawing.Point(12, 75)
+        Me.TenderedPanel.Location = New System.Drawing.Point(12, 48)
         Me.TenderedPanel.Name = "TenderedPanel"
-        Me.TenderedPanel.Size = New System.Drawing.Size(722, 527)
+        Me.TenderedPanel.Size = New System.Drawing.Size(722, 554)
         Me.TenderedPanel.TabIndex = 8
         Me.TenderedPanel.Visible = False
         '
@@ -418,7 +464,7 @@ Partial Class frmSalesTransaction
         Me.Panel7.Controls.Add(Me.btnBack)
         Me.Panel7.Controls.Add(Me.PictureBox1)
         Me.Panel7.Controls.Add(Me.btnSave)
-        Me.Panel7.Location = New System.Drawing.Point(82, 434)
+        Me.Panel7.Location = New System.Drawing.Point(82, 461)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(576, 93)
         Me.Panel7.TabIndex = 7
@@ -483,7 +529,7 @@ Partial Class frmSalesTransaction
         Me.GroupBox1.Controls.Add(Me.lDuePrice)
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI Semibold", 32.0!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox1.ForeColor = System.Drawing.Color.LavenderBlush
+        Me.GroupBox1.ForeColor = System.Drawing.Color.DarkSlateGray
         Me.GroupBox1.Location = New System.Drawing.Point(18, 6)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(686, 131)
@@ -508,7 +554,7 @@ Partial Class frmSalesTransaction
         Me.GroupBox3.Controls.Add(Me.lChange)
         Me.GroupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox3.Font = New System.Drawing.Font("Segoe UI Semibold", 32.0!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox3.ForeColor = System.Drawing.Color.LavenderBlush
+        Me.GroupBox3.ForeColor = System.Drawing.Color.DarkSlateGray
         Me.GroupBox3.Location = New System.Drawing.Point(18, 290)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(689, 131)
@@ -533,7 +579,7 @@ Partial Class frmSalesTransaction
         Me.GroupBox2.Controls.Add(Me.lTendered)
         Me.GroupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI Semibold", 32.0!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox2.ForeColor = System.Drawing.Color.LavenderBlush
+        Me.GroupBox2.ForeColor = System.Drawing.Color.DarkSlateGray
         Me.GroupBox2.Location = New System.Drawing.Point(18, 153)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(689, 131)
@@ -550,44 +596,18 @@ Partial Class frmSalesTransaction
         Me.lTendered.TabIndex = 0
         Me.lTendered.Text = "0.0"
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.Transparent
-        Me.Label2.Location = New System.Drawing.Point(162, 3)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(89, 21)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "DISCOUNT"
-        '
-        'lDiscount
-        '
-        Me.lDiscount.AutoSize = True
-        Me.lDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.lDiscount.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lDiscount.ForeColor = System.Drawing.Color.Transparent
-        Me.lDiscount.Location = New System.Drawing.Point(191, 24)
-        Me.lDiscount.Name = "lDiscount"
-        Me.lDiscount.Size = New System.Drawing.Size(46, 25)
-        Me.lDiscount.TabIndex = 3
-        Me.lDiscount.Text = "0.0"
-        '
         'frmSalesTransaction
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.DarkSalmon
+        Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(1253, 614)
         Me.Controls.Add(Me.TenderedPanel)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel6)
-        Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.lTableNum)
         Me.Controls.Add(Me.lEmpNum)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.btnDeliveies)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.tTableNum)
@@ -600,6 +620,8 @@ Partial Class frmSalesTransaction
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         Me.Panel6.ResumeLayout(False)
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
         Me.TenderedPanel.ResumeLayout(False)
         Me.Panel7.ResumeLayout(False)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -635,7 +657,6 @@ Partial Class frmSalesTransaction
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Button2 As Button
     Friend WithEvents txtCash As MetroFramework.Controls.MetroTextBox
-    Friend WithEvents btnDeliveies As Button
     Friend WithEvents Panel6 As Panel
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel4 As Panel
@@ -658,4 +679,7 @@ Partial Class frmSalesTransaction
     Friend WithEvents lChange As Label
     Friend WithEvents lDiscount As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents ToolStrip1 As ToolStrip
+    Friend WithEvents ToolStripLabel1 As ToolStripLabel
+    Friend WithEvents ToolStripButton1 As ToolStripButton
 End Class
